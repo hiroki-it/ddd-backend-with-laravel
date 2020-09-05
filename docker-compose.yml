@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+
+  app:
+    container_name: tech-blog-app
+    build:
+      dockerfile: ./infra/docker/app/Dockerfile
+      target: develop
+      context: .
+    image: tech-blog-app:latest
+    tty: true
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/tech-blog
+    working_dir: /var/www/tech-blog
+    environment:
+      TZ: "Asia/Tokyo"
+      LANG: "ja_JP.UTF-8"
+    networks:
+      - default
