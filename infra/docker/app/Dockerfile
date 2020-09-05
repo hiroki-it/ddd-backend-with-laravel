@@ -20,7 +20,7 @@ RUN apt-get update -y \
       pdo_mysql \
   # キャッシュ削除
   && apt-get clean
-  
+
 COPY --from=composer:1.10.10 /usr/bin/composer /usr/bin/composer
 
 #===================
@@ -30,7 +30,7 @@ FROM base as develop
 LABEL mantainer=${LABEL}
 
 #===================
-# Develop Stage
+# Production Stage
 #===================
 FROM base as production
 LABEL mantainer=${LABEL}
