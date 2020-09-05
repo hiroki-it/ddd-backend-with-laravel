@@ -10,6 +10,23 @@ services:
       context: .
     image: tech-blog-app:latest
     tty: true
+    volumes:
+      - ./:/var/www/tech-blog
+    working_dir: /var/www/tech-blog
+    environment:
+      TZ: "Asia/Tokyo"
+      LANG: "ja_JP.UTF-8"
+    networks:
+      - default
+
+  www:
+    container_name: tech-blog-www
+    build:
+      dockerfile: ./infra/docker/www/Dockerfile
+      target: develop
+      context: .
+    image: tech-blog-www:latest
+    tty: true
     ports:
       - "8000:80"
     volumes:
@@ -18,5 +35,7 @@ services:
     environment:
       TZ: "Asia/Tokyo"
       LANG: "ja_JP.UTF-8"
+    depends_on:
+      - app
     networks:
       - default
