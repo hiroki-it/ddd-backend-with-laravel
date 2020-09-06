@@ -2,6 +2,7 @@ version: "3.7"
 
 services:
 
+  # appコンテナ
   app:
     container_name: tech-blog-app
     build:
@@ -10,15 +11,21 @@ services:
       context: .
     image: tech-blog-app:latest
     tty: true
+    expose:
+      - "9000"
     volumes:
-      - ./:/var/www/tech-blog
+      # bindマウント
+      - .:/var/www/tech-blog
     working_dir: /var/www/tech-blog
     environment:
       TZ: "Asia/Tokyo"
       LANG: "ja_JP.UTF-8"
     networks:
       - default
+    depends_on:
+      - db
 
+  # wwwコンテナ
   www:
     container_name: tech-blog-www
     build:
@@ -30,12 +37,41 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ./:/var/www/tech-blog
+      # bindマウント
+      - .:/var/www/tech-blog
     working_dir: /var/www/tech-blog
     environment:
       TZ: "Asia/Tokyo"
       LANG: "ja_JP.UTF-8"
-    depends_on:
-      - app
     networks:
       - default
+    depends_on:
+      - app
+
+  # dbコンテナ
+  db:
+    container_name: tech-blog-db
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    volumes:
+      # volumeマウント
+      - db_volume:/var/www/lib/mysql
+    tty: true
+    env_file:
+      - ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      TZ: "Asia/Tokyo"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+    networks:
+      - default
+
+volumes:
+  # volume名
+  db_volume:
+    # ホストOSのDockerエリアを指定
+    driver: local
