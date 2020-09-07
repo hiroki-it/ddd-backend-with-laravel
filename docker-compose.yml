@@ -12,6 +12,7 @@ services:
     image: tech-blog-app:latest
     tty: true
     expose:
+      # PHP-FPMからのリダイレクトを受信
       - "9000"
     volumes:
       # bindマウント
@@ -51,7 +52,7 @@ services:
   # dbコンテナ
   db:
     container_name: tech-blog-db
-    image: mysql:8.0
+    image: mysql:5.7
     ports:
       - "3307:3306"
     volumes:
@@ -59,7 +60,7 @@ services:
       - db_volume:/var/www/lib/mysql
     tty: true
     env_file:
-      - ./.env
+      - .env
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DB_DATABASE}
