@@ -5,6 +5,7 @@ services:
   # appコンテナ
   app:
     container_name: tech-blog-app
+    hostname: tech-blog-app
     build:
       dockerfile: ./infra/docker/app/Dockerfile
       target: develop
@@ -29,6 +30,7 @@ services:
   # wwwコンテナ
   www:
     container_name: tech-blog-www
+    hostname: tech-blog-www
     build:
       dockerfile: ./infra/docker/www/Dockerfile
       target: develop
@@ -52,6 +54,7 @@ services:
   # dbコンテナ
   db:
     container_name: tech-blog-db
+    hostname: tech-blog-db
     image: mysql:5.7
     ports:
       - "3307:3306"
