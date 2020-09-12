@@ -22,7 +22,10 @@ class CreateArticleTable extends Migration
             $table->string('title', 255)
                 ->comment('タイトル');
 
-            $table->mediumText('body')
+            $table->string('category_type')
+                ->comment('カテゴリ区分');
+
+            $table->mediumText('content')
                 ->comment('本文');
 
             $table->dateTime('created_at')
