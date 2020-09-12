@@ -1,0 +1,21 @@
+body {
+    font-size: 12px;
+    color: #696969;
+}
+
+h2 {
+    font-size: 24px;
+    border-bottom: 1px solid #007bff;
+    padding: 5px 0 5px 0;
+    margin-bottom: 25px;
+}
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.form-group {
+    width: 100%;
+}
