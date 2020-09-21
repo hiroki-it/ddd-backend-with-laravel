@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Models\ValueObject\Type;
+namespace App\Domain\ValueObject\Type;
 
 /**
  * カテゴリ区分クラス

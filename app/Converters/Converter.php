@@ -1,14 +1,10 @@
 <?php
 
 
-namespace App\Http\Converter;
-
-use App\Models\ValueObject\Type\Type;
+namespace App\Converters;
 
 /**
  * データ型変換抽象クラス
- *
- * @package App\Http\Converter
  */
 abstract class Converter
 {

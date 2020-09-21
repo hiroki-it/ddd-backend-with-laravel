@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\ValueObject\Type;
+namespace App\Domain\ValueObject\Type;
 
 use BenSampo\Enum\Enum;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;

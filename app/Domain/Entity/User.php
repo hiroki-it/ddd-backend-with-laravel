@@ -1,8 +1,7 @@
 <?php
 
-namespace App;
+namespace App\Domain\Entity;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
