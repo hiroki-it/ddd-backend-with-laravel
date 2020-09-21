@@ -14,7 +14,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <h2>記事投稿フォーム</h2>
-            <form method="post">
+            <form method="POST" action="{{ url('/article') }}">
+                {{--CSRF対策用にトークンを生成--}}
+                @csrf
                 <div class="form-group">
                     <label for="created-at">投稿日時</label>
                     <input id="created-at" class="form-control" name="created_at" size="20" value="" placeholder="日付を入力します。">
@@ -38,9 +40,17 @@
                     <textarea id="content" class="form-control" name="body" rows="15" placeholder="本文を入力してください。"></textarea>
                 </div>
 
-                {{--CSRF対策用にトークンを生成--}}
-                <input type="submit" class="btn btn-primary btn-sm" value="投稿">{{ csrf_field() }}
+                <input type="submit" class="btn btn-primary btn-sm" value="投稿">
             </form>
+            @if (count($errors))
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
     </div>
 </div>
