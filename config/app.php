@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // リポジトリサービスプロバイダー
+        App\Providers\RepositoriesServiceProvider::class
+
     ],
 
     /*
@@ -225,13 +228,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
-        /**
-         * NOTE: DomainRepository名をエイリアスとして，InfrastructureRepositoryをコールすることによって，依存性逆転を実現します．
-         *
-         * DomainRepository名 => InfrastructureRepository名
-         */
-        \App\Domain\Repositories\ArticleRepository::class => \App\Infrastructure\Repositories\ArticleRepository::class
 
     ],
 
