@@ -5,42 +5,43 @@ declare(strict_types=1);
 namespace App\Domain\Repositories;
 
 use App\Criteria\ArticleCriteria;
+use App\Domain\Entity\Article;
 use App\Domain\ValueObject\Id\ArticleId;
 
 /**
  * 記事リポジトリインターフェース
  */
-interface ArticleRepository
+interface ArticleRepository extends Repository
 {
     /**
      * READ
      *
      * @param ArticleCriteria $criteria
-     * @return array
+     * @return Article
      */
-    function find(ArticleCriteria $criteria): array;
+    function find(ArticleCriteria $criteria): Article;
 
     /**
      * CREATE
      *
-     * @param ArticleId $id
-     * @return array
+     * @param Article $article
+     * @return void
      */
-    function create(ArticleId $id): array;
+    function create(Article $article): void;
 
     /**
      * UPDATE
      *
      * @param ArticleId $id
-     * @return array
+     * @return void
      */
-    function update(ArticleId $id): array;
+    function update(ArticleId $id): void;
 
     /**
      * DELETE
      *
      * @param ArticleId $id
-     * @return array
+     * @return void
      */
-    function delete(ArticleId $id): array;
+    function delete(ArticleId $id): void;
 }
