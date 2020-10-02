@@ -13,8 +13,8 @@
 
 Route::namespace('Article')->group(function() {
     Route::get('/article', 'ArticleController@index');
-    Route::get('/article/{id}', 'ArticleController@findArticle');
+    Route::get('/article/{articleId}', 'ArticleController@findArticle');
     Route::post('/article', 'ArticleController@createArticle');
-    Route::put('/article/{id}', 'ArticleController@updateArticle');
-    Route::delete('/article/{id}', 'ArticleController@deleteArticle');
+    Route::put('/article/{articleId}', 'ArticleController@updateArticle');
+    Route::delete('/article/{articleId}', 'ArticleController@deleteArticle');
 });
