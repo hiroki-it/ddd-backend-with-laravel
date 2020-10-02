@@ -16,10 +16,18 @@ interface ArticleRepository extends Repository
     /**
      * READ
      *
+     * @param ArticleId $articleId
+     * @return Article
+     */
+    function findWithId(ArticleId $articleId): Article;
+
+    /**
+     * READ
+     *
      * @param ArticleCriteria $criteria
      * @return Article
      */
-    function find(ArticleCriteria $criteria): Article;
+    function findWithCriteria(ArticleCriteria $criteria): Article;
 
     /**
      * CREATE
@@ -32,10 +40,10 @@ interface ArticleRepository extends Repository
     /**
      * UPDATE
      *
-     * @param ArticleId $id
+     * @param Article $article
      * @return void
      */
-    function update(ArticleId $id): void;
+    function update(Article $article): void;
 
     /**
      * DELETE
