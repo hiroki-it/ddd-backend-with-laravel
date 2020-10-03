@@ -4,8 +4,11 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Article;
 
 use App\Criteria\ArticleCriteria;
+use App\Domain\Entity\Article\ArticleContent;
+use App\Domain\Entity\Article\ArticleTitle;
 use App\Domain\Repositories\ArticleRepository;
 use App\Domain\ValueObject\Id\ArticleId;
+use App\Domain\ValueObject\Type\ArticleType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Response;
@@ -15,47 +18,47 @@ use Illuminate\Http\Response;
  *
  * NOTE: ドメイン層のインターフェースを介してエンティティに依存するようにするため，ここでインスタンスを生成しない．
  */
-class ArticleController extends Controller
+final class ArticleController extends Controller
 {
-    /**
-     * @var ArticleRepository
-     */
-    private $articleRepository;
-
-    /**
-     * @param ArticleRepository $articleRepository
-     */
-    public function __construct(ArticleRepository $articleRepository)
+    public function __construct(ArticleRepository $repository)
     {
-        $this->articleRepository = $articleRepository;
+        $this->repository = $repository;
     }
 
     /**
-     * 記事投稿フォームを表示します．
+     * 記事を全てを表示します．
      *
      * @return Response
      */
     public function index()
     {
+        // 読み出し
+        $article = $this->repository->findAll()->toArray();
+
         return response()
-            ->view('create-form')
+            ->view('article.article-list', $article)
             ->setStatusCode(200);
     }
 
     /**
-     * 記事を表示します．
+     * 記事を検索して表示します．
      *
      * @param ArticleRequest $request
      * @return Response
      */
-    public function findArticle(ArticleRequest $request)
+    public function findArticleWithCriteria(ArticleRequest $request)
     {
+        // リクエストボディを取得
         $validated = $request->validated();
-        $articleCriteria = ArticleCriteria::build($validated);
-        $article = $this->articleRepository->findWithCriteria($articleCriteria)->toArray();
+
+        // Articleエンティティを生成
+        $criteria = new ArticleCriteria($validated);
+
+        // 読み出し
+        $article = $this->repository->findWithCriteria($criteria)->toArray();
 
         return response()
-            ->view('article-list', $article)
+            ->view('article.article-list', $article)
             ->setStatusCode(200);
     }
 
@@ -67,11 +70,15 @@ class ArticleController extends Controller
      */
     public function createArticle(ArticleRequest $request)
     {
+        // リクエストボディを取得
         $validated = $request->validated();
-        $articleCriteria = ArticleCriteria::build($validated);
 
-        $article = $this->articleRepository->findWithCriteria($articleCriteria);
-        $this->articleRepository->create($article);
+        // Articleエンティティを生成
+        $criteria = new ArticleCriteria($validated);
+        $article = $this->repository->findWithCriteria($criteria);
+
+        // 作成
+        $this->repository->create($article);
 
         return response()
             ->setStatusCode(200);
@@ -81,15 +88,23 @@ class ArticleController extends Controller
      * 記事を更新します．
      *
      * @param ArticleRequest $request
-     * @param ArticleId      $articleId
+     * @param ArticleId      $id
      * @return Response
      */
-    public function updateArticle(ArticleRequest $request, ArticleId $articleId)
+    public function updateArticle(ArticleRequest $request, ArticleId $id)
     {
+        // リクエストボディを取得
         $validated = $request->validated();
-        $article = $this->articleRepository->findWithId($articleId);
-        $article->content = $validated['content'];
-        $this->articleRepository->update($article);
+
+        // Articleエンティティを生成
+        $article = $this->repository->findWithId($id);
+        $article->id = new ArticleId($validated('id'));
+        $article->title = new ArticleTitle($validated('title'));
+        $article->type = new ArticleType($validated('type'));
+        $article->cotent = new ArticleContent($validated('content'));
+
+        // 更新
+        $this->repository->update($article);
 
         return response()
             ->setStatusCode(200);
@@ -98,12 +113,13 @@ class ArticleController extends Controller
     /**
      * 記事を削除します．
      *
-     * @param ArticleId $articleId
+     * @param ArticleId $id
      * @return Response
      */
-    public function deleteArticle(ArticleId $articleId)
+    public function deleteArticle(ArticleId $id)
     {
-        $this->articleRepository->delete($articleId);
+        // 削除
+        $this->repository->delete($id);
 
         return response()
             ->setStatusCode(200);
