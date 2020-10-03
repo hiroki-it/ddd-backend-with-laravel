@@ -39,8 +39,8 @@ class ArticleRequest extends FormRequest
                 'max:10000'
             ],
 
-            // カテゴリ区分
-            'category_type' => [
+            // 区分
+            'type' => [
                 'required',
                 'string'
             ]

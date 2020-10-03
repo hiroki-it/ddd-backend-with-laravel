@@ -155,9 +155,9 @@ return [
     */
 
     'attributes' => [
-        'title'         => 'タイトル',
-        'category_type' => 'カテゴリ',
-        'body'          => '本文',
+        'title' => 'タイトル',
+        'type'  => '区分',
+        'body'  => '本文',
     ],
 
 ];
