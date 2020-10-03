@@ -14,10 +14,19 @@ use App\Domain\ValueObject\Id\ArticleId;
 class ArticleRepository implements DomainRepository
 {
     /**
+     * @param ArticleId $articleId
+     * @return Article
+     */
+    public function findWithId(ArticleId $articleId): Article
+    {
+
+    }
+
+    /**
      * @param ArticleCriteria $criteria
      * @return Article
      */
-    public function find(ArticleCriteria $criteria): Article
+    public function findWithCriteria(ArticleCriteria $criteria): Article
     {
 
     }
@@ -32,10 +41,10 @@ class ArticleRepository implements DomainRepository
     }
 
     /**
-     * @param ArticleId $id
+     * @param Article $article
      * @return void
      */
-    public function update(ArticleId $id): void
+    public function update(Article $article): void
     {
 
     }
