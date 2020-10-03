@@ -16,10 +16,17 @@ interface ArticleRepository extends Repository
     /**
      * READ
      *
-     * @param ArticleId $articleId
      * @return Article
      */
-    function findWithId(ArticleId $articleId): Article;
+    function findAll(): Article;
+
+    /**
+     * READ
+     *
+     * @param ArticleId $id
+     * @return Article
+     */
+    function findWithId(ArticleId $id): Article;
 
     /**
      * READ
