@@ -22,8 +22,8 @@ class CreateArticleTable extends Migration
             $table->string('title', 255)
                 ->comment('タイトル');
 
-            $table->string('category_type')
-                ->comment('カテゴリ区分');
+            $table->string('type')
+                ->comment('区分');
 
             $table->mediumText('content')
                 ->comment('本文');
