@@ -3,16 +3,31 @@ declare(strict_types=1);
 
 namespace App\Criteria;
 
+use App\Domain\ValueObject\Id\Id;
+
 /**
  * 検索条件抽象クラス
  */
 abstract class Criteria
 {
     /**
-     * 検索条件クラスを生成します．
+     * ID
      *
-     * @param array $validated
-     * @return Criteria
+     * @var Id
      */
-    abstract static function build(array $validated): Criteria;
+    protected Id $id;
+
+    /**
+     * 件数
+     *
+     * @var int
+     */
+    protected int $limit;
+
+    /**
+     * 並び順
+     *
+     * @var string
+     */
+    protected string $order;
 }
