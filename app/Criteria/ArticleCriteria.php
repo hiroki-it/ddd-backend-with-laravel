@@ -2,19 +2,24 @@
 
 namespace App\Criteria;
 
+use App\Domain\ValueObject\Id\ArticleId;
+use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
+
 /**
  * 記事検索条件クラス
  */
-class ArticleCriteria extends Criteria
+final class ArticleCriteria extends Criteria
 {
     /**
-     * 検索条件
+     * コンストラクタインジェクション
      *
      * @param array $validated
-     * @return ArticleCriteria
+     * @throws InvalidEnumMemberException
      */
-    static function build(array $validated): ArticleCriteria
+    public function __construct(array $validated)
     {
-
+        $this->id = new ArticleId($validated['id']);
+        $this->order = $validated['order'];
+        $this->limit = $validated['limit'];
     }
 }
