@@ -13,8 +13,11 @@
 
 Route::namespace('Article')->group(function() {
     Route::get('/article', 'ArticleController@index');
-    Route::get('/article/{articleId}', 'ArticleController@findArticle');
+    Route::get('/article/{id}', 'ArticleController@findArticle')
+        ->middleware('article.id.converter');
     Route::post('/article', 'ArticleController@createArticle');
-    Route::put('/article/{articleId}', 'ArticleController@updateArticle');
-    Route::delete('/article/{articleId}', 'ArticleController@deleteArticle');
+    Route::put('/article/{id}', 'ArticleController@updateArticle')
+        ->middleware('article.id.converter');
+    Route::delete('/article/{id}', 'ArticleController@deleteArticle')
+        ->middleware('article.id.converter');
 });
