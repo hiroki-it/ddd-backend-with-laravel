@@ -14,14 +14,14 @@ use App\Domain\ValueObject\Id\ArticleId;
 interface ArticleRepository extends Repository
 {
     /**
-     * READ
+     * READ：全ての記事エンティティを読み出します．
      *
      * @return Article
      */
     function findAll(): Article;
 
     /**
-     * READ
+     * READ：指定したIDの記事エンティティを読み出します．
      *
      * @param ArticleId $id
      * @return Article
@@ -29,7 +29,7 @@ interface ArticleRepository extends Repository
     function findWithId(ArticleId $id): Article;
 
     /**
-     * READ
+     * READ：指定した条件の記事エンティティを読み出します．
      *
      * @param ArticleCriteria $criteria
      * @return Article
@@ -37,23 +37,24 @@ interface ArticleRepository extends Repository
     function findWithCriteria(ArticleCriteria $criteria): Article;
 
     /**
-     * CREATE
+     * CREATE：記事エンティティを作成します．
      *
-     * @param Article $article
+     * @param array $validated
      * @return void
      */
-    function create(Article $article): void;
+    function create(array $validated): void;
 
     /**
-     * UPDATE
+     * UPDATE：記事エンティティを更新します．
      *
-     * @param Article $article
+     * @param array     $validated
+     * @param ArticleId $id
      * @return void
      */
-    function update(Article $article): void;
+    function update(array $validated, ArticleId $id): void;
 
     /**
-     * DELETE
+     * DELETE：記事エンティティを削除します．
      *
      * @param ArticleId $id
      * @return void
