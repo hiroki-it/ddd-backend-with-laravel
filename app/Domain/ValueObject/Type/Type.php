@@ -10,12 +10,5 @@ use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
  */
 abstract class Type extends Enum
 {
-    /**
-     * @param string $value
-     * @throws InvalidEnumMemberException
-     */
-    public function __construct(string $value)
-    {
-        parent::__construct($value);
-    }
+
 }
