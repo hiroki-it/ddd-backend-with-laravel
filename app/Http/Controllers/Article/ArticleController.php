@@ -20,11 +20,6 @@ use Illuminate\Http\Response;
  */
 final class ArticleController extends Controller
 {
-    public function __construct(ArticleRepository $repository)
-    {
-        $this->repository = $repository;
-    }
-
     /**
      * 記事を全てを表示します．
      *
@@ -44,15 +39,13 @@ final class ArticleController extends Controller
      * 記事を検索して表示します．
      *
      * @param ArticleRequest $request
+     * @param ArticleId      $id
      * @return Response
      */
-    public function findArticleWithCriteria(ArticleRequest $request)
+    public function findArticleWithCriteria(ArticleRequest $request, ArticleId $id)
     {
         // リクエストボディを取得
         $validated = $request->validated();
-
-        // Articleエンティティを生成
-        $criteria = new ArticleCriteria($validated);
 
         // 読み出し
         $criteria = new ArticleCriteria($id, $validated['order'], $validated['limit']);
@@ -74,14 +67,11 @@ final class ArticleController extends Controller
         // リクエストボディを取得
         $validated = $request->validated();
 
-        // Articleエンティティを生成
-        $criteria = new ArticleCriteria($validated);
-        $article = $this->repository->findWithCriteria($criteria);
-
         // 作成
         $article = app()->make(ArticleRepository::class)->create($validated);
 
         return response()
+            ->view('article.article-list', $article)
             ->setStatusCode(200);
     }
 
@@ -96,13 +86,6 @@ final class ArticleController extends Controller
     {
         // リクエストボディを取得
         $validated = $request->validated();
-
-        // Articleエンティティを生成
-        $article = $this->repository->findWithId($id);
-        $article->id = new ArticleId($validated('id'));
-        $article->title = new ArticleTitle($validated('title'));
-        $article->type = new ArticleType($validated('type'));
-        $article->cotent = new ArticleContent($validated('content'));
 
         // 更新
         app()->make(ArticleRepository::class)->update($validated, $id);
