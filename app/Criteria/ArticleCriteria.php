@@ -3,7 +3,6 @@
 namespace App\Criteria;
 
 use App\Domain\ValueObject\Id\ArticleId;
-use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
  * 記事検索条件クラス
@@ -13,13 +12,14 @@ final class ArticleCriteria extends Criteria
     /**
      * コンストラクタインジェクション
      *
-     * @param array $validated
-     * @throws InvalidEnumMemberException
+     * @param ArticleId $id
+     * @param string    $order
+     * @param int       $limit
      */
-    public function __construct(array $validated)
+    public function __construct(ArticleId $id, string $order, int $limit)
     {
-        $this->id = new ArticleId($validated['id']);
-        $this->order = $validated['order'];
-        $this->limit = $validated['limit'];
+        $this->id = $id;
+        $this->limit = $limit;
+        $this->order = $order;
     }
 }
