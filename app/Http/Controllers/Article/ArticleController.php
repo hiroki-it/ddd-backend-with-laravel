@@ -33,7 +33,7 @@ final class ArticleController extends Controller
     public function index()
     {
         // 読み出し
-        $article = $this->repository->findAll()->toArray();
+        $article = app()->make(ArticleRepository::class)->findAll()->toArray();
 
         return response()
             ->view('article.article-list', $article)
@@ -55,7 +55,8 @@ final class ArticleController extends Controller
         $criteria = new ArticleCriteria($validated);
 
         // 読み出し
-        $article = $this->repository->findWithCriteria($criteria)->toArray();
+        $criteria = new ArticleCriteria($id, $validated['order'], $validated['limit']);
+        $article = app()->make(ArticleRepository::class)->findWithCriteria($criteria)->toArray();
 
         return response()
             ->view('article.article-list', $article)
@@ -78,7 +79,7 @@ final class ArticleController extends Controller
         $article = $this->repository->findWithCriteria($criteria);
 
         // 作成
-        $this->repository->create($article);
+        $article = app()->make(ArticleRepository::class)->create($validated);
 
         return response()
             ->setStatusCode(200);
@@ -104,7 +105,7 @@ final class ArticleController extends Controller
         $article->cotent = new ArticleContent($validated('content'));
 
         // 更新
-        $this->repository->update($article);
+        app()->make(ArticleRepository::class)->update($validated, $id);
 
         return response()
             ->setStatusCode(200);
@@ -119,7 +120,7 @@ final class ArticleController extends Controller
     public function deleteArticle(ArticleId $id)
     {
         // 削除
-        $this->repository->delete($id);
+        app()->make(ArticleRepository::class)->delete($id);
 
         return response()
             ->setStatusCode(200);
