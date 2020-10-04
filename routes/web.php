@@ -11,6 +11,11 @@
 |
 */
 
+/**
+ * ルーティング定義
+ *
+ * RouteServiceProviderのboot()でパターンフィルタを定義している．
+ */
 Route::namespace('Article')->group(function() {
     Route::get('/article', 'ArticleController@index');
     Route::get('/article/{id}', 'ArticleController@findArticle')

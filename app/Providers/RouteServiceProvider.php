@@ -24,13 +24,13 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/home';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
+     * パターンフィルタを設定します．
      *
      * @return void
      */
     public function boot()
     {
-        //
+        Route::pattern('id', '[0-9]+');
 
         parent::boot();
     }
