@@ -13,7 +13,7 @@ final class ArticleType extends Type
     /**
      * 記事区分
      */
-    const PHP = '1';
+    private const PHP = '1';
 
     /**
      * コンストラクタインジェクション
