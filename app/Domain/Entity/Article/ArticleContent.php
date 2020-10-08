@@ -12,12 +12,19 @@ use App\Domain\Entity\Entity;
 final class ArticleContent extends Entity
 {
     /**
+     * 本文
+     *
+     * @var string
+     */
+    private string $content;
+
+    /**
      * コンストラクタインジェクション
      *
      * @param string $content
      */
     public function __construct(string $content)
     {
-        parent::__construct($content);
+        $this->content = $content;
     }
 }
