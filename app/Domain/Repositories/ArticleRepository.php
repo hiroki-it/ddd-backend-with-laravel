@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Repositories;
 
 use App\Criteria\ArticleCriteria;
-use App\Domain\Entity\Article;
+use App\Domain\Entity\Article\Article;
 use App\Domain\ValueObject\Id\ArticleId;
 
 /**
@@ -18,7 +18,7 @@ interface ArticleRepository extends Repository
      *
      * @return Article
      */
-    function findAll(): Article;
+    function findAllEntity(): Article;
 
     /**
      * READ：指定したIDの記事エンティティを読み出します．
@@ -26,7 +26,7 @@ interface ArticleRepository extends Repository
      * @param ArticleId $id
      * @return Article
      */
-    function findWithId(ArticleId $id): Article;
+    function findEntityWithId(ArticleId $id): Article;
 
     /**
      * READ：指定した条件の記事エンティティを読み出します．
@@ -34,30 +34,29 @@ interface ArticleRepository extends Repository
      * @param ArticleCriteria $criteria
      * @return Article
      */
-    function findWithCriteria(ArticleCriteria $criteria): Article;
+    function findEntityWithCriteria(ArticleCriteria $criteria): Article;
 
     /**
      * CREATE：記事エンティティを作成します．
      *
-     * @param array $validated
+     * @param Article $article
      * @return void
      */
-    function create(array $validated): void;
+    function createEntity(Article $article): void;
 
     /**
      * UPDATE：記事エンティティを更新します．
      *
-     * @param array     $validated
-     * @param ArticleId $id
+     * @param Article $article
      * @return void
      */
-    function update(array $validated, ArticleId $id): void;
+    function updateEntity(Article $article): void;
 
     /**
      * DELETE：記事エンティティを削除します．
      *
-     * @param ArticleId $id
+     * @param Article $article
      * @return void
      */
-    function delete(ArticleId $id): void;
+    function deleteEntity(Article $article): void;
 }
