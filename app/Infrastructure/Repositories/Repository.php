@@ -6,6 +6,9 @@ namespace App\Infrastructure\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * リポジトリ抽象クラス
+ */
 abstract class Repository extends Model
 {
 
