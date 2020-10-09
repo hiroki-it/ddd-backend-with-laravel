@@ -4,12 +4,8 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Article;
 
 use App\Criteria\ArticleCriteria;
-use App\Domain\Entity\Article\Article;
-use App\Domain\Entity\Article\ArticleContent;
-use App\Domain\Entity\Article\ArticleTitle;
 use App\Domain\Repositories\ArticleRepository;
 use App\Domain\ValueObject\Id\ArticleId;
-use App\Domain\ValueObject\Type\ArticleType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Response;
@@ -22,6 +18,23 @@ use Illuminate\Http\Response;
 final class ArticleController extends Controller
 {
     /**
+     * リポジトリクラス
+     *
+     * @var ArticleRepository
+     */
+    private ArticleRepository $articleRepository;
+    
+    /**
+     * コンストラクタインジェクション
+     *
+     * @param ArticleRepository $articleRepository
+     */
+    public function __construct(ArticleRepository $articleRepository)
+    {
+        $this->articleRepository = $articleRepository;
+    }
+
+    /**
      * 記事を全てを表示します．
      *
      * @return Response
@@ -29,7 +42,7 @@ final class ArticleController extends Controller
     public function index()
     {
         // 読み出し
-        $article = app()->make(ArticleRepository::class)->findAllEntity();
+        $article = $this->articleRepository->findAllEntity();
 
         return response()
             ->view('article.article-list', $article)
@@ -50,7 +63,7 @@ final class ArticleController extends Controller
 
         // 読み出し
         $criteria = new ArticleCriteria($id, $validated['order'], $validated['limit']);
-        $article = app()->make(ArticleRepository::class)->findEntityWithCriteria($criteria);
+        $article = $this->articleRepository->findEntityWithCriteria($criteria);
 
         return response()
             ->view('article.article-list', $article)
@@ -75,7 +88,7 @@ final class ArticleController extends Controller
             new ArticleContent($validated['content'])
         );
 
-       app()->make(ArticleRepository::class)->createEntity($article);
+        $this->articleRepository->createEntity($article);
 
         return response()
             ->view('article.article-list', $article)
@@ -95,7 +108,7 @@ final class ArticleController extends Controller
         $validated = $request->validated();
 
         // 更新
-        app()->make(ArticleRepository::class)->updateEntity($article);
+        $this->articleRepository->updateEntity($article);
 
         return response()
             ->setStatusCode(200);
@@ -110,7 +123,7 @@ final class ArticleController extends Controller
     public function deleteArticle(ArticleId $id)
     {
         // 削除
-        app()->make(ArticleRepository::class)->deleteEntity($article);
+        $this->articleRepository->deleteEntity($article);
 
         return response()
             ->setStatusCode(200);
