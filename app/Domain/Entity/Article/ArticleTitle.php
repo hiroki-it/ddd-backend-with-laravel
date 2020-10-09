@@ -12,19 +12,12 @@ use App\Domain\Entity\Entity;
 final class ArticleTitle extends Entity
 {
     /**
-     * タイトル
-     *
-     * @var string
-     */
-    private string $title;
-
-    /**
      * コンストラクタインジェクション
      *
      * @param string $title
      */
     public function __construct(string $title)
     {
-        $this->title = $title;
+        parent::__construct($title);
     }
 }
