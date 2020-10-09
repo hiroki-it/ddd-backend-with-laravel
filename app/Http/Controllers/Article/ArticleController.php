@@ -8,6 +8,7 @@ use App\Domain\Repositories\ArticleRepository;
 use App\Domain\ValueObject\Id\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
+use App\Infrastructure\Factories\ArticleFactory;
 use Illuminate\Http\Response;
 
 /**
@@ -81,12 +82,7 @@ final class ArticleController extends Controller
         // リクエストボディを取得
         $validated = $request->validated();
 
-        $article = new Article(
-            new ArticleId(),
-            new ArticleTitle($validated['title']),
-            new ArticleType($validated['type']),
-            new ArticleContent($validated['content'])
-        );
+        $article = ArticleFactory::createInstance($id, $validated);
 
         $this->articleRepository->createEntity($article);
 
