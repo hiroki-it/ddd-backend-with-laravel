@@ -175,8 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        // リポジトリサービスプロバイダー
-        App\Providers\RepositoriesServiceProvider::class
+        // アプリケーションサービスプロバイダー
+        App\Providers\RepositoriesServiceProvider::class,
+        App\Providers\MigrationMacroServiceProvider::class
 
     ],
 
