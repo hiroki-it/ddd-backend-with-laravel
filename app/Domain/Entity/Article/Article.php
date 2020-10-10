@@ -7,12 +7,22 @@ namespace App\Domain\Entity\Article;
 use App\Domain\Entity\Entity;
 use App\Domain\ValueObject\Id\ArticleId;
 use App\Domain\ValueObject\Type\ArticleType;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * 記事クラス（ルートエンティティ）
  */
 final class Article extends Entity
 {
+    use SoftDeletes;
+
+    /**
+     * @var array
+     */
+    protected $dates = [
+        'deleted_at',
+    ];
+
     /**
      * コンストラクタインジェクション
      *

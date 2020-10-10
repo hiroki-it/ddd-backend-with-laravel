@@ -35,8 +35,7 @@ class CreateArticleTable extends Migration
 
             $table->timestamps();
 
-            $table->boolean('is_deleted')
-                ->comment('削除フラグ');
+            $table->softDeletes();
         });
     }
 
