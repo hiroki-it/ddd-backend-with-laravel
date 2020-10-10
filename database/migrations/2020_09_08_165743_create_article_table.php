@@ -31,13 +31,7 @@ class CreateArticleTable extends Migration
             $table->mediumText('content')
                 ->comment('本文');
 
-            $table->dateTime('created_at')
-                ->default(DB::raw('CURRENT_TIMESTAMP'))
-                ->comment('作成日');
-
-            $table->dateTime('updated_at')
-                ->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'))
-                ->comment('更新日');
+            $table->timestamps();
 
             $table->boolean('is_deleted')
                 ->comment('削除フラグ');
