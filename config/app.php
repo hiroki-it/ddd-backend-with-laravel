@@ -162,22 +162,21 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        /*
-         * Package Service Providers...
-         */
-
-        /*
-         * Application Service Providers...
-         */
+        // アプリケーションサービスプロバイダー
         App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
+        App\Providers\RepositoriesServiceProvider::class,
+
+        // マクロサービスプロバイダー
+        App\Providers\MigrationMacroServiceProvider::class,
+
+        // ルートサービスプロバイダー
         App\Providers\RouteServiceProvider::class,
 
-        // アプリケーションサービスプロバイダー
-        App\Providers\RepositoriesServiceProvider::class,
-        App\Providers\MigrationMacroServiceProvider::class
+        // イベントサービスプロバイダー
+        App\Providers\EventServiceProvider::class,
+
+        // 認証認可サービスプロバイダー
+        App\Providers\AuthServiceProvider::class,
 
     ],
 
