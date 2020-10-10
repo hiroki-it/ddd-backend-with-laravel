@@ -28,6 +28,8 @@ class CreatePasswordResetsTable extends Migration
             $table->timestamp('created_at')
                 ->nullable();
 
+            $table->systemColumns();
+
             $table->softDeletes();
         });
     }

@@ -33,6 +33,8 @@ class CreateFailedJobsTable extends Migration
             $table->timestamp('failed_at')
                 ->useCurrent();
 
+            $table->systemColumns();
+
             $table->softDeletes();
         });
     }
