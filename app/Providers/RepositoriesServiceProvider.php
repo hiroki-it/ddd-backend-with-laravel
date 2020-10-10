@@ -6,10 +6,15 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * リポジトリサービスプロバイダクラス
+ */
 class RepositoriesServiceProvider extends ServiceProvider
 {
     /**
-     * NOTE: DomainRepository名をエイリアスとして，InfrastructureRepositoryをコールすることによって，依存性逆転を実現します．
+     * サービスコンテナにクラスをバインドします．
+     *
+     * NOTE：インターフェースリポジトリをバインドし，実装リポジトリをリゾルブすることによって，依存性逆転を実現します．
      *
      * @return void
      */
