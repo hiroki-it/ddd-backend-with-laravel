@@ -15,6 +15,23 @@ use App\Domain\ValueObject\Id\ArticleId;
 class ArticleRepository extends Repository implements DomainRepository
 {
     /**
+     * 記事クラス
+     *
+     * @var Article
+     */
+    private Article $article;
+
+    /**
+     * コンストラクタインジェクション
+     *
+     * @param Article $article
+     */
+    public function __construct(Article $article)
+    {
+        $this->$article = $article;
+    }
+
+    /**
      * @return Article
      */
     public function findAllEntity(): Article
