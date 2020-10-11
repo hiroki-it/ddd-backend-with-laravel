@@ -64,8 +64,7 @@ class ArticleRepository extends Repository implements DomainRepository
      */
     public function createEntity(Article $article): void
     {
-
-
+        $article->save();
     }
 
     /**
@@ -74,8 +73,7 @@ class ArticleRepository extends Repository implements DomainRepository
      */
     public function updateEntity(Article $article): void
     {
-
-
+        $article->save();
     }
 
     /**
@@ -84,6 +82,6 @@ class ArticleRepository extends Repository implements DomainRepository
      */
     public function deleteEntity(Article $article): void
     {
-
+        $article->save();
     }
 }
