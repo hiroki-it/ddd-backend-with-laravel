@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Criteria;
@@ -25,7 +26,7 @@ abstract class Criteria
     protected int $limit;
 
     /**
-     * 並び順
+     * 順序
      *
      * @var string
      */

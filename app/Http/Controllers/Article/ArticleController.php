@@ -25,7 +25,7 @@ final class ArticleController extends Controller
      * @var ArticleRepository
      */
     private ArticleRepository $articleRepository;
-    
+
     /**
      * コンストラクタインジェクション
      *
