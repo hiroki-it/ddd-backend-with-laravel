@@ -8,6 +8,7 @@ use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
 use App\Domain\Repositories\ArticleRepository as DomainRepository;
 use App\Domain\ValueObject\Id\ArticleId;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
  * 記事リポジトリ実装クラス
@@ -32,27 +33,27 @@ class ArticleRepository extends Repository implements DomainRepository
     }
 
     /**
-     * @return Article
+     * @return Collection
      */
-    public function findAllEntity(): Article
+    public function findAllEntity(): Collection
     {
-
+        return $this->article->all();
     }
 
     /**
      * @param ArticleId $articleId
-     * @return Article
+     * @return Collection
      */
-    public function findEntityById(ArticleId $articleId): Article
+    public function findEntityById(ArticleId $articleId): Collection
     {
-
+        return $this->article->find($articleId);
     }
 
     /**
      * @param ArticleCriteria $criteria
-     * @return Article
+     * @return Collection
      */
-    public function findEntityByCriteria(ArticleCriteria $criteria): Article
+    public function findEntityByCriteria(ArticleCriteria $criteria): Collection
     {
 
     }
