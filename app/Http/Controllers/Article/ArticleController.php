@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Http\Controllers\Article;
@@ -64,7 +65,7 @@ final class ArticleController extends Controller
 
         // 読み出し
         $criteria = new ArticleCriteria($id, $validated['order'], $validated['limit']);
-        $article = $this->articleRepository->findEntityWithCriteria($criteria);
+        $article = $this->articleRepository->findEntityByCriteria($criteria);
 
         return response()
             ->view('article.article-list', $article)

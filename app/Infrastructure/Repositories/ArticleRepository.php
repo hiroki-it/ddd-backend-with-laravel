@@ -26,7 +26,7 @@ class ArticleRepository extends Repository implements DomainRepository
      * @param ArticleId $articleId
      * @return Article
      */
-    public function findEntityWithId(ArticleId $articleId): Article
+    public function findEntityById(ArticleId $articleId): Article
     {
 
     }
@@ -35,7 +35,7 @@ class ArticleRepository extends Repository implements DomainRepository
      * @param ArticleCriteria $criteria
      * @return Article
      */
-    public function findEntityWithCriteria(ArticleCriteria $criteria): Article
+    public function findEntityByCriteria(ArticleCriteria $criteria): Article
     {
 
     }

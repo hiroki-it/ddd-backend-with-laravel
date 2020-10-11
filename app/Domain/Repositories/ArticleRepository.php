@@ -26,7 +26,7 @@ interface ArticleRepository extends Repository
      * @param ArticleId $id
      * @return Article
      */
-    function findEntityWithId(ArticleId $id): Article;
+    function findEntityById(ArticleId $id): Article;
 
     /**
      * READ：指定した条件の記事エンティティを読み出します．
@@ -34,7 +34,7 @@ interface ArticleRepository extends Repository
      * @param ArticleCriteria $criteria
      * @return Article
      */
-    function findEntityWithCriteria(ArticleCriteria $criteria): Article;
+    function findEntityByCriteria(ArticleCriteria $criteria): Article;
 
     /**
      * CREATE：記事エンティティを作成します．
