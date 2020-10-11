@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Criteria;
 
 use App\Constants\CriteriaConstant;
