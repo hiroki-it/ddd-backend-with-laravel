@@ -6,6 +6,8 @@ namespace App\Domain\Repositories;
 
 /**
  * リポジトリインターフェース
+ *
+ * RepositoriesServiceProviderで，サービスコンテナにインターフェースリポジトリをバインドしてください．
  */
 interface Repository
 {

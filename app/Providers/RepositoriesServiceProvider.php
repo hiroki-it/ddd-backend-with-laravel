@@ -14,7 +14,7 @@ class RepositoriesServiceProvider extends ServiceProvider
     /**
      * サービスコンテナにクラスをバインドします．
      *
-     * NOTE：インターフェースリポジトリをバインドし，実装リポジトリをリゾルブすることによって，依存性逆転を実現します．
+     * インターフェースリポジトリをバインドし，実装リポジトリをリゾルブすることによって，依存性逆転を実現します．
      *
      * @return void
      */
