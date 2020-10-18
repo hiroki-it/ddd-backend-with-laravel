@@ -16,10 +16,10 @@ final class ArticleCriteria extends Criteria
      * コンストラクタインジェクション
      *
      * @param ArticleId $id
+     * @param string    $limit
      * @param string    $order
-     * @param int       $limit
      */
-    public function __construct(ArticleId $id, int $limit = CriteriaConstant::DEFAULT_LIMIT,  string $order = CriteriaConstant::DEFAULT_ORDER)
+    public function __construct(ArticleId $id, string $limit = CriteriaConstant::DEFAULT_LIMIT,  string $order = CriteriaConstant::DEFAULT_ORDER)
     {
         $this->id = $id;
         $this->limit = $limit;
