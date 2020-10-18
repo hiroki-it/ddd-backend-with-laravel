@@ -12,10 +12,10 @@ final class FlagConstant
     /**
      * フラグが立っている状態
      */
-    public const IS_ON = 1;
+    public const IS_ON = true;
 
     /**
      * フラグが立っていない状態
      */
-    public const IS_OFF = 0;
+    public const IS_OFF = false;
 }
