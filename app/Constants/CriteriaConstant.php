@@ -21,6 +21,6 @@ final class CriteriaConstant
      *
      * 件数のデフォルト値
      */
-    public const DEFAULT_LIMIT = 10;
+    public const DEFAULT_LIMIT = '10';
 
 }
