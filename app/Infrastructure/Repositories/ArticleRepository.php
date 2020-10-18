@@ -8,28 +8,29 @@ use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
 use App\Domain\Repositories\ArticleRepository as DomainRepository;
 use App\Domain\ValueObject\Id\ArticleId;
+use App\Infrastructure\DTO\ArticleDTO;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
  * 記事リポジトリ実装クラス
  */
-class ArticleRepository extends Repository implements DomainRepository
+final class ArticleRepository extends Repository implements DomainRepository
 {
     /**
-     * 記事クラス
+     * 記事DTOクラス
      *
-     * @var Article
+     * @var ArticleDTO
      */
-    private Article $article;
+    private ArticleDTO $articleDto;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param Article $article
+     * @param ArticleDTO $articleDto
      */
-    public function __construct(Article $article)
+    public function __construct(ArticleDTO $articleDto)
     {
-        $this->$article = $article;
+        $this->articleDto = $articleDto;
     }
 
     /**
@@ -37,7 +38,7 @@ class ArticleRepository extends Repository implements DomainRepository
      */
     public function findAllEntity(): Collection
     {
-        return $this->article->all();
+        return $this->articleDto->all();
     }
 
     /**
@@ -46,7 +47,7 @@ class ArticleRepository extends Repository implements DomainRepository
      */
     public function findEntityById(ArticleId $articleId): Collection
     {
-        return $this->article->find($articleId);
+        return $this->articleDto->find($articleId);
     }
 
     /**
@@ -55,7 +56,9 @@ class ArticleRepository extends Repository implements DomainRepository
      */
     public function findEntityByCriteria(ArticleCriteria $criteria): Collection
     {
-
+        return $this->articleDto->orderby($criteria->order())
+            ->take($criteria->limit())
+            ->get();
     }
 
     /**
@@ -64,7 +67,11 @@ class ArticleRepository extends Repository implements DomainRepository
      */
     public function createEntity(Article $article): void
     {
-        $article->save();
+        $this->articleDto->id = $article->id();
+        $this->articleDto->title = $article->title();
+        $this->articleDto->type = $article->type();
+        $this->articleDto->content = $article->content();
+        $this->articleDto->save();
     }
 
     /**
@@ -73,7 +80,11 @@ class ArticleRepository extends Repository implements DomainRepository
      */
     public function updateEntity(Article $article): void
     {
-        $article->save();
+        $this->articleDto->id = $article->id();
+        $this->articleDto->title = $article->title();
+        $this->articleDto->type = $article->type();
+        $this->articleDto->content = $article->content();
+        $this->articleDto->save();
     }
 
     /**
@@ -82,6 +93,6 @@ class ArticleRepository extends Repository implements DomainRepository
      */
     public function deleteEntity(Article $article): void
     {
-        $article->save();
+        $this->articleDto->delete();
     }
 }
