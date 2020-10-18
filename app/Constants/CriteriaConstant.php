@@ -10,11 +10,15 @@ namespace App\Constants;
 final class CriteriaConstant
 {
     /**
+     * @var string
+     *
      * 順序のデフォルト値
      */
     public const DEFAULT_ORDER = 'asc';
 
     /**
+     * @var string
+     *
      * 件数のデフォルト値
      */
     public const DEFAULT_LIMIT = 10;
