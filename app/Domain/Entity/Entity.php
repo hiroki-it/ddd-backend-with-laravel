@@ -4,25 +4,28 @@ declare(strict_types=1);
 
 namespace App\Domain\Entity;
 
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * エンティティ抽象クラス
- *
- * NOTE: エンティティ内でEloquentをコールしないこと．
  */
-abstract class Entity extends Model
+abstract class Entity
 {
     /**
-     * コンストラクタインジェクション
+     * パフォーマンスの観点からマジックゲッターメソッドの使用を禁止します．
      *
-     * 親Modelクラスのコンストラクタは配列型引数を一つのみ受け付けるため
-     * 可変個引数を使用してそれを配列型につめて渡すようにしています．
-     *
-     * @param mixed ...$properties
+     * @throws \Exception
      */
-    protected function __construct(...$properties)
+    public function __get()
     {
-        parent::__construct(array(...$properties));
+        throw new \Exception('This method is not supported');
+    }
+
+    /**
+     * パフォーマンスの観点からマジックセッターメソッドの使用を禁止します．
+     *
+     * @throws \Exception
+     */
+    public function __set()
+    {
+        throw new \Exception('This method is not supported');
     }
 }
