@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace App\Criteria;
 
 use App\Domain\ValueObject\Id\Id;
+use App\Traits\UnsupportedMagicMethodTrait;
 
 /**
  * 検索条件抽象クラス
  */
 abstract class Criteria
 {
+    use UnsupportedMagicMethodTrait;
+
     /**
      * ID
      *
