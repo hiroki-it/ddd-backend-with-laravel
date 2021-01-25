@@ -178,6 +178,8 @@ return [
         // 認証認可サービスプロバイダー
         App\Providers\AuthServiceProvider::class,
 
+        // テレスコープサービスプロバイダー
+        App\Providers\TelescopeServiceProvider::class,
     ],
 
     /*
