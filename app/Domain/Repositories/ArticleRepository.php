@@ -14,12 +14,6 @@ use Illuminate\Database\Eloquent\Collection;
  */
 interface ArticleRepository extends Repository
 {
-    /**
-     * READ：全ての記事エンティティを読み出します．
-     *
-     * @return Collection
-     */
-    function findAllEntity(): Collection;
 
     /**
      * READ：指定したIDの記事エンティティを読み出します．
@@ -27,15 +21,15 @@ interface ArticleRepository extends Repository
      * @param ArticleId $id
      * @return Collection
      */
-    function findEntityById(ArticleId $id): Collection;
+    function findOneById(ArticleId $id): Collection;
 
     /**
-     * READ：指定した条件の記事エンティティを読み出します．
+     * READ：指定した条件の記事エンティティを全て読み出します．
      *
      * @param ArticleCriteria $criteria
      * @return Collection
      */
-    function findEntityByCriteria(ArticleCriteria $criteria): Collection;
+    function findAllByCriteria(ArticleCriteria $criteria): Collection;
 
     /**
      * CREATE：記事エンティティを作成します．
@@ -43,7 +37,7 @@ interface ArticleRepository extends Repository
      * @param Article $article
      * @return void
      */
-    function createEntity(Article $article): void;
+    function create(Article $article): void;
 
     /**
      * UPDATE：記事エンティティを更新します．
@@ -51,7 +45,7 @@ interface ArticleRepository extends Repository
      * @param Article $article
      * @return void
      */
-    function updateEntity(Article $article): void;
+    function update(Article $article): void;
 
     /**
      * DELETE：記事エンティティを削除します．
@@ -59,5 +53,5 @@ interface ArticleRepository extends Repository
      * @param Article $article
      * @return void
      */
-    function deleteEntity(Article $article): void;
+    function delete(Article $article): void;
 }

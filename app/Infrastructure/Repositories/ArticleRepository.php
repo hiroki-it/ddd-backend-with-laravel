@@ -34,65 +34,64 @@ final class ArticleRepository extends Repository implements DomainRepository
     }
 
     /**
-     * @return Collection
-     */
-    public function findAllEntity(): Collection
-    {
-        return $this->articleDto->all();
-    }
-
-    /**
      * @param ArticleId $articleId
      * @return Collection
      */
-    public function findEntityById(ArticleId $articleId): Collection
+    public function findOneById(ArticleId $articleId): Collection
     {
-        return $this->articleDto->find($articleId);
+        return $this->articleDto
+            ->find($articleId);
     }
 
     /**
      * @param ArticleCriteria $criteria
      * @return Collection
      */
-    public function findEntityByCriteria(ArticleCriteria $criteria): Collection
+    public function findAllByCriteria(ArticleCriteria $criteria): Collection
     {
-        return $this->articleDto->orderby($criteria->order())
+        return $this->articleDto
+            ->sortBy($criteria->order())
             ->take($criteria->limit())
-            ->get();
+            ->all();
     }
 
     /**
      * @param Article $article
      * @return void
      */
-    public function createEntity(Article $article): void
+    public function create(Article $article): void
     {
-        $this->articleDto->id = $article->id();
-        $this->articleDto->title = $article->title();
-        $this->articleDto->type = $article->type();
-        $this->articleDto->content = $article->content();
-        $this->articleDto->save();
+        $this->articleDto
+            ->create([
+                'id'      => $article->id(),
+                'title'   => $article->title(),
+                'type'    => $article->type(),
+                'content' => $article->content()
+            ]);
     }
 
     /**
      * @param Article $article
      * @return void
      */
-    public function updateEntity(Article $article): void
+    public function update(Article $article): void
     {
-        $this->articleDto->id = $article->id();
-        $this->articleDto->title = $article->title();
-        $this->articleDto->type = $article->type();
-        $this->articleDto->content = $article->content();
-        $this->articleDto->save();
+        $this->articleDto
+            ->fill([
+                'id'      => $article->id(),
+                'title'   => $article->title(),
+                'type'    => $article->type(),
+                'content' => $article->content()
+            ])->save();
     }
 
     /**
      * @param Article $article
      * @return void
      */
-    public function deleteEntity(Article $article): void
+    public function delete(Article $article): void
     {
-        $this->articleDto->delete();
+        $this->articleDto
+            ->destroy($article->id());
     }
 }
