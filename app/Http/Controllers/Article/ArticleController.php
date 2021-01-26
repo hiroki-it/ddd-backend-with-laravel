@@ -123,8 +123,7 @@ final class ArticleController extends Controller
         $this->articleRepository
             ->update($article);
 
-        return response()
-            ->setStatusCode(200);
+        return response()->setStatusCode(200);
     }
 
     /**
