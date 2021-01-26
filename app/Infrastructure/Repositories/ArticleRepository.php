@@ -9,7 +9,6 @@ use App\Domain\Entity\Article\Article;
 use App\Domain\Repositories\ArticleRepository as DomainRepository;
 use App\Domain\ValueObject\Id\ArticleId;
 use App\Infrastructure\DTO\ArticleDTO;
-use Illuminate\Database\Eloquent\Collection;
 
 /**
  * 記事リポジトリ実装クラス
@@ -60,7 +59,7 @@ final class ArticleRepository extends Repository implements DomainRepository
      */
     public function findAllByCriteria(ArticleCriteria $criteria): Article
     {
-        $articleCollection =  $this->articleDTO
+        $articleCollection = $this->articleDTO
             ->sortBy($criteria->order())
             ->take($criteria->limit())
             ->all();
