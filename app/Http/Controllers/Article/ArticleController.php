@@ -41,7 +41,7 @@ final class ArticleController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function findArticle(ArticleRequest $request, ArticleId $articleId): Response
     {
         // 読み出し
         $article = $this->articleRepository->findAllEntity();
@@ -58,7 +58,7 @@ final class ArticleController extends Controller
      * @param ArticleId      $id
      * @return Response
      */
-    public function findArticleWithCriteria(ArticleRequest $request, ArticleId $id)
+    public function showArticle(ArticleId $articleId): Response
     {
         // リクエストボディを取得
         $validated = $request->validated();
