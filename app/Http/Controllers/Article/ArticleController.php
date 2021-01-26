@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Article;
 
 use App\Criteria\ArticleCriteria;
+use App\Domain\Entity\Article\Article;
+use App\Domain\Entity\Article\ArticleContent;
+use App\Domain\Entity\Article\ArticleTitle;
 use App\Domain\Repositories\ArticleRepository;
 use App\Domain\ValueObject\Id\ArticleId;
+use App\Domain\ValueObject\Type\ArticleType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
-use App\Infrastructure\Factories\ArticleFactory;
 use Illuminate\Http\Response;
 
 /**
@@ -37,38 +40,41 @@ final class ArticleController extends Controller
     }
 
     /**
-     * 記事を全てを表示します．
+     * 記事を検索します．
      *
+     * @param ArticleRequest $request
+     * @param ArticleId      $articleId
      * @return Response
      */
     public function findArticle(ArticleRequest $request, ArticleId $articleId): Response
     {
-        // 読み出し
-        $article = $this->articleRepository->findAllEntity();
+        $validated = $request->validated();
 
-        return response()
-            ->view('article.article-list', $article)
+        $criteria = new ArticleCriteria(
+            $articleId,
+            $validated['order'],
+            $validated['limit']
+        );
+
+        $article = $this->articleRepository
+            ->findAllByCriteria($criteria);
+
+        return response()->view('article.article-list', $article)
             ->setStatusCode(200);
     }
 
     /**
-     * 記事を検索して表示します．
+     * 指定した記事を表示します．
      *
-     * @param ArticleRequest $request
-     * @param ArticleId      $id
+     * @param ArticleId $articleId
      * @return Response
      */
     public function showArticle(ArticleId $articleId): Response
     {
-        // リクエストボディを取得
-        $validated = $request->validated();
+        $article = $this->articleRepository
+            ->findOneById($articleId);
 
-        // 読み出し
-        $criteria = new ArticleCriteria($id, $validated['order'], $validated['limit']);
-        $article = $this->articleRepository->findEntityByCriteria($criteria);
-
-        return response()
-            ->view('article.article-list', $article)
+        return response()->view('article.article-list', $article)
             ->setStatusCode(200);
     }
 
@@ -78,17 +84,21 @@ final class ArticleController extends Controller
      * @param ArticleRequest $request
      * @return Response
      */
-    public function createArticle(ArticleRequest $request)
+    public function createArticle(ArticleRequest $request): Response
     {
         // リクエストボディを取得
         $validated = $request->validated();
 
-        $article = ArticleFactory::createInstance($id, $validated);
+        $article = new Article(
+            null,
+            new ArticleTitle($validated['title']),
+            new ArticleType($validated['type']),
+            new ArticleContent($validated['content'])
+        );
 
-        $this->articleRepository->createEntity($article);
+        $this->articleRepository->create($article);
 
-        return response()
-            ->view('article.article-list', $article)
+        return response()->view('article.article-list', $article)
             ->setStatusCode(200);
     }
 
@@ -96,16 +106,22 @@ final class ArticleController extends Controller
      * 記事を更新します．
      *
      * @param ArticleRequest $request
-     * @param ArticleId      $id
+     * @param ArticleId      $articleId
      * @return Response
      */
-    public function updateArticle(ArticleRequest $request, ArticleId $id)
+    public function updateArticle(ArticleRequest $request, ArticleId $articleId): Response
     {
-        // リクエストボディを取得
         $validated = $request->validated();
 
-        // 更新
-        $this->articleRepository->updateEntity($article);
+        $article = new Article(
+            $articleId,
+            new ArticleTitle($validated['title']),
+            new ArticleType($validated['type']),
+            new ArticleContent($validated['content'])
+        );
+
+        $this->articleRepository
+            ->update($article);
 
         return response()
             ->setStatusCode(200);
@@ -114,15 +130,17 @@ final class ArticleController extends Controller
     /**
      * 記事を削除します．
      *
-     * @param ArticleId $id
+     * @param ArticleId $articleId
      * @return Response
      */
-    public function deleteArticle(ArticleId $id)
+    public function deleteArticle(ArticleId $articleId)
     {
-        // 削除
-        $this->articleRepository->deleteEntity($article);
+        $article = $this->articleRepository
+            ->findOneById($articleId);
 
-        return response()
-            ->setStatusCode(200);
+        $this->articleRepository
+            ->delete($article);
+
+        return response()->setStatusCode(200);
     }
 }
