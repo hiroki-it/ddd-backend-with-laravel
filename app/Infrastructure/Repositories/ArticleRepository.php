@@ -21,7 +21,7 @@ final class ArticleRepository extends Repository implements DomainRepository
      *
      * @var ArticleDTO
      */
-    private ArticleDTO $articleDto;
+    private ArticleDTO $articleDTO;
 
     /**
      * コンストラクタインジェクション
@@ -35,24 +35,46 @@ final class ArticleRepository extends Repository implements DomainRepository
 
     /**
      * @param ArticleId $articleId
-     * @return Collection
+     * @return Article
      */
-    public function findOneById(ArticleId $articleId): Collection
+    public function findOneById(ArticleId $articleId): Article
     {
-        return $this->articleDto
+        $articleCollection = $this->articleDTO
             ->find($articleId);
+
+        $articles = [];
+        foreach ($articleCollection as $articleData)
+            $articles = new Article(
+                $articleData->id(),
+                $articleData->title(),
+                $articleData->type(),
+                $articleData->content()
+            );
+
+        return $articles;
     }
 
     /**
      * @param ArticleCriteria $criteria
-     * @return Collection
+     * @return Article
      */
-    public function findAllByCriteria(ArticleCriteria $criteria): Collection
+    public function findAllByCriteria(ArticleCriteria $criteria): Article
     {
-        return $this->articleDto
+        $articleCollection =  $this->articleDTO
             ->sortBy($criteria->order())
             ->take($criteria->limit())
             ->all();
+
+        $articles = [];
+        foreach ($articleCollection as $articleData)
+            $articles = new Article(
+                $articleData->id(),
+                $articleData->title(),
+                $articleData->type(),
+                $articleData->content()
+            );
+
+        return $articles;
     }
 
     /**
@@ -61,7 +83,7 @@ final class ArticleRepository extends Repository implements DomainRepository
      */
     public function create(Article $article): void
     {
-        $this->articleDto
+        $this->articleDTO
             ->create([
                 'id'      => $article->id(),
                 'title'   => $article->title(),
@@ -76,7 +98,7 @@ final class ArticleRepository extends Repository implements DomainRepository
      */
     public function update(Article $article): void
     {
-        $this->articleDto
+        $this->articleDTO
             ->fill([
                 'id'      => $article->id(),
                 'title'   => $article->title(),
@@ -91,7 +113,7 @@ final class ArticleRepository extends Repository implements DomainRepository
      */
     public function delete(Article $article): void
     {
-        $this->articleDto
+        $this->articleDTO
             ->destroy($article->id());
     }
 }
