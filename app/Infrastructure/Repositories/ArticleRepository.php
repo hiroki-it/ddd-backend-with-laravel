@@ -41,12 +41,12 @@ final class ArticleRepository extends Repository implements DomainRepository
         $articleDTO = $this->articleDTO
             ->find($articleId);
 
-            return new Article(
-                $articleDTO->id(),
-                $articleDTO->title(),
-                $articleDTO->type(),
-                $articleDTO->content()
-            );
+        return new Article(
+            $articleDTO->id(),
+            $articleDTO->title(),
+            $articleDTO->type(),
+            $articleDTO->content()
+        );
     }
 
     /**
@@ -100,13 +100,16 @@ final class ArticleRepository extends Repository implements DomainRepository
      */
     public function create(Article $article): void
     {
-        $this->articleDTO
-            ->create([
-                'id'      => $article->id(),
-                'title'   => $article->title(),
-                'type'    => $article->type(),
-                'content' => $article->content()
-            ]);
+        DB::transaction(function () use ($article) {
+
+            $this->articleDTO
+                ->create([
+                    'id'      => $article->id(),
+                    'title'   => $article->title(),
+                    'type'    => $article->type(),
+                    'content' => $article->content()
+                ]);
+        });
     }
 
     /**
@@ -115,13 +118,16 @@ final class ArticleRepository extends Repository implements DomainRepository
      */
     public function update(Article $article): void
     {
-        $this->articleDTO
-            ->fill([
-                'id'      => $article->id(),
-                'title'   => $article->title(),
-                'type'    => $article->type(),
-                'content' => $article->content()
-            ])->save();
+        DB::transaction(function () use ($article) {
+
+            $this->articleDTO
+                ->fill([
+                    'id'      => $article->id(),
+                    'title'   => $article->title(),
+                    'type'    => $article->type(),
+                    'content' => $article->content()
+                ])->save();
+        });
     }
 
     /**
@@ -133,6 +139,9 @@ final class ArticleRepository extends Repository implements DomainRepository
         $articleDTO = $this->articleDTO
             ->find($article->id());
 
-        $articleCollection->delete();
+        DB::transaction(function () use ($articleDTO) {
+
+            $articleDTO->delete();
+        });
     }
 }
