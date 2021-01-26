@@ -18,7 +18,7 @@ final class Article extends Entity
      *
      * @var ArticleId
      */
-    private ArticleId $id;
+    private ArticleId $articleId;
 
     /**
      * 記事タイトルクラス
@@ -44,14 +44,14 @@ final class Article extends Entity
     /**
      * コンストラクタインジェクション
      *
-     * @param ArticleId      $id
+     * @param ArticleId      $articleId
      * @param ArticleTitle   $title
      * @param ArticleType    $type
      * @param ArticleContent $content
      */
-    public function __construct(ArticleId $id, ArticleTitle $title, ArticleType $type, ArticleContent $content)
+    public function __construct(ArticleId $articleId, ArticleTitle $title, ArticleType $type, ArticleContent $content)
     {
-        $this->id = $id;
+        $this->articleId = $articleId;
         $this->title = $title;
         $this->type = $type;
         $this->content = $content;
@@ -64,7 +64,7 @@ final class Article extends Entity
      */
     public function id(): ArticleId
     {
-        return $this->id;
+        return $this->articleId;
     }
 
     /**

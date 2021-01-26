@@ -29,7 +29,7 @@ final class ArticleRepository extends Repository implements DomainRepository
      */
     public function __construct(ArticleDTO $articleDto)
     {
-        $this->articleDto = $articleDto;
+        $this->articleDTO = $articleDto;
     }
 
     /**
