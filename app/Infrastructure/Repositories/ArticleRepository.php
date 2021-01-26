@@ -130,7 +130,7 @@ final class ArticleRepository extends Repository implements DomainRepository
      */
     public function delete(Article $article): void
     {
-        $articleCollection = $this->articleDTO
+        $articleDTO = $this->articleDTO
             ->find($article->id());
 
         $articleCollection->delete();
