@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Auth;
+namespace App\Infrastructure\DTO;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,7 +12,7 @@ use Laravel\Passport\HasApiTokens;
 /**
  * 認証用ユーザクラス
  */
-class User extends Authenticatable
+class UserDTO extends Authenticatable
 {
     use HasApiTokens, Notifiable, SoftDeletes;
 

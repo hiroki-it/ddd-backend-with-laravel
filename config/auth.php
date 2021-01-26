@@ -67,8 +67,8 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Domain\Auth\User::class,
+          'driver' => 'eloquent',
+          'model' => App\Infrastructure\DTO\UserDTO::class,
         ],
 
         // 'users' => [
