@@ -13,16 +13,31 @@ use App\Domain\ValueObject\Id\ArticleId;
 final class ArticleCriteria extends Criteria
 {
     /**
+     * @var ArticleId
+     */
+    private ArticleId $articleId;
+
+    /**
      * コンストラクタインジェクション
      *
-     * @param ArticleId $id
+     * @param ArticleId $articleId
      * @param string    $limit
      * @param string    $order
      */
-    public function __construct(ArticleId $id, string $limit = CriteriaConstant::DEFAULT_LIMIT,  string $order = CriteriaConstant::DEFAULT_ORDER)
+    public function __construct(ArticleId $articleId, string $limit = CriteriaConstant::DEFAULT_LIMIT,  string $order = CriteriaConstant::DEFAULT_ORDER)
     {
-        $this->id = $id;
+        $this->articleId = $articleId;
         $this->limit = $limit;
         $this->order = $order;
+    }
+
+    /**
+     * 記事IDクラスを返却します．
+     *
+     * @return ArticleId
+     */
+    public function id(): ArticleId
+    {
+        return $this->articleId;
     }
 }

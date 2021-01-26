@@ -15,13 +15,6 @@ abstract class Criteria
     use UnsupportedMagicMethodTrait;
 
     /**
-     * ID
-     *
-     * @var Id
-     */
-    protected Id $id;
-
-    /**
      * 件数
      *
      * @var string
@@ -34,16 +27,6 @@ abstract class Criteria
      * @var string
      */
     protected string $order;
-
-    /**
-     * IDクラスを返却します．
-     *
-     * @return Id
-     */
-    public function id(): Id
-    {
-        return $this->id;
-    }
 
     /**
      * 件数を返却します．
