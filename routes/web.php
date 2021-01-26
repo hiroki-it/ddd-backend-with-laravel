@@ -16,13 +16,10 @@
  *
  * RouteServiceProviderのboot()でパターンフィルタを定義している．
  */
-Route::namespace('Article')->group(function() {
+Route::group(['namespace' => 'Article'], (function() {
     Route::get('/article', 'ArticleController@index');
-    Route::get('/article/{id}', 'ArticleController@findArticle')
-        ->middleware('article.id.converter');
+    Route::get('/article/{id}', 'ArticleController@findArticle')->middleware('article.id.converter');
     Route::post('/article', 'ArticleController@createArticle');
-    Route::put('/article/{id}', 'ArticleController@updateArticle')
-        ->middleware('article.id.converter');
-    Route::delete('/article/{id}', 'ArticleController@deleteArticle')
-        ->middleware('article.id.converter');
-});
+    Route::put('/article/{id}', 'ArticleController@updateArticle')->middleware('article.id.converter');
+    Route::delete('/article/{id}', 'ArticleController@deleteArticle')->middleware('article.id.converter');
+}));
