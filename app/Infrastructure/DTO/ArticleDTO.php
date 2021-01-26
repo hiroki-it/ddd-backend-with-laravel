@@ -14,4 +14,14 @@ use App\Domain\ValueObject\Type\ArticleType;
  */
 final class ArticleDTO extends DTO
 {
+    /**
+     * 更新可能なカラム
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'type',
+        'content',
+    ];
 }
