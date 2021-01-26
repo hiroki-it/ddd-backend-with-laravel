@@ -38,16 +38,34 @@ final class ArticleRepository extends Repository implements DomainRepository
      */
     public function findOneById(ArticleId $articleId): Article
     {
-        $articleCollection = $this->articleDTO
+        $articleDTO = $this->articleDTO
             ->find($articleId);
 
+            return new Article(
+                $articleDTO->id(),
+                $articleDTO->title(),
+                $articleDTO->type(),
+                $articleDTO->content()
+            );
+    }
+
+    /**
+     * READ
+     *
+     * @return array
+     */
+    public function findAll(): array
+    {
+        $articleDTOs = $this->articleDTO
+            ->all();
+
         $articles = [];
-        foreach ($articleCollection as $articleData)
+        foreach ($articleDTOs as $articleDTO)
             $articles = new Article(
-                $articleData->id(),
-                $articleData->title(),
-                $articleData->type(),
-                $articleData->content()
+                $articleDTO->id(),
+                $articleDTO->title(),
+                $articleDTO->type(),
+                $articleDTO->content()
             );
 
         return $articles;
@@ -55,9 +73,9 @@ final class ArticleRepository extends Repository implements DomainRepository
 
     /**
      * @param ArticleCriteria $criteria
-     * @return Article
+     * @return array
      */
-    public function findAllByCriteria(ArticleCriteria $criteria): Article
+    public function findAllByCriteria(ArticleCriteria $criteria): array
     {
         $articleCollection = $this->articleDTO
             ->sortBy($criteria->order())

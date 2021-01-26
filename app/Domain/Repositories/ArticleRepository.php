@@ -7,7 +7,6 @@ namespace App\Domain\Repositories;
 use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
 use App\Domain\ValueObject\Id\ArticleId;
-use Illuminate\Database\Eloquent\Collection;
 
 /**
  * 記事リポジトリインターフェース
@@ -24,12 +23,19 @@ interface ArticleRepository extends Repository
     function findOneById(ArticleId $articleId): Article;
 
     /**
+     * READ：記事エンティティを全て読み出します．
+     *
+     * @return array
+     */
+    function findAll(): array;
+
+    /**
      * READ：指定した条件の記事エンティティを全て読み出します．
      *
      * @param ArticleCriteria $criteria
-     * @return Article
+     * @return array
      */
-    function findAllByCriteria(ArticleCriteria $criteria): Article;
+    function findAllByCriteria(ArticleCriteria $criteria): array;
 
     /**
      * CREATE：記事エンティティを作成します．
