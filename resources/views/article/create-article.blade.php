@@ -33,7 +33,7 @@
                                   placeholder="本文を入力してください。"></textarea>
                     </div>
 
-                    @if (count($errors)) <!-- エラーメッセージ -->
+                @if (count($errors)) <!-- エラーメッセージ -->
                     <div>
                         @foreach ($errors->all() as $error)
                             <p class="alert alert-danger" role="alert">{{ $error }}</p>

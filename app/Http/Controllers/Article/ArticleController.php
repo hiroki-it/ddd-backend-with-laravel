@@ -59,7 +59,7 @@ final class ArticleController extends Controller
         $article = $this->articleRepository
             ->findAllByCriteria($criteria);
 
-        return response()->view('article.article-list', $article)
+        return response()->view('article.find-article', $article)
             ->setStatusCode(200);
     }
 
@@ -74,7 +74,7 @@ final class ArticleController extends Controller
         $article = $this->articleRepository
             ->findOneById($articleId);
 
-        return response()->view('article.article-list', $article)
+        return response()->view('article.show-article', $article)
             ->setStatusCode(200);
     }
 
@@ -98,7 +98,7 @@ final class ArticleController extends Controller
 
         $this->articleRepository->create($article);
 
-        return response()->view('article.article-list', $article)
+        return response()->view('article.create-article', $article)
             ->setStatusCode(200);
     }
 
