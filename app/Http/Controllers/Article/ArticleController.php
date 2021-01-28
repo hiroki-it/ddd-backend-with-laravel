@@ -9,6 +9,7 @@ use App\Domain\Repositories\ArticleRepository;
 use App\Domain\ValueObject\Id\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 
 /**
@@ -34,13 +35,13 @@ final class ArticleController extends Controller
     }
 
     /**
-     * 記事を検索します．
+     * 記事の一覧画面を表示します．
      *
      * @param ArticleRequest $request
      * @param ArticleId      $articleId
      * @return Response
      */
-    public function findArticle(ArticleRequest $request, ArticleId $articleId): Response
+    public function showArticleListed(ArticleRequest $request, ArticleId $articleId): Response
     {
         $validated = $request->validated();
 
@@ -53,39 +54,60 @@ final class ArticleController extends Controller
         $article = $this->articleRepository
             ->findAllByCriteria($criteria);
 
-        return response()->view('article.find-article', $article)
-            ->setStatusCode(200);
+        return response()->view('article.article-listed', ['article' => $article], 200);
     }
 
     /**
-     * 指定した記事を表示します．
+     * 記事の作成画面を表示します．
+     *
+     * @return Response
+     */
+    public function showArticleCreated(): Response
+    {
+        return response()->view('article.article-created', 200);
+    }
+
+    /**
+     * 記事の詳細画面を表示します．
      *
      * @param ArticleId $articleId
      * @return Response
      */
-    public function showArticle(ArticleId $articleId): Response
+    public function showArticleDetailed(ArticleId $articleId): Response
     {
         $article = $this->articleRepository
             ->findOneById($articleId);
 
-        return response()->view('article.show-article', $article)
-            ->setStatusCode(200);
+        return response()->view('article.article-detailed', ['article' => $article], 200);
+    }
+
+    /**
+     * 記事の更新画面を表示します．
+     *
+     * @param ArticleId $articleId
+     * @return Response
+     */
+    public function showArticleUpdated(ArticleId $articleId): Response
+    {
+        $article = $this->articleRepository
+            ->findOneById($articleId);
+
+        return response()->view('article.article-updated', ['article' => $article], 200);
     }
 
     /**
      * 記事を作成します．
      *
      * @param ArticleRequest $request
-     * @return Response
+     * @return RedirectResponse
      */
-    public function createArticle(ArticleRequest $request): Response
+    public function createArticle(ArticleRequest $request): RedirectResponse
     {
         $validated = $request->validated();
 
         $this->articleRepository->create($validated);
 
-        return response()->view('article.find-article')
-            ->setStatusCode(200);
+        return redirect('article.article-list', 302)->with(['success' => '記事を作成しました']);
     }
 
     /**
@@ -93,26 +115,25 @@ final class ArticleController extends Controller
      *
      * @param ArticleRequest $request
      * @param ArticleId      $articleId
-     * @return Response
+     * @return RedirectResponse
      */
-    public function updateArticle(ArticleRequest $request, ArticleId $articleId): Response
+    public function updateArticle(ArticleRequest $request, ArticleId $articleId): RedirectResponse
     {
         $validated = $request->validated();
 
         $this->articleRepository
             ->update($validated, $articleId);
 
-        return response()->view('article.find-article')
-            ->setStatusCode(200);
+        return redirect('article.article-listed', 302)->with(['success', '記事を更新しました']);
     }
 
     /**
      * 記事を削除します．
      *
      * @param ArticleId $articleId
-     * @return Response
+     * @return RedirectResponse
      */
-    public function deleteArticle(ArticleId $articleId)
+    public function deleteArticle(ArticleId $articleId): RedirectResponse
     {
         $article = $this->articleRepository
             ->findOneById($articleId);
@@ -120,7 +141,6 @@ final class ArticleController extends Controller
         $this->articleRepository
             ->delete($article);
 
-        return response()->view('article.find-article')
-            ->setStatusCode(200);
+        return redirect('article.article-listed', 302)->with(['success', '記事を削除しました']);
     }
 }
