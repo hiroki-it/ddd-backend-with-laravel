@@ -6,8 +6,11 @@ namespace App\Infrastructure\Repositories;
 
 use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
+use App\Domain\Entity\Article\ArticleContent;
+use App\Domain\Entity\Article\ArticleTitle;
 use App\Domain\Repositories\ArticleRepository as DomainRepository;
 use App\Domain\ValueObject\Id\ArticleId;
+use App\Domain\ValueObject\Type\ArticleType;
 use App\Infrastructure\DTO\ArticleDTO;
 
 /**
@@ -95,16 +98,22 @@ final class ArticleRepository extends Repository implements DomainRepository
     }
 
     /**
-     * @param Article $article
+     * @param array $validated
      * @return void
      */
-    public function create(Article $article): void
+    public function create(array $validated): void
     {
+        $article = new Article(
+            null,
+            new ArticleTitle($validated['title']),
+            new ArticleType($validated['type']),
+            new ArticleContent($validated['content'])
+        );
+
         DB::transaction(function () use ($article) {
 
             $this->articleDTO
                 ->create([
-                    'id'      => $article->id(),
                     'title'   => $article->title(),
                     'type'    => $article->type(),
                     'content' => $article->content()
@@ -113,16 +122,23 @@ final class ArticleRepository extends Repository implements DomainRepository
     }
 
     /**
-     * @param Article $article
+     * @param array     $validated
+     * @param ArticleId $articleId
      * @return void
      */
-    public function update(Article $article): void
+    public function update(array $validated, ArticleId $articleId): void
     {
+        $article = new Article(
+            $articleId,
+            new ArticleTitle($validated['title']),
+            new ArticleType($validated['type']),
+            new ArticleContent($validated['content'])
+        );
+
         DB::transaction(function () use ($article) {
 
             $this->articleDTO
                 ->fill([
-                    'id'      => $article->id(),
                     'title'   => $article->title(),
                     'type'    => $article->type(),
                     'content' => $article->content()

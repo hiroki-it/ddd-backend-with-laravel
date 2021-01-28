@@ -5,20 +5,14 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Article;
 
 use App\Criteria\ArticleCriteria;
-use App\Domain\Entity\Article\Article;
-use App\Domain\Entity\Article\ArticleContent;
-use App\Domain\Entity\Article\ArticleTitle;
 use App\Domain\Repositories\ArticleRepository;
 use App\Domain\ValueObject\Id\ArticleId;
-use App\Domain\ValueObject\Type\ArticleType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Response;
 
 /**
  * 記事コントローラクラス
- *
- * NOTE: ドメイン層のインターフェースを介してエンティティに依存するようにするため，ここでインスタンスを生成しない．
  */
 final class ArticleController extends Controller
 {
@@ -86,15 +80,9 @@ final class ArticleController extends Controller
      */
     public function createArticle(ArticleRequest $request): Response
     {
-        // リクエストボディを取得
         $validated = $request->validated();
 
-        $article = new Article(
-            null,
-            new ArticleTitle($validated['title']),
-            new ArticleType($validated['type']),
-            new ArticleContent($validated['content'])
-        );
+        $this->articleRepository->create($validated);
 
         return response()->view('article.find-article')
             ->setStatusCode(200);
@@ -111,15 +99,8 @@ final class ArticleController extends Controller
     {
         $validated = $request->validated();
 
-        $article = new Article(
-            $articleId,
-            new ArticleTitle($validated['title']),
-            new ArticleType($validated['type']),
-            new ArticleContent($validated['content'])
-        );
-
         $this->articleRepository
-            ->update($article);
+            ->update($validated, $articleId);
 
         return response()->view('article.find-article')
             ->setStatusCode(200);

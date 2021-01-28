@@ -40,18 +40,19 @@ interface ArticleRepository extends Repository
     /**
      * CREATE：記事エンティティを作成します．
      *
-     * @param Article $article
+     * @param array $validated
      * @return void
      */
-    function create(Article $article): void;
+    function create(array $validated): void;
 
     /**
      * UPDATE：記事エンティティを更新します．
      *
-     * @param Article $article
+     * @param array     $validated
+     * @param ArticleId $articleId
      * @return void
      */
-    function update(Article $article): void;
+    function update(array $validated, ArticleId $articleId): void;
 
     /**
      * DELETE：記事エンティティを削除します．
