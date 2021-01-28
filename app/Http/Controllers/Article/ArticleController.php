@@ -96,9 +96,7 @@ final class ArticleController extends Controller
             new ArticleContent($validated['content'])
         );
 
-        $this->articleRepository->create($article);
-
-        return response()->view('article.create-article', $article)
+        return response()->view('article.find-article')
             ->setStatusCode(200);
     }
 
@@ -123,7 +121,8 @@ final class ArticleController extends Controller
         $this->articleRepository
             ->update($article);
 
-        return response()->setStatusCode(200);
+        return response()->view('article.find-article')
+            ->setStatusCode(200);
     }
 
     /**
@@ -140,6 +139,7 @@ final class ArticleController extends Controller
         $this->articleRepository
             ->delete($article);
 
-        return response()->setStatusCode(200);
+        return response()->view('article.find-article')
+            ->setStatusCode(200);
     }
 }
