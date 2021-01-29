@@ -18,7 +18,7 @@ final class Article extends Entity
      *
      * @var ArticleId|null
      */
-    private ArticleId $articleId;
+    private ArticleId $id;
 
     /**
      * 記事タイトルクラス
@@ -51,7 +51,7 @@ final class Article extends Entity
      */
     public function __construct(ArticleId $articleId, ArticleTitle $title, ArticleType $type, ArticleContent $content)
     {
-        $this->articleId = $articleId;
+        $this->id = $articleId;
         $this->title = $title;
         $this->type = $type;
         $this->content = $content;
@@ -64,7 +64,7 @@ final class Article extends Entity
      */
     public function id(): ArticleId
     {
-        return $this->articleId;
+        return $this->id;
     }
 
     /**
