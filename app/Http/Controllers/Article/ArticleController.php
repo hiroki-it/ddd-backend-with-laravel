@@ -5,8 +5,12 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Article;
 
 use App\Criteria\ArticleCriteria;
+use App\Domain\Entity\Article\Article;
+use App\Domain\Entity\Article\ArticleContent;
+use App\Domain\Entity\Article\ArticleTitle;
 use App\Domain\Repositories\ArticleRepository;
 use App\Domain\ValueObject\Id\ArticleId;
+use App\Domain\ValueObject\Type\ArticleType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\RedirectResponse;
@@ -105,7 +109,14 @@ final class ArticleController extends Controller
     {
         $validated = $request->validated();
 
-        $this->articleRepository->create($validated);
+        $article = new Article(
+            null,
+            new ArticleTitle($validated['title']),
+            new ArticleType($validated['type']),
+            new ArticleContent($validated['content'])
+        );
+
+        $this->articleRepository->create($article);
 
         return redirect('article.article-list', 302)->with(['success' => '記事を作成しました']);
     }
@@ -121,8 +132,15 @@ final class ArticleController extends Controller
     {
         $validated = $request->validated();
 
+        $article = new Article(
+            $articleId,
+            new ArticleTitle($validated['title']),
+            new ArticleType($validated['type']),
+            new ArticleContent($validated['content'])
+        );
+
         $this->articleRepository
-            ->update($validated, $articleId);
+            ->update($article);
 
         return redirect('article.article-listed', 302)->with(['success', '記事を更新しました']);
     }

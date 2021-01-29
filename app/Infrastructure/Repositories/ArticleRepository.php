@@ -6,12 +6,10 @@ namespace App\Infrastructure\Repositories;
 
 use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
-use App\Domain\Entity\Article\ArticleContent;
-use App\Domain\Entity\Article\ArticleTitle;
 use App\Domain\Repositories\ArticleRepository as DomainRepository;
 use App\Domain\ValueObject\Id\ArticleId;
-use App\Domain\ValueObject\Type\ArticleType;
 use App\Infrastructure\DTO\ArticleDTO;
+use Illuminate\Support\Facades\DB;
 
 /**
  * 記事リポジトリ実装クラス
@@ -98,18 +96,11 @@ final class ArticleRepository extends Repository implements DomainRepository
     }
 
     /**
-     * @param array $validated
+     * @param Article $article
      * @return void
      */
-    public function create(array $validated): void
+    public function create(Article $article): void
     {
-        $article = new Article(
-            null,
-            new ArticleTitle($validated['title']),
-            new ArticleType($validated['type']),
-            new ArticleContent($validated['content'])
-        );
-
         DB::transaction(function () use ($article) {
 
             $this->articleDTO
@@ -122,27 +113,23 @@ final class ArticleRepository extends Repository implements DomainRepository
     }
 
     /**
-     * @param array     $validated
-     * @param ArticleId $articleId
+     * @param Article $article
      * @return void
      */
-    public function update(array $validated, ArticleId $articleId): void
+    public function update(Article $article): void
     {
-        $article = new Article(
-            $articleId,
-            new ArticleTitle($validated['title']),
-            new ArticleType($validated['type']),
-            new ArticleContent($validated['content'])
-        );
+        $articleDTO = $this->articleDTO
+            ->find($article->id());
 
-        DB::transaction(function () use ($article) {
+        $articleDTO->fill([
+            'title'   => $article->title(),
+            'type'    => $article->type(),
+            'content' => $article->content()
+        ]);
 
-            $this->articleDTO
-                ->fill([
-                    'title'   => $article->title(),
-                    'type'    => $article->type(),
-                    'content' => $article->content()
-                ])->save();
+        DB::transaction(function () use ($articleDTO) {
+
+            $articleDTO->save();
         });
     }
 
