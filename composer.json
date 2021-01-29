@@ -12,7 +12,8 @@
         "bensampo/laravel-enum": "1.38",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
-        "laravel/passport": "^8.0"
+        "laravel/passport": "^8.0",
+        "lcobucci/jwt": "3.3.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",
