@@ -12,13 +12,19 @@ use App\Domain\ValueObject\Id;
 final class ArticleId extends Id
 {
     /**
+     * 記事ID
+     *
+     * @var string
+     */
+    private string $id;
+
+    /**
      * コンストラクタインジェクション
      *
-     * @param string $value
-     * @throws InvalidEnumMemberException
+     * @param string $id
      */
-    public function __construct(string $value)
+    public function __construct(string $id)
     {
-        parent::__construct($value);
+        $this->id = $id;
     }
 }
