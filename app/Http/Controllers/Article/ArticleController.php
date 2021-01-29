@@ -41,13 +41,13 @@ final class ArticleController extends Controller
     /**
      * 記事の一覧画面を表示します．
      *
-     * @param ArticleRequest $request
+     * @param ArticleRequest $articleRequest
      * @param ArticleId      $articleId
      * @return Response
      */
-    public function showArticleListed(ArticleRequest $request, ArticleId $articleId): Response
+    public function showArticleListed(ArticleRequest $articleRequest, ArticleId $articleId): Response
     {
-        $validated = $request->validated();
+        $validated = $articleRequest->validated();
 
         $criteria = new ArticleCriteria(
             $articleId,
@@ -102,12 +102,12 @@ final class ArticleController extends Controller
     /**
      * 記事を作成します．
      *
-     * @param ArticleRequest $request
+     * @param ArticleRequest $articleRequest
      * @return RedirectResponse
      */
-    public function createArticle(ArticleRequest $request): RedirectResponse
+    public function createArticle(ArticleRequest $articleRequest): RedirectResponse
     {
-        $validated = $request->validated();
+        $validated = $articleRequest->validated();
 
         $article = new Article(
             null,
@@ -124,13 +124,13 @@ final class ArticleController extends Controller
     /**
      * 記事を更新します．
      *
-     * @param ArticleRequest $request
+     * @param ArticleRequest $articleRequest
      * @param ArticleId      $articleId
      * @return RedirectResponse
      */
-    public function updateArticle(ArticleRequest $request, ArticleId $articleId): RedirectResponse
+    public function updateArticle(ArticleRequest $articleRequest, ArticleId $articleId): RedirectResponse
     {
-        $validated = $request->validated();
+        $validated = $articleRequest->validated();
 
         $article = new Article(
             $articleId,
