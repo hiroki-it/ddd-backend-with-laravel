@@ -6,10 +6,10 @@ namespace App\Http\Controllers\Article;
 
 use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
-use App\Domain\Entity\Article\ArticleContent;
-use App\Domain\Entity\Article\ArticleTitle;
 use App\Domain\Repositories\ArticleRepository;
+use App\Domain\ValueObject\Article\ArticleContent;
 use App\Domain\ValueObject\Article\ArticleId;
+use App\Domain\ValueObject\Article\ArticleTitle;
 use App\Domain\ValueObject\Article\ArticleType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
