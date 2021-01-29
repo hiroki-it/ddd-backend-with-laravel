@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace App\Domain\Entity\Article;
 
 use App\Domain\Entity\Entity;
+use App\Domain\ValueObject\Article\ArticleContent;
 use App\Domain\ValueObject\Article\ArticleId;
+use App\Domain\ValueObject\Article\ArticleTitle;
 use App\Domain\ValueObject\Article\ArticleType;
 
 /**
- * 記事クラス（ルートエンティティ）
+ * 記事クラス
  */
 final class Article extends Entity
 {

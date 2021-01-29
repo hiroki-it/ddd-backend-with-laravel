@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Entity\Article;
+namespace App\Domain\ValueObject\Article;
 
 use App\Domain\Entity\Entity;
 
