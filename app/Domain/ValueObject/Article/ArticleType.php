@@ -1,16 +1,21 @@
 <?php
-
 declare(strict_types=1);
 
-namespace App\Domain\ValueObject\Id;
+namespace App\Domain\ValueObject\Article;
 
+use App\Domain\ValueObject\Type;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
- * 記事IDクラス
+ * 記事区分クラス
  */
-final class ArticleId extends Id
+final class ArticleType extends Type
 {
+    /**
+     * 記事区分
+     */
+    private const PHP = '1';
+
     /**
      * コンストラクタインジェクション
      *

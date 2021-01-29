@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Domain\Entity\Article;
 
 use App\Domain\Entity\Entity;
-use App\Domain\ValueObject\Id\ArticleId;
-use App\Domain\ValueObject\Type\ArticleType;
+use App\Domain\ValueObject\Article\ArticleId;
+use App\Domain\ValueObject\Article\ArticleType;
 
 /**
  * 記事クラス（ルートエンティティ）

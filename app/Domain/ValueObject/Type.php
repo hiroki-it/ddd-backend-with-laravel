@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\ValueObject\Type;
+namespace App\Domain\ValueObject;
 
 use App\Traits\UnsupportedMagicMethodTrait;
 use BenSampo\Enum\Enum;
