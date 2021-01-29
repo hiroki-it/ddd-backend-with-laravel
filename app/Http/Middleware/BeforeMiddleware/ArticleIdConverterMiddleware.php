@@ -10,7 +10,7 @@ use Closure;
 /**
  * 記事ID変換ミドルウェアクラス
  */
-class ArticleIdConverterMiddleware extends IdConverterMiddleware
+final class ArticleIdConverterMiddleware extends IdConverterMiddleware
 {
     /**
      * ArticleIdConverter::convertを実行します．

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ArticleRequest extends FormRequest
+final class ArticleRequest extends FormRequest
 {
     /**
      * ユーザーがこのリクエストの権限を持っているかを判定します．
