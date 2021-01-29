@@ -5,6 +5,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * 記事リクエストクラス
+ */
 final class ArticleRequest extends FormRequest
 {
     /**
