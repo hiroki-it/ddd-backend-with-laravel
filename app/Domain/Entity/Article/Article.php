@@ -18,7 +18,7 @@ final class Article extends Entity
     /**
      * 記事IDクラス
      *
-     * @var ArticleId|null
+     * @var ArticleId
      */
     private ArticleId $id;
 

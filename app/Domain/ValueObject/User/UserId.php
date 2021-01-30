@@ -14,7 +14,7 @@ final class UserId extends Id
     /**
      * ユーザID
      *
-     * @var string
+     * @var string|null
      */
     private string $id;
 
