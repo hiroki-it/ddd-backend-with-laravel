@@ -2,16 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\DTO;
-
-use App\Traits\UnsupportedMagicMethodTrait;
-use Illuminate\Database\Eloquent\Model;
+namespace App\Traits;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * DTO抽象クラス
+ * DTOトレイト
  */
-abstract class DTO extends Model
+trait DTOTrait
 {
     use SoftDeletes, UnsupportedMagicMethodTrait;
 
