@@ -7,7 +7,7 @@ namespace App\Infrastructure\DTO;
 /**
  * 記事DTOクラス
  */
-final class ArticleDTO extends DTO
+final class Article extends DTO
 {
     /**
      * 更新可能なカラム
