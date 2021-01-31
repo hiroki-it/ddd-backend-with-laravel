@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Domain\Entity\User;
 
 use App\Domain\Entity\Entity;
-use App\Domain\ValueObject\PhoneNumber;
 use App\Domain\ValueObject\User\UserEmailAddress;
 use App\Domain\ValueObject\User\UserId;
 use App\Domain\ValueObject\User\UserName;
 use App\Domain\ValueObject\User\UserPassword;
+use App\Domain\ValueObject\User\UserPhoneNumber;
 
 /**
  * ユーザクラス
@@ -40,9 +40,9 @@ final class User extends Entity
     /**
      * ユーザ電話番号
      *
-     * @var PhoneNumber
+     * @var UserPhoneNumber
      */
-    private PhoneNumber $phoneNumber;
+    private UserPhoneNumber $phoneNumber;
 
     /**
      * ユーザ電話番号
@@ -57,10 +57,10 @@ final class User extends Entity
      * @param UserId           $id
      * @param UserName         $name
      * @param UserEmailAddress $emailAddress
-     * @param PhoneNumber      $phoneNumber
+     * @param UserPhoneNumber      $phoneNumber
      * @param UserPassword     $password
      */
-    public function __construct(UserId $id, UserName $name, UserEmailAddress $emailAddress, PhoneNumber $phoneNumber, UserPassword $password)
+    public function __construct(UserId $id, UserName $name, UserEmailAddress $emailAddress, UserPhoneNumber $phoneNumber, UserPassword $password)
     {
         $this->id = $id;
         $this->name = $name;
@@ -102,9 +102,9 @@ final class User extends Entity
     /**
      * ユーザ電話番号クラスを返却します．
      *
-     * @return PhoneNumber
+     * @return UserPhoneNumber
      */
-    public function phoneNumber(): PhoneNumber
+    public function phoneNumber(): UserPhoneNumber
     {
         return $this->phoneNumber;
     }
