@@ -110,7 +110,7 @@ final class ArticleController extends Controller
         $validated = $articleRequest->validated();
 
         $article = new Article(
-            null,
+            new ArticleId(null),
             new ArticleTitle($validated['title']),
             new ArticleType($validated['type']),
             new ArticleContent($validated['content'])
