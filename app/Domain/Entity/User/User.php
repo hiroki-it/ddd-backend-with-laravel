@@ -16,21 +16,29 @@ use App\Domain\ValueObject\User\UserPassword;
 final class User extends Entity
 {
     /**
+     * ユーザID
+     *
      * @var UserId
      */
     private UserId $id;
 
     /**
+     * ユーザ名
+     *
      * @var UserName
      */
     private UserName $name;
 
     /**
+     * ユーザメールアドレス
+     *
      * @var UserEmailAddress
      */
     private UserEmailAddress $emailAddress;
 
     /**
+     * ユーザ電話番号
+     *
      * @var UserPassword
      */
     private UserPassword $password;
@@ -82,7 +90,7 @@ final class User extends Entity
     }
 
     /**
-     * ユーザパスワードクラスを返却します．*
+     * ユーザパスワードクラスを返却します．
      *
      * @return UserPassword
      */
