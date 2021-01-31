@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 /**
  * リポジトリサービスプロバイダクラス
  */
-class RepositoriesServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * サービスコンテナにクラスをバインドします．
