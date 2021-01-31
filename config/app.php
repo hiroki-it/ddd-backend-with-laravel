@@ -163,7 +163,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         // アプリケーションサービスプロバイダー
-        App\Providers\AppServiceProvider::class,
         App\Providers\RepositoriesServiceProvider::class,
 
         // マクロサービスプロバイダー
