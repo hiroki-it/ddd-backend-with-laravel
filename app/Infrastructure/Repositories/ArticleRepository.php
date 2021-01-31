@@ -8,7 +8,7 @@ use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
 use App\Domain\Repositories\ArticleRepository as DomainRepository;
 use App\Domain\ValueObject\Article\ArticleId;
-use App\Infrastructure\DTO\ArticleDTO;
+use App\Infrastructure\DTO\Article as ArticleDTO;
 use Illuminate\Support\Facades\DB;
 
 /**
