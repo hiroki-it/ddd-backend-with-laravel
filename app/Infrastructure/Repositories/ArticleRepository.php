@@ -78,18 +78,18 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
      */
     public function findAllByCriteria(ArticleCriteria $criteria): array
     {
-        $articleCollection = $this->articleDTO
+        $userDTOs = $this->articleDTO
             ->sortBy($criteria->order())
             ->take($criteria->limit())
             ->all();
 
         $articles = [];
-        foreach ($articleCollection as $articleData)
+        foreach ($userDTOs as $userDTO)
             $articles = new Article(
-                $articleData->id(),
-                $articleData->title(),
-                $articleData->type(),
-                $articleData->content()
+                $userDTO->id(),
+                $userDTO->title(),
+                $userDTO->type(),
+                $userDTO->content()
             );
 
         return $articles;
