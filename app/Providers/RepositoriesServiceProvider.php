@@ -20,9 +20,14 @@ class RepositoriesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            'App\Domain\Repositories\ArticleRepository',
-            'App\Infrastructure\Repositories\ArticleRepository'
-        );
+        $binds = [
+            'App\Domain\Repositories\ArticleRepository' => 'App\Infrastructure\Repositories\ArticleRepository', // 記事リポジトリ
+            'App\Domain\Repositories\UserRepository'    => 'App\Infrastructure\Repositories\UserRepository' // ユーザリポジトリ
+        ];
+
+        foreach ($binds as $abstract => $concrete) {
+
+            $this->app->bind($abstract, $concrete);
+        }
     }
 }
