@@ -14,7 +14,7 @@ final class ArticleId extends Id
     /**
      * 記事ID
      *
-     * @var string|null
+     * @var string
      */
     private string $id;
 
