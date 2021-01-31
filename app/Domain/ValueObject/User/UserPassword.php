@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Domain\ValueObject\User;
 
-use App\Domain\ValueObject\Password;
+use App\Domain\ValueObject\ValueObject;
 
 /**
  * ユーザパスワードクラス
  */
-final class UserPassword extends Password
+final class UserPassword extends ValueObject
 {
     /**
      * ユーザパスワード

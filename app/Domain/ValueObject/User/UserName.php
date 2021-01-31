@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Domain\ValueObject\User;
 
-use App\Domain\ValueObject\Name;
+use App\Domain\ValueObject\ValueObject;
 
 /**
  * ユーザ名クラス
  */
-final class UserName extends Name
+final class UserName extends ValueObject
 {
     /**
      * ユーザ名

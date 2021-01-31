@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Domain\ValueObject\User;
 
-use App\Domain\ValueObject\EmailAddress;
+use App\Domain\ValueObject\ValueObject;
 
 /**
  * メールアドレスクラス
  */
-final class UserEmailAddress extends EmailAddress
+final class UserEmailAddress extends ValueObject
 {
     /**
      * メールアドレス

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Domain\ValueObject\User;
 
-use App\Domain\ValueObject\PhoneNumber;
+use App\Domain\ValueObject\ValueObject;
 
 /**
  * ユーザ電話番号クラス
  */
-final class UserPhoneNumber extends PhoneNumber
+final class UserPhoneNumber extends ValueObject
 {
     /**
      * ユーザ電話番号
