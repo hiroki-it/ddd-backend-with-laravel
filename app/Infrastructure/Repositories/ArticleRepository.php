@@ -6,7 +6,7 @@ namespace App\Infrastructure\Repositories;
 
 use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
-use App\Domain\Repositories\ArticleRepository as DomainRepository;
+use App\Domain\Repositories\ArticleRepository as DomainArticleRepository;
 use App\Domain\ValueObject\Article\ArticleId;
 use App\Infrastructure\DTO\Article as ArticleDTO;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * 記事リポジトリ実装クラス
  */
-final class ArticleRepository extends Repository implements DomainRepository
+final class ArticleRepository extends Repository implements DomainArticleRepository
 {
     /**
      * 記事DTOクラス
