@@ -26,11 +26,11 @@ final class ArticleRepository extends Repository implements DomainRepository
     /**
      * コンストラクタインジェクション
      *
-     * @param ArticleDTO $articleDto
+     * @param ArticleDTO $articleDTO
      */
-    public function __construct(ArticleDTO $articleDto)
+    public function __construct(ArticleDTO $articleDTO)
     {
-        $this->articleDTO = $articleDto;
+        $this->articleDTO = $articleDTO;
     }
 
     /**
