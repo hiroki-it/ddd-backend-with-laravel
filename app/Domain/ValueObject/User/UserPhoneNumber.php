@@ -33,7 +33,7 @@ final class UserPhoneNumber extends ValueObject
      *
      * @return string
      */
-    public function phoneNumber(): string
+    public function value(): string
     {
         return $this->value;
     }
