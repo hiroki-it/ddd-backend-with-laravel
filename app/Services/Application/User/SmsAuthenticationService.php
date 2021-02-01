@@ -85,6 +85,16 @@ final class SmsAuthenticationService
     }
 
     /**
+     * 4桁の認証コードを生成します．
+     *
+     * @return string
+     */
+    public function generateAuthenticationCode(): string
+    {
+        return (string)mt_rand(1000, 9999);
+    }
+
+    /**
      * メッセージを返却します．
      *
      * @return string
