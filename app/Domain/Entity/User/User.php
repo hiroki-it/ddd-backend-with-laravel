@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Entity\User;
 
 use App\Domain\Entity\Entity;
+use App\Domain\ValueObject\User\UserAuthenticationCode;
 use App\Domain\ValueObject\User\UserEmailAddress;
 use App\Domain\ValueObject\User\UserId;
 use App\Domain\ValueObject\User\UserName;
@@ -54,21 +55,30 @@ final class User extends Entity
     private UserPassword $password;
 
     /**
+     * 認証コード
+     *
+     * @var UserAuthenticationCode
+     */
+    private UserAuthenticationCode $authenticationCode;
+
+    /**
      * コンストラクタインジェクション
      *
-     * @param UserId           $id
-     * @param UserName         $name
-     * @param UserEmailAddress $emailAddress
-     * @param UserPhoneNumber      $phoneNumber
-     * @param UserPassword     $password
+     * @param UserId                 $id
+     * @param UserName               $name
+     * @param UserEmailAddress       $emailAddress
+     * @param UserPhoneNumber        $phoneNumber
+     * @param UserPassword           $password
+     * @param UserAuthenticationCode $authenticationCode
      */
-    public function __construct(UserId $id, UserName $name, UserEmailAddress $emailAddress, UserPhoneNumber $phoneNumber, UserPassword $password)
+    public function __construct(UserId $id, UserName $name, UserEmailAddress $emailAddress, UserPhoneNumber $phoneNumber, UserPassword $password, UserAuthenticationCode $authenticationCode)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $emailAddress;
         $this->phoneNumber = $phoneNumber;
         $this->password = $password;
+        $this->authenticationCode = $authenticationCode;
     }
 
     /**
@@ -119,5 +129,15 @@ final class User extends Entity
     public function password(): UserPassword
     {
         return $this->password;
+    }
+
+    /**
+     * ユーザ認証コードを返却します．
+     *
+     * @return UserAuthenticationCode
+     */
+    public function authenticationCode(): UserAuthenticationCode
+    {
+        return $this->authenticationCode;
     }
 }
