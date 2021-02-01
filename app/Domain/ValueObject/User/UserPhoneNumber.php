@@ -27,4 +27,14 @@ final class UserPhoneNumber extends ValueObject
     {
         $this->phoneNumber = $phoneNumber;
     }
+
+    /**
+     * ユーザ電話番号を返却します．
+     *
+     * @return string
+     */
+    public function phoneNumber(): string
+    {
+        return $this->phoneNumber;
+    }
 }
