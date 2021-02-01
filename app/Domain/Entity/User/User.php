@@ -13,6 +13,8 @@ use App\Domain\ValueObject\User\UserPhoneNumber;
 
 /**
  * ユーザクラス
+ *
+ * ドメイン貧血症にならないように注意してください．
  */
 final class User extends Entity
 {

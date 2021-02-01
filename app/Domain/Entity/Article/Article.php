@@ -12,6 +12,8 @@ use App\Domain\ValueObject\Article\ArticleType;
 
 /**
  * 記事クラス
+ *
+ * ドメイン貧血症にならないように注意してください．
  */
 final class Article extends Entity
 {
