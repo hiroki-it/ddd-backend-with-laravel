@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Domain\ValueObject\Article;
 
-use App\Domain\ValueObject\Id;
+use App\Domain\ValueObject\ValueObject;
 
 /**
  * 記事IDクラス
  */
-final class ArticleId extends Id
+final class ArticleId extends ValueObject
 {
     /**
      * 記事ID
