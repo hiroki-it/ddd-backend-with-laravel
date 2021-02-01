@@ -27,4 +27,14 @@ final class UserAuthenticationCode extends ValueObject
     {
         $this->value = $value;
     }
+
+    /**
+     * ユーザ認証コードを返却します．
+     *
+     * @return string
+     */
+    public function value(): string
+    {
+        return $this->value;
+    }
 }

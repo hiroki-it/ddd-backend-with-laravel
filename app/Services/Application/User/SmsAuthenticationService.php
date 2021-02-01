@@ -101,6 +101,6 @@ final class SmsAuthenticationService
      */
     private function renderMessage(): string
     {
-        return view('message.message-authentication-code', ['authentication_code' => $this->user->authenticationCode()])->render();
+        return view('message.message-authentication-code', ['authentication_code' => $this->user->authenticationCode()->value()])->render();
     }
 }
