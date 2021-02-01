@@ -16,15 +16,15 @@ final class UserEmailAddress extends ValueObject
      *
      * @var string
      */
-    private string $emailAddress;
+    private string $value;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param string $emailAddress
+     * @param string $value
      */
-    public function __constructor(string $emailAddress)
+    public function __constructor(string $value)
     {
-        $this->emailAddress = $emailAddress;
+        $this->value = $value;
     }
 }

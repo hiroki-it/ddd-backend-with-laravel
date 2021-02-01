@@ -16,16 +16,16 @@ final class UserPhoneNumber extends ValueObject
      *
      * @var string
      */
-    private string $phoneNumber;
+    private string $value;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param string $phoneNumber
+     * @param string $value
      */
-    public function __constructor(string $phoneNumber)
+    public function __constructor(string $value)
     {
-        $this->phoneNumber = $phoneNumber;
+        $this->value = $value;
     }
 
     /**
@@ -35,6 +35,6 @@ final class UserPhoneNumber extends ValueObject
      */
     public function phoneNumber(): string
     {
-        return $this->phoneNumber;
+        return $this->value;
     }
 }

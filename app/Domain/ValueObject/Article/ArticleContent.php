@@ -16,15 +16,15 @@ final class ArticleContent extends Entity
      *
      * @var string
      */
-    private string $content;
+    private string $value;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param string $content
+     * @param string $value
      */
-    public function __construct(string $content)
+    public function __construct(string $value)
     {
-        $this->content = $content;
+        $this->value = $value;
     }
 }

@@ -16,15 +16,15 @@ final class UserId extends ValueObject
      *
      * @var string|null
      */
-    private ?string $id;
+    private ?string $value;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param string|null $id
+     * @param string|null $value
      */
-    public function __constructor(?string $id)
+    public function __constructor(?string $value)
     {
-        $this->id = $id;
+        $this->value = $value;
     }
 }

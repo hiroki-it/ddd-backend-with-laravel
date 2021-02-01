@@ -16,15 +16,15 @@ final class ArticleTitle extends Entity
      *
      * @var string
      */
-    private string $title;
+    private string $value;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param string $title
+     * @param string $value
      */
-    public function __construct(string $title)
+    public function __construct(string $value)
     {
-        $this->title = $title;
+        $this->value = $value;
     }
 }

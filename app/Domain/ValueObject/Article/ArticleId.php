@@ -16,15 +16,15 @@ final class ArticleId extends Id
      *
      * @var string|null
      */
-    private ?string $id;
+    private ?string $value;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param string|null $id
+     * @param string|null $value
      */
-    public function __construct(?string $id)
+    public function __construct(?string $value)
     {
-        $this->id = $id;
+        $this->value = $value;
     }
 }

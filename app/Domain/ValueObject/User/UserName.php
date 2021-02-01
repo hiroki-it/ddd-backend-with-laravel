@@ -16,15 +16,15 @@ final class UserName extends ValueObject
      *
      * @var string
      */
-    private string $name;
+    private string $value;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param string $name
+     * @param string $value
      */
-    public function __constructor(string $name)
+    public function __constructor(string $value)
     {
-        $this->name = $name;
+        $this->value = $value;
     }
 }

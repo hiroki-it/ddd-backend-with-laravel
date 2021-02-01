@@ -16,15 +16,15 @@ final class UserPassword extends ValueObject
      *
      * @var string
      */
-    private string $password;
+    private string $value;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param string $password
+     * @param string $value
      */
-    public function __constructor(string $password)
+    public function __constructor(string $value)
     {
-        $this->password = $password;
+        $this->value = $value;
     }
 }
