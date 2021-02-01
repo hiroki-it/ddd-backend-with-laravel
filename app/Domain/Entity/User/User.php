@@ -75,7 +75,7 @@ final class User extends Entity
     {
         $this->id = $id;
         $this->name = $name;
-        $this->email = $emailAddress;
+        $this->emailAddress = $emailAddress;
         $this->phoneNumber = $phoneNumber;
         $this->password = $password;
         $this->authenticationCode = $authenticationCode;
