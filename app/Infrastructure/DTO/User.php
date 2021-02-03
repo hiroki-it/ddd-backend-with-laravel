@@ -17,6 +17,17 @@ class User extends Authenticatable
     use DTOTrait, HasApiTokens, Notifiable;
 
     /**
+     * DateTimeクラスに変換されるカラム
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    /**
      * 更新可能なカラム
      *
      * @var array
