@@ -10,5 +10,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 trait DTOTrait
 {
-    use SoftDeletes, UnsupportedMagicMethodTrait;
+    use SoftDeletes;
 }
