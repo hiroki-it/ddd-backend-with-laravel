@@ -26,10 +26,10 @@ class MigrationMacroServiceProvider extends ServiceProvider
             $this->string('updated_by')
                 ->comment('レコードの最終更新者')
                 ->nullable();;
-            $this->string('created_at')
+            $this->timestamp('created_at')
                 ->comment('レコードの作成日')
                 ->nullable();;
-            $this->string('updated_at')
+            $this->timestamp('updated_at')
                 ->comment('レコードの最終更新日')
                 ->nullable();;
         });
