@@ -36,7 +36,8 @@ class CreateUsersTable extends Migration
                 ->comment('メールアドレス');
 
             $table->string('authentication_code')
-                ->comment('認証コード');
+                ->comment('認証コード')
+                ->nullable();
 
             $table->systemColumns();
 
