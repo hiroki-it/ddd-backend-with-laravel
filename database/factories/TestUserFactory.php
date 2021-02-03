@@ -1,9 +1,9 @@
 <?php
 
-use App\Infrastructure\DTO\UserDTO;
-use Faker\Generator as Faker;
+declare(strict_types=1);
+
+use App\Infrastructure\DTO\User as UserDTO;
 use Illuminate\Database\Eloquent\Factory;
-use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +20,12 @@ use Illuminate\Support\Str;
  * @var Factory $factory
  */
 
-$factory->define(UserDTO::class, function (Faker $faker) {
+$factory->define(UserDTO::class, function () {
+
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-        'remember_token' => Str::random(10),
+        'name'          => 'test',
+        'email_address' => 'test@gmail.com',
+        'phone_number'  => '09012345678',
+        'password'      => 'test',
     ];
 });
