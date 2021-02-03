@@ -20,19 +20,23 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
 
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')
+                ->comment('ID');
 
-            $table->string('name');
+            $table->string('name')
+                ->comment('名前');
 
-            $table->string('email')
-                ->unique();
+            $table->string('email_address')
+                ->comment('メールアドレス');
 
-            $table->timestamp('email_verified_at')
-                ->nullable();
+            $table->string('phone_number')
+                ->comment('電話番号');
 
-            $table->string('password');
+            $table->string('password')
+                ->comment('メールアドレス');
 
-            $table->rememberToken();
+            $table->string('authentication_code')
+                ->comment('認証コード');
 
             $table->systemColumns();
 
