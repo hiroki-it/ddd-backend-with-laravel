@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
 /**
  * articleテーブルマイグレーションクラス
  */
-class CreateArticleTable extends Migration
+class CreateArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ class CreateArticleTable extends Migration
      */
     public function up()
     {
-        Schema::create('article', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
 
             $table->bigIncrements('id')
                 ->comment('ID');
