@@ -1,7 +1,7 @@
 @extends('layout.navbar')
 
 @push('css') <!-- ローカル静的ファイルは，assetヘルパーを使用 -->
-    <link rel="stylesheet" href="{{ asset('/css/article/article-created.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/article/article-created.css') }}">
 @endpush
 
 @section('content')
