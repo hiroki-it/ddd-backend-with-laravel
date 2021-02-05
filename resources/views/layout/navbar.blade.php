@@ -1,6 +1,6 @@
-@extends('layout.header')
+@extends("layout.header")
 
-@section('body')
+@section("body")
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">記事管理サイト</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -19,5 +19,5 @@
             </form>
         </div>
     </nav>
-    @yield('content') <!-- 子テンプレートで個別に要素を出力 -->
+    @yield("content") <!-- 子テンプレートで個別に要素を出力 -->
 @endsection

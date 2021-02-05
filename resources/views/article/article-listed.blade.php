@@ -1,6 +1,6 @@
-@extends('layout.navbar')
+@extends("layout.navbar")
 
-@section('content')
+@section("content")
     <div>
         <table class="table table-striped table-hover">
             <thead>

@@ -1,15 +1,15 @@
-@extends('layout.navbar')
+@extends("layout.navbar")
 
-@push('css') <!-- ローカル静的ファイルは，assetヘルパーを使用 -->
-<link rel="stylesheet" href="{{ asset('/css/article/article-created.css') }}">
+@push("css") <!-- ローカル静的ファイルは，assetヘルパーを使用 -->
+<link rel="stylesheet" href="{{ asset("/css/article/article-created.css") }}">
 @endpush
 
-@section('content')
+@section("content")
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2>記事投稿フォーム</h2>
-                <form method="POST" action="{{ url('/article') }}">
+                <form method="POST" action="{{ url("/article") }}">
                 @csrf <!-- CSRF対策用にトークンを生成 -->
                     <div class="form-group">
                         <label for="created-at">投稿日時<span class="badge badge-danger">必須</span></label>
