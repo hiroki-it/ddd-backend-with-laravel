@@ -1,4 +1,4 @@
-@extends('layout.header')
+@extends('layout.navbar')
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('/css/post-form.css') }}"> <!-- ローカル静的ファイルは，assetヘルパーを使用 -->
