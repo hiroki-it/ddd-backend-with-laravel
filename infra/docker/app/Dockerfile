@@ -15,12 +15,12 @@ RUN apt-get update -y \
       vim \
       unzip \
       zip \
-      # Node
-      nodejs \
-      npm \
   && docker-php-ext-install \
       bcmath \
       pdo_mysql \
+  # 新しいバージョンのNodeをインストールするために，apt-getを使用しない．
+  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+  && apt-get install -y nodejs
   # キャッシュ削除
   && apt-get clean
 
