@@ -30,3 +30,13 @@ Route::group(['middleware' => ''], (function () {
         Route::delete('/articles/{id}', 'ArticleController@deleteArticle')->middleware('article.id.converter');
     }));
 }));
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
