@@ -21,6 +21,7 @@
         "barryvdh/laravel-ide-helper": "^2.0",
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.0",
+        "laravel/breeze": "^1.0",
         "laravel/telescope": "^4.0",
         "laravel/tinker": "^2.0",
         "mockery/mockery": "^1.0",
