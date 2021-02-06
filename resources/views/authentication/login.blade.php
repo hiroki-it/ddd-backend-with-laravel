@@ -20,19 +20,22 @@
                                 <img src={{ asset("/images/login.svg") }} alt="logo" class="logo" alt="">
                             </div>
                             <p class="login-card-description">ログイン</p>
-                            <form action="#!">
+                            <form method="POST" action={{ url("/login") }}>
+                            @csrf <!-- CSRF対策用にトークンを生成 -->
                                 <div class="form-group">
                                     <label for="email" class="sr-only">メールアドレス</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="メールアドレス">
                                 </div>
                                 <div class="form-group mb-4">
                                     <label for="password" class="sr-only">パスワード</label>
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+                                    <input type="password" name="password" id="password" class="form-control"
+                                           placeholder="パスワード">
                                 </div>
-                                <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
+                                <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button"
+                                       value="Login">
                             </form>
-                            <a href="#!" class="forgot-password-link">パスワードを忘れましたか？</a>
-                            <p class="login-card-footer-text"><a href="#!" class="text-reset">アカウントを作成します．</a></p>
+                            <p class="login-card-footer-text"><a href={{ url("/users") }} class="text-reset">アカウントを作成します．</a>
+                            </p>
                         </div>
                     </div>
                 </div>
