@@ -15,6 +15,9 @@ RUN apt-get update -y \
       vim \
       unzip \
       zip \
+      # Node
+      nodejs \
+      npm \
   && docker-php-ext-install \
       bcmath \
       pdo_mysql \
