@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class RedirectIfAuthenticated
 {
     /**
-     * Handle an incoming request.
+     * 認証後にアクセスできるページにリダイレクトします．
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
