@@ -1,4 +1,4 @@
-@extends('layout.header')
+@extends('layouts.header')
 
 @push('css') <!-- ローカル静的ファイルは，assetヘルパーを使用 -->
 <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
