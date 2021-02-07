@@ -1,4 +1,4 @@
-@extends("layout.header")
+@extends("layouts.header")
 
 @section("body")
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
