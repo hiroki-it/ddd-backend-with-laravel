@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Auth;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
 
