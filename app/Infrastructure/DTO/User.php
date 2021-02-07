@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Infrastructure\DTO;
 
 use App\Traits\DTOTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -14,7 +15,7 @@ use Laravel\Passport\HasApiTokens;
  */
 class User extends Authenticatable
 {
-    use DTOTrait, HasApiTokens, Notifiable;
+    use DTOTrait, HasApiTokens, Notifiable, HasFactory;
 
     /**
      * DateTimeクラスに変換されるカラム

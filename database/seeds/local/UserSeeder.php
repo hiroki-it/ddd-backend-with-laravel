@@ -2,13 +2,15 @@
 
 declare(strict_types=1);
 
+namespace Database\Seeders;
+
 use App\Infrastructure\DTO\User as UserDTO;
 use Illuminate\Database\Seeder;
 
 /**
  * ユーザシーダークラス
  */
-class TestUserSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * シーダーを実行します．
@@ -17,6 +19,6 @@ class TestUserSeeder extends Seeder
      */
     public function run()
     {
-        factory(UserDTO::class)->create();
+        UserDTO::factory()->create();
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Infrastructure\DTO;
 
 use App\Traits\DTOTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 final class Article extends Model
 {
-    use DTOTrait;
+    use DTOTrait, HasFactory;
 
     /**
      * DateTimeクラスに変換されるカラム
