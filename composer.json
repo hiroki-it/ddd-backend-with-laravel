@@ -41,14 +41,8 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Database\\Factories\\Infrastructure\\DTO\\": [
-                "database/factories/local",
-                "database/factories/production"
-            ],
-            "Database\\Seeders\\": [
-                "database/seeds/local",
-                "database/seeds/production"
-            ]
+            "Database\\Factories\\Infrastructure\\DTO\\": "database/factories/production",
+            "Database\\Seeders\\": "database/seeds/production"
         },
         "classmap": [
             "database/seeds",
@@ -57,7 +51,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Database\\Factories\\Infrastructure\\DTO\\": "database/factories/local",
+            "Database\\Seeders\\": "database/seeds/local"
         }
     },
     "minimum-stability": "dev",
