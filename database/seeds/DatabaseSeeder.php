@@ -7,10 +7,13 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\App;
 
+/**
+ * データベースシーダークラス
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * 全てのシーダを実行します．
      *
      * @return void
      */
