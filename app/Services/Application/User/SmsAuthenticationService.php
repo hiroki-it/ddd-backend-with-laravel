@@ -6,14 +6,14 @@ namespace App\Services\Application\User;
 
 use App\Domain\Entity\User\User;
 use App\Exceptions\SendAuthenticationCodeException;
+use App\Services\Application\ApplicationService;
 use Aws\Sns\SnsClient;
 use Aws\Exception\AwsException;
-use Illuminate\Support\Facades\Log;
 
 /**
  * SMS認証サービスクラス
  */
-final class SmsAuthenticationService
+final class SmsAuthenticationService extends ApplicationService
 {
     /**
      * SNSクライアント
@@ -61,7 +61,7 @@ final class SmsAuthenticationService
             ]);
 
         } catch (AwsException $e) {
-            Log::error(sprintf(
+            $this->app["log"]->error(sprintf(
                     '%s : %s at %s line %s',
                     get_class($e),
                     $e->getMessage(),
@@ -72,7 +72,7 @@ final class SmsAuthenticationService
             throw $e;
 
         } catch (Exception $e) {
-            Log::error(sprintf(
+            $this->app["log"]->error(sprintf(
                     '%s : %s at %s line %s',
                     get_class($e),
                     $e->getMessage(),
