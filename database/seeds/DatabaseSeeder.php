@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $env = config("app.env");
 
+        if($env === "local"){
+            $this->call([
+                ArticleSeeder::class,
+                UserSeeder::class,
+            ]);
+        }
     }
 }
