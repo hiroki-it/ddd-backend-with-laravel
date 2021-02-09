@@ -17,7 +17,7 @@ abstract class Id extends ValueObject
     protected ?string $value;
 
     /**
-     * IDの等価性を検証します．
+     * IDクラスの等価性を検証します．
      *
      * @param Id $id
      * @return bool
