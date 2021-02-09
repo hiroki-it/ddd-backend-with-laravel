@@ -82,16 +82,6 @@ final class User extends Entity
     }
 
     /**
-     * ユーザIDクラスを返却します．
-     *
-     * @return UserId
-     */
-    public function id(): UserId
-    {
-        return $this->id;
-    }
-
-    /**
      * ユーザ名前クラスを返却します．
      *
      * @return UserName
