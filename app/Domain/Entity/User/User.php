@@ -20,13 +20,6 @@ use App\Domain\ValueObject\User\UserPhoneNumber;
 final class User extends Entity
 {
     /**
-     * ユーザID
-     *
-     * @var UserId
-     */
-    private UserId $id;
-
-    /**
      * ユーザ名
      *
      * @var UserName

@@ -15,9 +15,11 @@ abstract class Entity
     use UnsupportedMagicMethodTrait;
 
     /**
+     * IDクラス
+     *
      * @var Id
      */
-    private Id $id;
+    protected Id $id;
 
     /**
      * エンティティの等価性を検証します．
@@ -32,7 +34,7 @@ abstract class Entity
     }
 
     /**
-     * IDを返却します．
+     * IDクラスを返却します．
      */
     public function id(): Id
     {
