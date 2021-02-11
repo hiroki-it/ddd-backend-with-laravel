@@ -24,17 +24,15 @@
                             @csrf <!-- CSRF対策用にトークンを生成 -->
                                 <div class="form-group">
                                     <label for="email" class="sr-only">メールアドレス</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="メールアドレス">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="">
                                 </div>
                                 <div class="form-group mb-4">
                                     <label for="password" class="sr-only">パスワード</label>
-                                    <input type="password" name="password" id="password" class="form-control"
-                                           placeholder="パスワード">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="">
                                 </div>
-                                <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button"
-                                       value="Login">
+                                <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
                             </form>
-                            <p class="login-card-footer-text"><a href={{ url("/users") }} class="text-reset">アカウントを作成します．</a>
+                            <p class="login-card-footer-text"><a href={{ url("/register") }} class="text-reset">アカウントを作成します．</a>
                             </p>
                         </div>
                     </div>
