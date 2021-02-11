@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 /**
  * ルーティング定義
  *
- * RouteServiceProviderのboot()でパターンフィルタを定義している．
+ * ・RouteServiceProviderのboot()でパターンフィルタを定義している．
+ * ・Kernelでミドルウェアのエイリアスを定義している．
  */
 Route::group(['middleware' => ''], (function () {
 
