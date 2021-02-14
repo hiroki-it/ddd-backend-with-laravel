@@ -10,6 +10,6 @@
     @stack("css") <!-- 子テンプレートで個別にCSSをプッシュ -->
     </head>
     <body>
-        @extends("body")
+        @yield("body")
     </body>
 </html>
