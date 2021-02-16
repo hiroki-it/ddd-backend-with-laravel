@@ -14,11 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 /**
- * ルーティング定義
- *
- * RouteServiceProviderのboot()でパターンフィルタを定義している．
+ * 認証前
  */
-Route::group(['middleware' => ''], (function () {
+Route::group(['namespace' => 'Auth'], (function () {
+    Route::get('/register', 'RegisteredUserController@create');
+    Route::post('/register', 'RegisteredUserController@store');
+    Route::get('/login', 'AuthenticatedSessionController@create');
+    Route::post('/login', 'AuthenticatedSessionController@store');
+}));
+
+/**
+ * 認証後
+ */
+Route::group(['middleware' => 'auth'], (function () {
 
     /**
      * 記事
@@ -33,12 +41,8 @@ Route::group(['middleware' => ''], (function () {
     }));
 }));
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth'])->name('dashboard');
+//
+//require __DIR__.'/auth.php';

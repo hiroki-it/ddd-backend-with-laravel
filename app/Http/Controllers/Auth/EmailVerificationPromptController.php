@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class EmailVerificationPromptController extends Controller
 {
     /**
-     * Display the email verification prompt.
+     * メールアドレス本人確認後にアクセスできるページにリダイレクトします．
      *
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
@@ -18,6 +18,6 @@ class EmailVerificationPromptController extends Controller
     {
         return $request->user()->hasVerifiedEmail()
                     ? redirect()->intended(RouteServiceProvider::HOME)
-                    : view('auth.verify-email');
+                    : view('authentication.verify-email');
     }
 }
