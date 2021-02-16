@@ -24,5 +24,6 @@
                 <button type="submit" class="btn btn-primary btn-block">登録</button>
             </div>
         </form>
+        <p class="text-center small"><a href="{{ url('/login') }}">登録がお済みの場合</a></p>
     </div>
 @endsection
