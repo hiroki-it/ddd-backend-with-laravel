@@ -23,7 +23,7 @@ tech-blog
     ├── Criteria         # 検索条件
     ├── Domain           # ドメイン層
     |   ├── Entity       # エンティティ
-    |   ├── Repositories # 抽象リポジトリ（※依存性逆転を利用）
+    |   ├── Repositories # リポジトリインターフェース（※依存性逆転を利用）
     |   └── ValueObject  # 値オブジェクト
     |
     ├── Exceptions       # 例外
