@@ -40,5 +40,6 @@ tech-blog
     ├── Services         # サービス層
     |   ├── Application  # アプリケーションサービス層
     |   └── Domain       # ドメインサービス層
+    |
     └── Traits           # トレイト
 ```
