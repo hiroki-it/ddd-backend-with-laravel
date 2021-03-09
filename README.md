@@ -50,7 +50,7 @@ tech-blog
 
 ### ■ LaravelでDDDを実現
 
-ActiveレコードパターンのLaravelでドメイン駆動設計を実現するために，Eloquentを継承したDTOを用意しています．
+ActiveRecordパターンであるLaravelを用いて，Repositoryパターン風のドメイン駆動設計を実現するために，Eloquentを継承したDTOを用意しています．
 
 アプリケーション層でエンティティを構成し，これをDomain層のインターフェースリポジトリを介してインフラストラクチャ層に渡すと，エンティティがDTOに詰め替えられます．
 
