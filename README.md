@@ -14,6 +14,10 @@ $ docker-compose up -d
 
 ## appディレクトリ構成
 
+### ■ 構成図
+
+本リポジトリのappディレクトリ以下は，以下の通りに構成しております．
+
 ```
 tech-blog
 └── app
@@ -27,13 +31,13 @@ tech-blog
     |   └── ValueObject  # 値オブジェクト
     |
     ├── Exceptions       # 例外
-    ├── Http             
+    ├── Http             # アプリケーション層
     |   ├── Controllers  # コントローラ
     |   ├── Middleware   # ミドルウェア
     |   └── Requests     # バリデーション
     |
     ├── Infrastructure   # インフラストラクチャ層
-    |   ├── DTO          # Eloquent詰め替え用オブジェクト
+    |   ├── DTO          # エンティティ詰め替えオブジェクト（Eloquestを継承）
     |   └── Repositories # 実装リポジトリ
     |
     ├── Providers        # プロバイダー
@@ -43,3 +47,17 @@ tech-blog
     |
     └── Traits           # トレイト
 ```
+
+### ■ LaravelでDDDを実現
+
+ActiveレコードパターンのLaravelでドメイン駆動設計を実現するために，Eloquentを継承したDTOを用意しています．
+
+アプリケーション層でエンティティを構成し，これをインターフェースを介してインフラストラクチャに渡すと，エンティティがDTOに詰め替えられます．
+
+DTOはEloquentを継承しているため，詰め替えられたデータに応じて，データベースが操作されます．
+
+### ■ DIコンテナで依存性逆転を実現
+
+インターフェースリポジトリを介して実装リポジトリをコールできるように，Laravelのサービスコンテナ（DIコンテナ）を使用しています．
+
+具体的には，[RepositoryServiceProviderクラス](https://github.com/Hiroki-IT/tech-blog/blob/develop/app/Providers/RepositoryServiceProvider.php) にて，インターフェースリポジトリをバインドし，実装リポジトリをリゾルブするようにしています．
