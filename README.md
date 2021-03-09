@@ -23,11 +23,11 @@ tech-blog
 └── app
     ├── Console
     ├── Constants        # 定数
-    ├── Converters       # IDオブジェクト変換
+    ├── Converters       # IDのオブジェクト化
     ├── Criteria         # 検索条件
     ├── Domain           # ドメイン層
     |   ├── Entity       # エンティティ
-    |   ├── Repositories # リポジトリインターフェース（※依存性逆転を利用）
+    |   ├── Repositories # リポジトリインターフェース（実装リポジトリと対応）
     |   └── ValueObject  # 値オブジェクト
     |
     ├── Exceptions       # 例外
@@ -38,10 +38,10 @@ tech-blog
     |
     ├── Infrastructure   # インフラストラクチャ層
     |   ├── DTO          # エンティティ詰め替えオブジェクト（Eloquestを継承）
-    |   └── Repositories # 実装リポジトリ
+    |   └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
     |
     ├── Providers        # プロバイダー
-    ├── Services         # サービス層
+    ├── Services
     |   ├── Application  # アプリケーションサービス層
     |   └── Domain       # ドメインサービス層
     |
