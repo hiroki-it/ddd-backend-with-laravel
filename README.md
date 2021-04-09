@@ -27,8 +27,10 @@ tech-blog
     ├── Criteria         # 検索条件
     ├── Domain           # ドメイン層
     |   ├── Entity       # エンティティ
-    |   ├── Repositories # リポジトリインターフェース（実装リポジトリと対応）
-    |   └── ValueObject  # 値オブジェクト
+    |   ├── Repositories # インターフェースリポジトリ（実装リポジトリと対応）
+    |   └── ValueObject
+    |       ├── Type.php         # タイプコード
+    |       └── ValueObject.php  # 値オブジェクト
     |
     ├── Exceptions       # 例外
     ├── Http             # アプリケーション層
