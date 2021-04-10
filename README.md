@@ -6,7 +6,7 @@
 
 DDD x デザインパターン x Laravel で実装したブログ管理サイトです．
 
-ActiveRecordパターンであるLaravelでは，ドメイン層のモデルがテーブル構造に相互に依存します．
+ActiveRecordパターンであるLaravelでは，ドメイン層のモデルとテーブル構造が相互に依存します．
 
 多くのメリットがある一方で，ドメイン層が変化するたびにテーブル構造に影響を与えてしまうというデメリットがあります．
 
@@ -14,7 +14,7 @@ ActiveRecordパターンであるLaravelでは，ドメイン層のモデルが�
 
 ドメイン層の柔軟なスケーリングを考慮すると，LaravelにDDDを組み込むことが望ましいです．
 
-また，DDDは，Repositoryパターンと相性が良いです．
+また，DDDはActiveRecordパターンではなくRepositoryパターンと相性が良いです．
 
 そこで，RepositoryパターンをLaravelに適用するために，Eloquentを継承したDTOを用意しています．
 
@@ -33,7 +33,7 @@ DTOはEloquentを継承しているため，詰め替えられたデータに応
 
 本リポジトリのappディレクトリ以下は，以下の通りに構成しております．
 
-```
+```shell
 tech-blog
 └── app
     ├── Console
