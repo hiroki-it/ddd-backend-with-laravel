@@ -33,7 +33,7 @@ DTOはEloquentを継承しているため，詰め替えられたデータに応
 
 本リポジトリのappディレクトリ以下は，以下の通りに構成しております．
 
-```shell
+```
 tech-blog
 └── app
     ├── Console
