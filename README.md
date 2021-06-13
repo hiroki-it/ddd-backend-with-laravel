@@ -14,6 +14,8 @@ LaravelはActiveRecordパターンのフレームワークのため，DDDと組�
 
 工夫の方法につきましては，以降の説明を参考に．
 
+<br>
+
 ## 環境構築
 
 イメージのビルドとコンテナの構築を行います．
@@ -21,6 +23,8 @@ LaravelはActiveRecordパターンのフレームワークのため，DDDと組�
 ```sh
 $ docker-compose up -d
 ````
+
+<br>
 
 ## アーキテクチャについて
 
