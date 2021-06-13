@@ -66,7 +66,9 @@ DDDを実現するために，最初レイヤードアーキテクチャが考�
 
 ドメイン層のインターフェースリポジトリを介して，インフラストラクチャ層の実装リポジトリをコールできるように，Laravelのサービスコンテナ（DIコンテナ）を使用しています．
 
-具体的には，[RepositoryServiceProviderクラス](https://github.com/Hiroki-IT/tech-blog/blob/develop/app/Providers/RepositoryServiceProvider.php) にて，インターフェースリポジトリをバインドし，実装リポジトリをリゾルブするようにしています．
+具体的には，[RepositoryServiceProviderクラス](https://github.com/Hiroki-IT/tech-blog/blob/develop/app/Providers/RepositoryServiceProvider.php) にて，インターフェースリポジトリと実装リポジトリをバインドしております．
+
+これにより，インターフェースリポジトリがコールされると，実装リポジトリがリゾルブされます．
 
 ### appディレクトリ構成
 
