@@ -1,10 +1,18 @@
-# tech-blog
+# ddd-design-patterns-with-laravel
 
 ## 概要
 
 ### アプリケーションについて
 
 模索中...
+
+### 採用フレームワークについて
+
+Laravelを採用しました．
+
+LaravelはActiveRecordパターンのフレームワークのため，DDDと組み合わせるためには，一工夫必要です．
+
+工夫の方法につきましては，以降の説明を参考に．
 
 ## 環境構築
 
@@ -16,7 +24,7 @@ $ docker-compose up -d
 
 ## アーキテクチャについて
 
-### LaravelとDDDの組み合わせ
+### ActiveRecordパターンとDDDの関係性
 
 DDD，デザインパターン，Laravel を組み合わせました．
 
@@ -28,9 +36,13 @@ ActiveRecordパターンであるLaravelでは，ドメイン層のモデルと�
 
 ドメイン層の柔軟なスケーリングを考慮すると，LaravelにDDDを組み込むことが望ましいです．
 
-また，DDDはActiveRecordパターンではなくRepositoryパターンと相性が良いです．
+ただし，ActiveRecordパターンはDDDと相性が悪いです．
 
-そこで，RepositoryパターンをLaravelに適用するために，Eloquentを継承したDTOを用意しています．
+### LaravelとDDDを組み合わせるための一工夫
+
+DDDはActiveRecordパターンではなくRepositoryパターンと相性が良いです．
+
+RepositoryパターンをLaravelに適用するために，Eloquentを継承したDTOを用意しています．
 
 アプリケーション層でエンティティを構成し，これをドメイン層のインターフェースリポジトリを介してインフラストラクチャ層に渡すと，エンティティがDTOに詰め替えられます．
 
@@ -57,7 +69,7 @@ DDDを実現するために，最初レイヤードアーキテクチャが考�
 本リポジトリのappディレクトリは，DDDとデザインパターンを意識して，以下の通りに構成しております．
 
 ```
-tech-blog
+project
 └── app
     ├── Console
     ├── Constants        # 定数
