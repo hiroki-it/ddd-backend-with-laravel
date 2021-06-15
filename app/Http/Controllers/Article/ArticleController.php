@@ -6,15 +6,15 @@ namespace App\Http\Controllers\Article;
 
 use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
-use App\Domain\Repository\ArticleRepository;
 use App\Domain\ValueObject\Article\ArticleContent;
 use App\Domain\ValueObject\Article\ArticleId;
 use App\Domain\ValueObject\Article\ArticleTitle;
 use App\Domain\ValueObject\Article\ArticleType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
-use Illuminate\Http\RedirectResponse;
+use App\Usecase\ArticleUsecase;
 use Illuminate\Http\Response;
+use \Illuminate\Http\RedirectResponse;
 
 /**
  * 記事コントローラクラス
@@ -24,18 +24,18 @@ final class ArticleController extends Controller
     /**
      * リポジトリクラス
      *
-     * @var ArticleRepository
+     * @var ArticleUsecase
      */
-    private ArticleRepository $articleRepository;
+    private ArticleUsecase $articleUsecase;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param ArticleRepository $articleRepository
+     * @param ArticleUsecase $articleUsecase
      */
-    public function __construct(ArticleRepository $articleRepository)
+    public function __construct(ArticleUsecase $articleUsecase)
     {
-        $this->articleRepository = $articleRepository;
+        $this->articleUsecase = $articleUsecase;
     }
 
     /**
@@ -55,10 +55,7 @@ final class ArticleController extends Controller
             $validated['limit']
         );
 
-        $article = $this->articleRepository
-            ->findAllByCriteria($criteria);
-
-        return response()->view('article.article-listed', ['article' => $article], 200);
+        return $this->articleUsecase->showArticleListed($criteria);
     }
 
     /**
@@ -68,7 +65,7 @@ final class ArticleController extends Controller
      */
     public function showArticleCreated(): Response
     {
-        return response()->view('article.article-created', 200);
+        return $this->articleUsecase->showArticleCreated();
     }
 
     /**
@@ -79,10 +76,7 @@ final class ArticleController extends Controller
      */
     public function showArticleDetailed(ArticleId $articleId): Response
     {
-        $article = $this->articleRepository
-            ->findOneById($articleId);
-
-        return response()->view('article.article-detailed', ['article' => $article], 200);
+        return $this->articleUsecase->showArticleDetailed($articleId);
     }
 
     /**
@@ -93,10 +87,7 @@ final class ArticleController extends Controller
      */
     public function showArticleUpdated(ArticleId $articleId): Response
     {
-        $article = $this->articleRepository
-            ->findOneById($articleId);
-
-        return response()->view('article.article-updated', ['article' => $article], 200);
+        return $this->articleUsecase->showArticleUpdated($articleId);
     }
 
     /**
@@ -116,9 +107,7 @@ final class ArticleController extends Controller
             new ArticleContent($validated['content'])
         );
 
-        $this->articleRepository->create($article);
-
-        return redirect('article.article-list', 302)->with(['success' => '記事を作成しました']);
+        return $this->articleUsecase->createArticle($article);
     }
 
     /**
@@ -139,10 +128,7 @@ final class ArticleController extends Controller
             new ArticleContent($validated['content'])
         );
 
-        $this->articleRepository
-            ->update($article);
-
-        return redirect('article.article-listed', 302)->with(['success', '記事を更新しました']);
+        return $this->articleUsecase->updateArticle($article);
     }
 
     /**
@@ -153,12 +139,6 @@ final class ArticleController extends Controller
      */
     public function deleteArticle(ArticleId $articleId): RedirectResponse
     {
-        $article = $this->articleRepository
-            ->findOneById($articleId);
-
-        $this->articleRepository
-            ->delete($article);
-
-        return redirect('article.article-listed', 302)->with(['success', '記事を削除しました']);
+        return $this->articleUsecase->deleteArticle($articleId);
     }
 }
