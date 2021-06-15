@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Converters;
+namespace App\Http\Converters;
 
-use App\Domain\ValueObject\Id\ArticleId;
+use App\Domain\ValueObject\Article\ArticleId;
 
 /**
  * 記事ID値変換クラス

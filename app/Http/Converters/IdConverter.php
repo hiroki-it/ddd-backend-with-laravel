@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Converters;
+namespace App\Http\Converters;
 
-use App\Domain\ValueObject\Id\Id;
+use App\Domain\ValueObject\Id;
 
 /**
  * ID値変換抽象クラス
