@@ -79,7 +79,6 @@ project
 └── app
     ├── Console
     ├── Constants      # 定数
-    ├── Converters     # IDのオブジェクト化
     ├── Criteria       # 検索条件
     ├── Domain         # ドメイン層
     |   ├── Core       # ドメイン層の元となるオブジェクト
@@ -90,6 +89,7 @@ project
     ├── Exceptions      # 例外
     ├── Http            # アプリケーション層
     |   ├── Controllers # コントローラ
+    |   ├── Converters  # IDのオブジェクト変換
     |   ├── Middleware  # ミドルウェア
     |   └── Requests    # バリデーション
     |
