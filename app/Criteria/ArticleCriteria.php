@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Criteria;
 
-use App\Constants\CriteriaConstant;
+use App\Constant\CriteriaConstant;
 use App\Domain\ValueObject\Article\ArticleId;
 
 /**
