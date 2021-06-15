@@ -82,11 +82,10 @@ project
     ├── Converters     # IDのオブジェクト化
     ├── Criteria       # 検索条件
     ├── Domain         # ドメイン層
+    |   ├── Core       # ドメイン層の元となるオブジェクト
     |   ├── Entity     # エンティティ
     |   ├── Repository # インターフェースリポジトリ（実装リポジトリと対応）
-    |   └── ValueObject
-    |       ├── Type.php         # タイプコード
-    |       └── ValueObject.php  # 値オブジェクト
+    |   └── ValueObject # 値オブジェクト
     |
     ├── Exceptions      # 例外
     ├── Http            # アプリケーション層
