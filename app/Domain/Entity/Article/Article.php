@@ -18,13 +18,6 @@ use App\Domain\ValueObject\Article\ArticleType;
 final class Article extends Entity
 {
     /**
-     * 記事IDクラス
-     *
-     * @var ArticleId
-     */
-    private ArticleId $id;
-
-    /**
      * 記事タイトルクラス
      *
      * @var ArticleTitle

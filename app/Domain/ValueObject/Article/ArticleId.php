@@ -11,12 +11,6 @@ use App\Domain\ValueObject\ValueObject;
  */
 final class ArticleId extends ValueObject
 {
-    /**
-     * 記事ID
-     *
-     * @var string|null
-     */
-    private ?string $value;
 
     /**
      * コンストラクタインジェクション
