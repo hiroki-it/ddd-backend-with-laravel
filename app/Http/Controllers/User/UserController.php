@@ -13,7 +13,7 @@ use App\Domain\ValueObject\User\UserPassword;
 use App\Domain\ValueObject\User\UserPhoneNumber;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Infrastructure\Repositories\UserRepository;
+use App\Infrastructure\Repository\UserRepository;
 use App\Services\Application\User\SmsAuthenticationService;
 use Illuminate\Http\RedirectResponse;
 

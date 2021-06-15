@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Repositories;
+namespace App\Infrastructure\Repository;
 
 use App\Criteria\UserCriteria;
 use App\Domain\Entity\User\User;
-use App\Domain\Repositories\UserRepository as DomainUserRepository;
+use App\Domain\Repository\UserRepository as DomainUserRepository;
 use App\Infrastructure\DTO\User as UserDTO;
 use Illuminate\Support\Facades\DB;
 

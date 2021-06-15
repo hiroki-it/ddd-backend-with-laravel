@@ -78,30 +78,30 @@ DDDを実現するために，最初レイヤードアーキテクチャが考�
 project
 └── app
     ├── Console
-    ├── Constants        # 定数
-    ├── Converters       # IDのオブジェクト化
-    ├── Criteria         # 検索条件
-    ├── Domain           # ドメイン層
-    |   ├── Entity       # エンティティ
-    |   ├── Repositories # インターフェースリポジトリ（実装リポジトリと対応）
+    ├── Constants      # 定数
+    ├── Converters     # IDのオブジェクト化
+    ├── Criteria       # 検索条件
+    ├── Domain         # ドメイン層
+    |   ├── Entity     # エンティティ
+    |   ├── Repository # インターフェースリポジトリ（実装リポジトリと対応）
     |   └── ValueObject
     |       ├── Type.php         # タイプコード
     |       └── ValueObject.php  # 値オブジェクト
     |
-    ├── Exceptions       # 例外
-    ├── Http             # アプリケーション層
-    |   ├── Controllers  # コントローラ
-    |   ├── Middleware   # ミドルウェア
-    |   └── Requests     # バリデーション
+    ├── Exceptions      # 例外
+    ├── Http            # アプリケーション層
+    |   ├── Controllers # コントローラ
+    |   ├── Middleware  # ミドルウェア
+    |   └── Requests    # バリデーション
     |
-    ├── Infrastructure   # インフラストラクチャ層
-    |   ├── DTO          # エンティティ詰め替えオブジェクト（Eloquentを継承）
-    |   └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
+    ├── Infrastructure # インフラストラクチャ層
+    |   ├── DTO        # エンティティ詰め替えオブジェクト（Eloquentを継承）
+    |   └── Repository # 実装リポジトリ（インターフェースリポジトリと対応）
     |
-    ├── Providers        # プロバイダー
+    ├── Providers       # プロバイダー
     ├── Services
-    |   ├── Application  # アプリケーションサービス層
-    |   └── Domain       # ドメインサービス層
+    |   ├── Application # アプリケーションサービス層
+    |   └── Domain      # ドメインサービス層
     |
-    └── Traits           # トレイト
+    └── Traits          # トレイト
 ```

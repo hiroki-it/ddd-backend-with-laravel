@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Article;
 
 use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
-use App\Domain\Repositories\ArticleRepository;
+use App\Domain\Repository\ArticleRepository;
 use App\Domain\ValueObject\Article\ArticleContent;
 use App\Domain\ValueObject\Article\ArticleId;
 use App\Domain\ValueObject\Article\ArticleTitle;
