@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Services\Application\User;
+namespace App\Usecase\Service\User;
 
 use App\Domain\Entity\User\User;
-use App\Exceptions\SendAuthenticationCodeException;
-use App\Services\Application\ApplicationService;
+use App\Usecase\Service\ApplicationService;
 use Aws\Sns\SnsClient;
 use Aws\Exception\AwsException;
 
@@ -71,7 +70,7 @@ final class SmsAuthenticationService extends ApplicationService
 
             throw $e;
 
-        } catch (Exception $e) {
+        } catch (\Throwable $e) {
             $this->app["log"]->error(sprintf(
                     '%s : %s at %s line %s',
                     get_class($e),

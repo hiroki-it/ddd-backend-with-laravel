@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Services\Domain;
+namespace App\Domain\Service;
 
 /**
  * ドメインサービス抽象クラス
