@@ -18,11 +18,23 @@ LaravelはActiveRecordパターンのフレームワークのため，DDDと組�
 
 ## 環境構築
 
+### イメージビルド&コンテナ構築
+
 イメージのビルドとコンテナの構築を行います．
 
 ```sh
 $ docker-compose up -d
-````
+```
+
+### ライブラリのインストール
+
+起動中のコンテナでシェルコマンドを実行します．
+
+ここでは，appサービスにてライブラリをインストールします．
+
+```shell
+$ docker-compose exec app composer install
+```
 
 <br>
 
