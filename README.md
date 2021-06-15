@@ -78,12 +78,13 @@ DDDを実現するために，最初レイヤードアーキテクチャが考�
 project
 └── app
     ├── Console
-    ├── Constants      # 定数
-    ├── Criteria       # 検索条件
-    ├── Domain         # ドメイン層
-    |   ├── Core       # ドメイン層の元となるオブジェクト
-    |   ├── Entity     # エンティティ
-    |   ├── Repository # インターフェースリポジトリ（実装リポジトリと対応）
+    ├── Constant        # 定数
+    ├── Criteria        # 検索条件
+    ├── Domain          # ドメイン層
+    |   ├── Core        # ドメインの元となるオブジェクト
+    |   ├── Entity      # エンティティ
+    |   ├── Repository  # インターフェースリポジトリ（実装リポジトリと対応）
+    |   ├── Service     # ドメインサービス
     |   └── ValueObject # 値オブジェクト
     |
     ├── Exceptions      # 例外
@@ -97,10 +98,8 @@ project
     |   ├── DTO        # エンティティ詰め替えオブジェクト（Eloquentを継承）
     |   └── Repository # 実装リポジトリ（インターフェースリポジトリと対応）
     |
-    ├── Providers       # プロバイダー
-    ├── Services
-    |   ├── Application # アプリケーションサービス層
-    |   └── Domain      # ドメインサービス層
-    |
-    └── Traits          # トレイト
+    ├── Providers   # プロバイダー
+    ├── Traits      # トレイト
+    └── Usecase     # ユースケース層
+        └── Service # アプリケーションサービス 
 ```
