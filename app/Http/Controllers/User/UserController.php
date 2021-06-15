@@ -14,7 +14,7 @@ use App\Domain\ValueObject\User\UserPhoneNumber;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Infrastructure\Repository\UserRepository;
-use App\Usecase\Service\User\SmsAuthenticationService;
+use App\Usecase\Service\SmsAuthenticationService;
 use Illuminate\Http\RedirectResponse;
 
 /**
