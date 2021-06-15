@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\ValueObject\Article;
 
-use App\Domain\Entity\Entity;
+use App\Domain\Core\Entity;
 
 /**
  * 記事本文クラス

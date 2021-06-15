@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Entity;
+namespace App\Domain\Core;
 
 use App\Domain\ValueObject\Id;
 use App\Traits\UnsupportedMagicMethodTrait;
@@ -24,7 +24,7 @@ abstract class Entity
     /**
      * エンティティの等価性を検証します．
      *
-     * @param $entity
+     * @param Entity $entity
      * @return bool
      */
     public function equals(Entity $entity): bool

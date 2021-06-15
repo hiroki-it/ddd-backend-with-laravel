@@ -2,15 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\ValueObject;
+namespace App\Domain\Core;
 
 use App\Traits\UnsupportedMagicMethodTrait;
-use BenSampo\Enum\Enum;
 
 /**
- * 区分抽象クラス
+ * 値オブジェクト抽象クラス
  */
-abstract class Type extends Enum
+abstract class ValueObject
 {
     use UnsupportedMagicMethodTrait;
 }

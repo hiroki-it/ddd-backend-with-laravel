@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\ValueObject\Article;
 
-use App\Domain\ValueObject\Type;
+use App\Domain\Core\Type;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
