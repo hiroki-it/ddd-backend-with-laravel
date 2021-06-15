@@ -65,6 +65,6 @@ final class UserController extends Controller
 
         $this->userRepository->create($user);
 
-        return redirect('login.login', 302)->with(['success' => 'ユーザを登録しました．ログインできます．']);
+        return redirect('login.login')->with(['success' => 'ユーザを登録しました．ログインできます．']);
     }
 }
