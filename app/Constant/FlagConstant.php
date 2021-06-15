@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Constants;
+namespace App\Constant;
 
 /**
  * フラグ定数クラス
