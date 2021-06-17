@@ -5,11 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Article;
 
 use App\Criteria\ArticleCriteria;
-use App\Domain\Entity\Article\Article;
-use App\Domain\ValueObject\Article\ArticleContent;
 use App\Domain\ValueObject\Article\ArticleId;
-use App\Domain\ValueObject\Article\ArticleTitle;
-use App\Domain\ValueObject\Article\ArticleType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\Usecase\ArticleUsecase;
@@ -55,7 +51,9 @@ final class ArticleController extends Controller
             $validated['limit']
         );
 
-        return $this->articleUsecase->showArticleListed($criteria);
+        $article = $this->articleUsecase->showArticleListed($criteria);
+
+        return response()->view('article.article-listed', ['article' => $article], 200);
     }
 
     /**
@@ -65,7 +63,7 @@ final class ArticleController extends Controller
      */
     public function showArticleCreated(): Response
     {
-        return $this->articleUsecase->showArticleCreated();
+        return response()->view('article.article-created', 200);
     }
 
     /**
@@ -76,7 +74,9 @@ final class ArticleController extends Controller
      */
     public function showArticleDetailed(ArticleId $articleId): Response
     {
-        return $this->articleUsecase->showArticleDetailed($articleId);
+        $article = $this->articleUsecase->showArticleDetailed($articleId);
+
+        return response()->view('article.article-detailed', ['article' => $article]);
     }
 
     /**
@@ -87,7 +87,9 @@ final class ArticleController extends Controller
      */
     public function showArticleUpdated(ArticleId $articleId): Response
     {
-        return $this->articleUsecase->showArticleUpdated($articleId);
+        $article = $this->articleUsecase->showArticleUpdated($articleId);
+
+        return response()->view('article.article-updated', ['article' => $article]);
     }
 
     /**
@@ -100,14 +102,9 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $article = new Article(
-            new ArticleId(null),
-            new ArticleTitle($validated['title']),
-            new ArticleType($validated['type']),
-            new ArticleContent($validated['content'])
-        );
+        $this->articleUsecase->createArticle($validated);
 
-        return $this->articleUsecase->createArticle($article);
+        return redirect('article.article-list')->with(['success' => '記事を作成しました']);
     }
 
     /**
@@ -121,14 +118,9 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $article = new Article(
-            $articleId,
-            new ArticleTitle($validated['title']),
-            new ArticleType($validated['type']),
-            new ArticleContent($validated['content'])
-        );
+        $this->articleUsecase->updateArticle($validated, $articleId);
 
-        return $this->articleUsecase->updateArticle($article);
+        return redirect('article.article-listed')->with(['success', '記事を更新しました']);
     }
 
     /**
@@ -139,6 +131,8 @@ final class ArticleController extends Controller
      */
     public function deleteArticle(ArticleId $articleId): RedirectResponse
     {
-        return $this->articleUsecase->deleteArticle($articleId);
+        $this->articleUsecase->deleteArticle($articleId);
+
+        return redirect('article.article-listed')->with(['success', '記事を削除しました']);
     }
 }
