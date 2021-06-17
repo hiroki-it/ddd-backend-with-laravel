@@ -90,28 +90,28 @@ DDDを実現するために，最初レイヤードアーキテクチャが考�
 project
 └── app
     ├── Console
-    ├── Constant        # 定数
-    ├── Criteria        # 検索条件
-    ├── Domain          # ドメイン層
-    |   ├── Core        # ドメインの元となるオブジェクト
-    |   ├── Entity      # エンティティ
-    |   ├── Repository  # インターフェースリポジトリ（実装リポジトリと対応）
-    |   ├── Service     # ドメインサービス
-    |   └── ValueObject # 値オブジェクト
+    ├── Constant # 定数
+    ├── Criteria # 検索条件
+    ├── Domain          # ** ドメイン層 **
+    |   ├── Core          # ドメインの元となるオブジェクト
+    |   ├── Entity        # エンティティ
+    |   ├── Repository    # インターフェースリポジトリ（実装リポジトリと対応）
+    |   ├── Service       # ドメインサービス
+    |   └── ValueObject   # 値オブジェクト
     |
-    ├── Exceptions      # 例外
-    ├── Http            # プレゼンテーション層
-    |   ├── Controllers # コントローラ
-    |   ├── Converters  # IDのオブジェクト変換
-    |   ├── Middleware  # ミドルウェア
-    |   └── Requests    # バリデーション
+    ├── Exceptions # 例外
+    ├── Http            # ** プレゼンテーション層 **
+    |   ├── Controllers   # コントローラ
+    |   ├── Converters    # IDのオブジェクト変換
+    |   ├── Middleware    # ミドルウェア
+    |   └── Requests      # バリデーション
     |
-    ├── Infrastructure # インフラストラクチャ層
-    |   ├── DTO        # エンティティ詰め替えオブジェクト（Eloquentを継承）
-    |   └── Repository # 実装リポジトリ（インターフェースリポジトリと対応）
+    ├── Infrastructure # ** インフラストラクチャ層 **
+    |   ├── DTO          # エンティティ詰め替えオブジェクト（Eloquentを継承）
+    |   └── Repository   # 実装リポジトリ（インターフェースリポジトリと対応）
     |
-    ├── Providers   # プロバイダー
-    ├── Traits      # トレイト
-    └── Usecase     # ユースケース層
-        └── Service # アプリケーションサービス 
+    ├── Providers # プロバイダー
+    ├── Traits # トレイト
+    └── Usecase     # ** ユースケース層 **
+        └── Service   # アプリケーションサービス 
 ```
