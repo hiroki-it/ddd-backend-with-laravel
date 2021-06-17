@@ -91,7 +91,7 @@ project
 └── app
     ├── Console
     ├── Constant # 定数パターン
-    ├── Criteria # 検索パターン
+    ├── Criteria # 検索条件パターン
     ├── Domain          # ** ドメイン層 **
     |   ├── Core          # ドメインの元となるオブジェクト
     |   ├── Entity        # エンティティ
