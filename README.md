@@ -100,7 +100,7 @@ project
     |   └── ValueObject # 値オブジェクト
     |
     ├── Exceptions      # 例外
-    ├── Http            # アプリケーション層
+    ├── Http            # プレゼンテーション層
     |   ├── Controllers # コントローラ
     |   ├── Converters  # IDのオブジェクト変換
     |   ├── Middleware  # ミドルウェア
