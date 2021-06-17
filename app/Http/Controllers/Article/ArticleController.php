@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\Usecase\ArticleUsecase;
 use Illuminate\Http\Response;
-use \Illuminate\Http\RedirectResponse;
+use Illuminate\Http\RedirectResponse;
 
 /**
  * 記事コントローラクラス
