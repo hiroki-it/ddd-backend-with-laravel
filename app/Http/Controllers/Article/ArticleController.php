@@ -18,7 +18,7 @@ use \Illuminate\Http\RedirectResponse;
 final class ArticleController extends Controller
 {
     /**
-     * リポジトリクラス
+     * ユースケースクラス
      *
      * @var ArticleUsecase
      */
