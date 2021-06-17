@@ -4,17 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\User;
 
-use App\Domain\Entity\User\User;
-use App\Domain\ValueObject\User\UserAuthenticationCode;
-use App\Domain\ValueObject\User\UserEmailAddress;
-use App\Domain\ValueObject\User\UserId;
-use App\Domain\ValueObject\User\UserName;
-use App\Domain\ValueObject\User\UserPassword;
-use App\Domain\ValueObject\User\UserPhoneNumber;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Infrastructure\Repository\UserRepository;
-use App\Usecase\Service\SmsAuthenticationService;
+use App\Usecase\UserUsecase;
 use Illuminate\Http\RedirectResponse;
 
 /**
@@ -23,20 +15,20 @@ use Illuminate\Http\RedirectResponse;
 final class UserController extends Controller
 {
     /**
-     * リポジトリクラス
+     * ユースケースクラス
      *
-     * @var UserRepository
+     * @var UserUsecase
      */
-    private UserRepository $userRepository;
+    private UserUsecase $userUsecase;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param UserRepository $userRepository
+     * @param UserUsecase $userUsecase
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserUsecase $userUsecase)
     {
-        $this->userRepository = $userRepository;
+        $this->userUsecase = $userUsecase;
     }
 
     /**
@@ -49,21 +41,7 @@ final class UserController extends Controller
     {
         $validated = $userRequest->validated();
 
-        $SmsAuthenticationService = new SmsAuthenticationService(
-            config('sms.sns'),
-            auth()->user()
-        );
-
-        $user = new User(
-            new UserId(null),
-            new UserName($validated['name']),
-            new UserEmailAddress($validated['type']),
-            new UserPhoneNumber($validated['phone_number']),
-            new UserPassword($validated['password']),
-            new UserAuthenticationCode($SmsAuthenticationService->generateAuthenticationCode())
-        );
-
-        $this->userRepository->create($user);
+        $this->userUsecase->createUser($validated);
 
         return redirect('login.login')->with(['success' => 'ユーザを登録しました．ログインできます．']);
     }
