@@ -90,8 +90,8 @@ DDDを実現するために，最初レイヤードアーキテクチャが考�
 project
 └── app
     ├── Console
-    ├── Constant # 定数
-    ├── Criteria # 検索条件
+    ├── Constant # 定数パターン
+    ├── Criteria # 検索パターン
     ├── Domain          # ** ドメイン層 **
     |   ├── Core          # ドメインの元となるオブジェクト
     |   ├── Entity        # エンティティ
@@ -102,7 +102,7 @@ project
     ├── Exceptions # 例外
     ├── Http            # ** プレゼンテーション層 **
     |   ├── Controllers   # コントローラ
-    |   ├── Converters    # IDのオブジェクト変換
+    |   ├── Converters    # データ型変換パターン
     |   ├── Middleware    # ミドルウェア
     |   └── Requests      # バリデーション
     |
