@@ -7,9 +7,10 @@ namespace App\Usecase;
 use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;
 use App\Domain\Repository\ArticleRepository;
+use App\Domain\ValueObject\Article\ArticleContent;
 use App\Domain\ValueObject\Article\ArticleId;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
+use App\Domain\ValueObject\Article\ArticleTitle;
+use App\Domain\ValueObject\Article\ArticleType;
 
 /**
  * 記事ユースケースクラス
@@ -35,83 +36,75 @@ final class ArticleUsecase extends Usecase
 
     /**
      * @param ArticleCriteria $criteria
-     * @return Response
+     * @return array
      */
-    public function showArticleListed(ArticleCriteria $criteria): Response
+    public function showArticleListed(ArticleCriteria $criteria): array
     {
-        $article = $this->articleRepository
+        return $this->articleRepository
             ->findAllByCriteria($criteria);
-
-        return response()->view('article.article-listed', ['article' => $article], 200);
-    }
-
-    /**
-     * @return Response
-     */
-    public function showArticleCreated(): Response
-    {
-        return response()->view('article.article-created', 200);
     }
 
     /**
      * @param ArticleId $articleId
-     * @return Response
+     * @return Article
      */
-    public function showArticleDetailed(ArticleId $articleId): Response
+    public function showArticleDetailed(ArticleId $articleId): Article
     {
-        $article = $this->articleRepository
+        return $this->articleRepository
             ->findOneById($articleId);
-
-        return response()->view('article.article-detailed', ['article' => $article], 200);
     }
 
     /**
      * @param ArticleId $articleId
-     * @return Response
+     * @return Article
      */
-    public function showArticleUpdated(ArticleId $articleId): Response
+    public function showArticleUpdated(ArticleId $articleId): Article
     {
-        $article = $this->articleRepository
+        return $this->articleRepository
             ->findOneById($articleId);
-
-        return response()->view('article.article-updated', ['article' => $article], 200);
     }
 
     /**
-     * @param Article $article
-     * @return RedirectResponse
+     * @param array $validated
      */
-    public function createArticle(Article $article): RedirectResponse
+    public function createArticle(array $validated)
     {
+        $article = new Article(
+            new ArticleId(null),
+            new ArticleTitle($validated['title']),
+            new ArticleType($validated['type']),
+            new ArticleContent($validated['content'])
+        );
+
         $this->articleRepository->create($article);
-
-        return redirect('article.article-list')->with(['success' => '記事を作成しました']);
     }
 
     /**
-     * @param Article $article
-     * @return RedirectResponse
+     * @param array     $validated
+     * @param ArticleId $articleId
      */
-    public function updateArticle(Article $article): RedirectResponse
+    public function updateArticle(array $validated, ArticleId $articleId)
     {
+        $article = new Article(
+            $articleId,
+            new ArticleTitle($validated['title']),
+            new ArticleType($validated['type']),
+            new ArticleContent($validated['content'])
+        );
+
         $this->articleRepository
             ->update($article);
-
-        return redirect('article.article-listed')->with(['success', '記事を更新しました']);
     }
 
     /**
      * @param ArticleId $articleId
-     * @return RedirectResponse
      */
-    public function deleteArticle(ArticleId $articleId): RedirectResponse
+    public function deleteArticle(ArticleId $articleId)
     {
         $article = $this->articleRepository
             ->findOneById($articleId);
 
         $this->articleRepository
             ->delete($article);
-
-        return redirect('article.article-listed')->with(['success', '記事を削除しました']);
     }
 }
