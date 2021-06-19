@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UseCase\UseCases;
 
 use App\Domain\Entity\User\User;
-use App\Domain\Repository\UserRepository;
+use App\Domain\Repositories\UserRepository;
 use App\Domain\ValueObject\User\UserAuthenticationCode;
 use App\Domain\ValueObject\User\UserEmailAddress;
 use App\Domain\ValueObject\User\UserId;
