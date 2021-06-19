@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Usecase\Service;
+namespace App\Usecase\Services;
 
 use App\Domain\Entity\User\User;
 use App\Exceptions\Service\SendAuthenticationCodeException;

@@ -113,5 +113,6 @@ project
     ├── Providers # プロバイダー
     ├── Traits # トレイト
     └── Usecase     # ** ユースケース層 **
-        └── Service   # アプリケーションサービス 
+        ├── Usecases # ユースケース
+        └── Services # アプリケーションサービス 
 ```

@@ -12,7 +12,7 @@ use App\Domain\ValueObject\User\UserId;
 use App\Domain\ValueObject\User\UserName;
 use App\Domain\ValueObject\User\UserPassword;
 use App\Domain\ValueObject\User\UserPhoneNumber;
-use App\Usecase\Service\SmsAuthenticationService;
+use App\Usecase\Services\SmsAuthenticationService;
 
 /**
 * ユーザユースケースクラス
