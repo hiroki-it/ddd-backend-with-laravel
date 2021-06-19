@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Usecases\Usecase;
+namespace App\UseCase\UseCases;
 
 use App\Domain\Entity\User\User;
 use App\Domain\Repository\UserRepository;

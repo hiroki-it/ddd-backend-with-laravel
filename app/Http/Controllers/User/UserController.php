@@ -6,7 +6,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Usecase\Usecases\UserUsecase;
+use App\UseCase\UseCases\UserUsecase;
 use Illuminate\Http\RedirectResponse;
 
 /**

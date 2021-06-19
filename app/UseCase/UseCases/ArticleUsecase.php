@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Usecases\Usecase;
+namespace App\UseCase\UseCases;
 
 use App\Criteria\ArticleCriteria;
 use App\Domain\Entity\Article\Article;

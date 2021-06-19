@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Usecases\Usecase;
+namespace App\UseCase\UseCases;
 
 /**
  * ユースケース抽象クラス

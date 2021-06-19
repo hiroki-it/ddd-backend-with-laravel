@@ -8,7 +8,7 @@ use App\Criteria\ArticleCriteria;
 use App\Domain\ValueObject\Article\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
-use App\Usecases\Usecase\ArticleUsecase;
+use App\UseCase\UseCases\ArticleUsecase;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 
