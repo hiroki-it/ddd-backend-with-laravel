@@ -42,6 +42,7 @@ abstract class ValueObject
      */
     public function equals(ValueObject $VO): bool
     {
-        return $this->value() == $VO->value(); // 値の等価性
+        return ($VO instanceof $this|| $this instanceof $VO) // 値オブジェクトのデータ型の等価性
+            && $this->value() === $VO->value(); // 値の等価性
     }
 }
