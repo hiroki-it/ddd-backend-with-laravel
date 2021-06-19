@@ -17,7 +17,13 @@ abstract class ValueObject
      */
     public function equals(ValueObject $VO): bool
     {
-        return ($VO instanceof $this|| $this instanceof $VO) // 値オブジェクトのデータ型の等価性
-            && $this->value() === $VO->value(); // 値の等価性
+        // 全ての値データを反復的に検証します．
+        foreach (get_object_vars($this) as $key => $value) {
+            if ($this->__get($key) !== $VO->__get($key)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
