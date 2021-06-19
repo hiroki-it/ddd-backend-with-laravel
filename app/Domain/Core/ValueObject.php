@@ -12,4 +12,25 @@ use App\Traits\UnsupportedMagicMethodTrait;
 abstract class ValueObject
 {
     use UnsupportedMagicMethodTrait;
+
+    /**
+     * @var string
+     */
+    private string $value;
+
+    /**
+     * @param string $value
+     */
+    public function __constructor(string $value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function value(): string
+    {
+        return $this->value;
+    }
 }
