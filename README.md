@@ -95,8 +95,8 @@ project
     ├── Domain          # ** ドメイン層 **
     |   ├── Core          # ドメインの元となるオブジェクト
     |   ├── Entity        # エンティティ
-    |   ├── Repository    # インターフェースリポジトリ（実装リポジトリと対応）
-    |   ├── Service       # ドメインサービス
+    |   ├── Repositories  # インターフェースリポジトリ（実装リポジトリと対応）
+    |   ├── Services      # ドメインサービス
     |   └── ValueObject   # 値オブジェクト
     |
     ├── Exceptions # 例外
@@ -108,11 +108,11 @@ project
     |
     ├── Infrastructure # ** インフラストラクチャ層 **
     |   ├── DTO          # エンティティ詰め替えオブジェクト（Eloquentを継承）
-    |   └── Repository   # 実装リポジトリ（インターフェースリポジトリと対応）
+    |   └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
     |
     ├── Providers # プロバイダー
     ├── Traits # トレイト
-    └── Usecase     # ** ユースケース層 **
-        ├── Usecases # ユースケース
+    └── UseCase     # ** ユースケース層 **
+        ├── UseCases # ユースケース
         └── Services # アプリケーションサービス 
 ```
