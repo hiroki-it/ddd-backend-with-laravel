@@ -4,27 +4,12 @@ declare(strict_types=1);
 
 namespace App\Domain\ValueObject\Article;
 
-use App\Domain\Core\Entity;
+use App\Domain\Core\ValueObject;
 
 /**
  * 記事タイトルクラス
  */
-final class ArticleTitle extends Entity
+final class ArticleTitle extends ValueObject
 {
-    /**
-     * 記事タイトル
-     *
-     * @var string
-     */
-    private string $value;
 
-    /**
-     * コンストラクタインジェクション
-     *
-     * @param string $value
-     */
-    public function __construct(string $value)
-    {
-        $this->value = $value;
-    }
 }

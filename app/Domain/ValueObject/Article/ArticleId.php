@@ -12,13 +12,4 @@ use App\Domain\ValueObject\Id;
 final class ArticleId extends Id
 {
 
-    /**
-     * コンストラクタインジェクション
-     *
-     * @param string|null $value
-     */
-    public function __construct(?string $value)
-    {
-        $this->value = $value;
-    }
 }
