@@ -33,4 +33,15 @@ abstract class ValueObject
     {
         return $this->value;
     }
+
+    /**
+     * 値オブジェクトの等価性を検証します．
+     *
+     * @param ValueObject $VO
+     * @return bool
+     */
+    public function equals(ValueObject $VO): bool
+    {
+        return $this->value() == $VO->value(); // 値の等価性
+    }
 }
