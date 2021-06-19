@@ -11,13 +11,5 @@ use App\Domain\ValueObject\Id;
  */
 final class UserId extends Id
 {
-    /**
-     * コンストラクタインジェクション
-     *
-     * @param string|null $value
-     */
-    public function __constructor(?string $value)
-    {
-        $this->value = $value;
-    }
+
 }

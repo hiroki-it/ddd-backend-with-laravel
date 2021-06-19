@@ -11,30 +11,5 @@ use App\Domain\Core\ValueObject;
  */
 final class UserPhoneNumber extends ValueObject
 {
-    /**
-     * ユーザ電話番号
-     *
-     * @var string
-     */
-    private string $value;
 
-    /**
-     * コンストラクタインジェクション
-     *
-     * @param string $value
-     */
-    public function __constructor(string $value)
-    {
-        $this->value = $value;
-    }
-
-    /**
-     * ユーザ電話番号を返却します．
-     *
-     * @return string
-     */
-    public function value(): string
-    {
-        return $this->value;
-    }
 }

@@ -11,20 +11,5 @@ use App\Domain\Core\ValueObject;
  */
 final class UserEmailAddress extends ValueObject
 {
-    /**
-     * メールアドレス
-     *
-     * @var string
-     */
-    private string $value;
 
-    /**
-     * コンストラクタインジェクション
-     *
-     * @param string $value
-     */
-    public function __constructor(string $value)
-    {
-        $this->value = $value;
-    }
 }
