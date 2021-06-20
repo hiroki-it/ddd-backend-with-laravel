@@ -14,7 +14,7 @@ abstract class Id
      *
      * @var string
      */
-    private string $id;
+    private $id;
 
     /**
      * @param string $id
