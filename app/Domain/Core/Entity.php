@@ -30,7 +30,7 @@ abstract class Entity
     public function equals(Entity $entity): bool
     {
         return ($entity instanceof $this || $this instanceof $entity) // エンティティのデータ型の等価性
-            && $this->id->equals($entity->id()); // IDオブジェクトのデータ型の等価性
+            && $this->id->equals($entity->id()); // IDオブジェクトの等価性
     }
 
     /**
