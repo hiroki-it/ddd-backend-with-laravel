@@ -17,7 +17,7 @@ abstract class ValueObject
      */
     public function equals(ValueObject $VO): bool
     {
-        // 全ての値データを反復的に検証します．
+        // 全ての属性を反復的に検証します．
         foreach (get_object_vars($this) as $key => $value) {
             if ($this->__get($key) !== $VO->__get($key)) {
                 return false;
