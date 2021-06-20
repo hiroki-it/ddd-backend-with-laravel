@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Core;
 
-use App\Domain\ValueObject\Id;
 use App\Traits\UnsupportedMagicMethodTrait;
 
 /**

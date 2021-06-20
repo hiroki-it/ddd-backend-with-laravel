@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Converters;
 
-use App\Domain\ValueObject\Id;
+use App\Domain\Core\Id;
 
 /**
  * ID値変換抽象クラス
