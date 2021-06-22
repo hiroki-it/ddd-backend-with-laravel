@@ -92,12 +92,13 @@ project
     ├── Console
     ├── Constant # 定数パターン
     ├── Criteria # 検索条件パターン
-    ├── Domain          # ** ドメイン層 **
-    |   ├── Core          # ドメインの元となるオブジェクト
-    |   ├── Entity        # エンティティ
-    |   ├── Repositories  # インターフェースリポジトリ（実装リポジトリと対応）
-    |   ├── Services      # ドメインサービス
-    |   └── ValueObject   # 値オブジェクト
+    ├── Domain            # ** ドメイン層 **
+    |   ├── Core            # ドメインの元となるオブジェクト
+    |   ├── Repositories    # インターフェースリポジトリ（実装リポジトリと対応）
+    |   ├── Services        # ドメインサービス   
+    |   └── X（任意のルートエンティティ）
+    |       ├── Entity      # エンティティ 
+    |       └── ValueObject # 値オブジェクト
     |
     ├── Exceptions # 例外
     ├── Http            # ** プレゼンテーション層 **
