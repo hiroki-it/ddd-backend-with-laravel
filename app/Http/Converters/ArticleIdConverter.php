@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Converters;
 
-use App\Domain\ValueObject\Article\ArticleId;
+use App\Domain\Article\ValueObject\ArticleId;
 
 /**
  * 記事ID値変換クラス

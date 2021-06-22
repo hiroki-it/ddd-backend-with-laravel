@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Entity\Article;
+namespace App\Domain\Article\Entity;
 
+use App\Domain\Article\ValueObject\ArticleContent;
+use App\Domain\Article\ValueObject\ArticleId;
+use App\Domain\Article\ValueObject\ArticleTitle;
+use App\Domain\Article\ValueObject\ArticleType;
 use App\Domain\Core\Entity;
-use App\Domain\ValueObject\Article\ArticleContent;
-use App\Domain\ValueObject\Article\ArticleId;
-use App\Domain\ValueObject\Article\ArticleTitle;
-use App\Domain\ValueObject\Article\ArticleType;
 
 /**
  * 記事クラス

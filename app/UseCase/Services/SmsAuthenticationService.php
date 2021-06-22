@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UseCase\Services;
 
-use App\Domain\Entity\User\User;
+use App\Domain\User\Entity;
 use App\Exceptions\Service\SendAuthenticationCodeException;
 use Aws\Sns\SnsClient;
 use Aws\Exception\AwsException;

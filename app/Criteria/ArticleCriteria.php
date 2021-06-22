@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Criteria;
 
 use App\Constant\CriteriaConstant;
-use App\Domain\ValueObject\Article\ArticleId;
+use App\Domain\Article\ValueObject\ArticleId;
 
 /**
  * 記事検索条件クラス

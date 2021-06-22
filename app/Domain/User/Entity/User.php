@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Entity\User;
+namespace App\Domain\User\Entity;
 
 use App\Domain\Core\Entity;
-use App\Domain\ValueObject\User\UserAuthenticationCode;
-use App\Domain\ValueObject\User\UserEmailAddress;
-use App\Domain\ValueObject\User\UserId;
-use App\Domain\ValueObject\User\UserName;
-use App\Domain\ValueObject\User\UserPassword;
-use App\Domain\ValueObject\User\UserPhoneNumber;
+use App\Domain\User\ValueObject\UserAuthenticationCode;
+use App\Domain\User\ValueObject\UserEmailAddress;
+use App\Domain\User\ValueObject\UserId;
+use App\Domain\User\ValueObject\UserName;
+use App\Domain\User\ValueObject\UserPassword;
+use App\Domain\User\ValueObject\UserPhoneNumber;
 
 /**
  * ユーザクラス
