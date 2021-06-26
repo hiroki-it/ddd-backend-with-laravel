@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UseCase\UseCases;
 
 use App\Criteria\ArticleCriteria;
-use App\Domain\Entity\Article\Article;
+use App\Domain\Article\Entity\Article;
 use App\Domain\Repositories\ArticleRepository;
 use App\Domain\Article\ValueObject\ArticleContent;
 use App\Domain\Article\ValueObject\ArticleId;
