@@ -16,9 +16,9 @@ abstract class Entity
     /**
      * IDクラス
      *
-     * @var Id
+     * @var Id|null
      */
-    protected Id $id;
+    protected $id;
 
     /**
      * エンティティの等価性を検証します．

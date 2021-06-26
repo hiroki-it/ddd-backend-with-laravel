@@ -48,7 +48,7 @@ final class UserUsecase extends Usecase
         );
 
         $user = new User(
-            new UserId(null),
+            null,
             new UserName($validated['name']),
             new UserEmailAddress($validated['type']),
             new UserPhoneNumber($validated['phone_number']),

@@ -70,7 +70,7 @@ final class ArticleUsecase extends Usecase
     public function createArticle(array $validated)
     {
         $article = new Article(
-            new ArticleId(null),
+            null,
             new ArticleTitle($validated['title']),
             new ArticleType($validated['type']),
             new ArticleContent($validated['content'])
