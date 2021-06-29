@@ -61,13 +61,14 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
             ->all();
 
         $articles = [];
-        foreach ($articleDTOs as $articleDTO)
+        foreach ($articleDTOs as $articleDTO) {
             $articles = new Article(
                 $articleDTO->id(),
                 $articleDTO->title(),
                 $articleDTO->type(),
                 $articleDTO->content()
             );
+        }
 
         return $articles;
     }
@@ -84,13 +85,14 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
             ->all();
 
         $articles = [];
-        foreach ($userDTOs as $userDTO)
+        foreach ($userDTOs as $userDTO) {
             $articles = new Article(
                 $userDTO->id(),
                 $userDTO->title(),
                 $userDTO->type(),
                 $userDTO->content()
             );
+        }
 
         return $articles;
     }
