@@ -11,6 +11,7 @@ use App\Domain\Article\ValueObject\ArticleContent;
 use App\Domain\Article\ValueObject\ArticleId;
 use App\Domain\Article\ValueObject\ArticleTitle;
 use App\Domain\Article\ValueObject\ArticleType;
+use App\UseCase\Inputs\ArticleInput;
 
 /**
  * 記事ユースケースクラス
@@ -65,31 +66,31 @@ final class ArticleUsecase extends Usecase
     }
 
     /**
-     * @param array $validated
+     * @param ArticleInput $input
      */
-    public function createArticle(array $validated)
+    public function createArticle(ArticleInput $input)
     {
         $article = new Article(
             null,
-            new ArticleTitle($validated['title']),
-            new ArticleType($validated['type']),
-            new ArticleContent($validated['content'])
+            new ArticleTitle($input->title()),
+            new ArticleType($input->type()),
+            new ArticleContent($input->content())
         );
 
         $this->articleRepository->create($article);
     }
 
     /**
-     * @param array     $validated
-     * @param ArticleId $articleId
+     * @param ArticleInput $input
+     * @param ArticleId    $articleId
      */
-    public function updateArticle(array $validated, ArticleId $articleId)
+    public function updateArticle(ArticleInput $input, ArticleId $articleId)
     {
         $article = new Article(
             $articleId,
-            new ArticleTitle($validated['title']),
-            new ArticleType($validated['type']),
-            new ArticleContent($validated['content'])
+            new ArticleTitle($input->title()),
+            new ArticleType($input->type()),
+            new ArticleContent($input->content())
         );
 
         $this->articleRepository

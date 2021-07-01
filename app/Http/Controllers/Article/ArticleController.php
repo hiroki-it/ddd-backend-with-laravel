@@ -8,6 +8,7 @@ use App\Criteria\ArticleCriteria;
 use App\Domain\Article\ValueObject\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
+use App\UseCase\Inputs\ArticleInput;
 use App\UseCase\UseCases\ArticleUsecase;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
@@ -102,7 +103,9 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $this->articleUsecase->createArticle($validated);
+        $articleInput = new ArticleInput($validated);
+
+        $this->articleUsecase->createArticle($articleInput);
 
         return redirect('article.article-list')->with(['success' => '記事を作成しました']);
     }
@@ -118,7 +121,9 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $this->articleUsecase->updateArticle($validated, $articleId);
+        $articleInput = new ArticleInput($validated);
+
+        $this->articleUsecase->updateArticle($articleInput, $articleId);
 
         return redirect('article.article-listed')->with(['success', '記事を更新しました']);
     }

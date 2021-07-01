@@ -11,6 +11,7 @@ use App\Domain\User\ValueObject\UserEmailAddress;
 use App\Domain\User\ValueObject\UserName;
 use App\Domain\User\ValueObject\UserPassword;
 use App\Domain\User\ValueObject\UserPhoneNumber;
+use App\UseCase\Inputs\UserInput;
 use App\Usecase\Services\SmsAuthenticationService;
 
 /**
@@ -38,9 +39,9 @@ final class UserUsecase extends Usecase
     /**
      * ユーザを作成します．
      *
-     * @param array $validated
+     * @param UserInput $input
      */
-    public function createUser(array $validated): void
+    public function createUser(UserInput $input): void
     {
         $SmsAuthenticationService = new SmsAuthenticationService(
             config('sms.sns'),
@@ -49,10 +50,10 @@ final class UserUsecase extends Usecase
 
         $user = new User(
             null,
-            new UserName($validated['name']),
-            new UserEmailAddress($validated['type']),
-            new UserPhoneNumber($validated['phone_number']),
-            new UserPassword($validated['password']),
+            new UserName($input->name()),
+            new UserEmailAddress($input->type()),
+            new UserPhoneNumber($input->phoneNumber()),
+            new UserPassword($input->password()),
             new UserAuthenticationCode($SmsAuthenticationService->generateAuthenticationCode())
         );
 
