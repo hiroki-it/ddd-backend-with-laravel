@@ -103,7 +103,7 @@ project
     ├── Domain            # ** ドメイン層 **
     |   ├── Core            # ドメインの元となるオブジェクト
     |   ├── Repositories    # インターフェースリポジトリ（実装リポジトリと対応）
-    |   ├── Services        # ドメインサービス   
+    |   ├── Services        # サービス   
     |   └── X               # 任意のルートエンティティ
     |       ├── Entity      # エンティティ 
     |       └── ValueObject # 値オブジェクト
@@ -122,6 +122,7 @@ project
     ├── Providers # プロバイダー
     ├── Traits # トレイト
     └── UseCase     # ** ユースケース層 **
-        ├── UseCases # ユースケース
-        └── Services # アプリケーションサービス 
+        ├── Input    # ユースケース層のパラメータ
+        ├── Services # サービス
+        └── UseCases # ユースケース
 ```
