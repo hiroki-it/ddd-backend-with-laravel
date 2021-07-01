@@ -19,7 +19,7 @@ abstract class ValueObject
     {
         // 全ての属性を反復的に検証します．
         foreach (get_object_vars($this) as $key => $value) {
-            if ($this->__get($key) !== $VO->__get($key)) {
+            if ($this->{$key()} !== $VO->{$key()}) {
                 return false;
             }
         }
