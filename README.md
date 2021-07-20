@@ -104,7 +104,7 @@ project
     |   └── X               # 任意のルートエンティティ
     |       ├── Entity      # エンティティ 
     |       ├── Repository  # インターフェースリポジトリ（実装リポジトリと対応）
-    |       ├── Services    # サービス
+    |       ├── Service     # サービス
     |       └── ValueObject # 値オブジェクト
     |
     ├── Exceptions # 例外
