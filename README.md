@@ -102,10 +102,10 @@ project
     ├── Criteria # 検索条件パターン
     ├── Domain            # ** ドメイン層 **
     |   ├── Core            # ドメインの元となるオブジェクト
-    |   ├── Repositories    # インターフェースリポジトリ（実装リポジトリと対応）
     |   ├── Services        # サービス   
     |   └── X               # 任意のルートエンティティ
     |       ├── Entity      # エンティティ 
+    |       ├── Repository  # インターフェースリポジトリ（実装リポジトリと対応）
     |       └── ValueObject # 値オブジェクト
     |
     ├── Exceptions # 例外
