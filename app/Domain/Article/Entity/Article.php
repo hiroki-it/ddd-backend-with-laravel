@@ -8,7 +8,7 @@ use App\Domain\Article\ValueObject\ArticleContent;
 use App\Domain\Article\ValueObject\ArticleId;
 use App\Domain\Article\ValueObject\ArticleTitle;
 use App\Domain\Article\ValueObject\ArticleType;
-use App\Domain\Core\Entity;
+use App\Domain\Entity;
 
 /**
  * 記事クラス

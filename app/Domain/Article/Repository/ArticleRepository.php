@@ -7,7 +7,7 @@ namespace App\Domain\Article\Repository;
 use App\Criteria\ArticleCriteria;;
 use App\Domain\Article\Entity\Article;
 use App\Domain\Article\ValueObject\ArticleId;
-use App\Domain\Core\Repository;
+use App\Domain\Repository;
 
 /**
  * 記事リポジトリインターフェース
