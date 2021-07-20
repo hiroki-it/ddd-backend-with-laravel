@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Repositories;
+namespace App\Domain\User\Repository;
 
 use App\Domain\Core\Repository;
 use App\Domain\User\Entity\User;

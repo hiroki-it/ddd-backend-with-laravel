@@ -6,7 +6,7 @@ namespace App\Infrastructure\Repositories;
 
 use App\Criteria\ArticleCriteria;
 use App\Domain\Article\Entity\Article;
-use App\Domain\Repositories\ArticleRepository as DomainArticleRepository;
+use App\Domain\User\UserRepository as DomainArticleRepository;
 use App\Domain\Article\ValueObject\ArticleId;
 use App\Infrastructure\DTO\Article as ArticleDTO;
 use Illuminate\Support\Facades\DB;

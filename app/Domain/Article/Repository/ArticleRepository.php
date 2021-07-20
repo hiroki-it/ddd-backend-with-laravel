@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Repositories;
+namespace App\Domain\Article\Repository;
 
 use App\Criteria\ArticleCriteria;;
 use App\Domain\Article\Entity\Article;
