@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\UseCase\UseCases;
 
-use App\Domain\Article\Entity\Article;
-use App\Domain\Article\Repository\ArticleRepository;
-use App\Domain\Article\ValueObject\ArticleContent;
-use App\Domain\Article\ValueObject\ArticleId;
-use App\Domain\Article\ValueObject\ArticleTitle;
-use App\Domain\Article\ValueObject\ArticleType;
+use App\Domain\Article\Entities\Article;
+use App\Domain\Article\Repositories\ArticleRepository;
+use App\Domain\Article\ValueObjects\ArticleContent;
+use App\Domain\Article\ValueObjects\ArticleId;
+use App\Domain\Article\ValueObjects\ArticleTitle;
+use App\Domain\Article\ValueObjects\ArticleType;
 use App\Usecase\Article\Input\ArticleGetCriteriaInputInput;
 use App\UseCase\Inputs\ArticleCreateInput;
 use App\UseCase\Inputs\ArticleUpdateInput;

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Article\Repository;
+namespace App\Domain\Article\Repositories;
 
-use App\Domain\Article\Entity\Article;
-use App\Domain\Article\ValueObject\ArticleId;
+use App\Domain\Article\Entities\Article;
+use App\Domain\Article\ValueObjects\ArticleId;
 use App\Domain\Repository;
 
 /**

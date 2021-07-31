@@ -6,11 +6,11 @@ namespace App\UseCase\UseCases;
 
 use App\Domain\User\Repository\UserRepository;
 use App\Domain\User\Entity\User;
-use App\Domain\User\ValueObject\UserAuthenticationCode;
-use App\Domain\User\ValueObject\UserEmailAddress;
-use App\Domain\User\ValueObject\UserName;
-use App\Domain\User\ValueObject\UserPassword;
-use App\Domain\User\ValueObject\UserPhoneNumber;
+use App\Domain\User\ValueObjects\UserAuthenticationCode;
+use App\Domain\User\ValueObjects\UserEmailAddress;
+use App\Domain\User\ValueObjects\UserName;
+use App\Domain\User\ValueObjects\UserPassword;
+use App\Domain\User\ValueObjects\UserPhoneNumber;
 use App\UseCase\Inputs\UserInput;
 use App\Usecase\Services\UserSmsAuthenticationService;
 

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\UseCase\Inputs;
 
-use App\Domain\User\ValueObject\UserEmailAddress;
-use App\Domain\User\ValueObject\UserName;
-use App\Domain\User\ValueObject\UserPassword;
-use App\Domain\User\ValueObject\UserPhoneNumber;
+use App\Domain\User\ValueObjects\UserEmailAddress;
+use App\Domain\User\ValueObjects\UserName;
+use App\Domain\User\ValueObjects\UserPassword;
+use App\Domain\User\ValueObjects\UserPhoneNumber;
 
 class UserInput
 {

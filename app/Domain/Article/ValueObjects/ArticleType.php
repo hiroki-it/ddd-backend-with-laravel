@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Article\ValueObject;
+namespace App\Domain\Article\ValueObjects;
 
 use App\Domain\Type;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;

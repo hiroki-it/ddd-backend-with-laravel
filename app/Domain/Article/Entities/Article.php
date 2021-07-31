@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Article\Entity;
+namespace App\Domain\Article\Entities;
 
-use App\Domain\Article\ValueObject\ArticleContent;
-use App\Domain\Article\ValueObject\ArticleId;
-use App\Domain\Article\ValueObject\ArticleTitle;
-use App\Domain\Article\ValueObject\ArticleType;
+use App\Domain\Article\ValueObjects\ArticleContent;
+use App\Domain\Article\ValueObjects\ArticleId;
+use App\Domain\Article\ValueObjects\ArticleTitle;
+use App\Domain\Article\ValueObjects\ArticleType;
 use App\Domain\Entity;
 
 /**

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Usecase\Article\Input;
 
-use App\Domain\Article\ValueObject\ArticleId;
+use App\Domain\Article\ValueObjects\ArticleId;
 use App\Usecase\GetCriteriaInput;
 
 /**

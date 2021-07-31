@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Domain\User\Entity;
 
 use App\Domain\Entity;
-use App\Domain\User\ValueObject\UserAuthenticationCode;
-use App\Domain\User\ValueObject\UserEmailAddress;
-use App\Domain\User\ValueObject\UserId;
-use App\Domain\User\ValueObject\UserName;
-use App\Domain\User\ValueObject\UserPassword;
-use App\Domain\User\ValueObject\UserPhoneNumber;
+use App\Domain\User\ValueObjects\UserAuthenticationCode;
+use App\Domain\User\ValueObjects\UserEmailAddress;
+use App\Domain\User\ValueObjects\UserId;
+use App\Domain\User\ValueObjects\UserName;
+use App\Domain\User\ValueObjects\UserPassword;
+use App\Domain\User\ValueObjects\UserPhoneNumber;
 
 /**
  * ユーザクラス

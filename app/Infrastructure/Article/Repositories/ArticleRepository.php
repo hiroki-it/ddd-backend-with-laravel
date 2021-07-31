@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Repositories;
 
-use App\Domain\Article\Entity\Article;
-use App\Domain\Article\Repository\ArticleRepository as DomainArticleRepository;
-use App\Domain\Article\ValueObject\ArticleId;
+use App\Domain\Article\Entities\Article;
+use App\Domain\Article\Repositories\ArticleRepository as DomainArticleRepository;
+use App\Domain\Article\ValueObjects\ArticleId;
 use App\Infrastructure\DTO\ArticleDTO;
 use Illuminate\Support\Facades\DB;
 

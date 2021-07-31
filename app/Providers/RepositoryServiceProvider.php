@@ -22,7 +22,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $binds = [
-            'App\Domain\Article\Repository\ArticleRepository' => 'App\Infrastructure\Repositories\ArticleRepository', // 記事リポジトリ
+            'App\Domain\Article\Repositories\ArticleRepository' => 'App\Infrastructure\Repositories\ArticleRepository', // 記事リポジトリ
             'App\Domain\User\Repository\UserRepository'    => 'App\Infrastructure\Repositories\UserRepository' // ユーザリポジトリ
         ];
 

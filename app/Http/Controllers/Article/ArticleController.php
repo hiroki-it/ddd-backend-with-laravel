@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Article;
 
-use App\Domain\Article\ValueObject\ArticleId;
+use App\Domain\Article\ValueObjects\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\Usecase\Article\Input\ArticleGetCriteriaInputInput;
