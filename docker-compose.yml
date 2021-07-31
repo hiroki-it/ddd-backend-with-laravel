@@ -7,7 +7,7 @@ services:
     container_name: tech-blog-api
     hostname: tech-blog-api
     build:
-      dockerfile: ./infra/docker/app/Dockerfile
+      dockerfile: ./infra/docker/api/Dockerfile
       target: develop
       context: .
     image: tech-blog-api:latest
