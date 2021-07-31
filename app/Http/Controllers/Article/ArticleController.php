@@ -76,6 +76,7 @@ final class ArticleController extends Controller
      *
      * @param ArticleRequest $articleRequest
      * @return RedirectResponse
+     * @throws \BenSampo\Enum\Exceptions\InvalidEnumMemberException
      */
     public function createArticle(ArticleRequest $articleRequest): RedirectResponse
     {
@@ -94,6 +95,7 @@ final class ArticleController extends Controller
      * @param ArticleRequest $articleRequest
      * @param ArticleId      $id
      * @return RedirectResponse
+     * @throws \BenSampo\Enum\Exceptions\InvalidEnumMemberException
      */
     public function updateArticle(ArticleRequest $articleRequest, ArticleId $id): RedirectResponse
     {
