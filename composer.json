@@ -20,6 +20,7 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.0",
         "facade/ignition": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.0",
         "fzaninotto/faker": "^1.0",
         "laravel/telescope": "^4.0",
         "laravel/tinker": "^2.0",
