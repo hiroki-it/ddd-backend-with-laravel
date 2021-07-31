@@ -1,4 +1,4 @@
-# ddd-design-patterns-with-laravel
+# ddd-api-with-laravel
 
 ## 概要
 
