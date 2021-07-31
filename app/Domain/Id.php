@@ -12,14 +12,14 @@ abstract class Id
     /**
      * ID
      *
-     * @var string
+     * @var int
      */
     private $id;
 
     /**
-     * @param string $id
+     * @param int $id
      */
-    public function __construct(string $id)
+    public function __construct(int $id)
     {
         $this->id = $id;
     }
@@ -29,9 +29,9 @@ abstract class Id
      *
      * NOTE: 複合主キーを持つオブジェクトの等価性を正しく検証するために，標準の関数をオーバーライドします．
      *
-     * @return string
+     * @return int
      */
-    public function hash(): string
+    public function hash(): int
     {
         return $this->id;
     }

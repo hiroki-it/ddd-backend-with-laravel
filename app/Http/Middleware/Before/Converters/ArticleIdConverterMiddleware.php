@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware\Before\Converters;
 
-use App\Converters\ArticleIdConverter;
+use App\Domain\Article\ValueObject\ArticleId;
 use Closure;
 
 /**
@@ -13,14 +13,24 @@ use Closure;
 final class ArticleIdConverterMiddleware extends IdConverterMiddleware
 {
     /**
-     * ArticleIdConverter::convertを実行します．
-     *
-     * @param string  $id
+     * @param         $request
+     * @param int     $id
      * @param Closure $next
      * @return mixed
      */
-    public function handle(string $id, Closure $next)
+    public function handle($request, int $id, Closure $next)
     {
-        return $next(ArticleIdConverter::convert($id));
+        return $next($request, $this->convert($id));
+    }
+
+    /**
+     * 記事ID値を記事IDクラスに変換します．
+     *
+     * @param int $id
+     * @return ArticleId
+     */
+    private function convert(int $id): ArticleId
+    {
+        return new ArticleId($id);
     }
 }
