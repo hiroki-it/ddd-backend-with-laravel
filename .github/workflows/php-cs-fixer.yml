@@ -22,9 +22,11 @@ jobs:
           git config --local user.name "github-actions"
       - name: Composer install
         run: |
+          set -x
           composer install --prefer-dist
       - name: Run php-cs-fixer
         run: |
+          set -x
           vendor/bin/php-cs-fixer fix .
       - name: Commit & Push
         run: |
