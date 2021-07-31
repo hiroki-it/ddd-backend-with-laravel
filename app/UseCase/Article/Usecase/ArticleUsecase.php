@@ -10,7 +10,7 @@ use App\Domain\Article\ValueObject\ArticleContent;
 use App\Domain\Article\ValueObject\ArticleId;
 use App\Domain\Article\ValueObject\ArticleTitle;
 use App\Domain\Article\ValueObject\ArticleType;
-use App\Usecase\Article\Input\ArticleGetCriteria;
+use App\Usecase\Article\Input\ArticleGetCriteriaInput;
 use App\UseCase\Inputs\ArticleCreateInput;
 use App\UseCase\Inputs\ArticleUpdateInput;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
@@ -48,10 +48,10 @@ final class ArticleUsecase extends Usecase
     }
 
     /**
-     * @param ArticleGetCriteria $input
+     * @param ArticleGetCriteriaInput $input
      * @return array
      */
-    public function getArticles(ArticleGetCriteria $input): array
+    public function getArticles(ArticleGetCriteriaInput $input): array
     {
         return $this->articleRepository
             ->findAllByCriteria($input->order(), $input->limit());
