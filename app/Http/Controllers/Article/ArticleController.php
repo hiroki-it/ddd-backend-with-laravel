@@ -11,6 +11,7 @@ use App\Usecase\Article\Inputs\ArticleGetCriteriaInput;
 use App\UseCase\Inputs\ArticleCreateInput;
 use App\UseCase\Inputs\ArticleUpdateInput;
 use App\UseCase\UseCases\ArticleUsecase;
+use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 
@@ -75,7 +76,7 @@ final class ArticleController extends Controller
      *
      * @param ArticleRequest $articleRequest
      * @return RedirectResponse
-     * @throws \BenSampo\Enum\Exceptions\InvalidEnumMemberException
+     * @throws InvalidEnumMemberException
      */
     public function createArticle(ArticleRequest $articleRequest): RedirectResponse
     {
@@ -94,7 +95,7 @@ final class ArticleController extends Controller
      * @param ArticleRequest $articleRequest
      * @param ArticleId      $id
      * @return RedirectResponse
-     * @throws \BenSampo\Enum\Exceptions\InvalidEnumMemberException
+     * @throws InvalidEnumMemberException
      */
     public function updateArticle(ArticleRequest $articleRequest, ArticleId $id): RedirectResponse
     {
