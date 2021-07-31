@@ -61,24 +61,24 @@ final class UserSmsAuthenticationService extends ApplicationService
         } catch (AwsException $e) {
             $this->app["log"]->error(
                 sprintf(
-                '%s : %s at %s line %s',
-                get_class($e),
-                $e->getMessage(),
-                $e->getFile(),
-                $e->getLine()
-            )
+                    '%s : %s at %s line %s',
+                    get_class($e),
+                    $e->getMessage(),
+                    $e->getFile(),
+                    $e->getLine()
+                )
             );
 
             throw $e;
         } catch (\Throwable $e) {
             $this->app["log"]->error(
                 sprintf(
-                '%s : %s at %s line %s',
-                get_class($e),
-                $e->getMessage(),
-                $e->getFile(),
-                $e->getLine()
-            )
+                    '%s : %s at %s line %s',
+                    get_class($e),
+                    $e->getMessage(),
+                    $e->getFile(),
+                    $e->getLine()
+                )
             );
 
             throw new SendAuthenticationCodeException($e->getMessage());
