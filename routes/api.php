@@ -1,18 +1,31 @@
 <?php
 
-use Illuminate\Http\Request;
+declare(strict_types=1);
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+/**
+ * 認証前
+ */
+Route::group(['namespace' => 'Auth'], (function () {
+    Route::get('/register', 'RegisteredUserController@create');
+    Route::post('/register', 'RegisteredUserController@store');
+    Route::get('/login', 'AuthenticatedSessionController@create');
+    Route::post('/login', 'AuthenticatedSessionController@store');
+}));
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+/**
+ * 認証後
+ */
+Route::group(['middleware' => 'auth'], (function () {
+
+    /**
+     * 記事
+     */
+    Route::group(['namespace' => 'Article'], (function () {
+        Route::get('/articles', 'ArticleController@showArticleList');
+        Route::get('/articles/{id}/detail/', 'ArticleController@showArticleDetail')->middleware('article.id.converter');
+        Route::get('/articles/{id}/edited/', 'ArticleController@showEditedArticle')->middleware('article.id.converter');
+        Route::post('/articles', 'ArticleController@createArticle');
+        Route::put('/articles/{id}', 'ArticleController@updateArticle')->middleware('article.id.converter');
+        Route::delete('/articles/{id}', 'ArticleController@deleteArticle')->middleware('article.id.converter');
+    }));
+}));
