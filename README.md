@@ -99,7 +99,6 @@ project
 └── app
     ├── Console
     ├── Constant # 定数パターン
-    ├── Criteria # 検索条件パターン
     ├── Domain            # ** ドメイン層 **
     |   └── Foo             # 任意のルートエンティティ
     |       ├── Entity      # エンティティ 
@@ -110,20 +109,19 @@ project
     ├── Exceptions # 例外
     ├── Http            # ** プレゼンテーション層 **
     |   ├── Controllers   # コントローラ
-    |   ├── Converters    # データ型変換パターン
     |   ├── Middleware    # ミドルウェア
     |   └── Requests      # バリデーション
     |
     ├── Infrastructure # ** インフラストラクチャ層 **
     |   └── Foo              # 任意のルートエンティティ
     |       ├── DTO          # エンティティ詰め替えオブジェクト（Eloquentを継承）
-    |       └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
+    |       └── Repository   # 実装リポジトリ（インターフェースリポジトリと対応）
     |
     ├── Providers # プロバイダー
     ├── Traits # トレイト
     └── UseCase     # ** ユースケース層 **
         └── Foo          # 任意のルートエンティティ    
-            ├── Input    # ユースケース層のパラメータ
-            ├── Services # サービス
-            └── UseCases # ユースケース
+            ├── Input    # インプット
+            ├── Service  # サービス
+            └── UseCase  # ユースケース
 ```
