@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Usecase;
 
-use App\Traits\UnsupportedMagicMethodTrait;
-
 /**
  * ドメイン検索条件クラス
  * NOTE: 検索条件パターンを採用しています．
