@@ -36,13 +36,25 @@ final class ArticleController extends Controller
     }
 
     /**
-     * 記事の一覧画面を表示します．
+     * 記事を返却します．
      *
      * @param ArticleRequest $articleRequest
      * @param ArticleId      $articleId
      * @return Response
      */
-    public function showArticleListed(ArticleRequest $articleRequest, ArticleId $articleId): Response
+    public function getArticle(ArticleRequest $articleRequest, ArticleId $articleId): Response
+    {
+        // ここにレスポンス処理
+    }
+
+    /**
+     * 記事の一覧画面を返却します．
+     *
+     * @param ArticleRequest $articleRequest
+     * @param ArticleId      $articleId
+     * @return Response
+     */
+    public function getArticles(ArticleRequest $articleRequest, ArticleId $articleId): Response
     {
         $validated = $articleRequest->validated();
 
@@ -52,45 +64,9 @@ final class ArticleController extends Controller
             $validated['limit']
         );
 
-        $article = $this->articleUsecase->showArticleListed($criteria);
+        $article = $this->articleUsecase->getArticles($criteria);
 
-        return response()->view('article.article-listed', ['article' => $article], 200);
-    }
-
-    /**
-     * 記事の作成画面を表示します．
-     *
-     * @return Response
-     */
-    public function showArticleCreated(): Response
-    {
-        return response()->view('article.article-created', 200);
-    }
-
-    /**
-     * 記事の詳細画面を表示します．
-     *
-     * @param ArticleId $articleId
-     * @return Response
-     */
-    public function showArticleDetailed(ArticleId $articleId): Response
-    {
-        $article = $this->articleUsecase->showArticleDetailed($articleId);
-
-        return response()->view('article.article-detailed', ['article' => $article]);
-    }
-
-    /**
-     * 記事の更新画面を表示します．
-     *
-     * @param ArticleId $articleId
-     * @return Response
-     */
-    public function showArticleUpdated(ArticleId $articleId): Response
-    {
-        $article = $this->articleUsecase->showArticleUpdated($articleId);
-
-        return response()->view('article.article-updated', ['article' => $article]);
+        // ここにレスポンス処理
     }
 
     /**
