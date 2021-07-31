@@ -38,13 +38,24 @@ $ docker-compose exec api composer install
 
 ### コードの整形
 
-[CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) を使用して，ソースコードを整形します．
+[PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) を使用して，ソースコードを整形します．
 
 ファイルの保存時に自動実行できるように，使用するエディタに設定しておくと，より便利です．
 
 ```sh
 $ docker-compose exec api ./vendor/bin/php-cs-fixer fix app
 ```
+
+### コードの静的解析
+
+[larastan](https://github.com/nunomaduro/larastan) を使用して，ソースコードの静的解析を実行します．
+
+ファイルの保存時に自動実行できるように，使用するエディタに設定しておくと，より便利です．
+
+```sh
+$ docker-compose exec api ./vendor/bin/phpstan analyse app
+```
+
 <br>
 
 ## アーキテクチャについて
