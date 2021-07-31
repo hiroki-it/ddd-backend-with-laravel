@@ -7,9 +7,10 @@ namespace App\Usecase;
 use App\Traits\UnsupportedMagicMethodTrait;
 
 /**
- * 検索条件抽象クラス
+ * 取得条件クラス
+ * NOTE: 検索条件パターンを採用しています．
  */
-abstract class GetInput
+abstract class GetCriteria
 {
     use UnsupportedMagicMethodTrait;
 
