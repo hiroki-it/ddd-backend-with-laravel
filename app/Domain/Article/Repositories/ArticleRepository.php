@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Domain\Article\Repositories;
 
+use App\Domain\Article\Criterion\ArticleCriteria;
 use App\Domain\Article\Entities\Article;
 use App\Domain\Article\ValueObjects\ArticleId;
 use App\Domain\Repository;
-use App\Usecase\Article\Inputs\ArticleCriteria;
 
 /**
  * 記事リポジトリインターフェース

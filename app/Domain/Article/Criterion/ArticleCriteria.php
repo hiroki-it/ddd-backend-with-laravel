@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Usecase\Article\Inputs;
+namespace App\Domain\Article\Criterion;
 
 use App\Domain\Criteria;
 
