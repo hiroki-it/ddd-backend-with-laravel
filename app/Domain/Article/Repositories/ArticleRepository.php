@@ -7,6 +7,7 @@ namespace App\Domain\Article\Repositories;
 use App\Domain\Article\Entities\Article;
 use App\Domain\Article\ValueObjects\ArticleId;
 use App\Domain\Repository;
+use App\Usecase\Article\Inputs\ArticleCriteria;
 
 /**
  * 記事リポジトリインターフェース
@@ -32,11 +33,10 @@ interface ArticleRepository extends Repository
     /**
      * READ：指定した条件の記事エンティティを全て読み出します．
      *
-     * @param string $order
-     * @param string $limit
+     * @param ArticleCriteria $criteria
      * @return array
      */
-    function findAllByCriteria(string $order, string $limit): array;
+    function findAllByCriteria(ArticleCriteria $criteria): array;
 
     /**
      * CREATE：記事エンティティを作成します．

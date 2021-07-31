@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Article;
 use App\Domain\Article\ValueObjects\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
-use App\Usecase\Article\Inputs\ArticleGetCriteriaInput;
+use App\Usecase\Article\Inputs\ArticleGetInput;
 use App\UseCase\Inputs\ArticleCreateInput;
 use App\UseCase\Inputs\ArticleUpdateInput;
 use App\UseCase\UseCases\ArticleUsecase;
@@ -61,7 +61,7 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $input = new ArticleGetCriteriaInput(
+        $input = new ArticleGetInput(
             $validated['order'],
             $validated['limit']
         );
