@@ -33,7 +33,7 @@ $ docker-compose up -d
 ここでは，appサービスにてライブラリをインストールします．
 
 ```shell
-$ docker-compose exec app composer install
+$ docker-compose exec api composer install
 ```
 
 <br>
