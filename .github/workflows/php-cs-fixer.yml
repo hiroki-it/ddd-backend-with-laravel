@@ -1,0 +1,39 @@
+name: php-cs-fixer
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+      - name: Setup git
+        run: |
+          git config --local user.email "hasegawafeedshop@gmail.com"
+          git config --local user.name "github-actions"
+      - name: Composer install
+        run: |
+          composer install --prefer-dist
+      - name: Run php-cs-fixer
+        run: |
+          vendor/bin/php-cs-fixer fix .
+      - name: Commit & Push
+        run: |
+          line=`git diff | wc -l`
+          if [ $line -eq 0 ]; then
+            echo "コミットするものがないので終了"
+            exit 0
+          fi
+          git add .
+          git commit -m "run php-cs-fixer" -a
+          git pull
+          git push origin HEAD

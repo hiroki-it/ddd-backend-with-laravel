@@ -40,7 +40,7 @@ $ docker-compose exec api composer install --prefer-dist
 
 [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) を使用して，ソースコードを整形します．
 
-GitHubActionsを使用して，プッシュされたコミットを整形し，再コミットするようにしています．
+GitHub Actionsを使用して，プッシュされたソースコードを整形し，再プッシュするようにしています．
 
 ### コードの静的解析
 
