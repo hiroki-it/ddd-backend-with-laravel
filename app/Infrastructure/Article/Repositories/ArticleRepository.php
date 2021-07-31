@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Article\Repositories;
 
+use App\Domain\Article\Criterion\ArticleCriteria;
 use App\Domain\Article\Entities\Article;
 use App\Domain\Article\Repositories\ArticleRepository as DomainArticleRepository;
 use App\Domain\Article\ValueObjects\ArticleId;
@@ -74,15 +75,14 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     }
 
     /**
-     * @param string $order
-     * @param string $limit
+     * @param ArticleCriteria $criteria
      * @return array
      */
-    public function findAllByCriteria(string $order, string $limit): array
+    public function findAllByCriteria(ArticleCriteria $criteria): array
     {
         $userDTOs = $this->articleDTO
-            ->sortBy($order)
-            ->take($limit)
+            ->sortBy($criteria->order())
+            ->take($criteria->limit())
             ->all();
 
         $articles = [];
