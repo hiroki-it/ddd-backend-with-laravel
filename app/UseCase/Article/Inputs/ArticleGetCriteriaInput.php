@@ -10,7 +10,7 @@ use App\Usecase\GetCriteriaInput;
 /**
  * 記事インプットクラス
  */
-final class ArticleGetCriteriaInputInput extends GetCriteriaInput
+final class ArticleGetCriteriaInput extends GetCriteriaInput
 {
     /**
      * @var ArticleId
