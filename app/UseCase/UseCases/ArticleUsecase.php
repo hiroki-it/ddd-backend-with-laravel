@@ -36,33 +36,23 @@ final class ArticleUsecase extends Usecase
     }
 
     /**
+     * @param ArticleId $id
+     * @return array
+     */
+    public function getArticle(ArticleId $id): array
+    {
+        return $this->articleRepository
+            ->findById($id);
+    }
+
+    /**
      * @param ArticleCriteria $criteria
      * @return array
      */
-    public function showArticleListed(ArticleCriteria $criteria): array
+    public function getArticles(ArticleCriteria $criteria): array
     {
         return $this->articleRepository
             ->findAllByCriteria($criteria);
-    }
-
-    /**
-     * @param ArticleId $articleId
-     * @return Article
-     */
-    public function showArticleDetailed(ArticleId $articleId): Article
-    {
-        return $this->articleRepository
-            ->findOneById($articleId);
-    }
-
-    /**
-     * @param ArticleId $articleId
-     * @return Article
-     */
-    public function showArticleUpdated(ArticleId $articleId): Article
-    {
-        return $this->articleRepository
-            ->findOneById($articleId);
     }
 
     /**

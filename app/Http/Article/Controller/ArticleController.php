@@ -44,11 +44,21 @@ final class ArticleController extends Controller
      */
     public function getArticle(ArticleRequest $articleRequest, ArticleId $articleId): Response
     {
+        $validated = $articleRequest->validated();
+
+        $criteria = new ArticleCriteria(
+            $articleId,
+            $validated['order'],
+            $validated['limit']
+        );
+
+        $article = $this->articleUsecase->getArticle($criteria);
+
         // ここにレスポンス処理
     }
 
     /**
-     * 記事の一覧画面を返却します．
+     * 記事の一覧を返却します．
      *
      * @param ArticleRequest $articleRequest
      * @param ArticleId      $articleId
