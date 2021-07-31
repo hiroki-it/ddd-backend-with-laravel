@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Usecase\Article\Inputs;
 
-use App\Usecase\Criteria;
+use App\Domain\Criteria;
 
 /**
  * 記事検索条件クラス
