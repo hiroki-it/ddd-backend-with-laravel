@@ -30,7 +30,7 @@ jobs:
         run: |
           diff=`git diff | wc -l`
           if [ $diff -eq 0 ]; then
-            echo "コミットされたファイルが見つからないため，GitHub Actionsを終了しました．"
+            echo "整形されたファイルが存在しないため，GitHub Actionsを終了しました．"
             exit 0
           fi
           git add .
