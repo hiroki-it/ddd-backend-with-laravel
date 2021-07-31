@@ -34,6 +34,6 @@ jobs:
             exit 0
           fi
           git add .
-          git commit -m "GitHub Actions が PHP-CS-Fixer を実行しました．" -a
+          git commit -m "GitHub Actions が PHP-CS-Fixer を実行しました．"
           git pull
           git push origin HEAD
