@@ -30,7 +30,7 @@ jobs:
         run: |
           diff=`git diff | wc -l`
           if [ $diff -eq 0 ]; then
-            echo "差分のない空コミットのため終了します．"
+            echo "コミットされたファイルが見つからないため，GitHub Actionsを終了しました．"
             exit 0
           fi
           git add .
