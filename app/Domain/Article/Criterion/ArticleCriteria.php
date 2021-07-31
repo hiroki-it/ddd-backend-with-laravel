@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Usecase\Article\Inputs;
 
-use App\Usecase\GetCriteriaInput;
+use App\Usecase\Criteria;
 
 /**
- * 記事インプットクラス
+ * 記事検索条件クラス
  */
-final class ArticleGetCriteriaInput extends GetCriteriaInput
+final class ArticleCriteria extends Criteria
 {
     /**
      * コンストラクタインジェクション
@@ -17,7 +17,7 @@ final class ArticleGetCriteriaInput extends GetCriteriaInput
      * @param string $limit
      * @param string $order
      */
-    public function __construct(string $limit = self::DEFAULT_LIMIT, string $order = self::DEFAULT_ORDER)
+    public function __construct(string $limit, string $order)
     {
         $this->limit = $limit;
         $this->order = $order;
