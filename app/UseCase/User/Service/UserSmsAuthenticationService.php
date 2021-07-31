@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UseCase\Services;
 
-use App\Domain\User\Entity;
+use App\Domain\User\Entity\User;
 use App\Exceptions\Service\SendAuthenticationCodeException;
 use Aws\Sns\SnsClient;
 use Aws\Exception\AwsException;
@@ -12,7 +12,7 @@ use Aws\Exception\AwsException;
 /**
  * SMS認証サービスクラス
  */
-final class SmsAuthenticationService extends ApplicationService
+final class UserSmsAuthenticationService extends ApplicationService
 {
     /**
      * SNSクライアント

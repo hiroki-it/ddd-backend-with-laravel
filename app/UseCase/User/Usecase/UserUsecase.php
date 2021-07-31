@@ -12,7 +12,7 @@ use App\Domain\User\ValueObject\UserName;
 use App\Domain\User\ValueObject\UserPassword;
 use App\Domain\User\ValueObject\UserPhoneNumber;
 use App\UseCase\Inputs\UserInput;
-use App\Usecase\Services\SmsAuthenticationService;
+use App\Usecase\Services\UserSmsAuthenticationService;
 
 /**
 * ユーザユースケースクラス
@@ -43,7 +43,7 @@ final class UserUsecase extends Usecase
      */
     public function createUser(UserInput $input): void
     {
-        $SmsAuthenticationService = new SmsAuthenticationService(
+        $SmsAuthenticationService = new UserSmsAuthenticationService(
             config('sms.sns'),
             auth()->user()
         );
