@@ -43,7 +43,7 @@ $ docker-compose exec api composer install
 ファイルの保存時に自動実行できるように，使用するエディタに設定しておくと，より便利です．
 
 ```sh
-$ docker-compose exec api ./vendor/bin/php-cs-fixer fix .  
+$ docker-compose exec api ./vendor/bin/php-cs-fixer fix app
 ```
 <br>
 
