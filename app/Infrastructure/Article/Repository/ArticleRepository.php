@@ -86,7 +86,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
 
         $articles = [];
         foreach ($userDTOs as $userDTO) {
-            $articles = new Article(
+            $articles[] = new Article(
                 $userDTO->id(),
                 $userDTO->title(),
                 $userDTO->type(),
