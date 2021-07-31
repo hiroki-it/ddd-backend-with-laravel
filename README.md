@@ -46,7 +46,7 @@ GitHub Actionsを使用して，プッシュされたソースコードを整形
 
 [larastan](https://github.com/nunomaduro/larastan) を使用して，ソースコードの静的解析を実行します．
 
-ファイルの保存時に自動実行できるように，使用するエディタに設定しておくと，より便利です．
+予定：GitHub Actions上で静的解析を実行し，一つでも問題が検出されたら怒られるようにしたい...
 
 ```sh
 $ docker-compose exec api ./vendor/bin/phpstan analyse app
