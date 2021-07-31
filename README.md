@@ -101,7 +101,7 @@ project
     ├── Constant # 定数パターン
     ├── Criteria # 検索条件パターン
     ├── Domain            # ** ドメイン層 **
-    |   └── X               # 任意のルートエンティティ
+    |   └── Foo             # 任意のルートエンティティ
     |       ├── Entity      # エンティティ 
     |       ├── Repository  # インターフェースリポジトリ（実装リポジトリと対応）
     |       ├── Service     # サービス
@@ -115,13 +115,15 @@ project
     |   └── Requests      # バリデーション
     |
     ├── Infrastructure # ** インフラストラクチャ層 **
-    |   ├── DTO          # エンティティ詰め替えオブジェクト（Eloquentを継承）
-    |   └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
+    |   └── Foo              # 任意のルートエンティティ
+    |       ├── DTO          # エンティティ詰め替えオブジェクト（Eloquentを継承）
+    |       └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
     |
     ├── Providers # プロバイダー
     ├── Traits # トレイト
     └── UseCase     # ** ユースケース層 **
-        ├── Input    # ユースケース層のパラメータ
-        ├── Services # サービス
-        └── UseCases # ユースケース
+        └── Foo          # 任意のルートエンティティ    
+            ├── Input    # ユースケース層のパラメータ
+            ├── Services # サービス
+            └── UseCases # ユースケース
 ```
