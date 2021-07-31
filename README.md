@@ -36,6 +36,15 @@ $ docker-compose up -d
 $ docker-compose exec api composer install
 ```
 
+### コードの整形
+
+[CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) を使用して，ソースコードを整形します．
+
+ファイルの保存時に自動実行できるように，使用するエディタに設定しておくと，より便利です．
+
+```sh
+$ docker-compose exec api ./vendor/bin/php-cs-fixer fix .  
+```
 <br>
 
 ## アーキテクチャについて
