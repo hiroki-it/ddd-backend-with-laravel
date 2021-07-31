@@ -49,7 +49,7 @@ services:
     networks:
       - default
     depends_on:
-      - app
+      - api
 
   # dbコンテナ
   db:
