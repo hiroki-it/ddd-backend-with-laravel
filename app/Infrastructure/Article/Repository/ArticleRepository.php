@@ -6,9 +6,9 @@ namespace App\Infrastructure\Repositories;
 
 use App\Criteria\ArticleCriteria;
 use App\Domain\Article\Entity\Article;
-use App\Domain\User\UserRepository as DomainArticleRepository;
+use App\Domain\User\Repository\UserRepository as DomainArticleRepository;
 use App\Domain\Article\ValueObject\ArticleId;
-use App\Infrastructure\DTO\Article as ArticleDTO;
+use App\Infrastructure\DTO\ArticleDTO;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -34,13 +34,13 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     }
 
     /**
-     * @param ArticleId $articleId
+     * @param ArticleId $id
      * @return Article
      */
-    public function findOneById(ArticleId $articleId): Article
+    public function findById(ArticleId $id): Article
     {
         $articleDTO = $this->articleDTO
-            ->find($articleId);
+            ->find($id);
 
         return new Article(
             $articleDTO->id(),

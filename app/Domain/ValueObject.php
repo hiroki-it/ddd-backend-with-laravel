@@ -9,6 +9,7 @@ namespace App\Domain;
  */
 abstract class ValueObject
 {
+
     /**
      * 値オブジェクトの等価性を検証します．
      *

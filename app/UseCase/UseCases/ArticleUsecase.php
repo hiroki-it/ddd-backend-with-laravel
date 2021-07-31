@@ -6,12 +6,13 @@ namespace App\UseCase\UseCases;
 
 use App\Criteria\ArticleCriteria;
 use App\Domain\Article\Entity\Article;
-use App\Domain\User\UserRepository;
+use App\Domain\Article\Repository\ArticleRepository;
 use App\Domain\Article\ValueObject\ArticleContent;
 use App\Domain\Article\ValueObject\ArticleId;
 use App\Domain\Article\ValueObject\ArticleTitle;
 use App\Domain\Article\ValueObject\ArticleType;
 use App\UseCase\Inputs\ArticleInput;
+use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
  * 記事ユースケースクラス
@@ -37,9 +38,9 @@ final class ArticleUsecase extends Usecase
 
     /**
      * @param ArticleId $id
-     * @return array
+     * @return Article
      */
-    public function getArticle(ArticleId $id): array
+    public function getArticle(ArticleId $id): Article
     {
         return $this->articleRepository
             ->findById($id);
@@ -57,6 +58,7 @@ final class ArticleUsecase extends Usecase
 
     /**
      * @param ArticleInput $input
+     * @throws InvalidEnumMemberException
      */
     public function createArticle(ArticleInput $input)
     {
@@ -72,12 +74,13 @@ final class ArticleUsecase extends Usecase
 
     /**
      * @param ArticleInput $input
-     * @param ArticleId    $articleId
+     * @param ArticleId    $id
+     * @throws InvalidEnumMemberException
      */
-    public function updateArticle(ArticleInput $input, ArticleId $articleId)
+    public function updateArticle(ArticleInput $input, ArticleId $id)
     {
         $article = new Article(
-            $articleId,
+            $id,
             new ArticleTitle($input->title()),
             new ArticleType($input->type()),
             new ArticleContent($input->content())
@@ -88,12 +91,12 @@ final class ArticleUsecase extends Usecase
     }
 
     /**
-     * @param ArticleId $articleId
+     * @param ArticleId $id
      */
-    public function deleteArticle(ArticleId $articleId)
+    public function deleteArticle(ArticleId $id)
     {
         $article = $this->articleRepository
-            ->findOneById($articleId);
+            ->findById($id);
 
         $this->articleRepository
             ->delete($article);

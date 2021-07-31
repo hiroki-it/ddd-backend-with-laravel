@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * 記事DTOクラス
  */
-final class Article extends Model
+final class ArticleDTO extends Model
 {
     use DTOTrait, HasFactory;
 

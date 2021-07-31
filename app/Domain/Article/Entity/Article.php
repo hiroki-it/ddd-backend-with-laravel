@@ -41,14 +41,14 @@ final class Article extends Entity
     /**
      * コンストラクタインジェクション
      *
-     * @param ArticleId      $articleId
+     * @param ArticleId      $id
      * @param ArticleTitle   $title
      * @param ArticleType    $type
      * @param ArticleContent $content
      */
-    public function __construct(ArticleId $articleId, ArticleTitle $title, ArticleType $type, ArticleContent $content)
+    public function __construct(ArticleId $id, ArticleTitle $title, ArticleType $type, ArticleContent $content)
     {
-        $this->id = $articleId;
+        $this->id = $id;
         $this->title = $title;
         $this->type = $type;
         $this->content = $content;

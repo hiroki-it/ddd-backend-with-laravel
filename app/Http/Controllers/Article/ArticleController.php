@@ -38,12 +38,12 @@ final class ArticleController extends Controller
     /**
      * 記事を返却します．
      *
-     * @param ArticleId $articleId
+     * @param ArticleId $id
      * @return Response
      */
-    public function getArticle(ArticleId $articleId): Response
+    public function getArticle(ArticleId $id): Response
     {
-        $article = $this->articleUsecase->getArticle($articleId);
+        $article = $this->articleUsecase->getArticle($id);
 
         // ここにレスポンス処理
     }
@@ -52,15 +52,15 @@ final class ArticleController extends Controller
      * 記事の一覧を返却します．
      *
      * @param ArticleRequest $articleRequest
-     * @param ArticleId      $articleId
+     * @param ArticleId      $id
      * @return Response
      */
-    public function getArticles(ArticleRequest $articleRequest, ArticleId $articleId): Response
+    public function getArticles(ArticleRequest $articleRequest, ArticleId $id): Response
     {
         $validated = $articleRequest->validated();
 
         $criteria = new ArticleCriteria(
-            $articleId,
+            $id,
             $validated['order'],
             $validated['limit']
         );
@@ -91,16 +91,16 @@ final class ArticleController extends Controller
      * 記事を更新します．
      *
      * @param ArticleRequest $articleRequest
-     * @param ArticleId      $articleId
+     * @param ArticleId      $id
      * @return RedirectResponse
      */
-    public function updateArticle(ArticleRequest $articleRequest, ArticleId $articleId): RedirectResponse
+    public function updateArticle(ArticleRequest $articleRequest, ArticleId $id): RedirectResponse
     {
         $validated = $articleRequest->validated();
 
         $articleInput = new ArticleInput($validated);
 
-        $this->articleUsecase->updateArticle($articleInput, $articleId);
+        $this->articleUsecase->updateArticle($articleInput, $id);
 
         return redirect('article.article-listed')->with(['success', '記事を更新しました']);
     }
@@ -108,12 +108,12 @@ final class ArticleController extends Controller
     /**
      * 記事を削除します．
      *
-     * @param ArticleId $articleId
+     * @param ArticleId $id
      * @return RedirectResponse
      */
-    public function deleteArticle(ArticleId $articleId): RedirectResponse
+    public function deleteArticle(ArticleId $id): RedirectResponse
     {
-        $this->articleUsecase->deleteArticle($articleId);
+        $this->articleUsecase->deleteArticle($id);
 
         return redirect('article.article-listed')->with(['success', '記事を削除しました']);
     }

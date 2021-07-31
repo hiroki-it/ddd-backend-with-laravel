@@ -18,10 +18,10 @@ interface ArticleRepository extends Repository
     /**
      * READ：指定したIDの記事エンティティを読み出します．
      *
-     * @param ArticleId $articleId
+     * @param ArticleId $id
      * @return Article
      */
-    function findOneById(ArticleId $articleId): Article;
+    function findById(ArticleId $id): Article;
 
     /**
      * READ：記事エンティティを全て読み出します．

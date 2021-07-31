@@ -13,7 +13,7 @@ use Laravel\Passport\HasApiTokens;
 /**
  * ユーザDTOクラス
  */
-class User extends Authenticatable
+class UserDTO extends Authenticatable
 {
     use DTOTrait, HasApiTokens, Notifiable, HasFactory;
 

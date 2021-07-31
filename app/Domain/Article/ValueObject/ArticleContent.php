@@ -11,5 +11,26 @@ use App\Domain\ValueObject;
  */
 final class ArticleContent extends ValueObject
 {
+    /**
+     * @var string
+     */
+    private string $content;
 
+    /**
+     * コンストラクタインジェクション
+     *
+     * @param string $content
+     */
+    public function __construct(string $content)
+    {
+        $this->content = $content;
+    }
+
+    /**
+     * @return string
+     */
+    public function content(): string
+    {
+      return $this->content;
+    }
 }

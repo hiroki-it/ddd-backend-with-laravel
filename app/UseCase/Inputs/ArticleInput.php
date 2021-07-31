@@ -13,23 +13,23 @@ class ArticleInput
     /**
      * 記事タイトルクラス
      *
-     * @var ArticleTitle
+     * @var string
      */
-    private ArticleTitle $title;
+    private string $title;
 
     /**
      * 記事区分クラス
      *
-     * @var ArticleType
+     * @var string
      */
-    private ArticleType $type;
+    private string $type;
 
     /**
      * 記事本文クラス
      *
-     * @var ArticleContent
+     * @var string
      */
-    private ArticleContent $content;
+    private string $content;
 
     /**
      * コンストラクタインジェクション
@@ -41,6 +41,30 @@ class ArticleInput
         $this->title = $validated['title'];
         $this->type = $validated['type'];
         $this->content = $validated['content'];
+    }
+
+    /**
+     * @return string
+     */
+    public function title(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function type(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return string
+     */
+    public function content(): string
+    {
+        return $this->content;
     }
 
 }

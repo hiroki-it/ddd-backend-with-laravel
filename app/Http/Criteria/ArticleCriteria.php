@@ -15,18 +15,18 @@ final class ArticleCriteria extends Criteria
     /**
      * @var ArticleId
      */
-    private ArticleId $articleId;
+    private ArticleId $id;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param ArticleId $articleId
+     * @param ArticleId $id
      * @param string    $limit
      * @param string    $order
      */
-    public function __construct(ArticleId $articleId, string $limit = CriteriaConstant::DEFAULT_LIMIT,  string $order = CriteriaConstant::DEFAULT_ORDER)
+    public function __construct(ArticleId $id, string $limit = CriteriaConstant::DEFAULT_LIMIT,  string $order = CriteriaConstant::DEFAULT_ORDER)
     {
-        $this->articleId = $articleId;
+        $this->articleId = $id;
         $this->limit = $limit;
         $this->order = $order;
     }
