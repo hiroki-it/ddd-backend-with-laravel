@@ -39,7 +39,6 @@ final class UserRepository extends Repository implements DomainUserRepository
     public function create(User $user): void
     {
         DB::transaction(function () use ($user) {
-
             $this->userDTO
                 ->create([
                     'name'         => $user->name(),
@@ -65,7 +64,6 @@ final class UserRepository extends Repository implements DomainUserRepository
         ]);
 
         DB::transaction(function () use ($userDTO) {
-
             $userDTO->save();
         });
     }
@@ -80,7 +78,6 @@ final class UserRepository extends Repository implements DomainUserRepository
             ->find($user->id());
 
         DB::transaction(function () use ($userDTO) {
-
             $userDTO->delete();
         });
     }

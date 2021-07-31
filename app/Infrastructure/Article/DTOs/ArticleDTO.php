@@ -13,7 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 final class ArticleDTO extends Model
 {
-    use DTOTrait, HasFactory;
+    use DTOTrait;
+    use HasFactory;
 
     /**
      * DateTimeクラスに変換されるカラム

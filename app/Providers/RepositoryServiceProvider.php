@@ -27,7 +27,6 @@ class RepositoryServiceProvider extends ServiceProvider
         ];
 
         foreach ($binds as $abstract => $concrete) {
-
             $this->app->bind($abstract, $concrete);
         }
     }

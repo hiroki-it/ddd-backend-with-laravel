@@ -12,14 +12,13 @@ use App\Domain\User\Entity\User;
  */
 interface UserRepository extends Repository
 {
-
     /**
      * CREATE：ユーザエンティティを作成します．
      *
      * @param User $user
      * @return void
      */
-    function create(User $user): void;
+    public function create(User $user): void;
 
     /**
      * UPDATE：ユーザエンティティを更新します．
@@ -27,7 +26,7 @@ interface UserRepository extends Repository
      * @param User $user
      * @return void
      */
-    function update(User $user): void;
+    public function update(User $user): void;
 
     /**
      * DELETE：ユーザエンティティを削除します．
@@ -35,5 +34,5 @@ interface UserRepository extends Repository
      * @param User $user
      * @return void
      */
-    function delete(User $user): void;
+    public function delete(User $user): void;
 }

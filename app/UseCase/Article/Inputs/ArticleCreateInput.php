@@ -62,5 +62,4 @@ class ArticleCreateInput
     {
         return $this->content;
     }
-
 }

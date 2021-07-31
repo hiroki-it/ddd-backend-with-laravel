@@ -94,4 +94,3 @@ final class Article extends Entity
         return $this->content;
     }
 }
-

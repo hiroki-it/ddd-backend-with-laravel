@@ -11,5 +11,4 @@ use App\Domain\Id;
  */
 final class ArticleId extends Id
 {
-
 }

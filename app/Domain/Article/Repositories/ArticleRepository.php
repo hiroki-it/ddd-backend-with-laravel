@@ -14,21 +14,20 @@ use App\Domain\Repository;
  */
 interface ArticleRepository extends Repository
 {
-
     /**
      * READ：指定したIDの記事エンティティを読み出します．
      *
      * @param ArticleId $id
      * @return Article
      */
-    function findById(ArticleId $id): Article;
+    public function findById(ArticleId $id): Article;
 
     /**
      * READ：記事エンティティを全て読み出します．
      *
      * @return array
      */
-    function findAll(): array;
+    public function findAll(): array;
 
     /**
      * READ：指定した条件の記事エンティティを全て読み出します．
@@ -36,7 +35,7 @@ interface ArticleRepository extends Repository
      * @param ArticleCriteria $criteria
      * @return array
      */
-    function findAllByCriteria(ArticleCriteria $criteria): array;
+    public function findAllByCriteria(ArticleCriteria $criteria): array;
 
     /**
      * CREATE：記事エンティティを作成します．
@@ -44,7 +43,7 @@ interface ArticleRepository extends Repository
      * @param Article $article
      * @return void
      */
-    function create(Article $article): void;
+    public function create(Article $article): void;
 
     /**
      * UPDATE：記事エンティティを更新します．
@@ -52,7 +51,7 @@ interface ArticleRepository extends Repository
      * @param Article $article
      * @return void
      */
-    function update(Article $article): void;
+    public function update(Article $article): void;
 
     /**
      * DELETE：記事エンティティを削除します．
@@ -60,5 +59,5 @@ interface ArticleRepository extends Repository
      * @param Article $article
      * @return void
      */
-    function delete(Article $article): void;
+    public function delete(Article $article): void;
 }

@@ -9,5 +9,4 @@ namespace App\UseCase\UseCases;
  */
 abstract class Usecase
 {
-
 }

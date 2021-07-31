@@ -9,5 +9,4 @@ namespace App\Http\Middleware\Before\Converters;
  */
 abstract class IdConverterMiddleware
 {
-
 }

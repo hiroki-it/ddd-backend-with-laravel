@@ -106,7 +106,6 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     public function create(Article $article): void
     {
         DB::transaction(function () use ($article) {
-
             $this->articleDTO
                 ->create([
                     'title'   => $article->title(),
@@ -133,7 +132,6 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
         ]);
 
         DB::transaction(function () use ($articleDTO) {
-
             $articleDTO->save();
         });
     }
@@ -149,7 +147,6 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
             ->find($article->id());
 
         DB::transaction(function () use ($articleDTO) {
-
             $articleDTO->delete();
         });
     }

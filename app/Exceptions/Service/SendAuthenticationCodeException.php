@@ -9,5 +9,4 @@ namespace App\Exceptions\Service;
  */
 final class SendAuthenticationCodeException extends \Exception
 {
-
 }

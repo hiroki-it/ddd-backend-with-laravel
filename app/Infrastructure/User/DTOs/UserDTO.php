@@ -15,7 +15,10 @@ use Laravel\Passport\HasApiTokens;
  */
 class UserDTO extends Authenticatable
 {
-    use DTOTrait, HasApiTokens, Notifiable, HasFactory;
+    use DTOTrait;
+    use HasApiTokens;
+    use Notifiable;
+    use HasFactory;
 
     /**
      * DateTimeクラスに変換されるカラム

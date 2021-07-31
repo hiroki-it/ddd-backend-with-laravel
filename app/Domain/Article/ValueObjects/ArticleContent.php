@@ -31,6 +31,6 @@ final class ArticleContent extends ValueObject
      */
     public function content(): string
     {
-      return $this->content;
+        return $this->content;
     }
 }

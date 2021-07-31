@@ -9,5 +9,4 @@ namespace App\Domain;
  */
 abstract class DomainService
 {
-
 }

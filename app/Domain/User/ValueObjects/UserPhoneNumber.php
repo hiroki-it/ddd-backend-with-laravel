@@ -11,5 +11,4 @@ use App\Domain\ValueObject;
  */
 final class UserPhoneNumber extends ValueObject
 {
-
 }
