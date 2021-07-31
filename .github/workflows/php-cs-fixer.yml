@@ -28,9 +28,9 @@ jobs:
           vendor/bin/php-cs-fixer fix .
       - name: Commit & Push
         run: |
-          line=`git diff | wc -l`
-          if [ $line -eq 0 ]; then
-            echo "コミットするものがないので終了"
+          diff=`git diff | wc -l`
+          if [ $diff -eq 0 ]; then
+            echo "差分のない空コミットのため終了します．"
             exit 0
           fi
           git add .
