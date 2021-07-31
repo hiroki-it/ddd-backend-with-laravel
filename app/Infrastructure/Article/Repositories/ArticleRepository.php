@@ -58,11 +58,11 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
      */
     public function findAll(): array
     {
-        $articleDTOs = $this->articleDTO
+        $articlesDTO = $this->articleDTO
             ->all();
 
         $articles = [];
-        foreach ($articleDTOs as $articleDTO) {
+        foreach ($articlesDTO as $articleDTO) {
             $articles[] = new Article(
                 $articleDTO->id(),
                 $articleDTO->title(),
@@ -80,13 +80,13 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
      */
     public function findAllByCriteria(ArticleCriteria $criteria): array
     {
-        $userDTOs = $this->articleDTO
+        $usersDTO = $this->articleDTO
             ->sortBy($criteria->order())
             ->take($criteria->limit())
             ->all();
 
         $articles = [];
-        foreach ($userDTOs as $userDTO) {
+        foreach ($usersDTO as $userDTO) {
             $articles[] = new Article(
                 $userDTO->id(),
                 $userDTO->title(),
