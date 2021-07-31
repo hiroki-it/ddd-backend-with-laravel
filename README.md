@@ -99,29 +99,29 @@ project
 └── app
     ├── Console
     ├── Constant # 定数パターン
-    ├── Domain            # ** ドメイン層 **
-    |   └── Foo             # 任意のルートエンティティ
-    |       ├── Entity      # エンティティ 
-    |       ├── Repository  # インターフェースリポジトリ（実装リポジトリと対応）
-    |       ├── Service     # サービス
-    |       └── ValueObject # 値オブジェクト
+    ├── Domain               # ** ドメイン層 **
+    |   └── Foo              # 任意のルートエンティティ
+    |       ├── Entities     # エンティティ 
+    |       ├── Repositories # インターフェースリポジトリ（実装リポジトリと対応）
+    |       ├── Services     # サービス
+    |       └── ValueObjects # 値オブジェクト
     |
     ├── Exceptions # 例外
     ├── Http            # ** プレゼンテーション層 **
-    |   ├── Controllers   # コントローラ
-    |   ├── Middleware    # ミドルウェア
-    |   └── Requests      # バリデーション
+    |   ├── Controllers # コントローラ
+    |   ├── Middleware  # ミドルウェア
+    |   └── Requests    # バリデーション
     |
     ├── Infrastructure # ** インフラストラクチャ層 **
     |   └── Foo              # 任意のルートエンティティ
-    |       ├── DTO          # エンティティ詰め替えオブジェクト（Eloquentを継承）
-    |       └── Repository   # 実装リポジトリ（インターフェースリポジトリと対応）
+    |       ├── DTOs         # エンティティ詰め替えオブジェクト（Eloquentを継承）
+    |       └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
     |
     ├── Providers # プロバイダー
     ├── Traits # トレイト
     └── UseCase     # ** ユースケース層 **
         └── Foo          # 任意のルートエンティティ    
-            ├── Input    # インプット
-            ├── Service  # サービス
-            └── UseCase  # ユースケース
+            ├── Inputs   # インプット
+            ├── Services # サービス
+            └── UseCases # ユースケース
 ```
