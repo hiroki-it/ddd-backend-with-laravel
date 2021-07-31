@@ -101,6 +101,7 @@ project
     ├── Constant # 定数パターン
     ├── Domain               # ** ドメイン層 **
     |   └── Foo              # 任意のルートエンティティ
+    |       ├── Criterion    # ドメイン検索条件
     |       ├── Entities     # エンティティ 
     |       ├── Repositories # インターフェースリポジトリ（実装リポジトリと対応）
     |       ├── Services     # サービス
