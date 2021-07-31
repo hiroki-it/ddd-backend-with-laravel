@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Repositories;
+namespace App\Infrastructure\Article\Repositories;
 
 use App\Domain\Article\Entities\Article;
 use App\Domain\Article\Repositories\ArticleRepository as DomainArticleRepository;
 use App\Domain\Article\ValueObjects\ArticleId;
-use App\Infrastructure\DTO\ArticleDTO;
+use App\Infrastructure\Article\DTOs\ArticleDTO;
+use App\Infrastructure\Repository;
 use Illuminate\Support\Facades\DB;
 
 /**

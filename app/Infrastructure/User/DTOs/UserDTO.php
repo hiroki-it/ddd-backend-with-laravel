@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\DTO;
+namespace App\Infrastructure\User\DTOs;
 
 use App\Traits\DTOTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Repositories;
+namespace App\Infrastructure\Article\Repositories;
 
 use App\Domain\User\Repository\UserRepository as DomainUserRepository;
 use App\Domain\User\Entity\User;
-use App\Infrastructure\DTO\User as UserDTO;
+use App\Infrastructure\DTO\UserDTO;
+use App\Infrastructure\Repository;
 use Illuminate\Support\Facades\DB;
 
 /**
