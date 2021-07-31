@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Repositories;
 
-use App\Criteria\ArticleCriteria;
 use App\Domain\Article\Entity\Article;
 use App\Domain\Article\Repository\ArticleRepository as DomainArticleRepository;
 use App\Domain\Article\ValueObject\ArticleId;
@@ -74,14 +73,15 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     }
 
     /**
-     * @param ArticleCriteria $criteria
+     * @param string $order
+     * @param string $limit
      * @return array
      */
-    public function findAllByCriteria(ArticleCriteria $criteria): array
+    public function findAllByCriteria(string $order, string $limit): array
     {
         $userDTOs = $this->articleDTO
-            ->sortBy($criteria->order())
-            ->take($criteria->limit())
+            ->sortBy($order)
+            ->take($limit)
             ->all();
 
         $articles = [];
@@ -100,6 +100,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     /**
      * @param Article $article
      * @return void
+     * @throws \Throwable
      */
     public function create(Article $article): void
     {
@@ -117,6 +118,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     /**
      * @param Article $article
      * @return void
+     * @throws \Throwable
      */
     public function update(Article $article): void
     {
@@ -138,6 +140,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     /**
      * @param Article $article
      * @return void
+     * @throws \Throwable
      */
     public function delete(Article $article): void
     {

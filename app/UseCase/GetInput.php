@@ -2,16 +2,30 @@
 
 declare(strict_types=1);
 
-namespace App\Criteria;
+namespace App\Usecase;
 
 use App\Traits\UnsupportedMagicMethodTrait;
 
 /**
  * 検索条件抽象クラス
  */
-abstract class Criteria
+abstract class GetInput
 {
     use UnsupportedMagicMethodTrait;
+
+    /**
+     * @var string
+     *
+     * 順序のデフォルト値
+     */
+    public const DEFAULT_ORDER = 'asc';
+
+    /**
+     * @var string
+     *
+     * 件数のデフォルト値
+     */
+    public const DEFAULT_LIMIT = '10';
 
     /**
      * 件数

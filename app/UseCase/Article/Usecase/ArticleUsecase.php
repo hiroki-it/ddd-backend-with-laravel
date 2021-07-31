@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace App\UseCase\UseCases;
 
-use App\Criteria\ArticleCriteria;
 use App\Domain\Article\Entity\Article;
 use App\Domain\Article\Repository\ArticleRepository;
 use App\Domain\Article\ValueObject\ArticleContent;
 use App\Domain\Article\ValueObject\ArticleId;
 use App\Domain\Article\ValueObject\ArticleTitle;
 use App\Domain\Article\ValueObject\ArticleType;
-use App\UseCase\Inputs\ArticleInput;
+use App\Usecase\Article\Input\ArticleGetInput;
+use App\UseCase\Inputs\ArticleCreateInput;
+use App\UseCase\Inputs\ArticleUpdateInput;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
@@ -47,20 +48,20 @@ final class ArticleUsecase extends Usecase
     }
 
     /**
-     * @param ArticleCriteria $criteria
+     * @param ArticleGetInput $input
      * @return array
      */
-    public function getArticles(ArticleCriteria $criteria): array
+    public function getArticles(ArticleGetInput $input): array
     {
         return $this->articleRepository
-            ->findAllByCriteria($criteria);
+            ->findAllByCriteria($input->order(), $input->limit());
     }
 
     /**
-     * @param ArticleInput $input
+     * @param ArticleCreateInput $input
      * @throws InvalidEnumMemberException
      */
-    public function createArticle(ArticleInput $input)
+    public function createArticle(ArticleCreateInput $input)
     {
         $article = new Article(
             null,
@@ -73,11 +74,11 @@ final class ArticleUsecase extends Usecase
     }
 
     /**
-     * @param ArticleInput $input
-     * @param ArticleId    $id
+     * @param ArticleUpdateInput $input
+     * @param ArticleId          $id
      * @throws InvalidEnumMemberException
      */
-    public function updateArticle(ArticleInput $input, ArticleId $id)
+    public function updateArticle(ArticleUpdateInput $input, ArticleId $id)
     {
         $article = new Article(
             $id,

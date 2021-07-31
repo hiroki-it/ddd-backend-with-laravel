@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Criteria;
+namespace App\Usecase\Article\Input;
 
-use App\Constant\CriteriaConstant;
 use App\Domain\Article\ValueObject\ArticleId;
+use App\Usecase\GetInput;
 
 /**
  * 記事検索条件クラス
  */
-final class ArticleCriteria extends Criteria
+final class ArticleGetInput extends GetInput
 {
     /**
      * @var ArticleId
@@ -24,9 +24,9 @@ final class ArticleCriteria extends Criteria
      * @param string    $limit
      * @param string    $order
      */
-    public function __construct(ArticleId $id, string $limit = CriteriaConstant::DEFAULT_LIMIT,  string $order = CriteriaConstant::DEFAULT_ORDER)
+    public function __construct(ArticleId $id, string $limit = self::DEFAULT_LIMIT,  string $order = self::DEFAULT_ORDER)
     {
-        $this->articleId = $id;
+        $this->id = $id;
         $this->limit = $limit;
         $this->order = $order;
     }
@@ -38,6 +38,6 @@ final class ArticleCriteria extends Criteria
      */
     public function id(): ArticleId
     {
-        return $this->articleId;
+        return $this->id;
     }
 }

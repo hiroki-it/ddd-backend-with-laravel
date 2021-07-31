@@ -4,11 +4,7 @@ declare(strict_types=1);
 
 namespace App\UseCase\Inputs;
 
-use App\Domain\Article\ValueObject\ArticleContent;
-use App\Domain\Article\ValueObject\ArticleTitle;
-use App\Domain\Article\ValueObject\ArticleType;
-
-class ArticleInput
+class ArticleCreateInput
 {
     /**
      * 記事タイトルクラス

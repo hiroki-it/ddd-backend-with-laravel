@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Article;
 
-use App\Criteria\ArticleCriteria;
 use App\Domain\Article\ValueObject\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
-use App\UseCase\Inputs\ArticleInput;
+use App\UseCase\Inputs\ArticleCreateInput;
+use App\UseCase\Inputs\ArticleUpdateInput;
 use App\UseCase\UseCases\ArticleUsecase;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
@@ -59,13 +59,13 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $criteria = new ArticleCriteria(
+        $input = new ArticleGetInput(
             $id,
             $validated['order'],
             $validated['limit']
         );
 
-        $article = $this->articleUsecase->getArticles($criteria);
+        $article = $this->articleUsecase->getArticles($input);
 
         // ここにレスポンス処理
     }
@@ -80,7 +80,7 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $articleInput = new ArticleInput($validated);
+        $articleInput = new ArticleCreateInput($validated);
 
         $this->articleUsecase->createArticle($articleInput);
 
@@ -98,7 +98,7 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $articleInput = new ArticleInput($validated);
+        $articleInput = new ArticleUpdateInput($validated);
 
         $this->articleUsecase->updateArticle($articleInput, $id);
 

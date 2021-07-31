@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Article\Repository;
 
-use App\Criteria\ArticleCriteria;;
 use App\Domain\Article\Entity\Article;
 use App\Domain\Article\ValueObject\ArticleId;
 use App\Domain\Repository;
@@ -33,10 +32,11 @@ interface ArticleRepository extends Repository
     /**
      * READ：指定した条件の記事エンティティを全て読み出します．
      *
-     * @param ArticleCriteria $criteria
+     * @param string $order
+     * @param string $limit
      * @return array
      */
-    function findAllByCriteria(ArticleCriteria $criteria): array;
+    function findAllByCriteria(string $order, string $limit): array;
 
     /**
      * CREATE：記事エンティティを作成します．
