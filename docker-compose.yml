@@ -32,7 +32,7 @@ services:
     container_name: tech-blog-web
     hostname: tech-blog-web
     build:
-      dockerfile: ./infra/docker/www/Dockerfile
+      dockerfile: ./infra/docker/web/Dockerfile
       target: develop
       context: .
     image: tech-blog-web:latest
