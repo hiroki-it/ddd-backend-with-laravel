@@ -33,18 +33,14 @@ $ docker-compose up -d
 ここでは，appサービスにてライブラリをインストールします．
 
 ```shell
-$ docker-compose exec api composer install
+$ docker-compose exec api composer install --prefer-dist
 ```
 
 ### コードの整形
 
 [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) を使用して，ソースコードを整形します．
 
-ファイルの保存時に自動実行できるように，使用するエディタに設定しておくと，より便利です．
-
-```sh
-$ docker-compose exec api ./vendor/bin/php-cs-fixer fix app
-```
+GitHubActionsを使用して，プッシュされたコミットを整形し，再コミットするようにしています．
 
 ### コードの静的解析
 
