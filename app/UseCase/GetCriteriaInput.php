@@ -10,7 +10,7 @@ use App\Traits\UnsupportedMagicMethodTrait;
  * 取得条件クラス
  * NOTE: 検索条件パターンを採用しています．
  */
-abstract class GetCriteria
+abstract class GetCriteriaInput
 {
     use UnsupportedMagicMethodTrait;
 

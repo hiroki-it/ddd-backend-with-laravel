@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Usecase\Article\Input;
 
 use App\Domain\Article\ValueObject\ArticleId;
-use App\Usecase\GetCriteria;
+use App\Usecase\GetCriteriaInput;
 
 /**
  * 記事インプットクラス
  */
-final class ArticleGetCriteriaInput extends GetCriteria
+final class ArticleGetCriteriaInputInput extends GetCriteriaInput
 {
     /**
      * @var ArticleId
