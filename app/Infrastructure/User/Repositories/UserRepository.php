@@ -35,6 +35,7 @@ final class UserRepository extends Repository implements DomainUserRepository
     /**
      * @param User $user
      * @return void
+     * @throws \Throwable
      */
     public function create(User $user): void
     {
@@ -52,6 +53,7 @@ final class UserRepository extends Repository implements DomainUserRepository
     /**
      * @param User $user
      * @return void
+     * @throws \Throwable
      */
     public function update(User $user): void
     {
@@ -73,6 +75,7 @@ final class UserRepository extends Repository implements DomainUserRepository
     /**
      * @param User $user
      * @return void
+     * @throws \Throwable
      */
     public function delete(User $user): void
     {
