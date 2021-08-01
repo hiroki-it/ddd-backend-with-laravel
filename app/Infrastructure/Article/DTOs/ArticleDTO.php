@@ -5,7 +5,12 @@ declare(strict_types=1);
 namespace App\Infrastructure\Article\DTOs;
 
 use App\Domain\Article\Entities\Article;
+use App\Domain\Article\ValueObjects\ArticleContent;
+use App\Domain\Article\ValueObjects\ArticleId;
+use App\Domain\Article\ValueObjects\ArticleTitle;
+use App\Domain\Article\ValueObjects\ArticleType;
 use App\Traits\DTOTrait;
+use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,37 +44,38 @@ final class ArticleDTO extends Model
         'content',
     ];
     /**
-     * @var mixed
+     * @var int
      */
-    private $id;
+    private int $id;
 
     /**
-     * @var mixed
+     * @var string
      */
-    private $title;
+    private string $title;
 
     /**
-     * @var mixed
+     * @var string
      */
-    private $type;
+    private string $type;
 
     /**
-     * @var mixed
+     * @var string
      */
-    private $content;
+    private string $content;
 
     /**
      * DTOを記事エンティティに変換します．
      *
      * @return Article
+     * @throws InvalidEnumMemberException
      */
     public function toArticle(): Article
     {
         return new Article(
-            $this->id,
-            $this->title,
-            $this->type,
-            $this->content
+            new ArticleId($this->id),
+            new ArticleTitle($this->title),
+            new ArticleType($this->type),
+            new ArticleContent($this->content)
         );
     }
 }
