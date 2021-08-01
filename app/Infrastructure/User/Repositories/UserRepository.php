@@ -9,6 +9,7 @@ use App\Domain\User\Entity\User;
 use App\Infrastructure\Repository;
 use App\Infrastructure\User\DTOs\UserDTO;
 use Illuminate\Support\Facades\DB;
+use Throwable;
 
 /**
  * ユーザリポジトリ実装クラス
@@ -35,7 +36,7 @@ final class UserRepository extends Repository implements DomainUserRepository
     /**
      * @param User $user
      * @return void
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function create(User $user): void
     {
@@ -53,7 +54,7 @@ final class UserRepository extends Repository implements DomainUserRepository
     /**
      * @param User $user
      * @return void
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function update(User $user): void
     {
@@ -75,7 +76,7 @@ final class UserRepository extends Repository implements DomainUserRepository
     /**
      * @param User $user
      * @return void
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function delete(User $user): void
     {
