@@ -39,6 +39,7 @@ final class UserRepository extends Repository implements DomainUserRepository
     public function create(User $user): void
     {
         DB::transaction(function () use ($user) {
+            // ドメインエンティティのデータをDTOに詰め替えます．
             $this->userDTO
                 ->create([
                     'name'         => $user->name(),
@@ -57,6 +58,7 @@ final class UserRepository extends Repository implements DomainUserRepository
         $userDTO = $this->userDTO
             ->find($user->id());
 
+        // ドメインエンティティのデータをDTOに詰め替えます．
         $userDTO->fill([
             'name'         => $user->name(),
             'emailAddress' => $user->emailAddress(),
