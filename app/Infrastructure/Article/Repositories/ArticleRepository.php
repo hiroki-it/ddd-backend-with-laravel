@@ -95,7 +95,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     /**
      * @param Article $article
      * @return void
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function create(Article $article): void
     {
@@ -113,7 +113,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     /**
      * @param Article $article
      * @return void
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function update(Article $article): void
     {
@@ -135,7 +135,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     /**
      * @param Article $article
      * @return void
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function delete(Article $article): void
     {
