@@ -45,12 +45,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
             ->find($id);
 
         // DTOのデータをドメインエンティティに詰め替えます．
-        return new Article(
-            $articleDTO->id(),
-            $articleDTO->title(),
-            $articleDTO->type(),
-            $articleDTO->content()
-        );
+        return $articleDTO->toArticle();
     }
 
     /**
