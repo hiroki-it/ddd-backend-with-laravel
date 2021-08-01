@@ -11,6 +11,7 @@ use App\Domain\Article\ValueObjects\ArticleId;
 use App\Infrastructure\Article\DTOs\ArticleDTO;
 use App\Infrastructure\Repository;
 use Illuminate\Support\Facades\DB;
+use Throwable;
 
 /**
  * 記事リポジトリ実装クラス
@@ -65,12 +66,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
         $articles = [];
         foreach ($articlesDTO as $articleDTO) {
             // DTOのデータをドメインエンティティに詰め替えます．
-            $articles[] = new Article(
-                $articleDTO->id(),
-                $articleDTO->title(),
-                $articleDTO->type(),
-                $articleDTO->content()
-            );
+            $articles[] = $articleDTO->toArticle();
         }
 
         return $articles;
@@ -90,12 +86,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
         $articles = [];
         foreach ($articlesDTO as $articleDTO) {
             // DTOのデータをドメインエンティティに詰め替えます．
-            $articles[] = new Article(
-                $articleDTO->id(),
-                $articleDTO->title(),
-                $articleDTO->type(),
-                $articleDTO->content()
-            );
+            $articles[] = $articleDTO->toArticle();
         }
 
         return $articles;
