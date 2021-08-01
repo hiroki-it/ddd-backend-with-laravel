@@ -10,6 +10,7 @@ use App\Domain\Article\Repositories\ArticleRepository as DomainArticleRepository
 use App\Domain\Article\ValueObjects\ArticleId;
 use App\Infrastructure\Article\DTOs\ArticleDTO;
 use App\Infrastructure\Repository;
+use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 use Illuminate\Support\Facades\DB;
 use Throwable;
 
@@ -52,6 +53,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
      * READ
      *
      * @return array
+     * @throws InvalidEnumMemberException
      */
     public function findAll(): array
     {
