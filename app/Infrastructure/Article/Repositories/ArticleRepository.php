@@ -43,6 +43,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
         $articleDTO = $this->articleDTO
             ->find($id);
 
+        // DTOのデータをドメインエンティティに詰め替えます．
         return new Article(
             $articleDTO->id(),
             $articleDTO->title(),
@@ -63,6 +64,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
 
         $articles = [];
         foreach ($articlesDTO as $articleDTO) {
+            // DTOのデータをドメインエンティティに詰め替えます．
             $articles[] = new Article(
                 $articleDTO->id(),
                 $articleDTO->title(),
@@ -87,6 +89,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
 
         $articles = [];
         foreach ($articlesDTO as $articleDTO) {
+            // DTOのデータをドメインエンティティに詰め替えます．
             $articles[] = new Article(
                 $articleDTO->id(),
                 $articleDTO->title(),
@@ -106,6 +109,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     public function create(Article $article): void
     {
         DB::transaction(function () use ($article) {
+            // ドメインエンティティのデータをDTOに詰め替えます．
             $this->articleDTO
                 ->create([
                     'title'   => $article->title(),
@@ -125,6 +129,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
         $articleDTO = $this->articleDTO
             ->find($article->id());
 
+        // ドメインエンティティのデータをDTOに詰め替えます．
         $articleDTO->fill([
             'title'   => $article->title(),
             'type'    => $article->type(),
