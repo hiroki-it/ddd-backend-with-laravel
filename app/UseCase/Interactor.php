@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\UseCases;
+namespace App\UseCase;
 
 /**
  * ユースケース抽象クラス
  */
-abstract class Usecase
+abstract class Interactor
 {
 }
