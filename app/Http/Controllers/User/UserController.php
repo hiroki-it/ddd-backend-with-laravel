@@ -7,7 +7,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\UseCase\Inputs\UserInput;
-use App\UseCase\UseCases\UserUsecase;
+use App\UseCase\User\Interactors\UserInteractor;
 use Illuminate\Http\RedirectResponse;
 
 /**
@@ -18,18 +18,18 @@ final class UserController extends Controller
     /**
      * ユースケースクラス
      *
-     * @var UserUsecase
+     * @var UserInteractor
      */
-    private UserUsecase $userUsecase;
+    private UserInteractor $userInteractor;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param UserUsecase $userUsecase
+     * @param UserInteractor $userInteractor
      */
-    public function __construct(UserUsecase $userUsecase)
+    public function __construct(UserInteractor $userInteractor)
     {
-        $this->userUsecase = $userUsecase;
+        $this->userInteractor = $userInteractor;
     }
 
     /**
@@ -44,7 +44,7 @@ final class UserController extends Controller
 
         $userInput = new UserInput($validated);
 
-        $this->userUsecase->createUser($userInput);
+        $this->userInteractor->createUser($userInput);
 
         return redirect('login.login')->with(['success' => 'ユーザを登録しました．ログインできます．']);
     }
