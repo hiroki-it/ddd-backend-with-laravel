@@ -8,7 +8,7 @@ use App\Domain\Article\ValueObjects\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\Usecase\Article\Inputs\ArticleGetInput;
-use App\UseCase\Article\UseCases\ArticleUsecase;
+use App\UseCase\Article\Interactors\ArticleInteractor;
 use App\UseCase\Inputs\ArticleCreateInput;
 use App\UseCase\Inputs\ArticleUpdateInput;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
@@ -23,18 +23,18 @@ final class ArticleController extends Controller
     /**
      * ユースケースクラス
      *
-     * @var ArticleUsecase
+     * @var ArticleInteractor
      */
-    private ArticleUsecase $articleUsecase;
+    private ArticleInteractor $articleInteractor;
 
     /**
      * コンストラクタインジェクション
      *
-     * @param ArticleUsecase $articleUsecase
+     * @param ArticleInteractor $articleInteractor
      */
-    public function __construct(ArticleUsecase $articleUsecase)
+    public function __construct(ArticleInteractor $articleInteractor)
     {
-        $this->articleUsecase = $articleUsecase;
+        $this->articleInteractor = $articleInteractor;
     }
 
     /**
@@ -45,7 +45,7 @@ final class ArticleController extends Controller
      */
     public function getArticle(ArticleId $id): Response
     {
-        $article = $this->articleUsecase->getArticle($id);
+        $article = $this->articleInteractor->getArticle($id);
 
         // ここにレスポンス処理
     }
@@ -66,7 +66,7 @@ final class ArticleController extends Controller
             $validated['limit']
         );
 
-        $article = $this->articleUsecase->getArticles($input);
+        $article = $this->articleInteractor->getArticles($input);
 
         // ここにレスポンス処理
     }
@@ -84,9 +84,9 @@ final class ArticleController extends Controller
 
         $articleInput = new ArticleCreateInput($validated);
 
-        $this->articleUsecase->createArticle($articleInput);
+        $this->articleInteractor->createArticle($articleInput);
 
-        return redirect('article.article-list')->with(['success' => '記事を作成しました']);
+        // ここにレスポンス処理
     }
 
     /**
@@ -103,9 +103,9 @@ final class ArticleController extends Controller
 
         $articleInput = new ArticleUpdateInput($validated);
 
-        $this->articleUsecase->updateArticle($articleInput, $id);
+        $this->articleInteractor->updateArticle($articleInput, $id);
 
-        return redirect('article.article-listed')->with(['success', '記事を更新しました']);
+        // ここにレスポンス処理
     }
 
     /**
@@ -116,8 +116,8 @@ final class ArticleController extends Controller
      */
     public function deleteArticle(ArticleId $id): RedirectResponse
     {
-        $this->articleUsecase->deleteArticle($id);
+        $this->articleInteractor->deleteArticle($id);
 
-        return redirect('article.article-listed')->with(['success', '記事を削除しました']);
+        // ここにレスポンス処理
     }
 }
