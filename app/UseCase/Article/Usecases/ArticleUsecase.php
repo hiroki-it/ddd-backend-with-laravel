@@ -2,18 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\UseCases;
+namespace App\UseCase\Article\UseCases;
 
+use App\Domain\Article\Criterion\ArticleCriteria;
 use App\Domain\Article\Entities\Article;
 use App\Domain\Article\Repositories\ArticleRepository;
 use App\Domain\Article\ValueObjects\ArticleContent;
 use App\Domain\Article\ValueObjects\ArticleId;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
-use App\Usecase\Article\Inputs\ArticleCriteria;
 use App\Usecase\Article\Inputs\ArticleGetInput;
 use App\UseCase\Inputs\ArticleCreateInput;
 use App\UseCase\Inputs\ArticleUpdateInput;
+use App\UseCase\UseCases\Usecase;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
