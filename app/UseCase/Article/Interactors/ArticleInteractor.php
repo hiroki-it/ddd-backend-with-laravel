@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\Article\UseCases;
+namespace App\UseCase\Article\Interactors;
 
 use App\Domain\Article\Criterion\ArticleCriteria;
 use App\Domain\Article\Entities\Article;
@@ -14,13 +14,13 @@ use App\Domain\Article\ValueObjects\ArticleType;
 use App\Usecase\Article\Inputs\ArticleGetInput;
 use App\UseCase\Inputs\ArticleCreateInput;
 use App\UseCase\Inputs\ArticleUpdateInput;
-use App\UseCase\UseCases\Usecase;
+use App\UseCase\Interactor;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
  * 記事ユースケースクラス
  */
-final class ArticleUsecase extends Usecase
+final class ArticleInteractor extends Interactor
 {
     /**
      * リポジトリクラス

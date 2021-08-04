@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\UseCases;
+namespace App\UseCase\User\Interactors;
 
 use App\Domain\User\Repository\UserRepository;
 use App\Domain\User\Entity\User;
@@ -12,12 +12,13 @@ use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\Domain\User\ValueObjects\UserPhoneNumber;
 use App\UseCase\Inputs\UserInput;
+use App\UseCase\Interactor;
 use App\Usecase\Services\UserSmsAuthenticationService;
 
 /**
 * ユーザユースケースクラス
 */
-final class UserUsecase extends Usecase
+final class UserInteractor extends Interactor
 {
     /**
      * リポジトリクラス
@@ -43,15 +44,12 @@ final class UserUsecase extends Usecase
      */
     public function createUser(UserInput $input): void
     {
-        $SmsAuthenticationService = new UserSmsAuthenticationService(
-            config('sms.sns'),
-            auth()->user()
-        );
+        $SmsAuthenticationService = new UserSmsAuthenticationService(config('sms.sns'),auth()->user());
 
         $user = new User(
             null,
             new UserName($input->name()),
-            new UserEmailAddress($input->type()),
+            new UserEmailAddress($input->emailAddress()),
             new UserPhoneNumber($input->phoneNumber()),
             new UserPassword($input->password()),
             new UserAuthenticationCode($SmsAuthenticationService->generateAuthenticationCode())
