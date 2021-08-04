@@ -44,7 +44,7 @@ final class UserInteractor extends Interactor
      */
     public function createUser(UserInput $input): void
     {
-        $SmsAuthenticationService = new UserSmsAuthenticationService(config('sms.sns'),auth()->user());
+        $SmsAuthenticationService = new UserSmsAuthenticationService(config('sms.sns'), auth()->user());
 
         $user = new User(
             null,
