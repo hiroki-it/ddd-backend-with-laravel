@@ -14,16 +14,16 @@ class RepositoryServiceProvider extends ServiceProvider
     /**
      * サービスコンテナにクラスをバインドします．
      *
-     * インターフェースリポジトリと実装リポジトリをバインドし，実装リポジトリのインスタンスをリゾルブします．
-     * これにより，依存性逆転を実現します．
+     * インターフェースリポジトリと実装リポジトリをバインドし，モック実装リポジトリのインスタンスをリゾルブします．
+     * これにより，インメモリなユニットテストを実現します．
      *
      * @return void
      */
     public function register()
     {
         $binds = [
-            'App\Domain\Article\Repositories\ArticleRepository' => 'App\Infrastructure\Repositories\ArticleRepository', // 記事リポジトリ
-            'App\Domain\User\Repository\UserRepository'    => 'App\Infrastructure\Repositories\UserRepository' // ユーザリポジトリ
+            'App\Domain\Article\Repositories\ArticleRepository' => 'App\Infrastructure\Article\Repositories\MockArticleRepository', // 記事リポジトリ
+            'App\Domain\User\Repositories\UserRepository'    => 'App\Infrastructure\Use\Repositories\MockUserRepository' // ユーザリポジトリ
         ];
 
         foreach ($binds as $abstract => $concrete) {
