@@ -86,15 +86,11 @@ DDDを実現するために，最初レイヤードアーキテクチャが考�
 
 ![ドメイン駆動設計](https://user-images.githubusercontent.com/42175286/58724663-2ec11c80-8418-11e9-96e9-bfc6848e9374.png)
 
-オニオンアーキテクチャは，さらにこのレイヤードアーキテクチャに対して，『依存性逆転の原則』を組み込んだものです．
+オニオンアーキテクチャやクリーンアーキテクチャは，さらにこのレイヤードアーキテクチャに対して，『依存性逆転の原則』を組み込んだものです．
 
 依存性逆転の原則を満たすために，インターフェースに依存するように実装する必要があります．
 
 参考：https://little-hands.hatenablog.com/entry/2017/10/11/075634
-
-![onion-architecture](https://raw.githubusercontent.com/hiroki-it/tech-notebook/master/images/onion-architecture.png)
-
-今回，オニオンアーキテクチャでDDDを実現するために，Laravelのサービスコンテナを利用しました．
 
 『依存性逆転の原則』を満たすために，まず，ドメイン層にインターフェースリポジトリを置き，インフラストラクチャ層にその実装を置きます．
 
