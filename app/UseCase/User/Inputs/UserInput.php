@@ -51,4 +51,36 @@ class UserInput
         $this->phoneNumber = $validated['phoneNumber'];
         $this->password = $validated['password'];
     }
+
+    /**
+     * @return UserName
+     */
+    public function name()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return UserEmailAddress
+     */
+    public function emailAddress()
+    {
+        return $this->emailAddress;
+    }
+
+    /**
+     * @return UserPhoneNumber
+     */
+    public function phoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @return UserPassword
+     */
+    public function password()
+    {
+        return $this->password;
+    }
 }
