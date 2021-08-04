@@ -120,7 +120,7 @@ project
     |       └── ValueObjects # 値オブジェクト
     |
     ├── Exceptions # 例外
-    ├── Http            # ** プレゼンテーション層 **
+    ├── Http            # ** インターフェース層 **
     |   ├── Controllers # コントローラ
     |   ├── Middleware  # ミドルウェア
     |   └── Requests    # バリデーション
@@ -133,8 +133,8 @@ project
     ├── Providers # プロバイダー
     ├── Traits # トレイト
     └── UseCase     # ** ユースケース層 **
-        └── Foo          # 任意のルートエンティティ    
-            ├── Inputs   # インプット
-            ├── Services # サービス
-            └── UseCases # ユースケース
+        └── Foo            # 任意のルートエンティティ    
+            ├── Inputs     # インプット
+            ├── Services   # サービス
+            └── Interactor # インターラクター
 ```
