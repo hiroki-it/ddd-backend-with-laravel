@@ -13,7 +13,7 @@ services:
     image: tech-blog-app:latest
     tty: true
     expose:
-      # PHP-FPMからのリダイレクトを受信
+      # nginxからのリクエスト転送を受信
       - "9000"
     volumes:
       # bindマウント
