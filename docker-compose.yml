@@ -2,15 +2,15 @@ version: "3.7"
 
 services:
 
-  # apiコンテナ
-  api:
-    container_name: tech-blog-api
-    hostname: tech-blog-api
+  # appコンテナ
+  app:
+    container_name: tech-blog-app
+    hostname: tech-blog-app
     build:
-      dockerfile: ./infra/docker/api/Dockerfile
+      dockerfile: ./infra/docker/app/Dockerfile
       target: develop
       context: .
-    image: tech-blog-api:latest
+    image: tech-blog-app:latest
     tty: true
     expose:
       # PHP-FPMからのリダイレクトを受信
@@ -41,15 +41,15 @@ services:
       - "8000:80"
     volumes:
       # bindマウント
-      - .:/var/www/tech-blog
-    working_dir: /var/www/tech-blog
+      - .:/var/web/tech-blog
+    working_dir: /var/web/tech-blog
     environment:
       TZ: "Asia/Tokyo"
       LANG: "ja_JP.UTF-8"
     networks:
       - default
     depends_on:
-      - api
+      - app
 
   # dbコンテナ
   db:

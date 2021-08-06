@@ -33,7 +33,7 @@ $ docker-compose up -d
 ここでは，appサービスにてライブラリをインストールします．
 
 ```shell
-$ docker-compose exec api composer install --prefer-dist
+$ docker-compose exec app composer install --prefer-dist
 ```
 
 ### コードの整形
@@ -49,7 +49,7 @@ GitHub Actionsを使用して，プッシュされたソースコードを整形
 予定：GitHub Actions上で静的解析を実行し，一つでも問題が検出されたら怒られるようにしたい...
 
 ```sh
-$ docker-compose exec api ./vendor/bin/phpstan analyse app
+$ docker-compose exec app ./vendor/bin/phpstan analyse app
 ```
 
 <br>
