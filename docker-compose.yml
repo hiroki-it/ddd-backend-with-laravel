@@ -4,21 +4,21 @@ services:
 
   # appコンテナ
   app:
-    container_name: tech-blog-app
-    hostname: tech-blog-app
+    container_name: ddd-api-with-laravel-app
+    hostname: ddd-api-with-laravel-app
     build:
       dockerfile: ./infra/docker/app/Dockerfile
       target: develop
       context: .
-    image: tech-blog-app:latest
+    image: ddd-api-with-laravel-app:latest
     tty: true
     expose:
       # nginxから転送されたリクエストを受信
       - "9000"
     volumes:
       # bindマウント
-      - .:/var/www/tech-blog
-    working_dir: /var/www/tech-blog
+      - .:/var/www/ddd-api-with-laravel
+    working_dir: /var/www/ddd-api-with-laravel
     networks:
       - default
     depends_on:
@@ -26,19 +26,19 @@ services:
 
   # webコンテナ
   web:
-    container_name: tech-blog-web
-    hostname: tech-blog-web
+    container_name: ddd-api-with-laravel-web
+    hostname: ddd-api-with-laravel-web
     build:
       dockerfile: ./infra/docker/web/Dockerfile
       target: develop
       context: .
-    image: tech-blog-web:latest
+    image: ddd-api-with-laravel-web:latest
     ports:
       - "8000:80"
     volumes:
       # bindマウント
-      - .:/var/web/tech-blog
-    working_dir: /var/web/tech-blog
+      - .:/var/web/ddd-api-with-laravel
+    working_dir: /var/web/ddd-api-with-laravel
     networks:
       - default
     depends_on:
@@ -46,8 +46,8 @@ services:
 
   # dbコンテナ
   db:
-    container_name: tech-blog-db
-    hostname: tech-blog-db
+    container_name: ddd-api-with-laravel-db
+    hostname: ddd-api-with-laravel-db
     image: mysql:5.7
     ports:
       - "3307:3306"
