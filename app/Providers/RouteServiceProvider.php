@@ -68,6 +68,13 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
+        // ヘルスチェック
+        Route::prefix('api')
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/healthcheck.php'));
+
+        // API
         Route::prefix('api')
              ->middleware('api')
              ->namespace($this->namespace)
