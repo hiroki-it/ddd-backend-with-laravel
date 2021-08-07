@@ -13,7 +13,7 @@ services:
     image: tech-blog-app:latest
     tty: true
     expose:
-      # nginxからのリクエスト転送を受信
+      # nginxから転送されたリクエストを受信
       - "9000"
     volumes:
       # bindマウント
