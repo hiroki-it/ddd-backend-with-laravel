@@ -2,6 +2,6 @@
 
 declare(strict_types=1);
 
-Route::get('/healthcheck', function() {
+Route::get('/healthcheck', function () {
     return response("ok", 200);
 });
