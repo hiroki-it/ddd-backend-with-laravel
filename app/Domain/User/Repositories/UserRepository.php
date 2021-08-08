@@ -18,21 +18,21 @@ interface UserRepository extends Repository
      * @param User $user
      * @return void
      */
-    public function create(User $user): void;
+    public function create(User $user): User;
 
     /**
      * UPDATE：ユーザエンティティを更新します．
      *
      * @param User $user
-     * @return void
+     * @return bool
      */
-    public function update(User $user): void;
+    public function update(User $user): bool;
 
     /**
      * DELETE：ユーザエンティティを削除します．
      *
      * @param User $user
-     * @return void
+     * @return bool
      */
-    public function delete(User $user): void;
+    public function delete(User $user): bool;
 }

@@ -41,23 +41,23 @@ interface ArticleRepository extends Repository
      * CREATE：記事エンティティを作成します．
      *
      * @param Article $article
-     * @return void
+     * @return Article
      */
-    public function create(Article $article): void;
+    public function create(Article $article): Article;
 
     /**
      * UPDATE：記事エンティティを更新します．
      *
      * @param Article $article
-     * @return void
+     * @return bool
      */
-    public function update(Article $article): void;
+    public function update(Article $article): bool;
 
     /**
      * DELETE：記事エンティティを削除します．
      *
      * @param Article $article
-     * @return void
+     * @return bool
      */
-    public function delete(Article $article): void;
+    public function delete(Article $article): bool;
 }
