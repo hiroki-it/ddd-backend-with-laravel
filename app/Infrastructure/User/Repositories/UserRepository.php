@@ -35,14 +35,14 @@ final class UserRepository extends Repository implements DomainUserRepository
 
     /**
      * @param User $user
-     * @return void
+     * @return User
      * @throws Throwable
      */
-    public function create(User $user): void
+    public function create(User $user): User
     {
-        DB::transaction(function () use ($user) {
+        return DB::transaction(function () use ($user) {
             // ドメインエンティティのデータをDTOに詰め替えます．
-            $this->userDTO
+            return $this->userDTO
                 ->create([
                     'name'         => $user->name(),
                     'emailAddress' => $user->emailAddress(),
@@ -53,10 +53,10 @@ final class UserRepository extends Repository implements DomainUserRepository
 
     /**
      * @param User $user
-     * @return void
+     * @return bool
      * @throws Throwable
      */
-    public function update(User $user): void
+    public function update(User $user): bool
     {
         $userDTO = $this->userDTO
             ->find($user->id());
@@ -68,23 +68,23 @@ final class UserRepository extends Repository implements DomainUserRepository
             'password'     => $user->password()
         ]);
 
-        DB::transaction(function () use ($userDTO) {
-            $userDTO->save();
+        return DB::transaction(function () use ($userDTO) {
+            return $userDTO->save();
         });
     }
 
     /**
      * @param User $user
-     * @return void
+     * @return bool
      * @throws Throwable
      */
-    public function delete(User $user): void
+    public function delete(User $user): bool
     {
         $userDTO = $this->userDTO
             ->find($user->id());
 
-        DB::transaction(function () use ($userDTO) {
-            $userDTO->delete();
+        return DB::transaction(function () use ($userDTO) {
+            return $userDTO::delete();
         });
     }
 }
