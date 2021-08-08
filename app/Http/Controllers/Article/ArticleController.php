@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Article;
 use App\Domain\Article\ValueObjects\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
-use App\Usecase\Article\Inputs\ArticleGetInput;
+use App\UseCase\Article\Inputs\ArticleGetInput;
 use App\UseCase\Article\Interactors\ArticleInteractor;
 use App\UseCase\Inputs\ArticleCreateInput;
 use App\UseCase\Inputs\ArticleUpdateInput;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Usecase\Article\Inputs;
+namespace App\UseCase\Article\Inputs;
 
-use App\Usecase\GetInput;
+use App\UseCase\GetInput;
 
 /**
  * 記事インプットクラス

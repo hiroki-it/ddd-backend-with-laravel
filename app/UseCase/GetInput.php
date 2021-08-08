@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Usecase;
+namespace App\UseCase;
 
 use App\Traits\UnsupportedMagicMethodTrait;
 
