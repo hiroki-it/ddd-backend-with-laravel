@@ -44,7 +44,7 @@ project
         └── Foo            # 任意のルートエンティティ    
             ├── Inputs     # インプット
             ├── Services   # サービス
-            └── Interactor # インターラクター
+            └── Interactor # インターラクタ
 ```
 
 <br>
