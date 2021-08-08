@@ -11,7 +11,7 @@ use App\Domain\Article\ValueObjects\ArticleContent;
 use App\Domain\Article\ValueObjects\ArticleId;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
-use App\Usecase\Article\Inputs\ArticleGetInput;
+use App\UseCase\Article\Inputs\ArticleGetInput;
 use App\UseCase\Inputs\ArticleCreateInput;
 use App\UseCase\Inputs\ArticleUpdateInput;
 use App\UseCase\Interactor;
