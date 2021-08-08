@@ -91,14 +91,14 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
 
     /**
      * @param Article $article
-     * @return void
+     * @return Article
      * @throws Throwable
      */
-    public function create(Article $article): void
+    public function create(Article $article): Article
     {
-        DB::transaction(function () use ($article) {
+        return DB::transaction(function () use ($article) {
             // ドメインエンティティのデータをDTOに詰め替えます．
-            $this->articleDTO
+            return $this->articleDTO
                 ->create([
                     'title'   => $article->title(),
                     'type'    => $article->type(),
@@ -109,10 +109,10 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
 
     /**
      * @param Article $article
-     * @return void
+     * @return bool
      * @throws Throwable
      */
-    public function update(Article $article): void
+    public function update(Article $article): bool
     {
         $articleDTO = $this->articleDTO
             ->find($article->id());
@@ -124,23 +124,23 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
             'content' => $article->content()
         ]);
 
-        DB::transaction(function () use ($articleDTO) {
-            $articleDTO->save();
+        return DB::transaction(function () use ($articleDTO) {
+            return $articleDTO->save();
         });
     }
 
     /**
      * @param Article $article
-     * @return void
+     * @return bool
      * @throws Throwable
      */
-    public function delete(Article $article): void
+    public function delete(Article $article): bool
     {
         $articleDTO = $this->articleDTO
             ->find($article->id());
 
-        DB::transaction(function () use ($articleDTO) {
-            $articleDTO->delete();
+        return DB::transaction(function () use ($articleDTO) {
+            return $articleDTO->delete();
         });
     }
 }
