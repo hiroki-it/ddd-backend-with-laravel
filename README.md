@@ -41,10 +41,10 @@ project
     ├── Providers # プロバイダー
     ├── Traits # トレイト
     └── UseCase     # ** ユースケース層 **
-        └── Foo            # 任意のルートエンティティ    
-            ├── Inputs     # インプット
-            ├── Services   # サービス
-            └── Interactor # インターラクタ
+        └── Foo             # 任意のルートエンティティ    
+            ├── Inputs      # インプット
+            ├── Interactors # インターラクタ
+            └── Services    # サービス
 ```
 
 <br>
