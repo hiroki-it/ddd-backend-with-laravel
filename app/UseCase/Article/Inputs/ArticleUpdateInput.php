@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\Inputs;
+namespace App\UseCase\Article\Inputs;
 
-class ArticleUpdateInput
+use App\UseCase\UpdateInput;
+
+class ArticleUpdateInput extends UpdateInput
 {
     /**
      * 記事タイトルクラス
@@ -37,29 +39,5 @@ class ArticleUpdateInput
         $this->title = $validated['title'];
         $this->type = $validated['type'];
         $this->content = $validated['content'];
-    }
-
-    /**
-     * @return string
-     */
-    public function title(): string
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return string
-     */
-    public function type(): string
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return string
-     */
-    public function content(): string
-    {
-        return $this->content;
     }
 }
