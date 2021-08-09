@@ -76,8 +76,8 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     public function findAllByCriteria(ArticleCriteria $criteria): array
     {
         $articlesDTO = $this->articleDTO
-            ->sortBy($criteria->order())
-            ->take($criteria->limit())
+            ->sortBy($criteria->order)
+            ->take($criteria->limit)
             ->all();
 
         $articles = [];
@@ -100,9 +100,9 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
             // ドメインエンティティのデータをDTOに詰め替えます．
             return $this->articleDTO
                 ->create([
-                    'title'   => $article->title(),
-                    'type'    => $article->type(),
-                    'content' => $article->content()
+                    'title'   => $article->title,
+                    'type'    => $article->type,
+                    'content' => $article->content
                 ]);
         });
     }
@@ -119,9 +119,9 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
 
         // ドメインエンティティのデータをDTOに詰め替えます．
         $articleDTO->fill([
-            'title'   => $article->title(),
-            'type'    => $article->type(),
-            'content' => $article->content()
+            'title'   => $article->title,
+            'type'    => $article->type,
+            'content' => $article->content
         ]);
 
         return DB::transaction(function () use ($articleDTO) {

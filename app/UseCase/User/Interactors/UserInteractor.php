@@ -48,11 +48,11 @@ final class UserInteractor extends Interactor
 
         $user = new User(
             null,
-            new UserName($input->name()),
-            new UserEmailAddress($input->emailAddress()),
-            new UserPhoneNumber($input->phoneNumber()),
-            new UserPassword($input->password()),
-            new UserAuthenticationCode($SmsAuthenticationService->generateAuthenticationCode())
+            new UserName($input->name),
+            new UserEmailAddress($input->emailAddress),
+            new UserPhoneNumber($input->phoneNumber),
+            new UserPassword($input->password),
+            new UserAuthenticationCode($SmsAuthenticationService->generateAuthenticationCode)
         );
 
         $this->userRepository->create($user);
