@@ -10,7 +10,7 @@ parameters:
         - '#Unsafe usage of new static#'
 
     excludePaths:
-        - vendor/*
+        - ./vendor/*
         - .phpstorm.meta.php
         - _ide_helper.php
 
