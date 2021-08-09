@@ -11,5 +11,5 @@ use App\Traits\ImmutableTrait;
  */
 abstract class UpdateInput
 {
-    use ImmutableTraitTrait;
+    use ImmutableTrait;
 }
