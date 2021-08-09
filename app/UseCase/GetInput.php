@@ -36,5 +36,4 @@ abstract class GetInput
      * @var string
      */
     protected string $order;
-
 }
