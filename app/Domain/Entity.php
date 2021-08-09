@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
-use _PHPStan_8f2e45ccf\Symfony\Component\Console\Exception\LogicException;
+use LogicException;
 use App\Traits\UnsupportedMagicMethodTrait;
 
 /**
