@@ -56,7 +56,7 @@ final class UserSmsAuthenticationService extends ApplicationService
 
             $this->snsClient->publish([
                 'Message'     => $this->renderMessage(),
-                'PhoneNumber' => $this->user->phoneNumber()->value()
+                'PhoneNumber' => $this->user->phoneNumber->phoneNumber
             ]);
         } catch (AwsException $e) {
             $this->app["log"]->error(
@@ -102,6 +102,6 @@ final class UserSmsAuthenticationService extends ApplicationService
      */
     private function renderMessage(): string
     {
-        return view('message.message-authentication-code', ['authentication_code' => $this->user->authenticationCode()->value()])->render();
+        return view('message.message-authentication-code', ['authentication_code' => $this->user->authenticationCode->authenticationCode])->render();
     }
 }
