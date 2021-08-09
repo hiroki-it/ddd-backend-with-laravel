@@ -11,4 +11,18 @@ use App\Domain\ValueObject;
  */
 final class UserPassword extends ValueObject
 {
+    /**
+     * @var string
+     */
+    private string $password;
+
+    /**
+     * コンストラクタ
+     *
+     * @param string $password
+     */
+    public function __constructor(string $password)
+    {
+        $this->password = $password;
+    }
 }

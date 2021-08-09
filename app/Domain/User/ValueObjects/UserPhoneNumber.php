@@ -11,4 +11,18 @@ use App\Domain\ValueObject;
  */
 final class UserPhoneNumber extends ValueObject
 {
+    /**
+     * @var string
+     */
+    private string $phoneNumber;
+
+    /**
+     * コンストラクタ
+     *
+     * @param string $phoneNumber
+     */
+    public function __constructor(string $phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
 }
