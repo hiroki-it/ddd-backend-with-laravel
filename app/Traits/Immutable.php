@@ -10,7 +10,7 @@ use LogicException;
  * イミュータブルトレイト
  * NOTE: イミュータブルなオブジェクトで使用する汎用的なメソッドを定義します．
  */
-trait Immutable
+trait ImmutableTrait
 {
     /**
      * ゲッターが定義されていなくとも，プロパティにアクセスできるようにします．

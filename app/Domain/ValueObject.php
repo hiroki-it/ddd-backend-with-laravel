@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
-use App\Traits\Immutable;
+use App\Traits\ImmutableTrait;
 
 /**
  * 値オブジェクト抽象クラス
  */
 abstract class ValueObject
 {
-    use Immutable;
+    use ImmutableTrait;
 
     /**
      * 値オブジェクトの等価性を検証します．

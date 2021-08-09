@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
-use App\Traits\Immutable;
+use App\Traits\ImmutableTraitTrait;
 
 /**
  * エンティティ抽象クラス
  */
 abstract class Entity
 {
-    use Immutable;
+    use ImmutableTraitTrait;
 
     /**
      * IDクラス
