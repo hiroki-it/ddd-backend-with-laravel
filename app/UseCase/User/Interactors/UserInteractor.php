@@ -11,9 +11,9 @@ use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\Domain\User\ValueObjects\UserPhoneNumber;
-use App\UseCase\Inputs\UserInput;
 use App\UseCase\Interactor;
 use App\UseCase\Services\UserSmsAuthenticationService;
+use App\UseCase\User\Inputs\UserCreateInput;
 
 /**
 * ユーザユースケースクラス
