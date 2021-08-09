@@ -4,15 +4,11 @@ declare(strict_types=1);
 
 namespace App\UseCase;
 
-use App\Traits\UnsupportedMagicMethodTrait;
-
 /**
  * 取得インプットクラス
  */
 abstract class GetInput
 {
-    use UnsupportedMagicMethodTrait;
-
     /**
      * @var string
      *
@@ -41,23 +37,4 @@ abstract class GetInput
      */
     protected string $order;
 
-    /**
-     * 件数を返却します．
-     *
-     * @return string
-     */
-    public function limit(): string
-    {
-        return $this->limit;
-    }
-
-    /**
-     * 順序を返却します．
-     *
-     * @return string
-     */
-    public function order(): string
-    {
-        return $this->order;
-    }
 }
