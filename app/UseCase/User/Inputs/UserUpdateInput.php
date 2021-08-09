@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\Inputs;
+namespace App\UseCase\User\Inputs;
 
 use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\Domain\User\ValueObjects\UserPhoneNumber;
+use App\UseCase\UpdateInput;
 
-class UserInput
+class UserUpdateInput extends UpdateInput
 {
     /**
      * ユーザ名
@@ -50,37 +51,5 @@ class UserInput
         $this->emailAddress = $validated['emailAddress'];
         $this->phoneNumber = $validated['phoneNumber'];
         $this->password = $validated['password'];
-    }
-
-    /**
-     * @return UserName
-     */
-    public function name()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return UserEmailAddress
-     */
-    public function emailAddress()
-    {
-        return $this->emailAddress;
-    }
-
-    /**
-     * @return UserPhoneNumber
-     */
-    public function phoneNumber()
-    {
-        return $this->phoneNumber;
-    }
-
-    /**
-     * @return UserPassword
-     */
-    public function password()
-    {
-        return $this->password;
     }
 }
