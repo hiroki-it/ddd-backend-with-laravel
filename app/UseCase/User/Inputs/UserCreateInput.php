@@ -8,9 +8,9 @@ use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\Domain\User\ValueObjects\UserPhoneNumber;
-use App\UseCase\UpdateInput;
+use App\UseCase\CreateInput;
 
-class UserUpdateInput extends UpdateInput
+class UserCreateInput extends CreateInput
 {
     /**
      * ユーザ名
