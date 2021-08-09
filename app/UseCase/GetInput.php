@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace App\UseCase;
 
+use App\Traits\ImmutableTrait;
+
 /**
  * 取得インプットクラス
  */
 abstract class GetInput
 {
+    use ImmutableTrait;
+
     /**
      * @var string
      *
