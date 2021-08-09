@@ -7,7 +7,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * リポジトリサービスプロバイダクラス
+ * モックリポジトリサービスプロバイダクラス
  */
 class MockRepositoryServiceProvider extends ServiceProvider
 {
