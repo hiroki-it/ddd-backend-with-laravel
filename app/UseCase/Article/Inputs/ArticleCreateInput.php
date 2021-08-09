@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\Inputs;
+namespace App\UseCase\Article\Inputs;
 
-class ArticleCreateInput
+use App\UseCase\CreateInput;
+
+class ArticleCreateInput extends CreateInput
 {
     /**
      * 記事タイトルクラス
@@ -37,29 +39,5 @@ class ArticleCreateInput
         $this->title = $validated['title'];
         $this->type = $validated['type'];
         $this->content = $validated['content'];
-    }
-
-    /**
-     * @return string
-     */
-    public function title(): string
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return string
-     */
-    public function type(): string
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return string
-     */
-    public function content(): string
-    {
-        return $this->content;
     }
 }
