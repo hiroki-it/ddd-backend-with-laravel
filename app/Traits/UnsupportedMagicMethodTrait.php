@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use Exception;
+
 /**
  * 使用制限マジックメソッドトレイト
  */
@@ -13,11 +15,11 @@ trait UnsupportedMagicMethodTrait
      * パフォーマンスの観点から，マジックゲッターメソッドの使用を制限します．
      *
      * @param $name
-     * @throws \Exception
+     * @throws Exception
      */
     public function __get($name)
     {
-        throw new \Exception('This method is not supported');
+        throw new Exception('This method is not supported');
     }
 
     /**
@@ -25,10 +27,10 @@ trait UnsupportedMagicMethodTrait
      *
      * @param $name
      * @param $value
-     * @throws \Exception
+     * @throws Exception
      */
     public function __set($name, $value)
     {
-        throw new \Exception('This method is not supported');
+        throw new Exception('This method is not supported');
     }
 }
