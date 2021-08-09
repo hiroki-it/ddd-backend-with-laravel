@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
+use App\Traits\Immutable;
+
 /**
  * 値オブジェクト抽象クラス
  */
 abstract class ValueObject
 {
+    use Immutable;
+
     /**
      * 値オブジェクトの等価性を検証します．
      *
@@ -25,25 +29,5 @@ abstract class ValueObject
         }
 
         return true;
-    }
-
-
-    /**
-     * ゲッターが定義されていなくとも，プロパティにアクセスできるようにします．
-     *
-     * @param string $name
-     * @return mixed
-     */
-    public function __get(string $name)
-    {
-        if (!property_exists($this, $name)) {
-            throw new LogicException(sprintf(
-                "property %s is not found in %s",
-                $name,
-                static::class // メソッドが実行されたクラスを取得
-            ));
-        }
-
-        return $this->{$name};
     }
 }
