@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
-use LogicException;
-use App\Traits\UnsupportedMagicMethodTrait;
+use App\Traits\Immutable;
 
 /**
  * エンティティ抽象クラス
  */
 abstract class Entity
 {
-    use UnsupportedMagicMethodTrait;
+    use Immutable;
 
     /**
      * IDクラス
@@ -39,24 +38,5 @@ abstract class Entity
     public function id(): Id
     {
         return $this->id;
-    }
-
-    /**
-     * ゲッターが定義されていなくとも，プロパティにアクセスできるようにします．
-     *
-     * @param string $name
-     * @return mixed
-     */
-    public function __get(string $name)
-    {
-        if (!property_exists($this, $name)) {
-            throw new LogicException(sprintf(
-                "property %s is not found in %s",
-                $name,
-                static::class // メソッドが実行されたクラスを取得
-            ));
-        }
-
-        return $this->{$name};
     }
 }
