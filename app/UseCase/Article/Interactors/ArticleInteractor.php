@@ -55,7 +55,7 @@ final class ArticleInteractor extends Interactor
      */
     public function getArticles(ArticleGetInput $input): array
     {
-        $criteria = new ArticleCriteria($input->order(), $input->limit());
+        $criteria = new ArticleCriteria($input->order, $input->limit);
 
         return $this->articleRepository
             ->findAllByCriteria($criteria);
@@ -69,9 +69,9 @@ final class ArticleInteractor extends Interactor
     {
         $article = new Article(
             null,
-            new ArticleTitle($input->title()),
-            new ArticleType($input->type()),
-            new ArticleContent($input->content())
+            new ArticleTitle($input->title),
+            new ArticleType($input->type),
+            new ArticleContent($input->content)
         );
 
         $this->articleRepository->create($article);
@@ -86,9 +86,9 @@ final class ArticleInteractor extends Interactor
     {
         $article = new Article(
             $id,
-            new ArticleTitle($input->title()),
-            new ArticleType($input->type()),
-            new ArticleContent($input->content())
+            new ArticleTitle($input->title),
+            new ArticleType($input->type),
+            new ArticleContent($input->content)
         );
 
         $this->articleRepository
