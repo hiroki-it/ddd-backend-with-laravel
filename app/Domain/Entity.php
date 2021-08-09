@@ -53,7 +53,7 @@ abstract class Entity
             throw new LogicException(sprintf(
                 "property %s is not found in %s",
                 $name,
-                get_class($this)
+                static::class // メソッドが実行されたクラスを取得
             ));
         }
 
