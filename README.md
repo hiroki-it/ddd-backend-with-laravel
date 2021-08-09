@@ -75,6 +75,12 @@ $ docker-compose exec app composer install --prefer-dist
 
 GitHub Actionsを使用して，プッシュされたソースコードを整形し，再プッシュするようにしています．
 
+開発環境でこれを実行する場合は，以下を実行します．
+
+```shell
+$ docker-compose exec app vendor/bin/php-cs-fixer fix .
+```
+
 ### コードの静的解析
 
 [larastan](https://github.com/nunomaduro/larastan) を使用して，ソースコードの静的解析を実行します．
