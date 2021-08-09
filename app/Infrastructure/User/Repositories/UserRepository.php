@@ -44,9 +44,9 @@ final class UserRepository extends Repository implements DomainUserRepository
             // ドメインエンティティのデータをDTOに詰め替えます．
             return $this->userDTO
                 ->create([
-                    'name'         => $user->name(),
-                    'emailAddress' => $user->emailAddress(),
-                    'password'     => $user->password()
+                    'name'         => $user->name,
+                    'emailAddress' => $user->emailAddress,
+                    'password'     => $user->password
                 ]);
         });
     }
@@ -63,9 +63,9 @@ final class UserRepository extends Repository implements DomainUserRepository
 
         // ドメインエンティティのデータをDTOに詰め替えます．
         $userDTO->fill([
-            'name'         => $user->name(),
-            'emailAddress' => $user->emailAddress(),
-            'password'     => $user->password()
+            'name'         => $user->name,
+            'emailAddress' => $user->emailAddress,
+            'password'     => $user->password
         ]);
 
         return DB::transaction(function () use ($userDTO) {
