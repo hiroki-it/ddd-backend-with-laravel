@@ -25,12 +25,4 @@ final class ArticleTitle extends ValueObject
     {
         $this->title = $title;
     }
-
-    /**
-     * @return string
-     */
-    public function title(): string
-    {
-        return $this->title;
-    }
 }

@@ -25,12 +25,4 @@ final class ArticleContent extends ValueObject
     {
         $this->content = $content;
     }
-
-    /**
-     * @return string
-     */
-    public function content(): string
-    {
-        return $this->content;
-    }
 }
