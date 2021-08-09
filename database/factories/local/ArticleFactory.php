@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Database\Factories\Infrastructure\DTO;
 
 use App\Domain\Article\ValueObjects\ArticleType;
-use App\Infrastructure\DTO\Article as ArticleDTO;
+use App\Infrastructure\Article\DTOs\ArticleDTO;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ArticleFactory extends Factory
