@@ -11,4 +11,18 @@ use App\Domain\ValueObject;
  */
 final class UserName extends ValueObject
 {
+    /**
+     * @var string
+     */
+    private string $name;
+
+    /**
+     * コンストラクタ
+     *
+     * @param string $name
+     */
+    public function __constructor(string $name)
+    {
+        $this->name = $name;
+    }
 }

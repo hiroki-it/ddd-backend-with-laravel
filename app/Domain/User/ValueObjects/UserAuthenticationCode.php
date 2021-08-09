@@ -11,4 +11,18 @@ use App\Domain\ValueObject;
  */
 final class UserAuthenticationCode extends ValueObject
 {
+    /**
+     * @var string
+     */
+    private string $authenticationCode;
+
+    /**
+     * コンストラクタ
+     *
+     * @param string $authenticationCode
+     */
+    public function __constructor(string $authenticationCode)
+    {
+        $this->authenticationCode = $authenticationCode;
+    }
 }
