@@ -42,9 +42,9 @@ final class UserController extends Controller
     {
         $validated = $userRequest->validated();
 
-        $userInput = new UserInput($validated);
+        $userCreateInput = new UserCreateInput($validated);
 
-        $this->userInteractor->createUser($userInput);
+        $this->userInteractor->createUser($userCreateInput);
 
         return redirect('login.login')->with(['success' => 'ユーザを登録しました．ログインできます．']);
     }
