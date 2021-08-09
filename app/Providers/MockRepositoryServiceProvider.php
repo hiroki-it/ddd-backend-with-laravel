@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 /**
  * リポジトリサービスプロバイダクラス
  */
-class RepositoryServiceProvider extends ServiceProvider
+class MockRepositoryServiceProvider extends ServiceProvider
 {
     /**
      * サービスコンテナにクラスをバインドします．
@@ -23,7 +23,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $binds = [
             'App\Domain\Article\Repositories\ArticleRepository' => 'App\Infrastructure\Article\Repositories\MockArticleRepository', // 記事リポジトリ
-            'App\Domain\User\Repositories\UserRepository'    => 'App\Infrastructure\Use\Repositories\MockUserRepository' // ユーザリポジトリ
+            'App\Domain\User\Repositories\UserRepository' => 'App\Infrastructure\Use\Repositories\MockUserRepository' // ユーザリポジトリ
         ];
 
         foreach ($binds as $abstract => $concrete) {

@@ -163,7 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         // リポジトリサービスプロバイダー
-        App\Providers\RepositoryServiceProvider::class,
+        App\Providers\MockRepositoryServiceProvider::class,
 
         // マクロサービスプロバイダー
         App\Providers\MigrationMacroServiceProvider::class,
