@@ -40,9 +40,9 @@ final class UserInteractor extends Interactor
     /**
      * ユーザを作成します．
      *
-     * @param UserInput $input
+     * @param UserCreateInput $input
      */
-    public function createUser(UserInput $input): void
+    public function createUser(UserCreateInput $input): void
     {
         $SmsAuthenticationService = new UserSmsAuthenticationService(config('sms.sns'), auth()->user());
 
