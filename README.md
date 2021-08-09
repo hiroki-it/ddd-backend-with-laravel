@@ -88,7 +88,7 @@ $ docker-compose exec app vendor/bin/php-cs-fixer fix .
 予定：GitHub Actions上で静的解析を実行し，一つでも問題が検出されたら怒られるようにしたい...
 
 ```sh
-$ docker-compose exec app ./vendor/bin/phpstan analyse app
+$ docker-compose exec app ./vendor/bin/phpstan analyse .
 ```
 
 <br>
