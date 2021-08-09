@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace App\UseCase\User\Inputs;
 
-use App\Domain\User\ValueObjects\UserEmailAddress;
-use App\Domain\User\ValueObjects\UserName;
-use App\Domain\User\ValueObjects\UserPassword;
-use App\Domain\User\ValueObjects\UserPhoneNumber;
 use App\UseCase\CreateInput;
 
 class UserCreateInput extends CreateInput
@@ -15,30 +11,30 @@ class UserCreateInput extends CreateInput
     /**
      * ユーザ名
      *
-     * @var UserName
+     * @var string
      */
-    private UserName $name;
+    private string $name;
 
     /**
      * ユーザメールアドレス
      *
-     * @var UserEmailAddress
+     * @var string
      */
-    private UserEmailAddress $emailAddress;
+    private string $emailAddress;
 
     /**
      * ユーザ電話番号
      *
-     * @var UserPhoneNumber
+     * @var string
      */
-    private UserPhoneNumber $phoneNumber;
+    private string $phoneNumber;
 
     /**
      * ユーザ電話番号
      *
-     * @var UserPassword
+     * @var string
      */
-    private UserPassword $password;
+    private string $password;
 
     /**
      * コンストラクタインジェクション
