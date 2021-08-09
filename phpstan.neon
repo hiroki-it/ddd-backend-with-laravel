@@ -10,6 +10,8 @@ parameters:
         - '#Unsafe usage of new static#'
 
     excludePaths:
-        - ./*/*/FileToBeExcluded.php
+        - vendor/*
+        - .phpstorm.meta.php
+        - _ide_helper.php
 
     checkMissingIterableValueType: false
