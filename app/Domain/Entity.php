@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
+use _PHPStan_8f2e45ccf\Symfony\Component\Console\Exception\LogicException;
 use App\Traits\UnsupportedMagicMethodTrait;
 
 /**
@@ -38,5 +39,24 @@ abstract class Entity
     public function id(): Id
     {
         return $this->id;
+    }
+
+    /**
+     * ゲッターが定義されていなくとも，プロパティにアクセスできるようにします．
+     *
+     * @param string $name
+     * @return mixed
+     */
+    public function __get(string $name)
+    {
+        if (!property_exists($this, $name)) {
+            throw new LogicException(sprintf(
+                "property %s is not found in %s",
+                $name,
+                get_class($this)
+            ));
+        }
+
+        return $this->{$name};
     }
 }

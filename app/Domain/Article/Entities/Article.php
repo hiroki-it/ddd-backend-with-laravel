@@ -53,44 +53,4 @@ final class Article extends Entity
         $this->type = $type;
         $this->content = $content;
     }
-
-    /**
-     * 記事IDクラスを返却します．
-     *
-     * @return ArticleId
-     */
-    public function id(): ArticleId
-    {
-        return $this->id;
-    }
-
-    /**
-     * 記事タイトルクラスを返却します．
-     *
-     * @return ArticleTitle
-     */
-    public function title(): ArticleTitle
-    {
-        return $this->title;
-    }
-
-    /**
-     * 記事区分クラスを返却します．
-     *
-     * @return ArticleType
-     */
-    public function type(): ArticleType
-    {
-        return $this->type;
-    }
-
-    /**
-     * 記事本文クラスを返却します．
-     *
-     * @return ArticleContent
-     */
-    public function content(): ArticleContent
-    {
-        return $this->content;
-    }
 }
