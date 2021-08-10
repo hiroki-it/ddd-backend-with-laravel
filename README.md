@@ -2,9 +2,9 @@
 
 ## 概要
 
-### 採用フレームワークについて
+### 採用技術について
 
-本リポジトリは，Clean-Archによるドメイン駆動設計，Laravel，GitHub Actionsを学習するためのアプリケーションです．
+Clean-Archによるドメイン駆動設計，Laravel，GitHub Actionsを学習するためのアプリケーションです．
 
 LaravelはActiveRecordパターンのフレームワークのため，DDDと組み合わせるためには，一工夫必要です．
 
