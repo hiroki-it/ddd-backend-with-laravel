@@ -4,7 +4,7 @@
 
 ### 採用フレームワークについて
 
-Laravelを採用しました．
+本リポジトリは，Clean-Archによるドメイン駆動設計，Laravel，GitHub Actionsを学習するためのアプリケーションです．
 
 LaravelはActiveRecordパターンのフレームワークのため，DDDと組み合わせるためには，一工夫必要です．
 
