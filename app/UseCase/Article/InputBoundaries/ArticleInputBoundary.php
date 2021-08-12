@@ -55,4 +55,3 @@ interface ArticleInputBoundary
      */
     public function deleteArticle(ArticleDeleteRequest $request): ArticleDeleteResponse;
 }
-
