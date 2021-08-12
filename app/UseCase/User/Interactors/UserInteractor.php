@@ -41,19 +41,19 @@ final class UserInteractor implements UserInputBoundary
     /**
      * ユーザを作成します
      *
-     * @param UserCreateRequest $input
+     * @param UserCreateRequest $request
      * @return UserCreateResponse
      */
-    public function createUser(UserCreateRequest $input): UserCreateResponse
+    public function createUser(UserCreateRequest $request): UserCreateResponse
     {
         $SmsAuthenticationService = new UserSmsAuthenticationService(config('sms.sns'), auth()->user());
 
         $user = new User(
             null,
-            new UserName($input->name),
-            new UserEmailAddress($input->emailAddress),
-            new UserPhoneNumber($input->phoneNumber),
-            new UserPassword($input->password),
+            new UserName($request->name),
+            new UserEmailAddress($request->emailAddress),
+            new UserPhoneNumber($request->phoneNumber),
+            new UserPassword($request->password),
             new UserAuthenticationCode($SmsAuthenticationService->generateAuthenticationCode)
         );
 

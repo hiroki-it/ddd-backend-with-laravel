@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\UseCase\Article\Requests;
 
-use App\UseCase\GetRequest;
+use App\UseCase\GetByCriteriaRequest;
 
 /**
  * 記事インプットクラス
  */
-final class ArticleGetRequest extends GetRequest
+final class ArticleGetByCriteriaRequest extends GetByCriteriaRequest
 {
     /**
      * コンストラクタインジェクション
