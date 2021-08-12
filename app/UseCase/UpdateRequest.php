@@ -7,9 +7,9 @@ namespace App\UseCase;
 use App\Traits\ImmutableTrait;
 
 /**
- * 作成インプットクラス
+ * 更新インプットクラス
  */
-abstract class CreateInput
+abstract class UpdateRequest
 {
     use ImmutableTrait;
 }

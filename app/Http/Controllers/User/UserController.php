@@ -6,7 +6,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\UseCase\User\Inputs\UserCreateInput;
+use App\UseCase\User\Requests\UserCreateRequest;
 use App\UseCase\User\Interactors\UserInteractor;
 use Illuminate\Http\RedirectResponse;
 
@@ -42,7 +42,7 @@ final class UserController extends Controller
     {
         $validated = $userRequest->validated();
 
-        $userCreateInput = new UserCreateInput($validated);
+        $userCreateInput = new UserCreateRequest($validated);
 
         $this->userInteractor->createUser($userCreateInput);
 

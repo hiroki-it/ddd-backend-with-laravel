@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\Article\Inputs;
+namespace App\UseCase\Article\Requests;
 
-use App\UseCase\GetInput;
+use App\UseCase\GetRequest;
 
 /**
  * 記事インプットクラス
  */
-final class ArticleGetInput extends GetInput
+final class ArticleGetRequest extends GetRequest
 {
     /**
      * コンストラクタインジェクション
