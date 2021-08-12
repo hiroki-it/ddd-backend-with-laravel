@@ -13,7 +13,7 @@ use App\Domain\User\ValueObjects\UserPassword;
 use App\Domain\User\ValueObjects\UserPhoneNumber;
 use App\UseCase\Interactor;
 use App\UseCase\Services\UserSmsAuthenticationService;
-use App\UseCase\User\Inputs\UserCreateInput;
+use App\UseCase\User\Requests\UserCreateRequest;
 
 /**
 * ユーザユースケースクラス
@@ -40,9 +40,9 @@ final class UserInteractor extends Interactor
     /**
      * ユーザを作成します．
      *
-     * @param UserCreateInput $input
+     * @param UserCreateRequest $input
      */
-    public function createUser(UserCreateInput $input): void
+    public function createUser(UserCreateRequest $input): void
     {
         $SmsAuthenticationService = new UserSmsAuthenticationService(config('sms.sns'), auth()->user());
 

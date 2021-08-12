@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\Article\Inputs;
+namespace App\UseCase\Article\Requests;
 
-use App\UseCase\UpdateInput;
+use App\UseCase\CreateRequest;
 
-class ArticleUpdateInput extends UpdateInput
+class ArticleCreateRequest extends CreateRequest
 {
     /**
      * 記事タイトルクラス

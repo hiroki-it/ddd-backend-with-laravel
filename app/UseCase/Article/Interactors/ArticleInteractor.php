@@ -11,9 +11,9 @@ use App\Domain\Article\ValueObjects\ArticleContent;
 use App\Domain\Article\ValueObjects\ArticleId;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
-use App\UseCase\Article\Inputs\ArticleCreateInput;
-use App\UseCase\Article\Inputs\ArticleGetInput;
-use App\UseCase\Article\Inputs\ArticleUpdateInput;
+use App\UseCase\Article\Requests\ArticleCreateRequest;
+use App\UseCase\Article\Requests\ArticleGetRequest;
+use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Interactor;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
@@ -50,10 +50,10 @@ final class ArticleInteractor extends Interactor
     }
 
     /**
-     * @param ArticleGetInput $input
+     * @param ArticleGetRequest $input
      * @return array
      */
-    public function getArticles(ArticleGetInput $input): array
+    public function getArticles(ArticleGetRequest $input): array
     {
         $criteria = new ArticleCriteria($input->order, $input->limit);
 
@@ -62,10 +62,10 @@ final class ArticleInteractor extends Interactor
     }
 
     /**
-     * @param ArticleCreateInput $input
+     * @param ArticleCreateRequest $input
      * @throws InvalidEnumMemberException
      */
-    public function createArticle(ArticleCreateInput $input)
+    public function createArticle(ArticleCreateRequest $input)
     {
         $article = new Article(
             null,
@@ -78,11 +78,11 @@ final class ArticleInteractor extends Interactor
     }
 
     /**
-     * @param ArticleUpdateInput $input
-     * @param ArticleId          $id
+     * @param ArticleUpdateRequest $input
+     * @param ArticleId            $id
      * @throws InvalidEnumMemberException
      */
-    public function updateArticle(ArticleUpdateInput $input, ArticleId $id)
+    public function updateArticle(ArticleUpdateRequest $input, ArticleId $id)
     {
         $article = new Article(
             $id,
