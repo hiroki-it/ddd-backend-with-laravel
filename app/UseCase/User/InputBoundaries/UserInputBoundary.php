@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\UseCase\User\InputBoundaries;
 
-
 use App\Domain\User\Entity\User;
 use App\UseCase\User\Requests\UserCreateRequest;
 
