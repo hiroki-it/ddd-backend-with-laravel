@@ -6,5 +6,4 @@ use App\UseCase\DeleteRequest;
 
 class ArticleDeleteRequest extends DeleteRequest
 {
-
 }
