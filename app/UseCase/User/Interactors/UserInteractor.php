@@ -11,9 +11,10 @@ use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\Domain\User\ValueObjects\UserPhoneNumber;
-use App\UseCase\Services\User\UserSmsAuthenticationService;
 use App\UseCase\User\InputBoundaries\UserInputBoundary;
 use App\UseCase\User\Requests\UserCreateRequest;
+use App\UseCase\User\Responses\UserCreateResponse;
+use App\UseCase\User\Services\UserSmsAuthenticationService;
 
 /**
 * ユーザユースケースクラス
@@ -41,9 +42,9 @@ final class UserInteractor implements UserInputBoundary
      * ユーザを作成します
      *
      * @param UserCreateRequest $input
-     * @return User
+     * @return UserCreateResponse
      */
-    public function createUser(UserCreateRequest $input): User
+    public function createUser(UserCreateRequest $input): UserCreateResponse
     {
         $SmsAuthenticationService = new UserSmsAuthenticationService(config('sms.sns'), auth()->user());
 
@@ -57,5 +58,7 @@ final class UserInteractor implements UserInputBoundary
         );
 
         $this->userRepository->create($user);
+
+        // ここにResponse生成処理
     }
 }

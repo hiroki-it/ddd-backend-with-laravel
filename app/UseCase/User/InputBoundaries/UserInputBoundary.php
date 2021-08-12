@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\UseCase\User\InputBoundaries;
 
-use App\Domain\User\Entities\User;
 use App\UseCase\User\Requests\UserCreateRequest;
+use App\UseCase\User\Responses\UserCreateResponse;
 
 /**
  * ユーザインプットバウンダリインターフェース
@@ -17,5 +17,5 @@ interface UserInputBoundary
      *
      * @param UserCreateRequest $input
      */
-    public function createUser(UserCreateRequest $input): User;
+    public function createUser(UserCreateRequest $input): UserCreateResponse;
 }
