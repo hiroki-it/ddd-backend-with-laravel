@@ -17,6 +17,11 @@ use App\UseCase\Article\Requests\ArticleDeleteRequest;
 use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
+use App\UseCase\Article\Responses\ArticleCreateResponse;
+use App\UseCase\Article\Responses\ArticleDeleteResponse;
+use App\UseCase\Article\Responses\ArticleGetByCriteriaResponse;
+use App\UseCase\Article\Responses\ArticleGetByIdResponse;
+use App\UseCase\Article\Responses\ArticleUpdateResponse;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
@@ -43,9 +48,9 @@ final class ArticleInteractor implements ArticleInputBoundary
 
     /**
      * @param ArticleGetByIdRequest $request
-     * @return Article
+     * @return ArticleGetByIdResponse
      */
-    public function getArticle(ArticleGetByIdRequest $request): ArticleGetResponse
+    public function getArticle(ArticleGetByIdRequest $request): ArticleGetByIdResponse
     {
         return $this->articleRepository
             ->findById($request->id);
@@ -53,9 +58,9 @@ final class ArticleInteractor implements ArticleInputBoundary
 
     /**
      * @param ArticleGetByCriteriaRequest $request
-     * @return ArticlesGetResponse
+     * @return ArticleGetByCriteriaResponse
      */
-    public function getArticles(ArticleGetByCriteriaRequest $request): ArticlesGetResponse
+    public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetByCriteriaResponse
     {
         $criteria = new ArticleCriteria($request->order, $request->limit);
 
@@ -65,6 +70,7 @@ final class ArticleInteractor implements ArticleInputBoundary
 
     /**
      * @param ArticleCreateRequest $request
+     * @return ArticleCreateResponse
      * @throws InvalidEnumMemberException
      */
     public function createArticle(ArticleCreateRequest $request): ArticleCreateResponse
@@ -81,6 +87,7 @@ final class ArticleInteractor implements ArticleInputBoundary
 
     /**
      * @param ArticleUpdateRequest $request
+     * @return ArticleUpdateResponse
      * @throws InvalidEnumMemberException
      */
     public function updateArticle(ArticleUpdateRequest $request): ArticleUpdateResponse
@@ -94,6 +101,7 @@ final class ArticleInteractor implements ArticleInputBoundary
 
         $this->articleRepository
             ->update($article);
+
     }
 
     /**
