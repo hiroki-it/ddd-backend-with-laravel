@@ -49,7 +49,7 @@ project
             ├── Interactors     # インターラクター
             ├── InputBoundaries # インプットバウンダリ
             ├── Requests        # リクエストモデル
-            ├── Requests        # レスポンスモデル
+            ├── Responses       # レスポンスモデル
             └── Services        # サービス
 ```
 
