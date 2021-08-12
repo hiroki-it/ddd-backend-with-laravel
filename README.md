@@ -42,9 +42,10 @@ project
     ├── Traits # トレイト
     └── UseCase     # ** ユースケース層 **
         └── Foo                 # 任意のルートエンティティ
+            ├── Interactors     # インターラクター
             ├── InputBoundaries # インプットバウンダリ
             ├── Requests        # リクエストモデル
-            ├── Interactors     # インターラクター
+            ├── Requests        # レスポンスモデル
             └── Services        # サービス
 ```
 
