@@ -11,16 +11,18 @@ use App\Domain\Article\ValueObjects\ArticleContent;
 use App\Domain\Article\ValueObjects\ArticleId;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
+use App\UseCase\Article\InputBoundaries\ArticleInputBoundary;
 use App\UseCase\Article\Requests\ArticleCreateRequest;
-use App\UseCase\Article\Requests\ArticleGetRequest;
+use App\UseCase\Article\Requests\ArticleDeleteRequest;
+use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
+use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
-use App\UseCase\Interactor;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
  * 記事ユースケースクラス
  */
-final class ArticleInteractor extends Interactor
+final class ArticleInteractor implements ArticleInputBoundary
 {
     /**
      * リポジトリクラス
@@ -40,55 +42,54 @@ final class ArticleInteractor extends Interactor
     }
 
     /**
-     * @param ArticleId $id
+     * @param ArticleGetByIdRequest $request
      * @return Article
      */
-    public function getArticle(ArticleId $id): Article
+    public function getArticle(ArticleGetByIdRequest $request): ArticleGetResponse
     {
         return $this->articleRepository
-            ->findById($id);
+            ->findById($request->id);
     }
 
     /**
-     * @param ArticleGetRequest $input
-     * @return array
+     * @param ArticleGetByCriteriaRequest $request
+     * @return ArticlesGetResponse
      */
-    public function getArticles(ArticleGetRequest $input): array
+    public function getArticles(ArticleGetByCriteriaRequest $request): ArticlesGetResponse
     {
-        $criteria = new ArticleCriteria($input->order, $input->limit);
+        $criteria = new ArticleCriteria($request->order, $request->limit);
 
-        return $this->articleRepository
+        $this->articleRepository
             ->findAllByCriteria($criteria);
     }
 
     /**
-     * @param ArticleCreateRequest $input
+     * @param ArticleCreateRequest $request
      * @throws InvalidEnumMemberException
      */
-    public function createArticle(ArticleCreateRequest $input)
+    public function createArticle(ArticleCreateRequest $request): ArticleCreateResponse
     {
         $article = new Article(
             null,
-            new ArticleTitle($input->title),
-            new ArticleType($input->type),
-            new ArticleContent($input->content)
+            new ArticleTitle($request->title),
+            new ArticleType($request->type),
+            new ArticleContent($request->content)
         );
 
         $this->articleRepository->create($article);
     }
 
     /**
-     * @param ArticleUpdateRequest $input
-     * @param ArticleId            $id
+     * @param ArticleUpdateRequest $request
      * @throws InvalidEnumMemberException
      */
-    public function updateArticle(ArticleUpdateRequest $input, ArticleId $id)
+    public function updateArticle(ArticleUpdateRequest $request): ArticleUpdateResponse
     {
         $article = new Article(
-            $id,
-            new ArticleTitle($input->title),
-            new ArticleType($input->type),
-            new ArticleContent($input->content)
+            new ArticleId($request->id),
+            new ArticleTitle($request->title),
+            new ArticleType($request->type),
+            new ArticleContent($request->content)
         );
 
         $this->articleRepository
@@ -96,12 +97,13 @@ final class ArticleInteractor extends Interactor
     }
 
     /**
-     * @param ArticleId $id
+     * @param ArticleDeleteRequest $request
+     * @return ArticleDeleteResponse
      */
-    public function deleteArticle(ArticleId $id)
+    public function deleteArticle(ArticleDeleteRequest $request): ArticleDeleteResponse
     {
         $article = $this->articleRepository
-            ->findById($id);
+            ->findById(new ArticleId($request->id));
 
         $this->articleRepository
             ->delete($article);

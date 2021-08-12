@@ -15,7 +15,7 @@ interface UserInputBoundary
     /**
      * ユーザを作成します．
      *
-     * @param UserCreateRequest $input
+     * @param UserCreateRequest $request
      */
-    public function createUser(UserCreateRequest $input): UserCreateResponse;
+    public function createUser(UserCreateRequest $request): UserCreateResponse;
 }

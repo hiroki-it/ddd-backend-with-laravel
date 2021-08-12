@@ -8,7 +8,7 @@ use App\Domain\Article\ValueObjects\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\UseCase\Article\Requests\ArticleCreateRequest;
-use App\UseCase\Article\Requests\ArticleGetRequest;
+use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Interactors\ArticleInteractor;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
@@ -61,12 +61,12 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $input = new ArticleGetRequest(
+        $request = new ArticleGetByCriteriaRequest(
             $validated['order'],
             $validated['limit']
         );
 
-        $article = $this->articleInteractor->getArticles($input);
+        $article = $this->articleInteractor->getArticles($request);
 
         // ここにレスポンス処理
     }
