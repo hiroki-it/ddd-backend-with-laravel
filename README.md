@@ -44,7 +44,7 @@ project
     |
     ├── Providers # プロバイダー
     ├── Traits # トレイト
-    └── UseCase     # ** ユースケース層 **
+    └── UseCase                 # ** ユースケース層 **
         └── Foo                 # 任意のルートエンティティ
             ├── Interactors     # インターラクター
             ├── InputBoundaries # インプットバウンダリ
