@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\User\Entity;
+namespace App\Domain\User\Entities;
 
 use App\Domain\Entity;
 use App\Domain\User\ValueObjects\UserAuthenticationCode;

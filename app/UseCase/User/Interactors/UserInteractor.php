@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\UseCase\User\Interactors;
 
 use App\Domain\User\Repository\UserRepository;
-use App\Domain\User\Entity\User;
+use App\Domain\User\Entities\User;
 use App\Domain\User\ValueObjects\UserAuthenticationCode;
 use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\Domain\User\ValueObjects\UserPhoneNumber;
-use App\UseCase\Services\UserSmsAuthenticationService;
+use App\UseCase\Services\User\UserSmsAuthenticationService;
 use App\UseCase\User\InputBoundaries\UserInputBoundary;
 use App\UseCase\User\Requests\UserCreateRequest;
 
