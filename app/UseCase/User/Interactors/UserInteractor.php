@@ -11,14 +11,14 @@ use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\Domain\User\ValueObjects\UserPhoneNumber;
-use App\UseCase\Interactor;
 use App\UseCase\Services\UserSmsAuthenticationService;
+use App\UseCase\User\InputBoundaries\UserInputBoundary;
 use App\UseCase\User\Requests\UserCreateRequest;
 
 /**
 * ユーザユースケースクラス
 */
-final class UserInteractor extends Interactor
+final class UserInteractor implements UserInputBoundary
 {
     /**
      * リポジトリクラス
@@ -38,11 +38,12 @@ final class UserInteractor extends Interactor
     }
 
     /**
-     * ユーザを作成します．
+     * ユーザを作成します
      *
      * @param UserCreateRequest $input
+     * @return User
      */
-    public function createUser(UserCreateRequest $input): void
+    public function createUser(UserCreateRequest $input): User
     {
         $SmsAuthenticationService = new UserSmsAuthenticationService(config('sms.sns'), auth()->user());
 
