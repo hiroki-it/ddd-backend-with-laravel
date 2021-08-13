@@ -41,27 +41,30 @@ final class UserRepository extends Repository implements DomainUserRepository
     public function create(User $user): User
     {
         return DB::transaction(function () use ($user) {
-            // ドメインエンティティのデータをDTOに詰め替えます．
-            return $this->userDTO
+            // ドメインモデルのデータをDTOに詰め替えます．
+            $userDTO =  $this->userDTO
                 ->create([
                     'name'         => $user->name,
                     'emailAddress' => $user->emailAddress,
                     'password'     => $user->password
                 ]);
+
+            // DBアクセス後のDTOをドメインモデルに変換します．
+            return $userDTO->toUser();
         });
     }
 
     /**
      * @param User $user
-     * @return bool
+     * @return User
      * @throws Throwable
      */
-    public function update(User $user): bool
+    public function update(User $user): User
     {
         $userDTO = $this->userDTO
             ->find($user->id());
 
-        // ドメインエンティティのデータをDTOに詰め替えます．
+        // ドメインモデルのデータをDTOに詰め替えます．
         $userDTO->fill([
             'name'         => $user->name,
             'emailAddress' => $user->emailAddress,
@@ -69,7 +72,10 @@ final class UserRepository extends Repository implements DomainUserRepository
         ]);
 
         return DB::transaction(function () use ($userDTO) {
-            return $userDTO->save();
+            $userDTO->save();
+
+            // DBアクセス後のDTOをドメインモデルに変換します．
+            return $userDTO->toUser();
         });
     }
 
