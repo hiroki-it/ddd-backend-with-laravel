@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UseCase\User\Interactors;
 
-use App\Domain\User\Repository\UserRepository;
+use App\Domain\User\Repositories\UserRepository;
 use App\Domain\User\Entities\User;
 use App\Domain\User\ValueObjects\UserAuthenticationCode;
 use App\Domain\User\ValueObjects\UserEmailAddress;
