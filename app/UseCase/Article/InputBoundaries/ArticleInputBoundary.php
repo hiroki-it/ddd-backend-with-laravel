@@ -9,6 +9,11 @@ use App\UseCase\Article\Requests\ArticleDeleteRequest;
 use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
+use App\UseCase\Article\Responses\ArticleCreateResponse;
+use App\UseCase\Article\Responses\ArticleDeleteResponse;
+use App\UseCase\Article\Responses\ArticleGetByCriteriaResponse;
+use App\UseCase\Article\Responses\ArticleGetByIdResponse;
+use App\UseCase\Article\Responses\ArticleUpdateResponse;
 
 /**
  * 記事インプットバウンダリインターフェース
@@ -27,17 +32,17 @@ interface ArticleInputBoundary
      * 記事を取得します．
      *
      * @param ArticleGetByIdRequest $request
-     * @return ArticleGetResponse
+     * @return ArticleGetByIdResponse
      */
-    public function getArticle(ArticleGetByIdRequest $request): ArticleGetResponse;
+    public function getArticle(ArticleGetByIdRequest $request): ArticleGetByIdResponse;
 
     /**
      * 複数の記事を取得します
      *
      * @param ArticleGetByCriteriaRequest $request
-     * @return ArticlesGetResponse
+     * @return ArticleGetByCriteriaResponse
      */
-    public function getArticles(ArticleGetByCriteriaRequest $request): ArticlesGetResponse;
+    public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetByCriteriaResponse;
 
     /**
      * 記事を更新します
