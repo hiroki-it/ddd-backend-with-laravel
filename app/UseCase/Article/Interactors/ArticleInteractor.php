@@ -70,7 +70,8 @@ final class ArticleInteractor implements ArticleInputBoundary
     public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetByCriteriaResponse
     {
         $article = $this->articleRepository
-            ->findAllByCriteria(new ArticleCriteria(
+            ->findAllByCriteria(
+                new ArticleCriteria(
                 $request->order,
                 $request->limit
             ));
@@ -115,7 +116,8 @@ final class ArticleInteractor implements ArticleInputBoundary
     public function updateArticle(ArticleUpdateRequest $request): ArticleUpdateResponse
     {
         $article = $this->articleRepository
-            ->update(new Article(
+            ->update(
+                new Article(
                 new ArticleId($request->id),
                 new ArticleTitle($request->title),
                 new ArticleType($request->type),
