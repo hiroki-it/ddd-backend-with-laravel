@@ -24,9 +24,9 @@ interface UserRepository extends Repository
      * UPDATE：ユーザエンティティを更新します．
      *
      * @param User $user
-     * @return bool
+     * @return User
      */
-    public function update(User $user): bool;
+    public function update(User $user): User;
 
     /**
      * DELETE：ユーザエンティティを削除します．
