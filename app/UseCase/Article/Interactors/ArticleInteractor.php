@@ -73,7 +73,7 @@ final class ArticleInteractor implements ArticleInputBoundary
             ->findAllByCriteria(new ArticleCriteria(
                 $request->order,
                 $request->limit
-                ));
+            ));
 
         return new ArticleGetByCriteriaResponse(
             $article->id->value(),
@@ -96,7 +96,8 @@ final class ArticleInteractor implements ArticleInputBoundary
                 new ArticleTitle($request->title),
                 new ArticleType($request->type),
                 new ArticleContent($request->content)
-            ));
+            )
+        );
 
         return new ArticleCreateResponse(
             $article->id->value(),
