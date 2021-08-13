@@ -49,9 +49,9 @@ interface ArticleRepository extends Repository
      * UPDATE：記事エンティティを更新します．
      *
      * @param Article $article
-     * @return bool
+     * @return Article
      */
-    public function update(Article $article): bool;
+    public function update(Article $article): Article;
 
     /**
      * DELETE：記事エンティティを削除します．

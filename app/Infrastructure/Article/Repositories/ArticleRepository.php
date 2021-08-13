@@ -45,7 +45,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
         $articleDTO = $this->articleDTO
             ->find($id);
 
-        // DTOのデータをドメインエンティティに詰め替えます．
+        // DTOのデータをドメインモデルに詰め替えます．
         return $articleDTO->toArticle();
     }
 
@@ -62,7 +62,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
 
         $articles = [];
         foreach ($articlesDTO as $articleDTO) {
-            // DTOのデータをドメインエンティティに詰め替えます．
+            // DTOのデータをドメインモデルに詰め替えます．
             $articles[] = $articleDTO->toArticle();
         }
 
@@ -82,7 +82,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
 
         $articles = [];
         foreach ($articlesDTO as $articleDTO) {
-            // DTOのデータをドメインエンティティに詰め替えます．
+            // DTOのデータをドメインモデルに詰め替えます．
             $articles[] = $articleDTO->toArticle();
         }
 
@@ -97,27 +97,30 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     public function create(Article $article): Article
     {
         return DB::transaction(function () use ($article) {
-            // ドメインエンティティのデータをDTOに詰め替えます．
-            return $this->articleDTO
+            // ドメインモデルのデータをDTOに詰め替えます．
+            $articleDTO = $this->articleDTO
                 ->create([
                     'title'   => $article->title,
                     'type'    => $article->type,
                     'content' => $article->content
                 ]);
+
+            // DBアクセス後のDTOをドメインモデルに変換します．
+            return $articleDTO->toArticle();
         });
     }
 
     /**
      * @param Article $article
-     * @return bool
+     * @return Article
      * @throws Throwable
      */
-    public function update(Article $article): bool
+    public function update(Article $article): Article
     {
         $articleDTO = $this->articleDTO
             ->find($article->id());
 
-        // ドメインエンティティのデータをDTOに詰め替えます．
+        // ドメインモデルのデータをDTOに詰め替えます．
         $articleDTO->fill([
             'title'   => $article->title,
             'type'    => $article->type,
@@ -125,7 +128,10 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
         ]);
 
         return DB::transaction(function () use ($articleDTO) {
-            return $articleDTO->save();
+            $articleDTO->save();
+
+            // DBアクセス後のDTOをドメインモデルに変換します．
+            return $articleDTO->toArticle();
         });
     }
 
