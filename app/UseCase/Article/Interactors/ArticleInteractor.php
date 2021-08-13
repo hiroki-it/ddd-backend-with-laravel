@@ -52,8 +52,15 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function getArticle(ArticleGetByIdRequest $request): ArticleGetByIdResponse
     {
-        return $this->articleRepository
-            ->findById($request->id);
+        $article = $this->articleRepository
+            ->findById(new ArticleId($request->id));
+
+        return new ArticleGetByIdResponse(
+            $article->id->value(),
+            $article->title->title,
+            $article->type->value(),
+            $article->content->content,
+        );
     }
 
     /**
@@ -62,10 +69,18 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetByCriteriaResponse
     {
-        $criteria = new ArticleCriteria($request->order, $request->limit);
+        $article = $this->articleRepository
+            ->findAllByCriteria(new ArticleCriteria(
+                $request->order,
+                $request->limit
+                ));
 
-        $this->articleRepository
-            ->findAllByCriteria($criteria);
+        return new ArticleGetByCriteriaResponse(
+            $article->id->value(),
+            $article->title->title,
+            $article->type->value(),
+            $article->content->content,
+        );
     }
 
     /**
@@ -75,14 +90,20 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function createArticle(ArticleCreateRequest $request): ArticleCreateResponse
     {
-        $article = new Article(
-            null,
-            new ArticleTitle($request->title),
-            new ArticleType($request->type),
-            new ArticleContent($request->content)
-        );
+        $article = $this->articleRepository->create(
+            new Article(
+                new ArticleId(0),
+                new ArticleTitle($request->title),
+                new ArticleType($request->type),
+                new ArticleContent($request->content)
+            ));
 
-        $this->articleRepository->create($article);
+        return new ArticleCreateResponse(
+            $article->id->value(),
+            $article->title->title,
+            $article->type->value(),
+            $article->content->content,
+        );
     }
 
     /**
@@ -92,15 +113,20 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function updateArticle(ArticleUpdateRequest $request): ArticleUpdateResponse
     {
-        $article = new Article(
-            new ArticleId($request->id),
-            new ArticleTitle($request->title),
-            new ArticleType($request->type),
-            new ArticleContent($request->content)
-        );
+        $article = $this->articleRepository
+            ->update(new Article(
+                new ArticleId($request->id),
+                new ArticleTitle($request->title),
+                new ArticleType($request->type),
+                new ArticleContent($request->content)
+            ));
 
-        $this->articleRepository
-            ->update($article);
+        return new ArticleUpdateResponse(
+            $article->id->value(),
+            $article->title->title,
+            $article->type->value(),
+            $article->content->content,
+        );
     }
 
     /**
@@ -114,5 +140,7 @@ final class ArticleInteractor implements ArticleInputBoundary
 
         $this->articleRepository
             ->delete($article);
+
+        return new ArticleDeleteResponse();
     }
 }
