@@ -72,9 +72,10 @@ final class ArticleInteractor implements ArticleInputBoundary
         $article = $this->articleRepository
             ->findAllByCriteria(
                 new ArticleCriteria(
-                $request->order,
-                $request->limit
-            ));
+                    $request->order,
+                    $request->limit
+                )
+            );
 
         return new ArticleGetByCriteriaResponse(
             $article->id->value(),
@@ -118,11 +119,12 @@ final class ArticleInteractor implements ArticleInputBoundary
         $article = $this->articleRepository
             ->update(
                 new Article(
-                new ArticleId($request->id),
-                new ArticleTitle($request->title),
-                new ArticleType($request->type),
-                new ArticleContent($request->content)
-            ));
+                    new ArticleId($request->id),
+                    new ArticleTitle($request->title),
+                    new ArticleType($request->type),
+                    new ArticleContent($request->content)
+                )
+            );
 
         return new ArticleUpdateResponse(
             $article->id->value(),
