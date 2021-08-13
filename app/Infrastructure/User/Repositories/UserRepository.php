@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\User\Repositories;
 
-use App\Domain\User\Repository\UserRepository as DomainUserRepository;
+use App\Domain\User\Repositories\UserRepository as DomainUserRepository;
 use App\Domain\User\Entities\User;
 use App\Infrastructure\Repository;
 use App\Infrastructure\User\DTOs\UserDTO;
