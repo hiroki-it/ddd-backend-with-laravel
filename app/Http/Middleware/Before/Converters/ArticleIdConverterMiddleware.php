@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware\Before\Converters;
 
-use App\Domain\Article\ValueObjects\ArticleId;
+use App\Domain\Article\Ids\ArticleId;
 use Closure;
 
 /**

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Article;
 
-use App\Domain\Article\ValueObjects\ArticleId;
+use App\Domain\Article\Ids\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\UseCase\Article\Requests\ArticleCreateRequest;

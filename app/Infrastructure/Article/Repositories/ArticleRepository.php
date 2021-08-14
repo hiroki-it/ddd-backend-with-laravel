@@ -7,7 +7,7 @@ namespace App\Infrastructure\Article\Repositories;
 use App\Domain\Article\Criterion\ArticleCriteria;
 use App\Domain\Article\Entities\Article;
 use App\Domain\Article\Repositories\ArticleRepository as DomainArticleRepository;
-use App\Domain\Article\ValueObjects\ArticleId;
+use App\Domain\Article\Ids\ArticleId;
 use App\Infrastructure\Article\DTOs\ArticleDTO;
 use App\Infrastructure\Repository;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;

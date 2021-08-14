@@ -6,9 +6,9 @@ namespace App\UseCase\Article\Interactors;
 
 use App\Domain\Article\Criterion\ArticleCriteria;
 use App\Domain\Article\Entities\Article;
+use App\Domain\Article\Ids\ArticleId;
 use App\Domain\Article\Repositories\ArticleRepository;
 use App\Domain\Article\ValueObjects\ArticleContent;
-use App\Domain\Article\ValueObjects\ArticleId;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
 use App\UseCase\Article\InputBoundaries\ArticleInputBoundary;
