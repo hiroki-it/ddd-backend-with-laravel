@@ -91,34 +91,32 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
 
     /**
      * @param Article $article
-     * @return Article
+     * @return void
      * @throws Throwable
      */
-    public function create(Article $article): Article
+    public function create(Article $article): void
     {
-        return DB::transaction(function () use ($article) {
+        DB::transaction(function () use ($article) {
 
             // ドメインモデルのデータをDTOに詰め替えます．
-            $articleDTO = $this->articleDTO
+            $this->articleDTO
                 ->create([
                     'title'   => $article->title,
                     'type'    => $article->type,
                     'content' => $article->content
                 ]);
-
-            // DBアクセス後のDTOをドメインモデルに変換します．
-            return $articleDTO->toArticle();
         });
     }
 
     /**
      * @param Article $article
-     * @return Article
+     * @return void
      * @throws Throwable
      */
-    public function update(Article $article): Article
+    public function update(Article $article): void
     {
-        return DB::transaction(function () use ($article) {
+        DB::transaction(function () use ($article) {
+
             $articleDTO = $this->articleDTO
             ->find($article->id());
 
@@ -130,24 +128,22 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
         ]);
 
             $articleDTO->save();
-
-            // DBアクセス後のDTOをドメインモデルに変換します．
-            return $articleDTO->toArticle();
         });
     }
 
     /**
-     * @param Article $article
-     * @return bool
+     * @param ArticleId $articleId
+     * @return void
      * @throws Throwable
      */
     public function delete(Article $article): bool
     {
-        return DB::transaction(function () use ($article) {
-            $articleDTO = $this->articleDTO
-            ->find($article->id());
+        DB::transaction(function () use ($articleId) {
 
-            return $articleDTO->delete();
+            $articleDTO = $this->articleDTO
+            ->find($articleId);
+
+            $articleDTO->delete();
         });
     }
 }
