@@ -92,14 +92,14 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function createArticle(ArticleCreateRequest $request): ArticleCreateResponse
     {
-        $article = $this->articleRepository->create(
-            new Article(
-                new ArticleId(0),
-                new ArticleTitle($request->title),
-                new ArticleType($request->type),
-                new ArticleContent($request->content)
-            )
+        $article = new Article(
+            new ArticleId(0),
+            new ArticleTitle($request->title),
+            new ArticleType($request->type),
+            new ArticleContent($request->content)
         );
+
+        $this->articleRepository->create($article);
 
         return new ArticleCreateResponse(
             $article->id->value(),
