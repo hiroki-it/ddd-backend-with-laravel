@@ -6,7 +6,7 @@ namespace App\Domain\Article\Repositories;
 
 use App\Domain\Article\Criterion\ArticleCriteria;
 use App\Domain\Article\Entities\Article;
-use App\Domain\Article\ValueObjects\ArticleId;
+use App\Domain\Article\Ids\ArticleId;
 use App\Domain\Repository;
 
 /**

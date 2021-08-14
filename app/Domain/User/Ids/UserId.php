@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\User\ValueObjects;
+namespace App\Domain\User\Ids;
 
 use App\Domain\Id;
 
