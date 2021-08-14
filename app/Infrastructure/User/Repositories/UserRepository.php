@@ -83,7 +83,6 @@ final class UserRepository extends Repository implements DomainUserRepository
     public function delete(UserId $userId): void
     {
         DB::transaction(function () use ($userId) {
-
             $this->userDTO->destroy($userId->id());
         });
     }
