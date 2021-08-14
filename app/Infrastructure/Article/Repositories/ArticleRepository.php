@@ -116,18 +116,14 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     public function update(Article $article): void
     {
         DB::transaction(function () use ($article) {
-
-            $articleDTO = $this->articleDTO
-            ->find($article->id());
-
             // ドメインモデルのデータをDTOに詰め替えます．
-            $articleDTO->fill([
+            $this->articleDTO->fill([
             'title'   => $article->title,
             'type'    => $article->type,
             'content' => $article->content
         ]);
 
-            $articleDTO->save();
+            $this->articleDTO->save();
         });
     }
 
