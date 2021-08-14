@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 class Kernel extends HttpKernel
 {
     /**
-     * The application's global HTTP middleware stack.
+     * 全てのHTTPリクエストに適用するミドルウェアを定義します．
      *
      * These middleware are run during every request to your application.
      *
@@ -22,7 +22,7 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * エイリアス名とミドルウェアのグループを定義します．
+     * エイリアス名とミドルウェアグループを定義します．
      *
      * @var array
      */
@@ -37,7 +37,7 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * エイリアス名とミドルウェアを定義します．
+     * エイリアス名と個別のミドルウェアを定義します．
      *
      * @var array
      */
