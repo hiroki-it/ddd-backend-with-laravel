@@ -10,6 +10,7 @@ use App\Http\Requests\ArticleRequest;
 use App\UseCase\Article\Requests\ArticleCreateRequest;
 use App\UseCase\Article\Requests\ArticleDeleteRequest;
 use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
+use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Interactors\ArticleInteractor;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
