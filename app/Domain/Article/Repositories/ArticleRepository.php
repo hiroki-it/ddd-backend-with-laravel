@@ -59,5 +59,5 @@ interface ArticleRepository extends Repository
      * @param ArticleId $articleId
      * @return void
      */
-    public function delete(Article $article): bool;
+    public function delete(ArticleId $articleId): void;
 }

@@ -136,7 +136,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
      * @return void
      * @throws Throwable
      */
-    public function delete(Article $article): bool
+    public function delete(ArticleId $articleId): void
     {
         DB::transaction(function () use ($articleId) {
 
