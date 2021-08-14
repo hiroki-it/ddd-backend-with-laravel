@@ -95,7 +95,6 @@ final class ArticleController extends Controller
      *
      * @param ArticleRequest $articleRequest
      * @return RedirectResponse
-     * @throws InvalidEnumMemberException
      */
     public function updateArticle(ArticleRequest $articleRequest): RedirectResponse
     {
