@@ -119,6 +119,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     public function update(Article $article): Article
     {
         return DB::transaction(function () use ($article) {
+
             $articleDTO = $this->articleDTO
             ->find($article->id());
 
@@ -144,6 +145,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     public function delete(Article $article): bool
     {
         return DB::transaction(function () use ($article) {
+
             $articleDTO = $this->articleDTO
             ->find($article->id());
 
