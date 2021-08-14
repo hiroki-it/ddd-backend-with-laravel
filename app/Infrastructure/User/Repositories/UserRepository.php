@@ -61,18 +61,14 @@ final class UserRepository extends Repository implements DomainUserRepository
     public function update(User $user): void
     {
         DB::transaction(function () use ($user) {
-
-            $userDTO = $this->userDTO
-                ->find($user->id());
-
             // ドメインモデルのデータをDTOに詰め替えます．
-            $userDTO->fill([
+            $this->userDTO->fill([
                 'name'         => $user->name,
                 'emailAddress' => $user->emailAddress,
                 'password'     => $user->password
             ]);
 
-            $userDTO->save();
+            $this->userDTO->save();
         });
     }
 
