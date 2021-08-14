@@ -18,7 +18,6 @@ use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Responses\ArticleCreateResponse;
-use App\UseCase\Article\Responses\ArticleDeleteResponse;
 use App\UseCase\Article\Responses\ArticleGetByCriteriaResponse;
 use App\UseCase\Article\Responses\ArticleGetByIdResponse;
 use App\UseCase\Article\Responses\ArticleUpdateResponse;
@@ -129,16 +128,9 @@ final class ArticleInteractor implements ArticleInputBoundary
 
     /**
      * @param ArticleDeleteRequest $request
-     * @return ArticleDeleteResponse
      */
-    public function deleteArticle(ArticleDeleteRequest $request): ArticleDeleteResponse
+    public function deleteArticle(ArticleDeleteRequest $request)
     {
-        $article = $this->articleRepository
-            ->findById(new ArticleId($request->id));
-
-        $this->articleRepository
-            ->delete($article);
-
-        return new ArticleDeleteResponse();
+        $this->articleRepository->delete(new ArticleId($request->id));
     }
 }

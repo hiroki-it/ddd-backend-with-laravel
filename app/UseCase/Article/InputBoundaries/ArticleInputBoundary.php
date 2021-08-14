@@ -10,7 +10,6 @@ use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Responses\ArticleCreateResponse;
-use App\UseCase\Article\Responses\ArticleDeleteResponse;
 use App\UseCase\Article\Responses\ArticleGetByCriteriaResponse;
 use App\UseCase\Article\Responses\ArticleGetByIdResponse;
 use App\UseCase\Article\Responses\ArticleUpdateResponse;
@@ -56,7 +55,6 @@ interface ArticleInputBoundary
      * 記事を削除します．
      *
      * @param ArticleDeleteRequest $request
-     * @return ArticleDeleteResponse
-     */
-    public function deleteArticle(ArticleDeleteRequest $request): ArticleDeleteResponse;
+\     */
+    public function deleteArticle(ArticleDeleteRequest $request);
 }
