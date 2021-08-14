@@ -8,6 +8,7 @@ use App\Domain\Article\Ids\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\UseCase\Article\Requests\ArticleCreateRequest;
+use App\UseCase\Article\Requests\ArticleDeleteRequest;
 use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Interactors\ArticleInteractor;
@@ -110,12 +111,13 @@ final class ArticleController extends Controller
     /**
      * 記事を削除します．
      *
-     * @param ArticleId $id
-     * @return RedirectResponse
+     * @param int $id
      */
-    public function deleteArticle(ArticleId $id): RedirectResponse
+    public function deleteArticle(int $id): RedirectResponse
     {
-        $this->articleInteractor->deleteArticle($id);
+        $articleDeleteRequest = new ArticleDeleteRequest($id);
+
+        $this->articleInteractor->deleteArticle($articleDeleteRequest);
 
         // ここにレスポンス処理
     }
