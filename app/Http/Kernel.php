@@ -22,7 +22,7 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * The application's route middleware groups.
+     * エイリアス名とミドルウェアのグループを定義します．
      *
      * @var array
      */
@@ -37,7 +37,7 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * エイリアス名とミドルウェアを設定します．
+     * エイリアス名とミドルウェアを定義します．
      *
      * @var array
      */
