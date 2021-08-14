@@ -39,8 +39,6 @@ class Kernel extends HttpKernel
     /**
      * エイリアス名とミドルウェアを設定します．
      *
-     * These middleware may be assigned to groups or used individually.
-     *
      * @var array
      */
     protected $routeMiddleware = [
@@ -60,11 +58,9 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * The priority-sorted list of middleware.
+     * ミドルウェアをコールする順番を定義します．
      *
-     * This forces non-global middleware to always be in the given order.
-     *
-     * @var array
+     * @var string[]
      */
     protected $middlewarePriority = [
         \Illuminate\Session\Middleware\StartSession::class,
