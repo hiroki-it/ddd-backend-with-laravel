@@ -9,8 +9,6 @@ class Kernel extends HttpKernel
     /**
      * 全てのHTTPリクエストに適用するミドルウェアを定義します．
      *
-     * These middleware are run during every request to your application.
-     *
      * @var array
      */
     protected $middleware = [
