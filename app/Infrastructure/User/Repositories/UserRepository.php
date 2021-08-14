@@ -6,6 +6,7 @@ namespace App\Infrastructure\User\Repositories;
 
 use App\Domain\User\Repositories\UserRepository as DomainUserRepository;
 use App\Domain\User\Entities\User;
+use App\Domain\User\ValueObjects\UserId;
 use App\Infrastructure\Repository;
 use App\Infrastructure\User\DTOs\UserDTO;
 use Illuminate\Support\Facades\DB;
@@ -35,34 +36,32 @@ final class UserRepository extends Repository implements DomainUserRepository
 
     /**
      * @param User $user
-     * @return User
+     * @return void
      * @throws Throwable
      */
-    public function create(User $user): User
+    public function create(User $user): void
     {
-        return DB::transaction(function () use ($user) {
+        DB::transaction(function () use ($user) {
 
             // ドメインモデルのデータをDTOに詰め替えます．
-            $userDTO =  $this->userDTO
+            $this->userDTO
                 ->create([
                     'name'         => $user->name,
                     'emailAddress' => $user->emailAddress,
                     'password'     => $user->password
                 ]);
-
-            // DBアクセス後のDTOをドメインモデルに変換します．
-            return $userDTO->toUser();
         });
     }
 
     /**
      * @param User $user
-     * @return User
+     * @return void
      * @throws Throwable
      */
-    public function update(User $user): User
+    public function update(User $user): void
     {
-        return DB::transaction(function () use ($user) {
+        DB::transaction(function () use ($user) {
+
             $userDTO = $this->userDTO
                 ->find($user->id());
 
@@ -74,24 +73,22 @@ final class UserRepository extends Repository implements DomainUserRepository
             ]);
 
             $userDTO->save();
-
-            // DBアクセス後のDTOをドメインモデルに変換します．
-            return $userDTO->toUser();
         });
     }
 
     /**
-     * @param User $user
-     * @return bool
+     * @param UserId $userId
+     * @return void
      * @throws Throwable
      */
-    public function delete(User $user): bool
+    public function delete(UserId $userId): void
     {
-        return DB::transaction(function () use ($user) {
-            $userDTO = $this->userDTO
-            ->find($user->id());
+        DB::transaction(function () use ($userId) {
 
-            return $userDTO::delete();
+            $userDTO = $this->userDTO
+            ->find($userId);
+
+            $userDTO->delete();;
         });
     }
 }
