@@ -35,5 +35,5 @@ interface UserRepository extends Repository
      * @param UserId $userId
      * @return void
      */
-    public function delete(User $user): bool;
+    public function delete(UserId $userId): void;
 }
