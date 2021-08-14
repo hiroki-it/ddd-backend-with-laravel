@@ -14,7 +14,7 @@ abstract class Id
      *
      * @var int
      */
-    private $id;
+    private int $id;
 
     /**
      * @param int $id
@@ -22,6 +22,16 @@ abstract class Id
     public function __construct(int $id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * ID値を返却します．
+     *
+     * @return int
+     */
+    public function id(): int
+    {
+        return $this->id;
     }
 
     /**
