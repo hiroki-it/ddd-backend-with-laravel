@@ -41,12 +41,14 @@ final class ArticleController extends Controller
     /**
      * 記事を返却します．
      *
-     * @param ArticleId $id
+     * @param int $id
      * @return Response
      */
-    public function getArticle(ArticleId $id): Response
+    public function getArticle(int $id): Response
     {
-        $article = $this->articleInteractor->getArticle($id);
+        $articleGetByRequest = new ArticleGetByIdRequest($id);
+
+        $article = $this->articleInteractor->getArticle($articleGetByRequest);
 
         // ここにレスポンス処理
     }
