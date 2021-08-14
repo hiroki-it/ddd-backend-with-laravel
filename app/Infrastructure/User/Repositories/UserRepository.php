@@ -41,6 +41,7 @@ final class UserRepository extends Repository implements DomainUserRepository
     public function create(User $user): User
     {
         return DB::transaction(function () use ($user) {
+
             // ドメインモデルのデータをDTOに詰め替えます．
             $userDTO =  $this->userDTO
                 ->create([
@@ -61,17 +62,17 @@ final class UserRepository extends Repository implements DomainUserRepository
      */
     public function update(User $user): User
     {
-        $userDTO = $this->userDTO
-            ->find($user->id());
+        return DB::transaction(function () use ($user) {
+            $userDTO = $this->userDTO
+                ->find($user->id());
 
-        // ドメインモデルのデータをDTOに詰め替えます．
-        $userDTO->fill([
-            'name'         => $user->name,
-            'emailAddress' => $user->emailAddress,
-            'password'     => $user->password
-        ]);
+            // ドメインモデルのデータをDTOに詰め替えます．
+            $userDTO->fill([
+                'name'         => $user->name,
+                'emailAddress' => $user->emailAddress,
+                'password'     => $user->password
+            ]);
 
-        return DB::transaction(function () use ($userDTO) {
             $userDTO->save();
 
             // DBアクセス後のDTOをドメインモデルに変換します．
@@ -86,10 +87,10 @@ final class UserRepository extends Repository implements DomainUserRepository
      */
     public function delete(User $user): bool
     {
-        $userDTO = $this->userDTO
+        return DB::transaction(function () use ($user) {
+            $userDTO = $this->userDTO
             ->find($user->id());
 
-        return DB::transaction(function () use ($userDTO) {
             return $userDTO::delete();
         });
     }
