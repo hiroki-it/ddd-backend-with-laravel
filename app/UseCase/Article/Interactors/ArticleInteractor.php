@@ -112,19 +112,12 @@ final class ArticleInteractor implements ArticleInputBoundary
     /**
      * @param ArticleUpdateRequest $request
      * @return ArticleUpdateResponse
-     * @throws InvalidEnumMemberException
      */
     public function updateArticle(ArticleUpdateRequest $request): ArticleUpdateResponse
     {
-        $article = $this->articleRepository
-            ->update(
-                new Article(
-                    new ArticleId($request->id),
-                    new ArticleTitle($request->title),
-                    new ArticleType($request->type),
-                    new ArticleContent($request->content)
-                )
-            );
+        $article = $this->articleRepository->findById(new ArticleId($request->id));
+
+        $this->articleRepository->update($article);
 
         return new ArticleUpdateResponse(
             $article->id->value(),

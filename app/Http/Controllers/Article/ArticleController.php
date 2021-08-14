@@ -93,17 +93,16 @@ final class ArticleController extends Controller
      * 記事を更新します．
      *
      * @param ArticleRequest $articleRequest
-     * @param ArticleId      $id
      * @return RedirectResponse
      * @throws InvalidEnumMemberException
      */
-    public function updateArticle(ArticleRequest $articleRequest, ArticleId $id): RedirectResponse
+    public function updateArticle(ArticleRequest $articleRequest): RedirectResponse
     {
         $validated = $articleRequest->validated();
 
-        $articleInput = new ArticleUpdateRequest($validated);
+        $articleUpdateRequest = new ArticleUpdateRequest($validated);
 
-        $this->articleInteractor->updateArticle($articleInput, $id);
+        $this->articleInteractor->updateArticle($articleUpdateRequest);
 
         // ここにレスポンス処理
     }
