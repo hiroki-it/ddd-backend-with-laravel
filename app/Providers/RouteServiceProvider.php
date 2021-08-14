@@ -10,20 +10,6 @@ use Illuminate\Support\Facades\Route;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * コントローラの名前空間
-     *
-     * @var string
-     */
-    protected $namespace = 'App\Http\Controllers';
-
-    /**
-     * 認証後のホームページURL
-     *
-     * @var string
-     */
-    public const HOME = '/dashboard';
-
-    /**
      * パターンフィルタを設定します．
      *
      * @return void
