@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\UseCase\Article\Requests\ArticleCreateRequest;
 use App\UseCase\Article\Requests\ArticleDeleteRequest;
-use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
+use App\UseCase\Article\Requests\ArticleGetAllByCriteriaRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Interactors\ArticleInteractor;
@@ -65,7 +65,7 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $request = new ArticleGetByCriteriaRequest(
+        $request = new ArticleGetAllByCriteriaRequest(
             $validated['order'],
             $validated['limit']
         );
