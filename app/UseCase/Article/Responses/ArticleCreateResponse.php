@@ -2,6 +2,36 @@
 
 namespace App\UseCase\Article\Responses;
 
+/**
+ * 記事作成レスポンスクラス
+ */
 class ArticleCreateResponse
 {
+    /**
+     * @var int
+     */
+    private int $articleId;
+
+    /**
+     * @var string
+     */
+    private string $articleTitle;
+
+    /**
+     * @var string
+     */
+    private string $articleType;
+
+    /**
+     * @var string
+     */
+    private string $articleContent;
+
+    public function __construct(int $articleId, string $articleTitle, string $articleType, string $articleContent)
+    {
+        $this->articleId=$articleId;
+        $this->articleTitle=$articleTitle;
+        $this->articleType=$articleType;
+        $this->articleContent=$articleContent;
+    }
 }
