@@ -64,8 +64,8 @@ final class ArticleController extends Controller
         $validated = $articleRequest->validated();
 
         $request = new ArticleGetAllRequest(
-            $validated['order'],
-            $validated['limit']
+            $validated['limit'],
+            $validated['order']
         );
 
         $article = $this->articleInteractor->getAllArticles($request);

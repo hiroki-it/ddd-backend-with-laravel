@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth'], (function () {
      */
     Route::group(['namespace' => 'Article'], (function () {
         Route::get('/article/{id}', 'ArticleController@getArticle');
-        Route::get('/articles', 'ArticleController@getArticles');
+        Route::get('/articles', 'ArticleController@getAllArticles');
         Route::post('/articles', 'ArticleController@createArticle');
         Route::put('/articles/{id}', 'ArticleController@updateArticle')->middleware('article.id.converter');
         Route::delete('/articles/{id}', 'ArticleController@deleteArticle')->middleware('article.id.converter');

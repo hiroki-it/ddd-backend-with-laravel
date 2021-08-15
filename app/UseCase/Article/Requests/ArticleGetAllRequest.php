@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\UseCase\Article\Requests;
 
+use App\Constant\CriteriaConstant;
 use App\UseCase\GetAllRequest;
 
 /**
@@ -17,7 +18,7 @@ final class ArticleGetAllRequest extends GetAllRequest
      * @param int $limit
      * @param string $order
      */
-    public function __construct(int $limit = self::DEFAULT_LIMIT, string $order = self::DEFAULT_ORDER)
+    public function __construct(int $limit = CriteriaConstant::DEFAULT_LIMIT, string $order = CriteriaConstant::DEFAULT_ORDER)
     {
         $this->limit = $limit;
         $this->order = $order;
