@@ -6,6 +6,7 @@ namespace App\UseCase\User\Services;
 
 use App\Domain\User\Entities\User;
 use App\Exceptions\Service\SendAuthenticationCodeException;
+use App\UseCase\ApplicationService;
 use Aws\Sns\SnsClient;
 use Aws\Exception\AwsException;
 

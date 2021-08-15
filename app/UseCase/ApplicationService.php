@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\Services;
+namespace App\UseCase;
 
 use App;
 
