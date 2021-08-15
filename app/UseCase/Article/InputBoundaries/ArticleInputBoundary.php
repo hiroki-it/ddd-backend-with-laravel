@@ -10,7 +10,7 @@ use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Responses\ArticleCreateResponse;
-use App\UseCase\Article\Responses\ArticleGetByCriteriaResponse;
+use App\UseCase\Article\Responses\ArticleGetAllResponse;
 use App\UseCase\Article\Responses\ArticleGetByIdResponse;
 use App\UseCase\Article\Responses\ArticleUpdateResponse;
 
@@ -39,9 +39,9 @@ interface ArticleInputBoundary
      * 複数の記事を取得します
      *
      * @param ArticleGetByCriteriaRequest $request
-     * @return ArticleGetByCriteriaResponse
+     * @return ArticleGetAllResponse
      */
-    public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetByCriteriaResponse;
+    public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetAllResponse;
 
     /**
      * 記事を更新します

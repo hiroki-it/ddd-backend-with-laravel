@@ -18,7 +18,7 @@ use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Responses\ArticleCreateResponse;
-use App\UseCase\Article\Responses\ArticleGetByCriteriaResponse;
+use App\UseCase\Article\Responses\ArticleGetAllResponse;
 use App\UseCase\Article\Responses\ArticleGetByIdResponse;
 use App\UseCase\Article\Responses\ArticleUpdateResponse;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
@@ -63,9 +63,9 @@ final class ArticleInteractor implements ArticleInputBoundary
 
     /**
      * @param ArticleGetByCriteriaRequest $request
-     * @return ArticleGetByCriteriaResponse
+     * @return ArticleGetAllResponse
      */
-    public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetByCriteriaResponse
+    public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetAllResponse
     {
         $articles = $this->articleRepository->findAllByCriteria(
             new ArticleCriteria(
@@ -74,7 +74,7 @@ final class ArticleInteractor implements ArticleInputBoundary
             )
         );
 
-        return new ArticleGetByCriteriaResponse($articles);
+        return new ArticleGetAllResponse($articles);
     }
 
     /**

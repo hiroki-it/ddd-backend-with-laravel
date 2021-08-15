@@ -5,7 +5,7 @@ namespace App\UseCase\Article\Responses;
 /**
  * 条件に基づく記事取得レスポンスクラス
  */
-class ArticleGetByCriteriaResponse
+class ArticleGetAllResponse
 {
     /**
      * @var array
