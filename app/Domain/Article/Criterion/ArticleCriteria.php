@@ -14,10 +14,10 @@ final class ArticleCriteria extends Criteria
     /**
      * コンストラクタインジェクション
      *
-     * @param string $limit
+     * @param int $limit
      * @param string $order
      */
-    public function __construct(string $limit, string $order)
+    public function __construct(int $limit, string $order)
     {
         $this->limit = $limit;
         $this->order = $order;

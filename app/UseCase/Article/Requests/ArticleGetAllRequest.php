@@ -14,10 +14,10 @@ final class ArticleGetAllByCriteriaRequest extends GetAllByCriteriaRequest
     /**
      * コンストラクタインジェクション
      *
-     * @param string $limit
+     * @param int $limit
      * @param string $order
      */
-    public function __construct(string $limit = self::DEFAULT_LIMIT, string $order = self::DEFAULT_ORDER)
+    public function __construct(int $limit = self::DEFAULT_LIMIT, string $order = self::DEFAULT_ORDER)
     {
         $this->limit = $limit;
         $this->order = $order;
