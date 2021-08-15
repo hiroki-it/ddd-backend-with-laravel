@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Requests;
 
+use App\Constant\CriteriaConstant;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 /**
  * 記事リクエストクラス
@@ -29,6 +31,18 @@ final class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
+            // 件数
+            'limit' => [
+                'required',
+                Rule::in(CriteriaConstant::LIMIT_LIST)
+            ],
+
+            // 順序名
+            'order'=>[
+                'required',
+                Rule::in(CriteriaConstant::ORDER_LIST)
+            ],
+
             // タイトル
             'title' => [
                 'required',
