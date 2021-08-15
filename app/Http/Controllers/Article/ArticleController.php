@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Article;
 
-use App\Domain\Article\Ids\ArticleId;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\UseCase\Article\Requests\ArticleCreateRequest;
 use App\UseCase\Article\Requests\ArticleDeleteRequest;
-use App\UseCase\Article\Requests\ArticleGetAllByCriteriaRequest;
+use App\UseCase\Article\Requests\ArticleGetAllRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Interactors\ArticleInteractor;
@@ -58,19 +57,18 @@ final class ArticleController extends Controller
      * 記事の一覧を返却します．
      *
      * @param ArticleRequest $articleRequest
-     * @param ArticleId      $id
      * @return Response
      */
-    public function getAllArticlesByCriteria(ArticleRequest $articleRequest, ArticleId $id): Response
+    public function getAllArticles(ArticleRequest $articleRequest): Response
     {
         $validated = $articleRequest->validated();
 
-        $request = new ArticleGetAllByCriteriaRequest(
+        $request = new ArticleGetAllRequest(
             $validated['order'],
             $validated['limit']
         );
 
-        $article = $this->articleInteractor->getAllArticlesByCriteria($request);
+        $article = $this->articleInteractor->getAllArticles($request);
 
         // ここにレスポンス処理
     }
@@ -84,6 +82,7 @@ final class ArticleController extends Controller
      */
     public function createArticle(ArticleRequest $articleRequest): RedirectResponse
     {
+        // クエリパラメータのバリデーション
         $validated = $articleRequest->validated();
 
         $articleInput = new ArticleCreateRequest($validated);

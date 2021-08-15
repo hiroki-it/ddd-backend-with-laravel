@@ -9,7 +9,7 @@ use App\Traits\ImmutableTrait;
 /**
  * 取得インプットクラス
  */
-abstract class GetAllByCriteriaRequest
+abstract class GetAllRequest
 {
     use ImmutableTrait;
 
