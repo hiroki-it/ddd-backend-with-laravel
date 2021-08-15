@@ -61,7 +61,7 @@ final class ArticleController extends Controller
      * @param ArticleId      $id
      * @return Response
      */
-    public function getArticles(ArticleRequest $articleRequest, ArticleId $id): Response
+    public function getAllArticlesByCriteria(ArticleRequest $articleRequest, ArticleId $id): Response
     {
         $validated = $articleRequest->validated();
 
@@ -70,7 +70,7 @@ final class ArticleController extends Controller
             $validated['limit']
         );
 
-        $article = $this->articleInteractor->getArticles($request);
+        $article = $this->articleInteractor->getAllArticlesByCriteria($request);
 
         // ここにレスポンス処理
     }
