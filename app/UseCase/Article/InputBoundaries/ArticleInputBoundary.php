@@ -41,7 +41,7 @@ interface ArticleInputBoundary
      * @param ArticleGetByCriteriaRequest $request
      * @return ArticleGetAllResponse
      */
-    public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetAllResponse;
+    public function getAllArticlesByCriteria(ArticleGetByCriteriaRequest $request): ArticleGetAllResponse;
 
     /**
      * 記事を更新します
