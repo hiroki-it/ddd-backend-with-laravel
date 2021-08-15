@@ -14,7 +14,7 @@ use App\Domain\Article\ValueObjects\ArticleType;
 use App\UseCase\Article\InputBoundaries\ArticleInputBoundary;
 use App\UseCase\Article\Requests\ArticleCreateRequest;
 use App\UseCase\Article\Requests\ArticleDeleteRequest;
-use App\UseCase\Article\Requests\ArticleGetAllByCriteriaRequest;
+use App\UseCase\Article\Requests\ArticleGetAllRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Responses\ArticleCreateResponse;
@@ -62,15 +62,17 @@ final class ArticleInteractor implements ArticleInputBoundary
     }
 
     /**
-     * @param ArticleGetAllByCriteriaRequest $request
+     * @param ArticleGetAllRequest $request
      * @return ArticleGetAllResponse
      */
-    public function getAllArticlesByCriteria(ArticleGetAllByCriteriaRequest $request): ArticleGetAllResponse
+    public function getAllArticles(ArticleGetAllRequest $request): ArticleGetAllResponse
     {
+
+
         $articles = $this->articleRepository->findAllByCriteria(
             new ArticleCriteria(
-                $request->order,
-                $request->limit
+                $request->limit,
+                $request->order
             )
         );
 
