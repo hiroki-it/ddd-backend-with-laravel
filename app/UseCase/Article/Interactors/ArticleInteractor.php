@@ -67,8 +67,6 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function getAllArticles(ArticleGetAllRequest $request): ArticleGetAllResponse
     {
-
-
         $articles = $this->articleRepository->findAllByCriteria(
             new ArticleCriteria(
                 $request->limit,
