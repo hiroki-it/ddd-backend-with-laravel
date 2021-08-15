@@ -6,7 +6,7 @@ namespace App\UseCase\Article\InputBoundaries;
 
 use App\UseCase\Article\Requests\ArticleCreateRequest;
 use App\UseCase\Article\Requests\ArticleDeleteRequest;
-use App\UseCase\Article\Requests\ArticleGetByCriteriaRequest;
+use App\UseCase\Article\Requests\ArticleGetAllByCriteriaRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Responses\ArticleCreateResponse;
@@ -38,10 +38,10 @@ interface ArticleInputBoundary
     /**
      * 複数の記事を取得します
      *
-     * @param ArticleGetByCriteriaRequest $request
+     * @param ArticleGetAllByCriteriaRequest $request
      * @return ArticleGetAllResponse
      */
-    public function getAllArticlesByCriteria(ArticleGetByCriteriaRequest $request): ArticleGetAllResponse;
+    public function getAllArticlesByCriteria(ArticleGetAllByCriteriaRequest $request): ArticleGetAllResponse;
 
     /**
      * 記事を更新します
