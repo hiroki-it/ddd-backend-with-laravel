@@ -119,9 +119,9 @@ final class ArticleInteractor implements ArticleInputBoundary
         $this->articleRepository->update($article);
 
         return new ArticleUpdateResponse(
-            $article->id->value(),
+            $article->id->id(),
             $article->title->title,
-            $article->type->value(),
+            $article->type->value,
             $article->content->content,
         );
     }
