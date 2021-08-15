@@ -7,7 +7,7 @@ namespace App\UseCase;
 use App\Traits\ImmutableTrait;
 
 /**
- * 取得インプットクラス
+ * 取得リクエストモデル
  */
 abstract class GetAllRequest
 {

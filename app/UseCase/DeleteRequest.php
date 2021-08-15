@@ -4,6 +4,9 @@ namespace App\UseCase;
 
 use App\Traits\ImmutableTrait;
 
+/**
+ * 削除リクエストモデル
+ */
 abstract class DeleteRequest
 {
     use ImmutableTrait;
