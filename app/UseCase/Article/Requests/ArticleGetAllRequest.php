@@ -8,7 +8,7 @@ use App\Constant\CriteriaConstant;
 use App\UseCase\GetAllRequest;
 
 /**
- * 記事インプットクラス
+ * 記事リクエストモデル
  */
 final class ArticleGetAllRequest extends GetAllRequest
 {

@@ -7,7 +7,7 @@ namespace App\UseCase\Article\Requests;
 use App\UseCase\GetByIdRequest;
 
 /**
- * 記事インプットクラス
+ * 記事リクエストモデル
  */
 final class ArticleGetByIdRequest extends GetByIdRequest
 {

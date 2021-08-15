@@ -4,6 +4,9 @@ namespace App\UseCase;
 
 use App\Traits\ImmutableTrait;
 
+/**
+ * 取得リクエストモデル
+ */
 abstract class GetByIdRequest
 {
     use ImmutableTrait;
