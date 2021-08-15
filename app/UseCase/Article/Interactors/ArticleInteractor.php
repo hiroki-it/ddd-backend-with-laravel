@@ -51,8 +51,7 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function getArticle(ArticleGetByIdRequest $request): ArticleGetByIdResponse
     {
-        $article = $this->articleRepository
-            ->findById(new ArticleId($request->id));
+        $article = $this->articleRepository->findById(new ArticleId($request->id));
 
         return new ArticleGetByIdResponse(
             $article->id->id(),
@@ -68,8 +67,7 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetByCriteriaResponse
     {
-        $articles = $this->articleRepository
-            ->findAllByCriteria(
+        $articles = $this->articleRepository->findAllByCriteria(
                 new ArticleCriteria(
                     $request->order,
                     $request->limit
