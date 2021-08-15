@@ -55,9 +55,9 @@ final class ArticleInteractor implements ArticleInputBoundary
             ->findById(new ArticleId($request->id));
 
         return new ArticleGetByIdResponse(
-            $article->id->value(),
+            $article->id->id(),
             $article->title->title,
-            $article->type->value(),
+            $article->type->value,
             $article->content->content,
         );
     }
