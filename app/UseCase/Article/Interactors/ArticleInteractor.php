@@ -68,7 +68,7 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function getArticles(ArticleGetByCriteriaRequest $request): ArticleGetByCriteriaResponse
     {
-        $article = $this->articleRepository
+        $articles = $this->articleRepository
             ->findAllByCriteria(
                 new ArticleCriteria(
                     $request->order,
@@ -76,12 +76,7 @@ final class ArticleInteractor implements ArticleInputBoundary
                 )
             );
 
-        return new ArticleGetByCriteriaResponse(
-            $article->id->value(),
-            $article->title->title,
-            $article->type->value(),
-            $article->content->content,
-        );
+        return new ArticleGetByCriteriaResponse($articles);
     }
 
     /**
