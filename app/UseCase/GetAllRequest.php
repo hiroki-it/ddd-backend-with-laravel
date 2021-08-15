@@ -21,18 +21,18 @@ abstract class GetAllByCriteriaRequest
     public const DEFAULT_ORDER = 'asc';
 
     /**
-     * @var string
+     * @var int
      *
      * 件数のデフォルト値
      */
-    public const DEFAULT_LIMIT = '10';
+    public const DEFAULT_LIMIT = 10;
 
     /**
      * 件数
      *
-     * @var string
+     * @var int
      */
-    protected string $limit;
+    protected int $limit;
 
     /**
      * 順序
