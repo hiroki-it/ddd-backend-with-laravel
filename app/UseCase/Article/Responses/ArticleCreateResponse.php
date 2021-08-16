@@ -29,9 +29,22 @@ class ArticleCreateResponse
 
     public function __construct(int $articleId, string $articleTitle, string $articleType, string $articleContent)
     {
-        $this->articleId=$articleId;
-        $this->articleTitle=$articleTitle;
-        $this->articleType=$articleType;
-        $this->articleContent=$articleContent;
+        $this->articleId = $articleId;
+        $this->articleTitle = $articleTitle;
+        $this->articleType = $articleType;
+        $this->articleContent = $articleContent;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'id'      => $this->articleId,
+            'title'   => $this->articleTitle,
+            'type'    => $this->articleType,
+            'content' => $this->articleContent,
+        ];
     }
 }
