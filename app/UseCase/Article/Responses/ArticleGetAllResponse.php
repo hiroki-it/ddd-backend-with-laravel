@@ -14,6 +14,16 @@ class ArticleGetAllResponse
 
     public function __construct(array $articles)
     {
-        $this->articles=$articles;
+        $this->articles = $articles;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'articles' => $this->articles,
+        ];
     }
 }
