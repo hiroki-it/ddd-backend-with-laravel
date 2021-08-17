@@ -96,17 +96,25 @@ final class ArticleController extends Controller
      * 記事を更新します．
      *
      * @param ArticleRequest $articleRequest
-     * @return RedirectResponse
+     * @return JsonResponse
      */
-    public function updateArticle(ArticleRequest $articleRequest): RedirectResponse
+    public function updateArticle(ArticleRequest $articleRequest): JsonResponse
     {
-        $validated = $articleRequest->validated();
+        try {
 
-        $articleUpdateRequest = new ArticleUpdateRequest($validated);
+            $validated = $articleRequest->validated();
 
-        $this->articleInteractor->updateArticle($articleUpdateRequest);
+            $articleUpdateRequest = new ArticleUpdateRequest($validated);
 
-        // ここにレスポンス処理
+            $articleUpdateResponse = $this->articleInteractor->updateArticle($articleUpdateRequest);
+
+        } catch (Throwable $e) {
+
+            return response()->json(['errors' => $e->getMessage()],400);
+
+        }
+
+        return response()->json($articleUpdateResponse->toArray());
     }
 
     /**
