@@ -17,8 +17,6 @@ final class UserEmailAddress extends ValueObject
     private string $emailAddress;
 
     /**
-     * コンストラクタ
-     *
      * @param string $emailAddress
      */
     public function __constructor(string $emailAddress)

@@ -17,8 +17,6 @@ final class UserAuthenticationCode extends ValueObject
     private string $authenticationCode;
 
     /**
-     * コンストラクタ
-     *
      * @param string $authenticationCode
      */
     public function __constructor(string $authenticationCode)

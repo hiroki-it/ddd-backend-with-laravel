@@ -17,8 +17,6 @@ final class UserName extends ValueObject
     private string $name;
 
     /**
-     * コンストラクタ
-     *
      * @param string $name
      */
     public function __constructor(string $name)
