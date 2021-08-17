@@ -77,19 +77,26 @@ final class ArticleController extends Controller
      * 記事を作成します．
      *
      * @param ArticleRequest $articleRequest
-     * @return RedirectResponse
-     * @throws InvalidEnumMemberException
+     * @return JsonResponse
      */
-    public function createArticle(ArticleRequest $articleRequest): RedirectResponse
+    public function createArticle(ArticleRequest $articleRequest): JsonResponse
     {
-        // クエリパラメータのバリデーション
-        $validated = $articleRequest->validated();
+        try {
 
-        $articleInput = new ArticleCreateRequest($validated);
+            $validated = $articleRequest->validated();
 
-        $this->articleInteractor->createArticle($articleInput);
+            $articleInput = new ArticleCreateRequest($validated);
 
-        // ここにレスポンス処理
+            $articleCreateResponse = $this->articleInteractor->createArticle($articleInput);
+
+        } catch (Throwable $e) {
+
+            return response()->json(['errors' => $e->getMessage()],400);
+
+        }
+
+        return response()->json($articleCreateResponse->toArray());
+
     }
 
     /**
