@@ -2,10 +2,12 @@
 
 namespace App\UseCase\Article\Responses;
 
+use App\UseCase\Response;
+
 /**
  * 記事作成レスポンスクラス
  */
-class ArticleCreateResponse
+class ArticleCreateResponse extends Response
 {
     /**
      * @var int
