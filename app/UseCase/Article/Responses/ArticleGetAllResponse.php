@@ -2,10 +2,12 @@
 
 namespace App\UseCase\Article\Responses;
 
+use App\UseCase\Response;
+
 /**
  * 条件に基づく記事取得レスポンスクラス
  */
-class ArticleGetAllResponse
+class ArticleGetAllResponse extends Response
 {
     /**
      * @var array

@@ -2,10 +2,12 @@
 
 namespace App\UseCase\Article\Responses;
 
+use App\UseCase\Response;
+
 /**
  * IDに基づく記事取得レスポンスクラス
  */
-class ArticleGetByIdResponse
+class ArticleGetByIdResponse extends Response
 {
     /**
      * @var int
