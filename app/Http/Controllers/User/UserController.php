@@ -8,7 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\UseCase\User\Requests\UserCreateRequest;
 use App\UseCase\User\Interactors\UserInteractor;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\JsonResponse;
+use Throwable;
 
 /**
  * ユーザコントローラクラス
@@ -35,16 +36,20 @@ final class UserController extends Controller
      * ユーザを作成します．
      *
      * @param UserRequest $userRequest
-     * @return RedirectResponse
+     * @return JsonResponse
      */
-    public function createUser(UserRequest $userRequest): RedirectResponse
+    public function createUser(UserRequest $userRequest): JsonResponse
     {
-        $validated = $userRequest->validated();
+        try {
+            $validated = $userRequest->validated();
 
-        $userCreateInput = new UserCreateRequest($validated);
+            $userCreateInput = new UserCreateRequest($validated);
 
-        $this->userInteractor->createUser($userCreateInput);
+            $articleCreateResponse = $this->userInteractor->createUser($userCreateInput);
+        }catch (Throwable $e){
+            return response()->json(['error' => $e->getMessage()], 400);
+        }
 
-        return redirect('login.login')->with(['success' => 'ユーザを登録しました．ログインできます．']);
+        return response()->json($articleCreateResponse->toArray());
     }
 }
