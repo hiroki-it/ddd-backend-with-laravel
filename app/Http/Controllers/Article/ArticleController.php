@@ -39,9 +39,9 @@ final class ArticleController extends Controller
      * 記事を返却します．
      *
      * @param int $id
-     * @return Response
+     * @return JsonResponse
      */
-    public function getArticle(int $id): Response
+    public function getArticle(int $id): JsonResponse
     {
         $articleGetByRequest = new ArticleGetByIdRequest($id);
 
@@ -54,9 +54,9 @@ final class ArticleController extends Controller
      * 記事の一覧を返却します．
      *
      * @param ArticleRequest $articleRequest
-     * @return Response
+     * @return JsonResponse
      */
-    public function getAllArticles(ArticleRequest $articleRequest): Response
+    public function getAllArticles(ArticleRequest $articleRequest): JsonResponse
     {
         $validated = $articleRequest->validated();
 
