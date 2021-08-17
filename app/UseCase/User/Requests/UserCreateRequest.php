@@ -37,8 +37,7 @@ class UserCreateRequest extends CreateRequest
     private string $password;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param array $validated
      */
     public function __construct(array $validated)

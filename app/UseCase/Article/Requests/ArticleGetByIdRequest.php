@@ -12,8 +12,7 @@ use App\UseCase\GetByIdRequest;
 final class ArticleGetByIdRequest extends GetByIdRequest
 {
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param int $articleId
      */
     public function __construct(int $articleId)

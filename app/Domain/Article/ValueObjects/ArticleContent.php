@@ -17,8 +17,7 @@ final class ArticleContent extends ValueObject
     private string $content;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param string $content
      */
     public function __construct(string $content)

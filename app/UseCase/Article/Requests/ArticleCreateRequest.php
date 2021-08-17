@@ -30,8 +30,7 @@ class ArticleCreateRequest extends CreateRequest
     private string $content;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param array $validated
      */
     public function __construct(array $validated)

@@ -18,8 +18,7 @@ final class ArticleType extends Type
     private const PHP = '1';
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param string $value
      * @throws InvalidEnumMemberException
      */

@@ -55,8 +55,7 @@ final class User extends Entity
     private UserAuthenticationCode $authenticationCode;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param UserId                 $id
      * @param UserName               $name
      * @param UserEmailAddress       $emailAddress

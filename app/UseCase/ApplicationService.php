@@ -21,8 +21,7 @@ abstract class ApplicationService
     protected App $app;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param App $app
      */
     public function constructor(App $app)

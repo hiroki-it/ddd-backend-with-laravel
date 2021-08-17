@@ -27,8 +27,6 @@ class Controller extends BaseController
     protected App $app;
 
     /**
-     * コンストラクタインジェクション
-     *
      * @param App $app
      */
     public function constructor(App $app)
