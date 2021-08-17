@@ -113,13 +113,22 @@ final class ArticleController extends Controller
      * 記事を削除します．
      *
      * @param int $id
+     * @return JsonResponse
      */
-    public function deleteArticle(int $id): RedirectResponse
+    public function deleteArticle(int $id): JsonResponse
     {
-        $articleDeleteRequest = new ArticleDeleteRequest($id);
+        try {
 
-        $this->articleInteractor->deleteArticle($articleDeleteRequest);
+            $articleDeleteRequest = new ArticleDeleteRequest($id);
 
-        // ここにレスポンス処理
+            $this->articleInteractor->deleteArticle($articleDeleteRequest);
+
+        } catch (Throwable $e) {
+
+            return response()->json(['errors' => $e->getMessage()],400);
+
+        }
+
+        return response()->json([],204);
     }
 }
