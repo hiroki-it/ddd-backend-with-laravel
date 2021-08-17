@@ -12,9 +12,8 @@ use App\UseCase\Article\Requests\ArticleGetAllRequest;
 use App\UseCase\Article\Requests\ArticleGetByIdRequest;
 use App\UseCase\Article\Requests\ArticleUpdateRequest;
 use App\UseCase\Article\Interactors\ArticleInteractor;
-use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
-use Illuminate\Http\Response;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\JsonResponse;
+use Throwable;
 
 /**
  * 記事コントローラクラス
