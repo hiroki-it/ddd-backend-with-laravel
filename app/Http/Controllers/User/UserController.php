@@ -43,7 +43,12 @@ final class UserController extends Controller
         try {
             $validated = $userRequest->validated();
 
-            $userCreateInput = new UserCreateRequest($validated);
+            $userCreateInput = new UserCreateRequest(
+                $validated['name'],
+                $validated['email_address'],
+                $validated['phone_number'],
+                $validated['password']
+            );
 
             $articleCreateResponse = $this->userInteractor->createUser($userCreateInput);
         }catch (Throwable $e){
