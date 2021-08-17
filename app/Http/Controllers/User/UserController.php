@@ -46,7 +46,7 @@ final class UserController extends Controller
             $userCreateInput = new UserCreateRequest($validated);
 
             $articleCreateResponse = $this->userInteractor->createUser($userCreateInput);
-        }catch (Throwable $e){
+        } catch (Throwable $e) {
             return response()->json(['error' => $e->getMessage()], 400);
         }
 
