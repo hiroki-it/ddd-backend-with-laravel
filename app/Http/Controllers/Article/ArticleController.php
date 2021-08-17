@@ -81,21 +81,16 @@ final class ArticleController extends Controller
     public function createArticle(ArticleRequest $articleRequest): JsonResponse
     {
         try {
-
             $validated = $articleRequest->validated();
 
             $articleInput = new ArticleCreateRequest($validated);
 
             $articleCreateResponse = $this->articleInteractor->createArticle($articleInput);
-
         } catch (Throwable $e) {
-
-            return response()->json(['errors' => $e->getMessage()],400);
-
+            return response()->json(['errors' => $e->getMessage()], 400);
         }
 
         return response()->json($articleCreateResponse->toArray());
-
     }
 
     /**
@@ -107,17 +102,13 @@ final class ArticleController extends Controller
     public function updateArticle(ArticleRequest $articleRequest): JsonResponse
     {
         try {
-
             $validated = $articleRequest->validated();
 
             $articleUpdateRequest = new ArticleUpdateRequest($validated);
 
             $articleUpdateResponse = $this->articleInteractor->updateArticle($articleUpdateRequest);
-
         } catch (Throwable $e) {
-
-            return response()->json(['errors' => $e->getMessage()],400);
-
+            return response()->json(['errors' => $e->getMessage()], 400);
         }
 
         return response()->json($articleUpdateResponse->toArray());
@@ -132,17 +123,13 @@ final class ArticleController extends Controller
     public function deleteArticle(int $id): JsonResponse
     {
         try {
-
             $articleDeleteRequest = new ArticleDeleteRequest($id);
 
             $this->articleInteractor->deleteArticle($articleDeleteRequest);
-
         } catch (Throwable $e) {
-
-            return response()->json(['errors' => $e->getMessage()],400);
-
+            return response()->json(['errors' => $e->getMessage()], 400);
         }
 
-        return response()->json([],204);
+        return response()->json([], 204);
     }
 }
