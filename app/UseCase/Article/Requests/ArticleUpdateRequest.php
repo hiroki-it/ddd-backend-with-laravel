@@ -30,13 +30,14 @@ class ArticleUpdateRequest extends UpdateRequest
     private string $content;
 
     /**
-
-     * @param array $validated
+     * @param string $title
+     * @param string $type
+     * @param string $content
      */
-    public function __construct(array $validated)
+    public function __construct(string $title, string $type, string $content)
     {
-        $this->title = $validated['title'];
-        $this->type = $validated['type'];
-        $this->content = $validated['content'];
+        $this->title = $title;
+        $this->type = $type;
+        $this->content = $content;
     }
 }

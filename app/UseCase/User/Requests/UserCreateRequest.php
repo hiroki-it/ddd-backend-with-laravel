@@ -37,14 +37,16 @@ class UserCreateRequest extends CreateRequest
     private string $password;
 
     /**
-
-     * @param array $validated
+     * @param string $name
+     * @param string $emailAddress
+     * @param string $phoneNumber
+     * @param string $password
      */
-    public function __construct(array $validated)
+    public function __construct(string $name, string $emailAddress, string $phoneNumber, string $password)
     {
-        $this->name = $validated['name'];
-        $this->emailAddress = $validated['emailAddress'];
-        $this->phoneNumber = $validated['phoneNumber'];
-        $this->password = $validated['password'];
+        $this->name = $name;
+        $this->emailAddress = $emailAddress;
+        $this->phoneNumber = $phoneNumber;
+        $this->password = $password;
     }
 }

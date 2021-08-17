@@ -81,7 +81,11 @@ final class ArticleController extends Controller
         try {
             $validated = $articleRequest->validated();
 
-            $articleInput = new ArticleCreateRequest($validated);
+            $articleInput = new ArticleCreateRequest(
+                $validated['title'],
+                $validated['type'],
+                $validated['content'],
+            );
 
             $articleCreateResponse = $this->articleInteractor->createArticle($articleInput);
         } catch (Throwable $e) {
@@ -102,7 +106,11 @@ final class ArticleController extends Controller
         try {
             $validated = $articleRequest->validated();
 
-            $articleUpdateRequest = new ArticleUpdateRequest($validated);
+            $articleUpdateRequest = new ArticleUpdateRequest(
+                $validated['title'],
+                $validated['type'],
+                $validated['content']
+            );
 
             $articleUpdateResponse = $this->articleInteractor->updateArticle($articleUpdateRequest);
         } catch (Throwable $e) {
