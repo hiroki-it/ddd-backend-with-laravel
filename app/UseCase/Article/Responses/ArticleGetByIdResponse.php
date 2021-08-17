@@ -27,6 +27,12 @@ class ArticleGetByIdResponse
      */
     private string $articleContent;
 
+    /**
+     * @param int    $articleId
+     * @param string $articleTitle
+     * @param string $articleType
+     * @param string $articleContent
+     */
     public function __construct(int $articleId, string $articleTitle, string $articleType, string $articleContent)
     {
         $this->articleId = $articleId;

@@ -12,6 +12,9 @@ class ArticleGetAllResponse
      */
     private array $articles;
 
+    /**
+     * @param array $articles
+     */
     public function __construct(array $articles)
     {
         $this->articles = $articles;
