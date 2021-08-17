@@ -17,8 +17,6 @@ final class UserPhoneNumber extends ValueObject
     private string $phoneNumber;
 
     /**
-     * コンストラクタ
-     *
      * @param string $phoneNumber
      */
     public function __constructor(string $phoneNumber)

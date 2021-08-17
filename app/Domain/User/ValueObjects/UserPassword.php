@@ -17,8 +17,6 @@ final class UserPassword extends ValueObject
     private string $password;
 
     /**
-     * コンストラクタ
-     *
      * @param string $password
      */
     public function __constructor(string $password)
