@@ -28,8 +28,6 @@ final class ArticleController extends Controller
     private ArticleInteractor $articleInteractor;
 
     /**
-     * コンストラクタインジェクション
-     *
      * @param ArticleInteractor $articleInteractor
      */
     public function __construct(ArticleInteractor $articleInteractor)

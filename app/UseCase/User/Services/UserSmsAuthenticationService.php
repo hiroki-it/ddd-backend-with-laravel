@@ -30,8 +30,7 @@ final class UserSmsAuthenticationService extends ApplicationService
     private User $user;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param SnsClient $snsClient
      * @param User      $user
      */

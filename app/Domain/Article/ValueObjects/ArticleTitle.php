@@ -17,8 +17,7 @@ final class ArticleTitle extends ValueObject
     private string $title;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param string $title
      */
     public function __construct(string $title)

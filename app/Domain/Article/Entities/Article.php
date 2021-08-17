@@ -39,8 +39,7 @@ final class Article extends Entity
     private ArticleContent $content;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param ArticleId      $id
      * @param ArticleTitle   $title
      * @param ArticleType    $type

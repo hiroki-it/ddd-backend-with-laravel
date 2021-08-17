@@ -23,8 +23,7 @@ final class UserController extends Controller
     private UserInteractor $userInteractor;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param UserInteractor $userInteractor
      */
     public function __construct(UserInteractor $userInteractor)

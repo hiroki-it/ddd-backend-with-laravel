@@ -29,8 +29,7 @@ final class UserInteractor implements UserInputBoundary
     private UserRepository $userRepository;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param UserRepository $userRepository
      */
     public function __construct(UserRepository $userRepository)

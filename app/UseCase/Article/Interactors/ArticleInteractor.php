@@ -36,8 +36,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     private ArticleRepository $articleRepository;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param ArticleRepository $articleRepository
      */
     public function __construct(ArticleRepository $articleRepository)

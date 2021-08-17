@@ -25,8 +25,7 @@ final class UserRepository extends Repository implements DomainUserRepository
     private UserDTO $userDTO;
 
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param UserDTO $userDTO
      */
     public function __construct(UserDTO $userDTO)

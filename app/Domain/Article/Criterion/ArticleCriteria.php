@@ -12,8 +12,7 @@ use App\Domain\Criteria;
 final class ArticleCriteria extends Criteria
 {
     /**
-     * コンストラクタインジェクション
-     *
+
      * @param int $limit
      * @param string $order
      */

@@ -13,8 +13,6 @@ use App\UseCase\GetAllRequest;
 final class ArticleGetAllRequest extends GetAllRequest
 {
     /**
-     * コンストラクタインジェクション
-     *
      * @param int $limit
      * @param string $order
      */
