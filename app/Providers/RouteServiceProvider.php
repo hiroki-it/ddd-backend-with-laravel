@@ -19,14 +19,12 @@ class RouteServiceProvider extends ServiceProvider
         Route::pattern('id', '[0-9]+');
 
         // ヘルスチェック
-        Route::prefix('api')
-            ->middleware('api')
+        Route::middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/healthcheck.php'));
 
         // API
-        Route::prefix('api')
-            ->middleware('api')
+        Route::middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
     }
