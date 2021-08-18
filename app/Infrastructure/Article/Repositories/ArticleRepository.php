@@ -134,7 +134,7 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     public function delete(ArticleId $articleId): void
     {
         DB::transaction(function () use ($articleId) {
-            $this->articleDTO->destroy($articleId->id());
+            $this->articleDTO->destroy($articleId->id);
         });
     }
 }
