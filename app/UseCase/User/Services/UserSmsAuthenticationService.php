@@ -21,14 +21,11 @@ final class UserSmsAuthenticationService extends ApplicationService
     private SnsClient $snsClient;
 
     /**
-     * ユーザ
-     *
      * @var User
      */
     private User $user;
 
     /**
-
      * @param SnsClient $snsClient
      * @param User      $user
      */
