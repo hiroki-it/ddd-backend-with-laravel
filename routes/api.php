@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Article\ArticleController;
+
 Route::group(['middleware' => 'auth'], (function () {
 
-    /**
-     * 記事
-     */
-    Route::group(['namespace' => 'Article'], (function () {
-        Route::get('/article/{id}', 'ArticleController@getArticle');
-        Route::get('/articles', 'ArticleController@getAllArticles');
-        Route::post('/articles', 'ArticleController@createArticle');
-        Route::put('/articles/{id}', 'ArticleController@updateArticle');
-        Route::delete('/articles/{id}', 'ArticleController@deleteArticle');
+    Route::group(['prefix' => 'articles'], (function () {
+        Route::get('/{id}', [ArticleController::class,'getArticle']);
+        Route::get('/', [ArticleController::class,'getAllArticles']);
+        Route::post('/', [ArticleController::class,'createArticle']);
+        Route::put('/{id}', [ArticleController::class,'updateArticle']);
+        Route::delete('/{id}', [ArticleController::class,'deleteArticle']);
     }));
 }));
