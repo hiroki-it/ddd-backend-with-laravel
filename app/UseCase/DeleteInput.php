@@ -14,7 +14,7 @@ abstract class DeleteInput
     /**
      * @var int
      */
-    private int $id;
+    protected int $id;
 
     /**
      * @param int $id
