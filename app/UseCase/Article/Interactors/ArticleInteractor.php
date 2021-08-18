@@ -53,7 +53,7 @@ final class ArticleInteractor implements ArticleInputBoundary
         $article = $this->articleRepository->findById(new ArticleId($input->id));
 
         return new ArticleGetByIdOutput(
-            $article->id->id(),
+            $article->id->id,
             $article->title->title,
             $article->type->value,
             $article->content->content,
@@ -93,7 +93,7 @@ final class ArticleInteractor implements ArticleInputBoundary
         $this->articleRepository->create($article);
 
         return new ArticleCreateOutput(
-            $article->id->id(),
+            $article->id->id,
             $article->title->title,
             $article->type->value,
             $article->content->content,
@@ -111,7 +111,7 @@ final class ArticleInteractor implements ArticleInputBoundary
         $this->articleRepository->update($article);
 
         return new ArticleUpdateOutput(
-            $article->id->id(),
+            $article->id->id,
             $article->title->title,
             $article->type->value,
             $article->content->content,
