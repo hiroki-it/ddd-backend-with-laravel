@@ -11,22 +11,22 @@ class ArticleUpdateInput extends UpdateInput
     /**
      * @var int
      */
-    private int $id;
+    protected int $id;
 
     /**
      * @var string
      */
-    private string $title;
+    protected string $title;
 
     /**
      * @var string
      */
-    private string $type;
+    protected string $type;
 
     /**
      * @var string
      */
-    private string $content;
+    protected string $content;
 
     /**
      * @param int    $id

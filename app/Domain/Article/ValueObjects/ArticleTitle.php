@@ -14,7 +14,7 @@ final class ArticleTitle extends ValueObject
     /**
      * @var string
      */
-    private string $title;
+    protected string $title;
 
     /**
 
