@@ -162,8 +162,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        // リポジトリサービスプロバイダー
-        App\Providers\MockRepositoryServiceProvider::class,
+        // DIリポジトリサービスプロバイダー
+        App\Providers\DiRepositoryServiceProvider::class,
 
         // マクロサービスプロバイダー
         App\Providers\MigrationMacroServiceProvider::class,
