@@ -19,7 +19,7 @@ abstract class DeleteInput
     /**
      * @param int $id
      */
-    public function __constructor(int $id)
+    public function __construct(int $id)
     {
         $this->id = $id;
     }

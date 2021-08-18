@@ -16,8 +16,6 @@ use Aws\Exception\AwsException;
 final class UserSmsAuthenticationService extends ApplicationService
 {
     /**
-     * SNSクライアント
-     *
      * @var SnsClient
      */
     private SnsClient $snsClient;
@@ -34,7 +32,7 @@ final class UserSmsAuthenticationService extends ApplicationService
      * @param SnsClient $snsClient
      * @param User      $user
      */
-    public function __constructor(SnsClient $snsClient, User $user)
+    public function __construct(SnsClient $snsClient, User $user)
     {
         $this->snsClient = $snsClient;
         $this->user = $user;
