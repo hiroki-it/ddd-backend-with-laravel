@@ -17,14 +17,11 @@ use Throwable;
 final class UserController extends Controller
 {
     /**
-     * ユースケースクラス
-     *
      * @var UserInteractor
      */
     private UserInteractor $userInteractor;
 
     /**
-
      * @param UserInteractor $userInteractor
      */
     public function __construct(UserInteractor $userInteractor)

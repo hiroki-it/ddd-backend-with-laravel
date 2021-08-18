@@ -23,8 +23,6 @@ use Throwable;
 final class ArticleController extends Controller
 {
     /**
-     * ユースケースクラス
-     *
      * @var ArticleInteractor
      */
     private ArticleInteractor $articleInteractor;
