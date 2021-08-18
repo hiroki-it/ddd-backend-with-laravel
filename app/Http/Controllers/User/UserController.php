@@ -51,7 +51,7 @@ final class UserController extends Controller
             );
 
             $articleCreateResponse = $this->userInteractor->createUser($userCreateInput);
-        }catch (Throwable $e){
+        } catch (Throwable $e) {
             return response()->json(['error' => $e->getMessage()], 400);
         }
 
