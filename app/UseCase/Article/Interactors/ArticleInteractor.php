@@ -12,15 +12,15 @@ use App\Domain\Article\ValueObjects\ArticleContent;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
 use App\UseCase\Article\InputBoundaries\ArticleInputBoundary;
-use App\UseCase\Article\Requests\ArticleCreateRequest;
-use App\UseCase\Article\Requests\ArticleDeleteRequest;
-use App\UseCase\Article\Requests\ArticleGetAllRequest;
-use App\UseCase\Article\Requests\ArticleGetByIdRequest;
-use App\UseCase\Article\Requests\ArticleUpdateRequest;
-use App\UseCase\Article\Responses\ArticleCreateResponse;
-use App\UseCase\Article\Responses\ArticleGetAllResponse;
-use App\UseCase\Article\Responses\ArticleGetByIdResponse;
-use App\UseCase\Article\Responses\ArticleUpdateResponse;
+use App\UseCase\Article\Inputs\ArticleCreateInput;
+use App\UseCase\Article\Inputs\ArticleDeleteInput;
+use App\UseCase\Article\Inputs\ArticleGetAllInput;
+use App\UseCase\Article\Inputs\ArticleGetByIdInput;
+use App\UseCase\Article\Inputs\ArticleUpdateInput;
+use App\UseCase\Article\Outputs\ArticleCreateOutput;
+use App\UseCase\Article\Outputs\ArticleGetAllOutput;
+use App\UseCase\Article\Outputs\ArticleGetByIdOutput;
+use App\UseCase\Article\Outputs\ArticleUpdateOutput;
 use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
@@ -45,14 +45,14 @@ final class ArticleInteractor implements ArticleInputBoundary
     }
 
     /**
-     * @param ArticleGetByIdRequest $request
-     * @return ArticleGetByIdResponse
+     * @param ArticleGetByIdInput $input
+     * @return ArticleGetByIdOutput
      */
-    public function getArticle(ArticleGetByIdRequest $request): ArticleGetByIdResponse
+    public function getArticle(ArticleGetByIdInput $input): ArticleGetByIdOutput
     {
-        $article = $this->articleRepository->findById(new ArticleId($request->id));
+        $article = $this->articleRepository->findById(new ArticleId($input->id));
 
-        return new ArticleGetByIdResponse(
+        return new ArticleGetByIdOutput(
             $article->id->id(),
             $article->title->title,
             $article->type->value,
@@ -61,38 +61,38 @@ final class ArticleInteractor implements ArticleInputBoundary
     }
 
     /**
-     * @param ArticleGetAllRequest $request
-     * @return ArticleGetAllResponse
+     * @param ArticleGetAllInput $input
+     * @return ArticleGetAllOutput
      */
-    public function getAllArticles(ArticleGetAllRequest $request): ArticleGetAllResponse
+    public function getAllArticles(ArticleGetAllInput $input): ArticleGetAllOutput
     {
         $articles = $this->articleRepository->findAllByCriteria(
             new ArticleCriteria(
-                $request->limit,
-                $request->order
+                $input->limit,
+                $input->order
             )
         );
 
-        return new ArticleGetAllResponse($articles);
+        return new ArticleGetAllOutput($articles);
     }
 
     /**
-     * @param ArticleCreateRequest $request
-     * @return ArticleCreateResponse
+     * @param ArticleCreateInput $input
+     * @return ArticleCreateOutput
      * @throws InvalidEnumMemberException
      */
-    public function createArticle(ArticleCreateRequest $request): ArticleCreateResponse
+    public function createArticle(ArticleCreateInput $input): ArticleCreateOutput
     {
         $article = new Article(
             new ArticleId(0),
-            new ArticleTitle($request->title),
-            new ArticleType($request->type),
-            new ArticleContent($request->content)
+            new ArticleTitle($input->title),
+            new ArticleType($input->type),
+            new ArticleContent($input->content)
         );
 
         $this->articleRepository->create($article);
 
-        return new ArticleCreateResponse(
+        return new ArticleCreateOutput(
             $article->id->id(),
             $article->title->title,
             $article->type->value,
@@ -101,16 +101,16 @@ final class ArticleInteractor implements ArticleInputBoundary
     }
 
     /**
-     * @param ArticleUpdateRequest $request
-     * @return ArticleUpdateResponse
+     * @param ArticleUpdateInput $input
+     * @return ArticleUpdateOutput
      */
-    public function updateArticle(ArticleUpdateRequest $request): ArticleUpdateResponse
+    public function updateArticle(ArticleUpdateInput $input): ArticleUpdateOutput
     {
-        $article = $this->articleRepository->findById(new ArticleId($request->id));
+        $article = $this->articleRepository->findById(new ArticleId($input->id));
 
         $this->articleRepository->update($article);
 
-        return new ArticleUpdateResponse(
+        return new ArticleUpdateOutput(
             $article->id->id(),
             $article->title->title,
             $article->type->value,
@@ -119,10 +119,10 @@ final class ArticleInteractor implements ArticleInputBoundary
     }
 
     /**
-     * @param ArticleDeleteRequest $request
+     * @param ArticleDeleteInput $input
      */
-    public function deleteArticle(ArticleDeleteRequest $request)
+    public function deleteArticle(ArticleDeleteInput $input)
     {
-        $this->articleRepository->delete(new ArticleId($request->id));
+        $this->articleRepository->delete(new ArticleId($input->id));
     }
 }

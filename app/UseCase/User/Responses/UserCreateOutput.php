@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\UseCase\User\Responses;
 
-use App\UseCase\Response;
+use App\UseCase\Output;
 
-class UserCreateResponse extends Response
+class UserCreateOutput extends Output
 {
     /**
      * @return array

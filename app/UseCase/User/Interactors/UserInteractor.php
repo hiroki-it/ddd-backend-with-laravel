@@ -12,8 +12,8 @@ use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\Domain\User\ValueObjects\UserPhoneNumber;
 use App\UseCase\User\InputBoundaries\UserInputBoundary;
-use App\UseCase\User\Requests\UserCreateRequest;
-use App\UseCase\User\Responses\UserCreateResponse;
+use App\UseCase\User\Requests\UserCreateInput;
+use App\UseCase\User\Responses\UserCreateOutput;
 use App\UseCase\User\Services\UserSmsAuthenticationService;
 
 /**
@@ -40,19 +40,19 @@ final class UserInteractor implements UserInputBoundary
     /**
      * ユーザを作成します
      *
-     * @param UserCreateRequest $request
-     * @return UserCreateResponse
+     * @param UserCreateInput $input
+     * @return UserCreateOutput
      */
-    public function createUser(UserCreateRequest $request): UserCreateResponse
+    public function createUser(UserCreateInput $input): UserCreateOutput
     {
         $SmsAuthenticationService = new UserSmsAuthenticationService(config('sms.sns'), auth()->user());
 
         $user = new User(
             null,
-            new UserName($request->name),
-            new UserEmailAddress($request->emailAddress),
-            new UserPhoneNumber($request->phoneNumber),
-            new UserPassword($request->password),
+            new UserName($input->name),
+            new UserEmailAddress($input->emailAddress),
+            new UserPhoneNumber($input->phoneNumber),
+            new UserPassword($input->password),
             new UserAuthenticationCode($SmsAuthenticationService->generateAuthenticationCode)
         );
 

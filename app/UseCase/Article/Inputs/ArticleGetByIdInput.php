@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\Article\Requests;
+namespace App\UseCase\Article\Inputs;
 
-use App\UseCase\GetByIdRequest;
+use App\UseCase\GetByIdInput;
 
 /**
  * 記事リクエストモデル
  */
-final class ArticleGetByIdRequest extends GetByIdRequest
+final class ArticleGetByIdInput extends GetByIdInput
 {
     /**
 
