@@ -46,10 +46,10 @@ project
     ├── Traits # トレイト
     └── UseCase                 # ** ユースケース層 **
         └── Foo                 # 任意のルートエンティティ
-            ├── Interactors     # インターラクター
             ├── InputBoundaries # インプットバウンダリ
-            ├── Requests        # リクエストモデル
-            ├── Responses       # レスポンスモデル
+            ├── Inputs          # インプット（リクエストモデル） ---> LaravelのFormRequestと名前が被らないようにとしています．
+            ├── Interactors     # インターラクター
+            ├── Outputs         # アウトプット（レスポンスモデル）
             └── Services        # サービス
 ```
 
