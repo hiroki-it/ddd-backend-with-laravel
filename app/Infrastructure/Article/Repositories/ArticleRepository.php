@@ -20,8 +20,6 @@ use Throwable;
 final class ArticleRepository extends Repository implements DomainArticleRepository
 {
     /**
-     * 記事DTOクラス
-     *
      * @var ArticleDTO
      */
     private ArticleDTO $articleDTO;
