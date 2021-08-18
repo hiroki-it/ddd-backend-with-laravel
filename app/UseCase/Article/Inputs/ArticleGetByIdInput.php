@@ -16,6 +16,6 @@ final class ArticleGetByIdInput extends GetByIdInput
      */
     public function __construct(int $articleId)
     {
-        parent::__constructor($articleId);
+        parent::__construct($articleId);
     }
 }
