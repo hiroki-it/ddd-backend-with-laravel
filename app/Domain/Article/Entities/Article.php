@@ -9,6 +9,7 @@ use App\Domain\Article\Ids\ArticleId;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
 use App\Domain\Entity;
+use App\Traits\ImmutableTrait;
 
 /**
  * 記事クラス
@@ -17,6 +18,8 @@ use App\Domain\Entity;
  */
 final class Article extends Entity
 {
+    use ImmutableTrait;
+
     /**
      * @var ArticleTitle
      */
