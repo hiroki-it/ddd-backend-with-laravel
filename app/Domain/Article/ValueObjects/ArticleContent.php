@@ -14,7 +14,7 @@ final class ArticleContent extends ValueObject
     /**
      * @var string
      */
-    private string $content;
+    protected string $content;
 
     /**
 

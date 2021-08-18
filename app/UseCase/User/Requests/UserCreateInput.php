@@ -9,32 +9,24 @@ use App\UseCase\CreateInput;
 class UserCreateInput extends CreateInput
 {
     /**
-     * ユーザ名
-     *
      * @var string
      */
-    private string $name;
+    protected string $name;
 
     /**
-     * ユーザメールアドレス
-     *
      * @var string
      */
-    private string $emailAddress;
+    protected string $emailAddress;
 
     /**
-     * ユーザ電話番号
-     *
      * @var string
      */
-    private string $phoneNumber;
+    protected string $phoneNumber;
 
     /**
-     * ユーザ電話番号
-     *
      * @var string
      */
-    private string $password;
+    protected string $password;
 
     /**
      * @param string $name
