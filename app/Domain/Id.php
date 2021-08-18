@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
+use App\Traits\ImmutableTrait;
+
 /**
  * ID抽象クラス
  */
 abstract class Id
 {
+    use ImmutableTrait;
+
     /**
-     * ID
-     *
      * @var int
      */
     private int $id;
@@ -22,16 +24,6 @@ abstract class Id
     public function __construct(int $id)
     {
         $this->id = $id;
-    }
-
-    /**
-     * ID値を返却します．
-     *
-     * @return int
-     */
-    public function id(): int
-    {
-        return $this->id;
     }
 
     /**
