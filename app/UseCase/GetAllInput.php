@@ -14,15 +14,11 @@ abstract class GetAllInput
     use ImmutableTrait;
 
     /**
-     * 件数
-     *
      * @var int
      */
     protected int $limit;
 
     /**
-     * 順序
-     *
      * @var string
      */
     protected string $order;
