@@ -18,28 +18,21 @@ use App\Domain\Entity;
 final class Article extends Entity
 {
     /**
-     * 記事タイトルクラス
-     *
      * @var ArticleTitle
      */
     private ArticleTitle $title;
 
     /**
-     * 記事区分クラス
-     *
      * @var ArticleType
      */
     private ArticleType $type;
 
     /**
-     * 記事本文クラス
-     *
      * @var ArticleContent
      */
     private ArticleContent $content;
 
     /**
-
      * @param ArticleId      $id
      * @param ArticleTitle   $title
      * @param ArticleType    $type
