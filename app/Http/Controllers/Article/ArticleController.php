@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Article;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Article\ArticleRequest;
+use App\Http\Requests\Article\ArticleCreateRequest;
+use App\Http\Requests\Article\ArticleGetRequest;
+use App\Http\Requests\Article\ArticleUpdateRequest;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
 use App\UseCase\Article\Inputs\ArticleGetAllInput;
@@ -53,12 +55,12 @@ final class ArticleController extends Controller
     /**
      * 記事の一覧を返却します．
      *
-     * @param ArticleRequest $articleRequest
+     * @param ArticleGetRequest $articleGetRequest
      * @return JsonResponse
      */
-    public function getAllArticles(ArticleRequest $articleRequest): JsonResponse
+    public function getAllArticles(ArticleGetRequest $articleGetRequest): JsonResponse
     {
-        $validated = $articleRequest->validated();
+        $validated = $articleGetRequest->validated();
 
         $articleGetAllInput = new ArticleGetAllInput(
             $validated['limit'],
@@ -73,13 +75,13 @@ final class ArticleController extends Controller
     /**
      * 記事を作成します．
      *
-     * @param ArticleRequest $articleRequest
+     * @param ArticleCreateRequest $articleCreateRequest
      * @return JsonResponse
      */
-    public function createArticle(ArticleRequest $articleRequest): JsonResponse
+    public function createArticle(ArticleCreateRequest $articleCreateRequest): JsonResponse
     {
         try {
-            $validated = $articleRequest->validated();
+            $validated = $articleCreateRequest->validated();
 
             $articleCreateInput = new ArticleCreateInput(
                 $validated['title'],
@@ -98,14 +100,14 @@ final class ArticleController extends Controller
     /**
      * 記事を更新します．
      *
-     * @param ArticleRequest $articleRequest
-     * @param int            $id
+     * @param ArticleUpdateRequest $articleUpdateRequest
+     * @param int               $id
      * @return JsonResponse
      */
-    public function updateArticle(ArticleRequest $articleRequest, int $id): JsonResponse
+    public function updateArticle(ArticleUpdateRequest $articleUpdateRequest, int $id): JsonResponse
     {
         try {
-            $validated = $articleRequest->validated();
+            $validated = $articleUpdateRequest->validated();
 
             $articleUpdateInput = new ArticleUpdateInput(
                 $id,
