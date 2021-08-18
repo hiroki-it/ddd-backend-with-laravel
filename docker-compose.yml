@@ -37,8 +37,8 @@ services:
       - "8000:80"
     volumes:
       # bindマウント
-      - .:/var/web/ddd-api-with-laravel
-    working_dir: /var/web/ddd-api-with-laravel
+      - .:/var/www/ddd-api-with-laravel
+    working_dir: /var/www/ddd-api-with-laravel
     networks:
       - default
     depends_on:
