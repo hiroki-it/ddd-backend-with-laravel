@@ -7,7 +7,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * articleテーブルマイグレーションクラス
+ * articleテーブル
  */
 class CreateArticlesTable extends Migration
 {
@@ -39,8 +39,6 @@ class CreateArticlesTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
-     *
      * @return void
      */
     public function down()
