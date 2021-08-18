@@ -9,22 +9,16 @@ use App\UseCase\CreateInput;
 class ArticleCreateInput extends CreateInput
 {
     /**
-     * 記事タイトルクラス
-     *
      * @var string
      */
     private string $title;
 
     /**
-     * 記事区分クラス
-     *
      * @var string
      */
     private string $type;
 
     /**
-     * 記事本文クラス
-     *
      * @var string
      */
     private string $content;

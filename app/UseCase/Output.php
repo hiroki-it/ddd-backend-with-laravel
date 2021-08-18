@@ -2,6 +2,9 @@
 
 namespace App\UseCase;
 
+/**
+ * レスポンスモデル
+ */
 abstract class Output
 {
     /**
