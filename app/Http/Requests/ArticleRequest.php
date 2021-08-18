@@ -31,37 +31,24 @@ final class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            // 件数
             'limit' => [
                 'required',
                 Rule::in(CriteriaConstant::LIMIT_LIST)
             ],
-
-            // 順序名
-            'order'=>[
-                'required',
-                Rule::in(CriteriaConstant::ORDER_LIST)
-            ],
-
-            // タイトル
             'title' => [
                 'required',
                 'string',
                 'max:255'
             ],
-
-            // 本文
-            'body' => [
+            'type' => [
+                'required',
+                'string'
+            ],
+            'content' => [
                 'required',
                 'string',
                 'max:10000'
             ],
-
-            // 区分
-            'type' => [
-                'required',
-                'string'
-            ]
         ];
     }
 }
