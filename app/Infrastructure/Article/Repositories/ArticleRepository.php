@@ -100,9 +100,9 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
             // ドメインモデルのデータをDTOに詰め替えます．
             $this->articleDTO
                 ->create([
-                    'title'   => $article->title,
-                    'type'    => $article->type,
-                    'content' => $article->content
+                    'title'   => $article->title->title,
+                    'type'    => $article->type->value,
+                    'content' => $article->content->content
                 ]);
         });
     }
@@ -120,10 +120,10 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
         DB::transaction(function () use ($article) {
             // ドメインモデルのデータをDTOに詰め替えます．
             $this->articleDTO->fill([
-            'title'   => $article->title,
-            'type'    => $article->type,
-            'content' => $article->content
-        ]);
+                'title'   => $article->title->title,
+                'type'    => $article->type->value,
+                'content' => $article->content->content
+            ]);
 
             $this->articleDTO->save();
         });
