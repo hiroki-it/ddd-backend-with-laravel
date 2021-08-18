@@ -20,6 +20,8 @@ class UserDTO extends Authenticatable
     use Notifiable;
     use HasFactory;
 
+    protected $table = "users";
+
     /**
      * DateTimeクラスに変換されるカラム
      *

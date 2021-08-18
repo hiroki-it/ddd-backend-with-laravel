@@ -22,6 +22,8 @@ final class ArticleDTO extends Model
     use DTOTrait;
     use HasFactory;
 
+    protected $table = "articles";
+
     /**
      * DateTimeクラスに変換されるカラム
      *
