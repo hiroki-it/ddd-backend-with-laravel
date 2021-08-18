@@ -97,6 +97,16 @@ $ docker-compose exec app vendor/bin/php-cs-fixer fix .
 $ docker-compose exec app ./vendor/bin/phpstan analyse .
 ```
 
+### キャッシュの削除
+
+Makefileにターゲットを定義しています．
+
+Laravelの一連のキャッシュ削除コマンドを全て実行します．
+
+```shell
+$ make clear all cache
+```
+
 <br>
 
 ## アーキテクチャについて
