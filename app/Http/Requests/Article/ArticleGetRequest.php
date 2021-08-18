@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule;
 final class ArticleGetRequest extends FormRequest
 {
     /**
-     * @return array[]
+     * @return array
      */
     public function rules(): array
     {
