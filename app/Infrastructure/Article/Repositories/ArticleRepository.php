@@ -27,7 +27,6 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     private ArticleDTO $articleDTO;
 
     /**
-
      * @param ArticleDTO $articleDTO
      */
     public function __construct(ArticleDTO $articleDTO)
