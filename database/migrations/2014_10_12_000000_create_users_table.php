@@ -7,13 +7,11 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * userテーブルマイグレーションクラス
+ * userテーブル
  */
 class CreateUsersTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
      * @return void
      */
     public function up()
