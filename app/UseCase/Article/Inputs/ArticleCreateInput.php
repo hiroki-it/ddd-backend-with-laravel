@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\UseCase\Article\Inputs;
 
+use App\Traits\ImmutableTrait;
 use App\UseCase\CreateInput;
 
 class ArticleCreateInput extends CreateInput
 {
+    use ImmutableTrait;
+
     /**
      * @var string
      */
