@@ -6,11 +6,11 @@ namespace App\Http\Controllers\Article;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
-use App\UseCase\Article\Requests\ArticleCreateRequest;
-use App\UseCase\Article\Requests\ArticleDeleteRequest;
-use App\UseCase\Article\Requests\ArticleGetAllRequest;
-use App\UseCase\Article\Requests\ArticleGetByIdRequest;
-use App\UseCase\Article\Requests\ArticleUpdateRequest;
+use App\UseCase\Article\Inputs\ArticleCreateInput;
+use App\UseCase\Article\Inputs\ArticleDeleteInput;
+use App\UseCase\Article\Inputs\ArticleGetAllInput;
+use App\UseCase\Article\Inputs\ArticleGetByIdInput;
+use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Interactors\ArticleInteractor;
 use Illuminate\Http\JsonResponse;
 use Throwable;
@@ -43,9 +43,9 @@ final class ArticleController extends Controller
      */
     public function getArticle(int $id): JsonResponse
     {
-        $articleGetByRequest = new ArticleGetByIdRequest($id);
+        $articleGetByIdInput = new ArticleGetByIdInput($id);
 
-        $article = $this->articleInteractor->getArticle($articleGetByRequest);
+        $article = $this->articleInteractor->getArticle($articleGetByIdInput);
 
         // ここにレスポンス処理
     }
@@ -60,12 +60,12 @@ final class ArticleController extends Controller
     {
         $validated = $articleRequest->validated();
 
-        $request = new ArticleGetAllRequest(
+        $articleGetAllInput = new ArticleGetAllInput(
             $validated['limit'],
             $validated['order']
         );
 
-        $article = $this->articleInteractor->getAllArticles($request);
+        $article = $this->articleInteractor->getAllArticles($articleGetAllInput);
 
         // ここにレスポンス処理
     }
@@ -81,38 +81,40 @@ final class ArticleController extends Controller
         try {
             $validated = $articleRequest->validated();
 
-            $articleInput = new ArticleCreateRequest(
+            $articleCreateInput = new ArticleCreateInput(
                 $validated['title'],
                 $validated['type'],
                 $validated['content'],
             );
 
-            $articleCreateResponse = $this->articleInteractor->createArticle($articleInput);
+            $articleCreateOutput = $this->articleInteractor->createArticle($articleCreateInput);
         } catch (Throwable $e) {
             return response()->json(['error' => $e->getMessage()], 400);
         }
 
-        return response()->json($articleCreateResponse->toArray());
+        return response()->json($articleCreateOutput->toArray());
     }
 
     /**
      * 記事を更新します．
      *
      * @param ArticleRequest $articleRequest
+     * @param int            $id
      * @return JsonResponse
      */
-    public function updateArticle(ArticleRequest $articleRequest): JsonResponse
+    public function updateArticle(ArticleRequest $articleRequest, int $id): JsonResponse
     {
         try {
             $validated = $articleRequest->validated();
 
-            $articleUpdateRequest = new ArticleUpdateRequest(
+            $articleUpdateInput = new ArticleUpdateInput(
+                $id,
                 $validated['title'],
                 $validated['type'],
                 $validated['content']
             );
 
-            $articleUpdateResponse = $this->articleInteractor->updateArticle($articleUpdateRequest);
+            $articleUpdateResponse = $this->articleInteractor->updateArticle($articleUpdateInput);
         } catch (Throwable $e) {
             return response()->json(['error' => $e->getMessage()], 400);
         }
@@ -129,9 +131,9 @@ final class ArticleController extends Controller
     public function deleteArticle(int $id): JsonResponse
     {
         try {
-            $articleDeleteRequest = new ArticleDeleteRequest($id);
+            $articleDeleteInput = new ArticleDeleteInput($id);
 
-            $this->articleInteractor->deleteArticle($articleDeleteRequest);
+            $this->articleInteractor->deleteArticle($articleDeleteInput);
         } catch (Throwable $e) {
             return response()->json(['error' => $e->getMessage()], 400);
         }

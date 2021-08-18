@@ -1,13 +1,13 @@
 <?php
 
-namespace App\UseCase\Article\Responses;
+namespace App\UseCase\Article\Outputs;
 
-use App\UseCase\Response;
+use App\UseCase\Output;
 
 /**
  * 条件に基づく記事取得レスポンスクラス
  */
-class ArticleGetAllResponse extends Response
+class ArticleGetAllOutput extends Output
 {
     /**
      * @var array

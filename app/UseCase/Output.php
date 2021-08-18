@@ -2,7 +2,7 @@
 
 namespace App\UseCase;
 
-abstract class Response
+abstract class Output
 {
     /**
      * @return array

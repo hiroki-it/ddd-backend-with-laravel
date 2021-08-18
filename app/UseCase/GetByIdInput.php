@@ -7,7 +7,7 @@ use App\Traits\ImmutableTrait;
 /**
  * 取得リクエストモデル
  */
-abstract class GetByIdRequest
+abstract class GetByIdInput
 {
     use ImmutableTrait;
 

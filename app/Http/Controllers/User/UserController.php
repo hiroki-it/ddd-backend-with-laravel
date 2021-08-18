@@ -6,7 +6,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\UseCase\User\Requests\UserCreateRequest;
+use App\UseCase\User\Requests\UserCreateInput;
 use App\UseCase\User\Interactors\UserInteractor;
 use Illuminate\Http\JsonResponse;
 use Throwable;
@@ -43,18 +43,18 @@ final class UserController extends Controller
         try {
             $validated = $userRequest->validated();
 
-            $userCreateInput = new UserCreateRequest(
+            $userCreateInput = new UserCreateInput(
                 $validated['name'],
                 $validated['email_address'],
                 $validated['phone_number'],
                 $validated['password']
             );
 
-            $articleCreateResponse = $this->userInteractor->createUser($userCreateInput);
+            $articleCreateOutput = $this->userInteractor->createUser($userCreateInput);
         } catch (Throwable $e) {
             return response()->json(['error' => $e->getMessage()], 400);
         }
 
-        return response()->json($articleCreateResponse->toArray());
+        return response()->json($articleCreateOutput->toArray());
     }
 }

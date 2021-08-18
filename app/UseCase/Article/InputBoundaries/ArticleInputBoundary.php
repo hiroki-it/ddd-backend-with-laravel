@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\UseCase\Article\InputBoundaries;
 
-use App\UseCase\Article\Requests\ArticleCreateRequest;
-use App\UseCase\Article\Requests\ArticleDeleteRequest;
-use App\UseCase\Article\Requests\ArticleGetAllRequest;
-use App\UseCase\Article\Requests\ArticleGetByIdRequest;
-use App\UseCase\Article\Requests\ArticleUpdateRequest;
-use App\UseCase\Article\Responses\ArticleCreateResponse;
-use App\UseCase\Article\Responses\ArticleGetAllResponse;
-use App\UseCase\Article\Responses\ArticleGetByIdResponse;
-use App\UseCase\Article\Responses\ArticleUpdateResponse;
+use App\UseCase\Article\Inputs\ArticleCreateInput;
+use App\UseCase\Article\Inputs\ArticleDeleteInput;
+use App\UseCase\Article\Inputs\ArticleGetAllInput;
+use App\UseCase\Article\Inputs\ArticleGetByIdInput;
+use App\UseCase\Article\Inputs\ArticleUpdateInput;
+use App\UseCase\Article\Outputs\ArticleCreateOutput;
+use App\UseCase\Article\Outputs\ArticleGetAllOutput;
+use App\UseCase\Article\Outputs\ArticleGetByIdOutput;
+use App\UseCase\Article\Outputs\ArticleUpdateOutput;
 
 /**
  * 記事インプットバウンダリインターフェース
@@ -22,39 +22,39 @@ interface ArticleInputBoundary
     /**
      * 記事を作成します．
      *
-     * @param ArticleCreateRequest $request
-     * @return ArticleCreateResponse
+     * @param ArticleCreateInput $input
+     * @return ArticleCreateOutput
      */
-    public function createArticle(ArticleCreateRequest $request): ArticleCreateResponse;
+    public function createArticle(ArticleCreateInput $input): ArticleCreateOutput;
 
     /**
      * 記事を取得します．
      *
-     * @param ArticleGetByIdRequest $request
-     * @return ArticleGetByIdResponse
+     * @param ArticleGetByIdInput $input
+     * @return ArticleGetByIdOutput
      */
-    public function getArticle(ArticleGetByIdRequest $request): ArticleGetByIdResponse;
+    public function getArticle(ArticleGetByIdInput $input): ArticleGetByIdOutput;
 
     /**
      * 複数の記事を取得します
      *
-     * @param ArticleGetAllRequest $request
-     * @return ArticleGetAllResponse
+     * @param ArticleGetAllInput $input
+     * @return ArticleGetAllOutput
      */
-    public function getAllArticles(ArticleGetAllRequest $request): ArticleGetAllResponse;
+    public function getAllArticles(ArticleGetAllInput $input): ArticleGetAllOutput;
 
     /**
      * 記事を更新します
      *
-     * @param ArticleUpdateRequest $request
-     * @return ArticleUpdateResponse
+     * @param ArticleUpdateInput $input
+     * @return ArticleUpdateOutput
      */
-    public function updateArticle(ArticleUpdateRequest $request): ArticleUpdateResponse;
+    public function updateArticle(ArticleUpdateInput $input): ArticleUpdateOutput;
 
     /**
      * 記事を削除します．
      *
-     * @param ArticleDeleteRequest $request
-\     */
-    public function deleteArticle(ArticleDeleteRequest $request);
+     * @param ArticleDeleteInput $input
+* \     */
+    public function deleteArticle(ArticleDeleteInput $input);
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\UseCase\Article\Responses;
+namespace App\UseCase\Article\Outputs;
 
-use App\UseCase\Response;
+use App\UseCase\Output;
 
 /**
- * 記事更新レスポンスクラス
+ * 記事作成レスポンスクラス
  */
-class ArticleUpdateResponse extends Response
+class ArticleCreateOutput extends Output
 {
     /**
      * @var int

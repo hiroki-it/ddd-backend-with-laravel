@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\Article\Requests;
+namespace App\UseCase\Article\Inputs;
 
 use App\Constant\CriteriaConstant;
-use App\UseCase\GetAllRequest;
+use App\UseCase\GetAllInput;
 
 /**
  * 記事リクエストモデル
  */
-final class ArticleGetAllRequest extends GetAllRequest
+final class ArticleGetAllInput extends GetAllInput
 {
     /**
      * @param int $limit

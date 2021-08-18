@@ -7,7 +7,7 @@ use App\Traits\ImmutableTrait;
 /**
  * 削除リクエストモデル
  */
-abstract class DeleteRequest
+abstract class DeleteInput
 {
     use ImmutableTrait;
 

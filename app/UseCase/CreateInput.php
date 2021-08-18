@@ -9,7 +9,7 @@ use App\Traits\ImmutableTrait;
 /**
  * 作成リクエストモデル
  */
-abstract class CreateRequest
+abstract class CreateInput
 {
     use ImmutableTrait;
 }

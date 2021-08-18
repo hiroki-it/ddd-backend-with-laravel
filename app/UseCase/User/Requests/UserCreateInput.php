@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\UseCase\User\Requests;
 
-use App\UseCase\CreateRequest;
+use App\UseCase\CreateInput;
 
-class UserCreateRequest extends CreateRequest
+class UserCreateInput extends CreateInput
 {
     /**
      * ユーザ名
