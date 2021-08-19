@@ -17,7 +17,6 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-
             $table->bigIncrements('id')->comment('ID');
             $table->string('title', 255)->comment('タイトル');
             $table->integer('type')->comment('区分');
