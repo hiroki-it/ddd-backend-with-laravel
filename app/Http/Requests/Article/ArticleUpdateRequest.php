@@ -9,7 +9,7 @@ class ArticleUpdateRequest extends FormRequest
     /**
      * @return array
      */
-    public function rule(): array
+    public function rules(): array
     {
         return [
             'title' => [
