@@ -19,7 +19,7 @@ class ArticleCreateRequest extends FormRequest
             ],
             'type' => [
                 'required',
-                'string'
+                'integer'
             ],
             'content' => [
                 'required',

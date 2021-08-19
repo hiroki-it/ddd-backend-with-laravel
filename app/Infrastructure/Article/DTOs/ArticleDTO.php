@@ -56,9 +56,9 @@ final class ArticleDTO extends Model
     private string $title;
 
     /**
-     * @var string
+     * @var int
      */
-    private string $type;
+    private int $type;
 
     /**
      * @var string
@@ -69,7 +69,6 @@ final class ArticleDTO extends Model
      * DTOを記事エンティティに変換します．
      *
      * @return Article
-     * @throws InvalidEnumMemberException
      */
     public function toArticle(): Article
     {

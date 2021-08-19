@@ -14,9 +14,9 @@ class ArticleCreateInput extends CreateInput
     protected string $title;
 
     /**
-     * @var string
+     * @var int
      */
-    protected string $type;
+    protected int $type;
 
     /**
      * @var string
@@ -25,10 +25,10 @@ class ArticleCreateInput extends CreateInput
 
     /**
      * @param string $title
-     * @param string $type
+     * @param int $type
      * @param string $content
      */
-    public function __construct(string $title, string $type, string $content)
+    public function __construct(string $title, int $type, string $content)
     {
         $this->title = $title;
         $this->type = $type;
