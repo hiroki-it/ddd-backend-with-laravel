@@ -33,13 +33,13 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     }
 
     /**
-     * @param ArticleId $id
+     * @param ArticleId $articleId
      * @return Article
      */
-    public function findById(ArticleId $id): Article
+    public function findById(ArticleId $articleId): Article
     {
         $articleDTO = $this->articleDTO
-            ->find($id);
+            ->find($articleId->id);
 
         // DTOのデータをドメインモデルに詰め替えます．
         return $articleDTO->toArticle();
