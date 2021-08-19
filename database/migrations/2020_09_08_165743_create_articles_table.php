@@ -23,7 +23,7 @@ class CreateArticlesTable extends Migration
             $table->string('title', 255)
                 ->comment('タイトル');
 
-            $table->string('type')
+            $table->integer('type')
                 ->comment('区分');
 
             $table->mediumText('content')
