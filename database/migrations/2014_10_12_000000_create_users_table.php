@@ -26,8 +26,7 @@ class CreateUsersTable extends Migration
 
             $table->systemColumns();
 
-            $table->softDeletes()
-                ->comment('レコードの削除日');
+            $table->softDeletes()->comment('レコードの削除日');
         });
     }
 
