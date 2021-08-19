@@ -49,7 +49,6 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
      * READ
      *
      * @return array
-     * @throws InvalidEnumMemberException
      */
     public function findAll(): array
     {
