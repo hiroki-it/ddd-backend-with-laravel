@@ -5,25 +5,32 @@ declare(strict_types=1);
 namespace App\Domain\Article\ValueObjects;
 
 use App\Domain\Type;
-use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
  * 記事区分クラス
  */
 final class ArticleType extends Type
 {
-    /**
-     * 記事区分
-     */
-    private const PHP = '1';
+    private const PHP = 1;
 
     /**
-
-     * @param string $value
-     * @throws InvalidEnumMemberException
+     * @param int $value
      */
-    public function __construct(string $value)
+    public function __construct(int $value)
     {
         parent::__construct($value);
+    }
+
+    /**
+     * @return string
+     */
+    public function description(): string
+    {
+        switch ($this->value) {
+            case self::PHP:
+                return "PHP";
+            default:
+                return "Unknown";
+        }
     }
 }
