@@ -21,7 +21,6 @@ use App\UseCase\Article\Outputs\ArticleCreateOutput;
 use App\UseCase\Article\Outputs\ArticleGetAllOutput;
 use App\UseCase\Article\Outputs\ArticleGetByIdOutput;
 use App\UseCase\Article\Outputs\ArticleUpdateOutput;
-use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 
 /**
  * 記事ユースケースクラス
@@ -55,7 +54,7 @@ final class ArticleInteractor implements ArticleInputBoundary
         return new ArticleGetByIdOutput(
             $article->id->id,
             $article->title->title,
-            $article->type->value,
+            $article->type->description(),
             $article->content->content,
         );
     }
@@ -79,7 +78,6 @@ final class ArticleInteractor implements ArticleInputBoundary
     /**
      * @param ArticleCreateInput $input
      * @return ArticleCreateOutput
-     * @throws InvalidEnumMemberException
      */
     public function createArticle(ArticleCreateInput $input): ArticleCreateOutput
     {
@@ -95,7 +93,7 @@ final class ArticleInteractor implements ArticleInputBoundary
         return new ArticleCreateOutput(
             $article->id->id,
             $article->title->title,
-            $article->type->value,
+            $article->type->description(),
             $article->content->content,
         );
     }
@@ -113,7 +111,7 @@ final class ArticleInteractor implements ArticleInputBoundary
         return new ArticleUpdateOutput(
             $article->id->id,
             $article->title->title,
-            $article->type->value,
+            $article->type->description(),
             $article->content->content,
         );
     }
