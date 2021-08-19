@@ -19,9 +19,9 @@ class ArticleUpdateInput extends UpdateInput
     protected string $title;
 
     /**
-     * @var string
+     * @var int
      */
-    protected string $type;
+    protected int $type;
 
     /**
      * @var string
@@ -31,10 +31,10 @@ class ArticleUpdateInput extends UpdateInput
     /**
      * @param int    $id
      * @param string $title
-     * @param string $type
+     * @param int $type
      * @param string $content
      */
-    public function __construct(int $id, string $title, string $type, string $content)
+    public function __construct(int $id, string $title, int $type, string $content)
     {
         $this->id = $id;
         $this->title = $title;

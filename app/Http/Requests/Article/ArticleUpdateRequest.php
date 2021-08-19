@@ -19,7 +19,7 @@ class ArticleUpdateRequest extends FormRequest
             ],
             'type' => [
                 'required',
-                'string'
+                'integer'
             ],
             'content' => [
                 'required',
