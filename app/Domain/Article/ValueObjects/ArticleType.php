@@ -12,6 +12,7 @@ use App\Domain\Type;
 final class ArticleType extends Type
 {
     private const PHP = 1;
+    private const Go = 2;
 
     /**
      * @param int $value
@@ -29,6 +30,8 @@ final class ArticleType extends Type
         switch ($this->value) {
             case self::PHP:
                 return "PHP";
+            case self::Go:
+                return "Go";
             default:
                 return "Unknown";
         }
