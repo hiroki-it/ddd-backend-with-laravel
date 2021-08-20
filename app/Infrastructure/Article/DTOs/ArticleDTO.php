@@ -45,25 +45,6 @@ final class ArticleDTO extends Model
         'type',
         'content',
     ];
-    /**
-     * @var int
-     */
-    private int $id;
-
-    /**
-     * @var string
-     */
-    private string $title;
-
-    /**
-     * @var int
-     */
-    private int $type;
-
-    /**
-     * @var string
-     */
-    private string $content;
 
     /**
      * DTOを記事エンティティに変換します．
