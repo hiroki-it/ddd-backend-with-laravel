@@ -114,14 +114,15 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
         // UPDATE処理前のfindによるモデル取得のために，Eloquentモデルではなく，Repositoryパターンのfindメソッドを使用する．
 
         DB::transaction(function () use ($article) {
-            // ドメインモデルのデータをDTOに詰め替えます．
-            $this->articleDTO->fill([
-                'title'   => $article->title->title,
-                'type'    => $article->type->value,
-                'content' => $article->content->content
-            ]);
 
-            $this->articleDTO->save();
+            // ドメインモデルのデータをDTOに詰め替えます．
+            $this->articleDTO
+                ->find($article->id->id)
+                ->fill([
+                    'title'   => $article->title->title,
+                    'type'    => $article->type->value,
+                    'content' => $article->content->content
+                ])->save();
         });
     }
 
