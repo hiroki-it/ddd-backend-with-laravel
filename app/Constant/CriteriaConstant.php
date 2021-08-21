@@ -14,7 +14,7 @@ abstract class CriteriaConstant
      *
      * 表示件数
      */
-    public const LIMIT_LIST = 10;
+    public const LIMIT = 10;
 
     /**
      * @var array
