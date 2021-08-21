@@ -10,20 +10,6 @@ namespace App\Constant;
 abstract class CriteriaConstant
 {
     /**
-     * @var int
-     *
-     * 件数のデフォルト値
-     */
-    public const DEFAULT_LIMIT = 10;
-
-    /**
-     * @var string
-     *
-     * 順序名のデフォルト値
-     */
-    public const DEFAULT_ORDER = 'asc';
-
-    /**
      * @var array
      *
      * 件数のリスト
