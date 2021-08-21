@@ -65,9 +65,9 @@ final class ArticleController extends Controller
             $validated['order']
         );
 
-        $article = $this->articleInteractor->getAllArticles($articleGetAllInput);
+        $articleGetAllOutput = $this->articleInteractor->getAllArticles($articleGetAllInput);
 
-        // ここにレスポンス処理
+        return response()->json($articleGetAllOutput->toArray());
     }
 
     /**
