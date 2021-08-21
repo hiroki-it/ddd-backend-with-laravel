@@ -45,9 +45,9 @@ final class ArticleController extends Controller
     {
         $articleGetByIdInput = new ArticleGetByIdInput($id);
 
-        $article = $this->articleInteractor->getArticle($articleGetByIdInput);
+        $articleGetByOutput = $this->articleInteractor->getArticle($articleGetByIdInput);
 
-        // ここにレスポンス処理
+        return response()->json($articleGetByOutput->toArray());
     }
 
     /**
