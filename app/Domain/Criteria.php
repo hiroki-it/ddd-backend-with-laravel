@@ -17,9 +17,9 @@ abstract class Criteria
     /**
      * 件数
      *
-     * @var int
+     * @var string
      */
-    protected int $limit;
+    protected string $limit;
 
     /**
      * 順序
@@ -31,9 +31,9 @@ abstract class Criteria
     /**
      * 件数を返却します．
      *
-     * @return int
+     * @return string
      */
-    public function limit(): int
+    public function limit(): string
     {
         return $this->limit;
     }

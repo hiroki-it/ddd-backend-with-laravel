@@ -14,9 +14,9 @@ abstract class GetAllInput
     use ImmutableTrait;
 
     /**
-     * @var int
+     * @var string
      */
-    protected int $limit;
+    protected string $limit;
 
     /**
      * @var string
