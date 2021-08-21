@@ -16,11 +16,13 @@ final class ArticleGetRequest extends Request
     public function rules(): array
     {
         return [
-            'order' => [
-                Rule::in(CriteriaConstant::ORDER_LIST)
+            'limit'  => [
+                "required",
+                Rule::in(CriteriaConstant::LIMIT),
             ],
-            'limit' => [
-                Rule::in(CriteriaConstant::LIMIT_LIST)
+            'order'  => [
+                "required",
+                Rule::in(CriteriaConstant::ORDER_LIST)
             ],
         ];
     }
