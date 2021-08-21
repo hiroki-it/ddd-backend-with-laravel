@@ -7,7 +7,7 @@ use App\UseCase\Output;
 /**
  * 記事作成レスポンスクラス
  */
-class ArticleCreateOutput extends Output
+final class ArticleCreateOutput extends Output
 {
     /**
      * @var int

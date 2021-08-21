@@ -7,7 +7,7 @@ use App\UseCase\Output;
 /**
  * 条件に基づく記事取得レスポンスクラス
  */
-class ArticleGetAllOutput extends Output
+final class ArticleGetAllOutput extends Output
 {
     /**
      * @var array
