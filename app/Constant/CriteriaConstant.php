@@ -35,5 +35,8 @@ abstract class CriteriaConstant
      *
      * 順序名のリスト
      */
-    public const ORDER_LIST = ['asc', 'desc'];
+    public const ORDER_LIST = [
+        'asc',
+        'desc'
+    ];
 }
