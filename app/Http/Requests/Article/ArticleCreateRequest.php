@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Article;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
 
-class ArticleCreateRequest extends FormRequest
+final class ArticleCreateRequest extends Request
 {
     /**
      * @return array
