@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Http\Requests\Article;
 
 use App\Constant\CriteriaConstant;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
 use Illuminate\Validation\Rule;
 
-final class ArticleGetRequest extends FormRequest
+final class ArticleGetRequest extends Request
 {
     /**
      * @return array
