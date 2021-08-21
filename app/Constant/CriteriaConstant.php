@@ -10,11 +10,11 @@ namespace App\Constant;
 abstract class CriteriaConstant
 {
     /**
-     * @var array
+     * @var int
      *
-     * 件数のリスト
+     * 表示件数
      */
-    public const LIMIT_LIST = [10];
+    public const LIMIT_LIST = 10;
 
     /**
      * @var array
