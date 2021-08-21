@@ -28,7 +28,7 @@ abstract class CriteriaConstant
      *
      * 件数のリスト
      */
-    public const LIMIT_LIST = [10, 20, 30];
+    public const LIMIT_LIST = [10];
 
     /**
      * @var array
