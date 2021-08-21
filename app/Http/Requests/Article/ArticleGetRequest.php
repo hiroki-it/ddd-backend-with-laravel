@@ -17,11 +17,9 @@ final class ArticleGetRequest extends Request
     {
         return [
             'order' => [
-                'required',
                 Rule::in(CriteriaConstant::ORDER_LIST)
             ],
             'limit' => [
-                'required',
                 Rule::in(CriteriaConstant::LIMIT_LIST)
             ],
         ];
