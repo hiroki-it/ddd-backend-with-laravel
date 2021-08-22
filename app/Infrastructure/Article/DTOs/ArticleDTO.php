@@ -25,6 +25,13 @@ final class ArticleDTO extends Model
     protected $table = "articles";
 
     /**
+     * @var array
+     */
+    protected $cast = [
+        'article_id' => 'integer'
+    ];
+
+    /**
      * DateTimeクラスに変換されるカラム
      *
      * @var array
