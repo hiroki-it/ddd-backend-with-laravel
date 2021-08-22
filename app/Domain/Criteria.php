@@ -15,15 +15,11 @@ abstract class Criteria
     use ImmutableTrait;
 
     /**
-     * 件数
-     *
      * @var string
      */
     protected string $limit;
 
     /**
-     * 順序
-     *
      * @var string
      */
     protected string $order;
