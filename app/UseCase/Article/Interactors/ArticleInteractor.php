@@ -19,7 +19,7 @@ use App\UseCase\Article\Inputs\ArticleGetByIdInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Outputs\ArticleCreateOutput;
 use App\UseCase\Article\Outputs\ArticleGetAllOutput;
-use App\UseCase\Article\Outputs\ArticleGetByIdOutput;
+use App\UseCase\Article\Outputs\ArticleGetOneOutput;
 use App\UseCase\Article\Outputs\ArticleUpdateOutput;
 
 /**
@@ -35,7 +35,6 @@ final class ArticleInteractor implements ArticleInputBoundary
     private ArticleRepository $articleRepository;
 
     /**
-
      * @param ArticleRepository $articleRepository
      */
     public function __construct(ArticleRepository $articleRepository)
@@ -65,14 +64,27 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function getAllArticles(ArticleGetAllInput $input): ArticleGetAllOutput
     {
-        $articles = $this->articleRepository->findAllByCriteria(
+        $articles = $this->articleRepository->findAll(
             new ArticleCriteria(
+                $input->key,
                 $input->limit,
                 $input->order
             )
         );
 
-        return new ArticleGetAllOutput($articles);
+        $ArticleGetOneOutputs = [];
+
+        foreach ($articles as $article) {
+            $ArticleGetOneOutput = new ArticleGetOneOutput(
+                $article->id->id,
+                $article->title->title,
+                $article->type->description(),
+                $article->content->content,
+            );
+            $ArticleGetOneOutputs[] = $ArticleGetOneOutput->toArray();
+        }
+
+        return new ArticleGetAllOutput($ArticleGetOneOutputs);
     }
 
     /**

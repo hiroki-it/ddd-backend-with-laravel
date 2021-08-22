@@ -54,10 +54,10 @@ final class ArticleDTO extends Model
     public function toArticle(): Article
     {
         return new Article(
-            new ArticleId($this->id),
-            new ArticleTitle($this->title),
-            new ArticleType($this->type),
-            new ArticleContent($this->content)
+            new ArticleId($this->article_id),
+            new ArticleTitle($this->article_title),
+            new ArticleType($this->article_type),
+            new ArticleContent($this->article_content)
         );
     }
 }
