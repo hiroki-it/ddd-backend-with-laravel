@@ -23,19 +23,12 @@ interface ArticleRepository extends Repository
     public function findById(ArticleId $id): Article;
 
     /**
-     * READ：記事エンティティを全て読み出します．
-     *
-     * @return array
-     */
-    public function findAll(): array;
-
-    /**
      * READ：指定した条件の記事エンティティを全て読み出します．
      *
      * @param ArticleCriteria $criteria
      * @return array
      */
-    public function findAllByCriteria(ArticleCriteria $criteria): array;
+    public function findAll(ArticleCriteria $criteria): array;
 
     /**
      * CREATE：記事エンティティを作成します．

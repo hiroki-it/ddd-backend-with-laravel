@@ -10,7 +10,6 @@ use App\Domain\Article\Repositories\ArticleRepository as DomainArticleRepository
 use App\Domain\Article\Ids\ArticleId;
 use App\Infrastructure\Article\DTOs\ArticleDTO;
 use App\Infrastructure\Repository;
-use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 use Illuminate\Support\Facades\DB;
 use Throwable;
 
@@ -46,34 +45,14 @@ final class ArticleRepository extends Repository implements DomainArticleReposit
     }
 
     /**
-     * READ
-     *
-     * @return array
-     */
-    public function findAll(): array
-    {
-        $articlesDTO = $this->articleDTO
-            ->all();
-
-        $articles = [];
-        foreach ($articlesDTO as $articleDTO) {
-            // DTOのデータをドメインモデルに詰め替えます．
-            $articles[] = $articleDTO->toArticle();
-        }
-
-        return $articles;
-    }
-
-    /**
      * @param ArticleCriteria $criteria
      * @return array
      */
-    public function findAllByCriteria(ArticleCriteria $criteria): array
+    public function findAll(ArticleCriteria $criteria): array
     {
         $articlesDTO = $this->articleDTO
-            ->sortBy($criteria->order)
-            ->take($criteria->limit)
-            ->all();
+            ->orderBy("article_" . $criteria->key, $criteria->order)
+            ->get();
 
         $articles = [];
         foreach ($articlesDTO as $articleDTO) {
