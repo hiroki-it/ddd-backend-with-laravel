@@ -7,7 +7,7 @@ use App\UseCase\Output;
 /**
  * IDに基づく記事取得レスポンスクラス
  */
-final class ArticleGetByIdOutput extends Output
+final class ArticleGetOneOutput extends Output
 {
     /**
      * @var int

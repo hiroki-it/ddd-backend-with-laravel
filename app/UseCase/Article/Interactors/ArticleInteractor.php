@@ -45,13 +45,13 @@ final class ArticleInteractor implements ArticleInputBoundary
 
     /**
      * @param ArticleGetByIdInput $input
-     * @return ArticleGetByIdOutput
+     * @return ArticleGetOneOutput
      */
-    public function getArticle(ArticleGetByIdInput $input): ArticleGetByIdOutput
+    public function getArticle(ArticleGetByIdInput $input): ArticleGetOneOutput
     {
         $article = $this->articleRepository->findById(new ArticleId($input->id));
 
-        return new ArticleGetByIdOutput(
+        return new ArticleGetOneOutput(
             $article->id->id,
             $article->title->title,
             $article->type->description(),
