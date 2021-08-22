@@ -16,6 +16,9 @@ final class ArticleGetRequest extends Request
     public function rules(): array
     {
         return [
+            'key' =>[
+                "required",
+            ],
             'limit'  => [
                 "required",
                 Rule::in(CriteriaConstant::LIMIT),

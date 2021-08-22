@@ -17,6 +17,11 @@ abstract class Criteria
     /**
      * @var string
      */
+    protected string $key;
+
+    /**
+     * @var string
+     */
     protected string $limit;
 
     /**
