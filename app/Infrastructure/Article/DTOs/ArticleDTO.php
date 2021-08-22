@@ -10,7 +10,6 @@ use App\Domain\Article\Ids\ArticleId;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
 use App\Traits\DTOTrait;
-use BenSampo\Enum\Exceptions\InvalidEnumMemberException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
