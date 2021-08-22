@@ -75,13 +75,12 @@ final class ArticleInteractor implements ArticleInputBoundary
         $ArticleGetOneOutputs = [];
 
         foreach ($articles as $article) {
-            $ArticleGetOneOutput = new ArticleGetOneOutput(
+            $ArticleGetOneOutputs[] = new ArticleGetOneOutput(
                 $article->id->id,
                 $article->title->title,
                 $article->type->description(),
                 $article->content->content,
             );
-            $ArticleGetOneOutputs[] = $ArticleGetOneOutput->toArray();
         }
 
         return new ArticleGetAllOutput($ArticleGetOneOutputs);

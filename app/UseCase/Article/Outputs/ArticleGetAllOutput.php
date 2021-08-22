@@ -5,21 +5,21 @@ namespace App\UseCase\Article\Outputs;
 use App\UseCase\Output;
 
 /**
- * 条件に基づく記事取得レスポンスクラス
+ * レスポンスクラス
  */
 final class ArticleGetAllOutput extends Output
 {
     /**
      * @var array
      */
-    private array $articles;
+    private array $ArticleGetOneOutputs;
 
     /**
-     * @param array $articles
+     * @param array $ArticleGetOneOutputs
      */
-    public function __construct(array $articles)
+    public function __construct(array $ArticleGetOneOutputs)
     {
-        $this->articles = $articles;
+        $this->ArticleGetOneOutputs = $ArticleGetOneOutputs;
     }
 
     /**
@@ -27,8 +27,14 @@ final class ArticleGetAllOutput extends Output
      */
     public function toArray(): array
     {
+        $articles = [];
+
+        foreach ($this->ArticleGetOneOutputs as $articleGetOneOutput){
+            $articles[] = $articleGetOneOutput->toArray();
+        }
+
         return [
-            'articles' => $this->articles,
+            'articles' => $articles
         ];
     }
 }
