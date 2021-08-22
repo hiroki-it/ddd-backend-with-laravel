@@ -11,7 +11,7 @@ use App\UseCase\Article\Inputs\ArticleGetByIdInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Outputs\ArticleCreateOutput;
 use App\UseCase\Article\Outputs\ArticleGetAllOutput;
-use App\UseCase\Article\Outputs\ArticleGetByIdOutput;
+use App\UseCase\Article\Outputs\ArticleGetOneOutput;
 use App\UseCase\Article\Outputs\ArticleUpdateOutput;
 
 /**
