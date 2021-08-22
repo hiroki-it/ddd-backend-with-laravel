@@ -31,9 +31,9 @@ interface ArticleInputBoundary
      * 記事を取得します．
      *
      * @param ArticleGetByIdInput $input
-     * @return ArticleGetByIdOutput
+     * @return ArticleGetOneOutput
      */
-    public function getArticle(ArticleGetByIdInput $input): ArticleGetByIdOutput;
+    public function getArticle(ArticleGetByIdInput $input): ArticleGetOneOutput;
 
     /**
      * 複数の記事を取得します
