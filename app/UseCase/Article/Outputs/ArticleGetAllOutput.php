@@ -29,7 +29,7 @@ final class ArticleGetAllOutput extends Output
     {
         $articles = [];
 
-        foreach ($this->ArticleGetOneOutputs as $articleGetOneOutput){
+        foreach ($this->ArticleGetOneOutputs as $articleGetOneOutput) {
             $articles[] = $articleGetOneOutput->toArray();
         }
 
