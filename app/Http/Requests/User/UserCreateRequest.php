@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\User;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
 
-final class UserCreateRequest extends FormRequest
+final class UserCreateRequest extends Request
 {
     /**
      * @return array
