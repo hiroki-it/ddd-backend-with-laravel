@@ -17,10 +17,10 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('ID');
-            $table->string('title', 255)->comment('タイトル');
-            $table->integer('type')->comment('区分');
-            $table->mediumText('content')->comment('本文');
+            $table->bigIncrements('article_id')->comment('ID');
+            $table->string('article_title', 255)->comment('タイトル');
+            $table->integer('article_type')->comment('区分');
+            $table->mediumText('article_content')->comment('本文');
 
             $table->systemColumns();
 
