@@ -44,11 +44,7 @@ final class UserRepository extends Repository implements DomainUserRepository
 
             // ドメインモデルのデータをDTOに詰め替えます．
             $this->userDTO
-                ->create([
-                    'name'         => $user->name,
-                    'emailAddress' => $user->emailAddress,
-                    'password'     => $user->password
-                ]);
+                ->create($this->fillArray($user));
         });
     }
 
@@ -61,11 +57,7 @@ final class UserRepository extends Repository implements DomainUserRepository
     {
         DB::transaction(function () use ($user) {
             // ドメインモデルのデータをDTOに詰め替えます．
-            $this->userDTO->fill([
-                'name'         => $user->name,
-                'emailAddress' => $user->emailAddress,
-                'password'     => $user->password
-            ]);
+            $this->userDTO->fill($this->fillArray($user));
 
             $this->userDTO->save();
         });
@@ -81,5 +73,18 @@ final class UserRepository extends Repository implements DomainUserRepository
         DB::transaction(function () use ($userId) {
             $this->userDTO->destroy($userId->id());
         });
+    }
+
+    /**
+     * @param User $user
+     * @return array
+     */
+    private function fillArray(User $user): array
+    {
+        return [
+            'name'         => $user->name->name,
+            'emailAddress' => $user->emailAddress->emailAddress,
+            'password'     => $user->password->password
+        ];
     }
 }
