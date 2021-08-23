@@ -28,8 +28,6 @@ use App\UseCase\Article\Outputs\ArticleUpdateOutput;
 final class ArticleInteractor implements ArticleInputBoundary
 {
     /**
-     * リポジトリクラス
-     *
      * @var ArticleRepository
      */
     private ArticleRepository $articleRepository;

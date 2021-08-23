@@ -34,8 +34,6 @@ class UserDTO extends Authenticatable
     ];
 
     /**
-     * 更新可能なカラム
-     *
      * @var array
      */
     protected $fillable = [
