@@ -20,12 +20,12 @@ class UserDTO extends Authenticatable
     use Notifiable;
     use HasFactory;
 
+    /**
+     * @var string
+     */
     protected $table = "users";
 
-
     /**
-     * データ型を変換されるカラム
-     *
      * @var array
      */
     protected $casts = [
