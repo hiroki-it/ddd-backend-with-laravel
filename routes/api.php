@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Article\ArticleController;
 
+Route::group(['prefix' => 'users'], (function () {
+    Route::post('/', [UserController::class, 'createUser']);
+    Route::put('/{id}', [UserController::class, 'updateUser']);
+    Route::delete('/{id}', [UserController::class, 'deleteUser']);
+}));
+
 Route::group(['prefix' => 'articles'], (function () {
     Route::get('/{id}', [ArticleController::class, 'getArticle']);
     Route::get('/', [ArticleController::class, 'getAllArticles']);
