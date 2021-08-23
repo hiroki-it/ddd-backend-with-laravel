@@ -21,6 +21,9 @@ final class ArticleDTO extends Model
     use DTOTrait;
     use HasFactory;
 
+    /**
+     * @var string
+     */
     protected $table = "articles";
 
     /**
@@ -47,8 +50,6 @@ final class ArticleDTO extends Model
     ];
 
     /**
-     * 更新可能なカラム
-     *
      * @var array
      */
     protected $fillable = [
