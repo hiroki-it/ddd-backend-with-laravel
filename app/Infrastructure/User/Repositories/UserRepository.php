@@ -59,9 +59,6 @@ final class UserRepository extends Repository implements DomainUserRepository
      */
     public function update(User $user): void
     {
-        // NOTE:
-        // UPDATE処理前のfindによるモデル取得のために，Eloquentモデルではなく，Repositoryパターンのfindメソッドを使用する．
-
         DB::transaction(function () use ($user) {
             // ドメインモデルのデータをDTOに詰め替えます．
             $this->userDTO->fill([
