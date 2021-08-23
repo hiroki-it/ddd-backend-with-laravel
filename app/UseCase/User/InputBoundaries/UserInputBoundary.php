@@ -13,8 +13,6 @@ use App\UseCase\User\Responses\UserCreateOutput;
 interface UserInputBoundary
 {
     /**
-     * ユーザを作成します．
-     *
      * @param UserCreateInput $input
      */
     public function createUser(UserCreateInput $input): UserCreateOutput;
