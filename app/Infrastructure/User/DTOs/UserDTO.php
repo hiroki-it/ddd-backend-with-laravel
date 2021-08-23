@@ -22,6 +22,16 @@ class UserDTO extends Authenticatable
 
     protected $table = "users";
 
+
+    /**
+     * データ型を変換されるカラム
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
     /**
      * DateTimeクラスに変換されるカラム
      *
@@ -50,14 +60,5 @@ class UserDTO extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-    ];
-
-    /**
-     * データ型を変換されるカラム
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
     ];
 }
