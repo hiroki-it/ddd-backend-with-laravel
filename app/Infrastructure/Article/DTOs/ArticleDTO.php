@@ -24,6 +24,11 @@ final class ArticleDTO extends Model
     protected $table = "articles";
 
     /**
+     * @var string
+     */
+    protected $primaryKey = 'article_id';
+
+    /**
      * @var array
      */
     protected $cast = [
