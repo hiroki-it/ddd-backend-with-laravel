@@ -8,7 +8,6 @@ use App\Traits\DTOTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 
 /**
  * ユーザDTOクラス
@@ -16,7 +15,6 @@ use Laravel\Passport\HasApiTokens;
 class UserDTO extends Authenticatable
 {
     use DTOTrait;
-    use HasApiTokens;
     use Notifiable;
     use HasFactory;
 
