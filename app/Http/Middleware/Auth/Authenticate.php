@@ -14,6 +14,6 @@ class Authenticate extends Middleware
     protected function redirectTo($request): string
     {
         // 認証のためのURLを生成します．
-        return route('/login');
+        return url('/login');
     }
 }
