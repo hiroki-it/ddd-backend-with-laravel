@@ -6,7 +6,7 @@ namespace App\UseCase\User\Requests;
 
 use App\UseCase\CreateInput;
 
-class UserCreateInput extends CreateInput
+final class UserCreateInput extends CreateInput
 {
     /**
      * @var string
