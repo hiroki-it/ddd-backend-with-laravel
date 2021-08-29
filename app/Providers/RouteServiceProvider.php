@@ -10,20 +10,18 @@ use Illuminate\Support\Facades\Route;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * ルーティングの設定ファイルをコールします．
-     *
      * @return void
      */
     public function boot()
     {
         Route::pattern('id', '[0-9]+');
 
-        // ヘルスチェック
+        // ヘルスチェックにルーティングします．
         Route::middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/healthcheck.php'));
 
-        // API
+        // APIにルーティングします．
         Route::middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
