@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 class RouteServiceProvider extends ServiceProvider
 {
     public const HOME = '/home'; // 認証後URL
+    public const UNAUTHORIZED = '/login'; // 未認証URL
+
 
     /**
      * @return void
