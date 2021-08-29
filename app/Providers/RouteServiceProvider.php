@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+    public const HOME = '/home'; // 認証後URL
+
     /**
      * @return void
      */
