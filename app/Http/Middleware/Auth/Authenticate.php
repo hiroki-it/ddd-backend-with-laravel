@@ -13,7 +13,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request): string
     {
-        // 認証のためのURLを生成します．
+        // ユーザの未認証時に，認証ページにリダイレクトできるように，URLを生成します．
         return url('/login');
     }
 }
