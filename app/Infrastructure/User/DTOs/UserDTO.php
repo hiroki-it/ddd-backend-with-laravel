@@ -46,7 +46,7 @@ class UserDTO extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'email_address',
         'password',
     ];
 
