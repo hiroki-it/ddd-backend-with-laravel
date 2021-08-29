@@ -4,22 +4,26 @@ namespace App\Http\Middleware\Auth;
 
 use App\Providers\RouteServiceProvider;
 use Closure;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
     /**
-     * 認証後にアクセスできるページにリダイレクトします．
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
+     * @param Request $request
+     * @param Closure $next
+     * @param mixed   ...$guards
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle(Request $request, Closure $next, ...$guards)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+        $guards = empty($guards) ? [null] : $guards;
+
+        foreach ($guards as $guard) {
+            if (Auth::guard($guard)->check()) {
+                // ユーザが認証済みの場合は，認証後のページにリダイレクトします．
+                return redirect(RouteServiceProvider::HOME);
+            }
         }
 
         return $next($request);
