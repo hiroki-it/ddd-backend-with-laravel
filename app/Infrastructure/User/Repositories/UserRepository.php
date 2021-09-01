@@ -18,14 +18,11 @@ use Throwable;
 final class UserRepository extends Repository implements DomainUserRepository
 {
     /**
-     * ユーザDTOクラス
-     *
      * @var UserDTO
      */
     private UserDTO $userDTO;
 
     /**
-
      * @param UserDTO $userDTO
      */
     public function __construct(UserDTO $userDTO)
