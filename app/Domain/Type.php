@@ -7,7 +7,7 @@ namespace App\Domain;
 use App\Traits\ImmutableTrait;
 
 /**
- * 区分抽象クラス
+ * 区分基底クラス
  */
 abstract class Type
 {

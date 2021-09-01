@@ -7,7 +7,7 @@ namespace App\UseCase;
 use App\Traits\ImmutableTrait;
 
 /**
- * 更新リクエストモデル
+ * 更新リクエストモデル基底クラス
  */
 abstract class UpdateInput
 {

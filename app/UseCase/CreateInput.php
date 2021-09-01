@@ -7,7 +7,7 @@ namespace App\UseCase;
 use App\Traits\ImmutableTrait;
 
 /**
- * 作成リクエストモデル
+ * 作成リクエストモデル基底クラス
  */
 abstract class CreateInput
 {
