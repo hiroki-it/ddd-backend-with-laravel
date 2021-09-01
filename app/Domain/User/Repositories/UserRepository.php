@@ -14,24 +14,18 @@ use App\Domain\User\Ids\UserId;
 interface UserRepository extends Repository
 {
     /**
-     * CREATE：ユーザエンティティを作成します．
-     *
      * @param User $user
      * @return void
      */
     public function create(User $user): void;
 
     /**
-     * UPDATE：ユーザエンティティを更新します．
-     *
      * @param User $user
      * @return void
      */
     public function update(User $user): void;
 
     /**
-     * DELETE：ユーザエンティティを削除します．
-     *
      * @param UserId $userId
      * @return void
      */
