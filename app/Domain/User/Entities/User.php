@@ -6,11 +6,9 @@ namespace App\Domain\User\Entities;
 
 use App\Domain\Entity;
 use App\Domain\User\Ids\UserId;
-use App\Domain\User\ValueObjects\UserAuthenticationCode;
 use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
-use App\Domain\User\ValueObjects\UserPhoneNumber;
 
 /**
  * ユーザクラス
@@ -20,56 +18,31 @@ use App\Domain\User\ValueObjects\UserPhoneNumber;
 final class User extends Entity
 {
     /**
-     * ユーザ名
-     *
      * @var UserName
      */
-    private UserName $name;
+    protected UserName $name;
 
     /**
-     * ユーザメールアドレス
-     *
      * @var UserEmailAddress
      */
-    private UserEmailAddress $emailAddress;
+    protected UserEmailAddress $emailAddress;
 
     /**
-     * ユーザ電話番号
-     *
-     * @var UserPhoneNumber
-     */
-    private UserPhoneNumber $phoneNumber;
-
-    /**
-     * ユーザ電話番号
-     *
      * @var UserPassword
      */
-    private UserPassword $password;
+    protected UserPassword $password;
 
     /**
-     * 認証コード
-     *
-     * @var UserAuthenticationCode
+     * @param UserId           $id
+     * @param UserName         $name
+     * @param UserEmailAddress $emailAddress
+     * @param UserPassword     $password
      */
-    private UserAuthenticationCode $authenticationCode;
-
-    /**
-
-     * @param UserId                 $id
-     * @param UserName               $name
-     * @param UserEmailAddress       $emailAddress
-     * @param UserPhoneNumber        $phoneNumber
-     * @param UserPassword           $password
-     * @param UserAuthenticationCode $authenticationCode
-     */
-    public function __construct(UserId $id, UserName $name, UserEmailAddress $emailAddress, UserPhoneNumber $phoneNumber, UserPassword $password, UserAuthenticationCode $authenticationCode)
+    public function __construct(UserId $id, UserName $name, UserEmailAddress $emailAddress,UserPassword $password)
     {
         $this->id = $id;
         $this->name = $name;
         $this->emailAddress = $emailAddress;
-        $this->phoneNumber = $phoneNumber;
         $this->password = $password;
-        $this->authenticationCode = $authenticationCode;
     }
 }
