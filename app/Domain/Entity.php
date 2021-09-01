@@ -7,7 +7,7 @@ namespace App\Domain;
 use App\Traits\ImmutableTrait;
 
 /**
- * エンティティ抽象クラス
+ * エンティティ基底クラス
  */
 abstract class Entity
 {

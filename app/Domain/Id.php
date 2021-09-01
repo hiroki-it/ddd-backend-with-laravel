@@ -7,7 +7,7 @@ namespace App\Domain;
 use App\Traits\ImmutableTrait;
 
 /**
- * ID抽象クラス
+ * ID基底クラス
  */
 abstract class Id
 {

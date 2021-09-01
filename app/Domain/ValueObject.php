@@ -7,7 +7,7 @@ namespace App\Domain;
 use App\Traits\ImmutableTrait;
 
 /**
- * 値オブジェクト抽象クラス
+ * 値オブジェクト基底クラス
  */
 abstract class ValueObject
 {

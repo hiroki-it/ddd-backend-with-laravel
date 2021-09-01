@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Domain;
 
 /**
- * ドメインサービス抽象クラス
+ * ドメインサービス基底クラス
  */
 abstract class DomainService
 {

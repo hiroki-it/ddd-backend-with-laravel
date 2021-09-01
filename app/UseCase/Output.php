@@ -3,7 +3,7 @@
 namespace App\UseCase;
 
 /**
- * レスポンスモデル
+ * レスポンスモデル基底クラス
  */
 abstract class Output
 {
