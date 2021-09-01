@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Infrastructure\User\Repositories;
 
 use App\Domain\User\Ids\UserId;
-use App\Domain\User\Repositories\UserRepository as DomainUserRepository;
+use App\Domain\User\Repositories\UserRepository as UserRepositoryInterface;
 use App\Domain\User\Entities\User;
 use App\Infrastructure\Repository;
 use App\Infrastructure\User\DTOs\UserDTO;
@@ -15,7 +15,7 @@ use Throwable;
 /**
  * ユーザリポジトリ実装クラス
  */
-final class UserRepository extends Repository implements DomainUserRepository
+final class UserRepository extends Repository implements UserRepositoryInterface
 {
     /**
      * @var UserDTO

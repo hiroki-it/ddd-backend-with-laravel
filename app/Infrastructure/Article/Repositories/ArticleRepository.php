@@ -6,7 +6,7 @@ namespace App\Infrastructure\Article\Repositories;
 
 use App\Domain\Article\Criterion\ArticleCriteria;
 use App\Domain\Article\Entities\Article;
-use App\Domain\Article\Repositories\ArticleRepository as DomainArticleRepository;
+use App\Domain\Article\Repositories\ArticleRepository as ArticleRepositoryInterface;
 use App\Domain\Article\Ids\ArticleId;
 use App\Infrastructure\Article\DTOs\ArticleDTO;
 use App\Infrastructure\Repository;
@@ -16,7 +16,7 @@ use Throwable;
 /**
  * 記事リポジトリ実装クラス
  */
-final class ArticleRepository extends Repository implements DomainArticleRepository
+final class ArticleRepository extends Repository implements ArticleRepositoryInterface
 {
     /**
      * @var ArticleDTO
