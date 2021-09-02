@@ -8,9 +8,6 @@ use App\Domain\Repository;
 use App\Domain\User\Entities\User;
 use App\Domain\User\Ids\UserId;
 
-/**
- * ユーザリポジトリインターフェース
- */
 interface UserRepository extends Repository
 {
     /**
