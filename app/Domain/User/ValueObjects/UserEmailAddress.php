@@ -14,7 +14,7 @@ final class UserEmailAddress extends ValueObject
     /**
      * @var string
      */
-    private string $emailAddress;
+    protected string $emailAddress;
 
     /**
      * @param string $emailAddress

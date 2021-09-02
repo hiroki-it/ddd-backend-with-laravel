@@ -14,7 +14,7 @@ final class UserName extends ValueObject
     /**
      * @var string
      */
-    private string $name;
+    protected string $name;
 
     /**
      * @param string $name

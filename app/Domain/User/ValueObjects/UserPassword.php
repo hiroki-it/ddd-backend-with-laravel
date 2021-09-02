@@ -14,7 +14,7 @@ final class UserPassword extends ValueObject
     /**
      * @var string
      */
-    private string $password;
+    protected string $password;
 
     /**
      * @param string $password
