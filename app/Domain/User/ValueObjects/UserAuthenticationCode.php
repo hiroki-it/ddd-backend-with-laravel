@@ -14,7 +14,7 @@ final class UserAuthenticationCode extends ValueObject
     /**
      * @var string
      */
-    private string $authenticationCode;
+    protected string $authenticationCode;
 
     /**
      * @param string $authenticationCode

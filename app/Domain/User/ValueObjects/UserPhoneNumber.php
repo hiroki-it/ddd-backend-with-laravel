@@ -14,7 +14,7 @@ final class UserPhoneNumber extends ValueObject
     /**
      * @var string
      */
-    private string $phoneNumber;
+    protected string $phoneNumber;
 
     /**
      * @param string $phoneNumber
