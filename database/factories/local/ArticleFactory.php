@@ -26,7 +26,7 @@ class ArticleFactory extends Factory
     {
         return [
             'article_title'   => $this->faker->sentence(20),
-            'article_type'    => ArticleType::getRandomValue(),
+            'article_type'    => $this->faker->numberBetween(1, 2),
             'article_content' => $this->faker->text(50),
         ];
     }
