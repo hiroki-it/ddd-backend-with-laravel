@@ -38,7 +38,7 @@ final class User extends Entity
      * @param UserEmailAddress $emailAddress
      * @param UserPassword     $password
      */
-    public function __construct(UserId $id, UserName $name, UserEmailAddress $emailAddress,UserPassword $password)
+    public function __construct(UserId $id, UserName $name, UserEmailAddress $emailAddress, UserPassword $password)
     {
         $this->id = $id;
         $this->name = $name;
