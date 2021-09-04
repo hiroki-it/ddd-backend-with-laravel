@@ -16,7 +16,7 @@ final class ArticleGetRequest extends Request
     public function rules(): array
     {
         return [
-            'key' =>[
+            'target' =>[
                 "required",
             ],
             'limit'  => [
