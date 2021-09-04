@@ -24,10 +24,9 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name'          => 'test',
-            'email_address' => 'test@gmail.com',
-            'phone_number'  => '09012345678',
-            'password'      => 'test',
+            'user_name'          => 'test',
+            'user_email_address' => 'test@gmail.com',
+            'user_password'      => 'test',
         ];
     }
 }
