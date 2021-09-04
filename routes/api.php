@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Article\ArticleController;
+use App\Http\Controllers\User\UserController;
 
 Route::group(['prefix' => 'users'], (function () {
     Route::post('/', [UserController::class, 'createUser']);

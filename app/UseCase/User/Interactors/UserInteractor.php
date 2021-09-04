@@ -42,7 +42,7 @@ final class UserInteractor implements UserInputBoundary
     public function createUser(UserCreateInput $input): UserCreateOutput
     {
         $user = new User(
-            null,
+            new UserId(0),
             new UserName($input->name),
             new UserEmailAddress($input->emailAddress),
             new UserPassword($input->password),

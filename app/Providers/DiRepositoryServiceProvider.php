@@ -23,7 +23,7 @@ class DiRepositoryServiceProvider extends ServiceProvider
     {
         $binds = [
             'App\Domain\Article\Repositories\ArticleRepository' => 'App\Infrastructure\Article\Repositories\ArticleRepository', // 記事リポジトリ
-            'App\Domain\User\Repositories\UserRepository' => 'App\Infrastructure\Use\Repositories\UserRepository' // ユーザリポジトリ
+            'App\Domain\User\Repositories\UserRepository' => 'App\Infrastructure\User\Repositories\UserRepository' // ユーザリポジトリ
         ];
 
         foreach ($binds as $abstract => $concrete) {
