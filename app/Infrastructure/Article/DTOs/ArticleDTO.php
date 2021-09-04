@@ -53,9 +53,9 @@ final class ArticleDTO extends Model
      * @var array
      */
     protected $fillable = [
-        'title',
-        'type',
-        'content',
+        'article_title',
+        'article_type',
+        'article_content',
     ];
 
     /**
