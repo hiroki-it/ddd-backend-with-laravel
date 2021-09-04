@@ -19,7 +19,7 @@ final class UserEmailAddress extends ValueObject
     /**
      * @param string $emailAddress
      */
-    public function __constructor(string $emailAddress)
+    public function __construct(string $emailAddress)
     {
         $this->emailAddress = $emailAddress;
     }

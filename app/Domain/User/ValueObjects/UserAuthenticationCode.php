@@ -19,7 +19,7 @@ final class UserAuthenticationCode extends ValueObject
     /**
      * @param string $authenticationCode
      */
-    public function __constructor(string $authenticationCode)
+    public function __construct(string $authenticationCode)
     {
         $this->authenticationCode = $authenticationCode;
     }

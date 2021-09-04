@@ -19,7 +19,7 @@ final class UserPassword extends ValueObject
     /**
      * @param string $password
      */
-    public function __constructor(string $password)
+    public function __construct(string $password)
     {
         $this->password = $password;
     }

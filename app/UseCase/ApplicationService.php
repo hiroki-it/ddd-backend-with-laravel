@@ -24,7 +24,7 @@ abstract class ApplicationService
 
      * @param App $app
      */
-    public function constructor(App $app)
+    public function __construct(App $app)
     {
         $this->app = $app;
     }
