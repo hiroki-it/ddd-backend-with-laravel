@@ -61,7 +61,7 @@ final class ArticleController extends Controller
         $validated = $articleGetRequest->validated();
 
         $articleGetAllInput = new ArticleGetAllInput(
-            $validated['key'],
+            $validated['target'],
             $validated['limit'],
             $validated['order']
         );
