@@ -25,9 +25,9 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'title'   => $this->faker->sentence(20),
-            'type'    => ArticleType::getRandomValue(),
-            'content' => $this->faker->text(50),
+            'article_title'   => $this->faker->sentence(20),
+            'article_type'    => ArticleType::getRandomValue(),
+            'article_content' => $this->faker->text(50),
         ];
     }
 }
