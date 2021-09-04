@@ -26,6 +26,7 @@ project
     ├── Domain               # ** ドメイン層 **
     |   └── Foo              # 任意のルートエンティティ
     |       ├── Criterion    # ドメイン検索条件（検索条件パターン）
+    |       ├── Events       # イベント（Laravelの機能に依存することを許容）
     |       ├── Entities     # エンティティ 
     |       ├── Repositories # インターフェースリポジトリ（実装リポジトリと対応）
     |       ├── Services     # サービス
@@ -40,6 +41,8 @@ project
     ├── Infrastructure # ** インフラストラクチャ層 **
     |   └── Foo              # 任意のルートエンティティ
     |       ├── DTOs         # エンティティ詰め替えオブジェクト（Eloquentを継承）
+    |       ├── DTOs         # リスナー    
+    |       ├── Notification # 通知内容生成クラス
     |       └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
     |
     ├── Providers # プロバイダー
