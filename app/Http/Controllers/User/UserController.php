@@ -43,7 +43,6 @@ final class UserController extends Controller
             $userCreateInput = new UserCreateInput(
                 $validated['name'],
                 $validated['email_address'],
-                $validated['phone_number'],
                 $validated['password']
             );
 

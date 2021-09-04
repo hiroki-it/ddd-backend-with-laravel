@@ -21,24 +21,17 @@ final class UserCreateInput extends CreateInput
     /**
      * @var string
      */
-    protected string $phoneNumber;
-
-    /**
-     * @var string
-     */
     protected string $password;
 
     /**
      * @param string $name
      * @param string $emailAddress
-     * @param string $phoneNumber
      * @param string $password
      */
-    public function __construct(string $name, string $emailAddress, string $phoneNumber, string $password)
+    public function __construct(string $name, string $emailAddress, string $password)
     {
         $this->name = $name;
         $this->emailAddress = $emailAddress;
-        $this->phoneNumber = $phoneNumber;
         $this->password = $password;
     }
 }
