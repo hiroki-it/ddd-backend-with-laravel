@@ -15,6 +15,7 @@ class UserCreatedEventListener extends Listener
      */
     public function handle(UserCreatedEvent $userEvent)
     {
+        // UserクラスがNotifiableトレイトに依存せずに通知を実行できるように，オンデマンド通知機能を使用します．
         Notification::route('mail', $userEvent->user->emailAddress->emailAddress)
             ->notify(new UserCreatedEventNotification($userEvent->user));
     }
