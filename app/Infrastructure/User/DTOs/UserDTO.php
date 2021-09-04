@@ -49,9 +49,9 @@ class UserDTO extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email_address',
-        'password',
+        'user_name',
+        'user_email_address',
+        'user_password',
     ];
 
     /**
