@@ -12,13 +12,13 @@ use App\UseCase\GetAllInput;
 final class ArticleGetAllInput extends GetAllInput
 {
     /**
-     * @param string $key
+     * @param string $target
      * @param string $limit
      * @param string $order
      */
-    public function __construct(string $key, string $limit, string $order)
+    public function __construct(string $target, string $limit, string $order)
     {
-        $this->key = $key;
+        $this->key = $target;
         $this->limit = $limit;
         $this->order = $order;
     }
