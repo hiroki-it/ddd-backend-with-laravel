@@ -19,7 +19,7 @@ final class UserPhoneNumber extends ValueObject
     /**
      * @param string $phoneNumber
      */
-    public function __constructor(string $phoneNumber)
+    public function __construct(string $phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
     }
