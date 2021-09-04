@@ -16,6 +16,11 @@ abstract class GetAllInput
     /**
      * @var string
      */
+    protected string $target;
+
+    /**
+     * @var string
+     */
     protected string $limit;
 
     /**

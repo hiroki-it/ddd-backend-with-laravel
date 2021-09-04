@@ -64,7 +64,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $articles = $this->articleRepository->findAll(
             new ArticleCriteria(
-                $input->key,
+                $input->target,
                 $input->limit,
                 $input->order
             )
