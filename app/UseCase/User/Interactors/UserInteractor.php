@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\UseCase\User\Interactors;
 
+use App\Domain\User\Entities\User;
+use App\Domain\User\Events\UserCreatedEvent;
 use App\Domain\User\Repositories\UserRepository;
 use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
@@ -48,6 +50,12 @@ final class UserInteractor implements UserInputBoundary
 
         $this->userRepository->create($user);
 
-        // ここにResponse生成処理
+        // リスナーにイベントを発行します．
+        event(new UserCreatedEvent($user));
+
+        return New UserCreateOutput(
+            $user->id->id,
+            $user->name->name
+        );
     }
 }
