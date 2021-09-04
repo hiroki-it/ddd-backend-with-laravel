@@ -50,9 +50,9 @@ final class ArticleInteractor implements ArticleInputBoundary
 
         return new ArticleGetOneOutput(
             $article->id->id,
-            $article->title->title,
-            $article->type->description(),
-            $article->content->content,
+            $article->articleTitle->title,
+            $article->articleType->description(),
+            $article->articleContent->content,
         );
     }
 
@@ -75,9 +75,9 @@ final class ArticleInteractor implements ArticleInputBoundary
         foreach ($articles as $article) {
             $ArticleGetOneOutputs[] = new ArticleGetOneOutput(
                 $article->id->id,
-                $article->title->title,
-                $article->type->description(),
-                $article->content->content,
+                $article->articleTitle->title,
+                $article->articleType->description(),
+                $article->articleContent->content,
             );
         }
 
@@ -101,9 +101,9 @@ final class ArticleInteractor implements ArticleInputBoundary
 
         return new ArticleCreateOutput(
             $article->id->id,
-            $article->title->title,
-            $article->type->description(),
-            $article->content->content,
+            $article->articleTitle->title,
+            $article->articleType->description(),
+            $article->articleContent->content,
         );
     }
 
@@ -124,9 +124,9 @@ final class ArticleInteractor implements ArticleInputBoundary
 
         return new ArticleUpdateOutput(
             $article->id->id,
-            $article->title->title,
-            $article->type->description(),
-            $article->content->content,
+            $article->articleTitle->title,
+            $article->articleType->description(),
+            $article->articleContent->content,
         );
     }
 

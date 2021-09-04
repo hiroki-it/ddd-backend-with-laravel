@@ -23,29 +23,29 @@ final class Article extends Entity
     /**
      * @var ArticleTitle
      */
-    private ArticleTitle $title;
+    private ArticleTitle $articleTitle;
 
     /**
      * @var ArticleType
      */
-    private ArticleType $type;
+    private ArticleType $articleType;
 
     /**
      * @var ArticleContent
      */
-    private ArticleContent $content;
+    private ArticleContent $articleContent;
 
     /**
-     * @param ArticleId      $id
-     * @param ArticleTitle   $title
-     * @param ArticleType    $type
-     * @param ArticleContent $content
+     * @param ArticleId      $articleId
+     * @param ArticleTitle   $articleTitle
+     * @param ArticleType    $articleType
+     * @param ArticleContent $articleContent
      */
-    public function __construct(ArticleId $id, ArticleTitle $title, ArticleType $type, ArticleContent $content)
+    public function __construct(ArticleId $articleId, ArticleTitle $articleTitle, ArticleType $articleType, ArticleContent $articleContent)
     {
-        $this->id = $id;
-        $this->title = $title;
-        $this->type = $type;
-        $this->content = $content;
+        $this->id = $articleId;
+        $this->articleTitle = $articleTitle;
+        $this->articleType = $articleType;
+        $this->articleContent = $articleContent;
     }
 }

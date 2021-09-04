@@ -20,29 +20,29 @@ final class User extends Entity
     /**
      * @var UserName
      */
-    protected UserName $name;
+    protected UserName $userName;
 
     /**
      * @var UserEmailAddress
      */
-    protected UserEmailAddress $emailAddress;
+    protected UserEmailAddress $userEmailAddress;
 
     /**
      * @var UserPassword
      */
-    protected UserPassword $password;
+    protected UserPassword $userPassword;
 
     /**
-     * @param UserId           $id
-     * @param UserName         $name
-     * @param UserEmailAddress $emailAddress
-     * @param UserPassword     $password
+     * @param UserId           $userId
+     * @param UserName         $userName
+     * @param UserEmailAddress $userEmailAddress
+     * @param UserPassword     $userPassword
      */
-    public function __construct(UserId $id, UserName $name, UserEmailAddress $emailAddress, UserPassword $password)
+    public function __construct(UserId $userId, UserName $userName, UserEmailAddress $userEmailAddress, UserPassword $userPassword)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->emailAddress = $emailAddress;
-        $this->password = $password;
+        $this->id = $userId;
+        $this->userName = $userName;
+        $this->userEmailAddress = $userEmailAddress;
+        $this->userPassword = $userPassword;
     }
 }

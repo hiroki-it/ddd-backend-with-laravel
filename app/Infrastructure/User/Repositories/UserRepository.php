@@ -81,9 +81,9 @@ final class UserRepository extends Repository implements UserRepositoryInterface
     private function fillArray(User $user): array
     {
         return [
-            'name'         => $user->name->name,
-            'emailAddress' => $user->emailAddress->emailAddress,
-            'password'     => $user->password->password
+            'user_name'         => $user->userName->name,
+            'user_email_address' => $user->userEmailAddress->emailAddress,
+            'user_password'     => $user->userPassword->password
         ];
     }
 }

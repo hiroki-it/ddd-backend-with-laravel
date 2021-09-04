@@ -55,7 +55,7 @@ final class UserInteractor implements UserInputBoundary
 
         return new UserCreateOutput(
             $user->id->id,
-            $user->name->name
+            $user->userName->name
         );
     }
 }
