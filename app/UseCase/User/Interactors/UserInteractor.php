@@ -6,6 +6,7 @@ namespace App\UseCase\User\Interactors;
 
 use App\Domain\User\Entities\User;
 use App\Domain\User\Events\UserCreatedEvent;
+use App\Domain\User\Ids\UserId;
 use App\Domain\User\Repositories\UserRepository;
 use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
