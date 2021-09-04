@@ -53,7 +53,7 @@ final class UserInteractor implements UserInputBoundary
         // リスナーにイベントを発行します．
         event(new UserCreatedEvent($user));
 
-        return New UserCreateOutput(
+        return new UserCreateOutput(
             $user->id->id,
             $user->name->name
         );
