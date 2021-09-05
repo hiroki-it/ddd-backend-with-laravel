@@ -20,7 +20,7 @@ final class AuthenticationController
             $authenticationRequest->session()->regenerate();
 
             // 認証後ページにリダイレクトします．
-            return redirect(RouteServiceProvider::HOME);
+            return redirect(RouteServiceProvider::AUTHORIZE);
         }
 
         // 未認証ページにリダイレクトします．
