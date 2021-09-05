@@ -9,7 +9,8 @@ use Illuminate\Http\RedirectResponse;
 final class AuthenticationController
 {
     /**
-     * @return RedirectResponse
+     * @param AuthenticationRequest $authenticationRequest
+     * @return Application|RedirectResponse|Redirector
      */
     public function login(AuthenticationRequest $authenticationRequest)
     {
