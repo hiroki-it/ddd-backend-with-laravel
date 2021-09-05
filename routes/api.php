@@ -5,7 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Article\ArticleController;
 use App\Http\Controllers\User\UserController;
 
-Route::group(['middleware' => ['auth:api']], function () {
+Route::group(['middleware' => ['auth:web']], function () {
 
     Route::group(['prefix' => 'users'], (function () {
         Route::post('/', [UserController::class, 'createUser']);
