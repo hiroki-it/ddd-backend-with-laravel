@@ -6,7 +6,6 @@ use App\Http\Controllers\Article\ArticleController;
 use App\Http\Controllers\User\UserController;
 
 Route::group(['middleware' => ['auth:api']], function () {
-
     Route::group(['prefix' => 'users'], (function () {
         Route::post('/', [UserController::class, 'createUser']);
         Route::put('/{id}', [UserController::class, 'updateUser']);
