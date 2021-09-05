@@ -11,7 +11,7 @@ final class AuthenticationController
     /**
      * @return RedirectResponse
      */
-    public function authenticate(AuthenticationRequest $authenticationRequest)
+    public function login(AuthenticationRequest $authenticationRequest)
     {
         $validated = $authenticationRequest->validated();
 
