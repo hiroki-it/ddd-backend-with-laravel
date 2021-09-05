@@ -14,7 +14,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request): string
     {
-        // ユーザの未認証時に，認証ページにリダイレクトできるように，URLを生成します．
+        // ユーザが認証されていない場合に，認証ページにリダイレクトできるように，URLを生成します．
         return url(RouteServiceProvider::UNAUTHORIZED);
     }
 }
