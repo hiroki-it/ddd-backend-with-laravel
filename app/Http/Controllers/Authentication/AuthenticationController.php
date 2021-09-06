@@ -23,11 +23,11 @@ final class AuthenticationController
             $authenticationRequest->session()->regenerate();
 
             // 認証後ページにリダイレクトします．
-            return redirect(RouteServiceProvider::AUTHORIZE);
+            return redirect(RouteServiceProvider::AUTHENTHICATED);
         }
 
-        // 未認証ページにリダイレクトします．
-        return redirect(RouteServiceProvider::UNAUTHORIZED);
+        // 認証前ページにリダイレクトします．
+        return redirect(RouteServiceProvider::UNAUTHENTHICATED);
     }
 
     /**
@@ -44,6 +44,6 @@ final class AuthenticationController
         // CSRFトークンを再生成します．
         $authenticationRequest->session()->regenerateToken();
 
-        return redirect(RouteServiceProvider::ROOT);
+        return redirect(RouteServiceProvider::UNAUTHENTHICATED);
     }
 }
