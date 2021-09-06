@@ -17,7 +17,7 @@ use Illuminate\Notifications\Notifiable;
 /**
  * ユーザDTOクラス
  */
-class UserDTO extends Authenticatable
+final class UserDTO extends Authenticatable
 {
     use DTOTrait;
     use HasFactory;

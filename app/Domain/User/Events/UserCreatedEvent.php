@@ -5,7 +5,7 @@ namespace App\Domain\User\Events;
 use App\Domain\Event;
 use App\Domain\User\Entities\User;
 
-class UserCreatedEvent extends Event
+final class UserCreatedEvent extends Event
 {
     /**
      * @var User
