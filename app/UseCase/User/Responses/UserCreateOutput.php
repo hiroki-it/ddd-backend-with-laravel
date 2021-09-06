@@ -6,7 +6,7 @@ namespace App\UseCase\User\Responses;
 
 use App\UseCase\Output;
 
-class UserCreateOutput extends Output
+final class UserCreateOutput extends Output
 {
     /**
      * @var int

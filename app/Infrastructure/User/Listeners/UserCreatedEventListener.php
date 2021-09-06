@@ -7,7 +7,7 @@ use App\Infrastructure\Listener;
 use App\Infrastructure\User\Notifications\UserCreatedEventNotification;
 use Illuminate\Support\Facades\Notification;
 
-class UserCreatedEventListener extends Listener
+final class UserCreatedEventListener extends Listener
 {
     /**
      * トランザクションの終了後にリスナーを実行するようにします．
