@@ -9,7 +9,7 @@ use App\Traits\ImmutableTrait;
 /**
  * 取得リクエストモデル基底クラス
  */
-abstract class GetAllInput
+abstract class IndexInput
 {
     use ImmutableTrait;
 

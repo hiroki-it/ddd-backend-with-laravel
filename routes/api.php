@@ -16,7 +16,7 @@ Route::group(['middleware' => ['auth:web']], function () {
     // 記事
     Route::group(['prefix' => 'articles'], function () {
         Route::get('/{id}', [ArticleController::class, 'getArticle']);
-        Route::get('/', [ArticleController::class, 'getArticleIndex']);
+        Route::get('/', [ArticleController::class, 'indexArticle']);
         Route::post('/', [ArticleController::class, 'createArticle']);
         Route::put('/{id}', [ArticleController::class, 'updateArticle']);
         Route::delete('/{id}', [ArticleController::class, 'deleteArticle']);
