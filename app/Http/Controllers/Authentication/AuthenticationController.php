@@ -14,7 +14,7 @@ final class AuthenticationController
     /**
      * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
         return response()->json();
     }
