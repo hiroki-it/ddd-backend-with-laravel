@@ -6,11 +6,11 @@ namespace App\UseCase\Article\InputBoundaries;
 
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
-use App\UseCase\Article\Inputs\ArticleGetAllInput;
+use App\UseCase\Article\Inputs\ArticleGetIndexInput;
 use App\UseCase\Article\Inputs\ArticleGetByIdInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Outputs\ArticleCreateOutput;
-use App\UseCase\Article\Outputs\ArticleGetAllOutput;
+use App\UseCase\Article\Outputs\ArticleGetIndexOutput;
 use App\UseCase\Article\Outputs\ArticleGetOneOutput;
 use App\UseCase\Article\Outputs\ArticleUpdateOutput;
 
@@ -38,10 +38,10 @@ interface ArticleInputBoundary
     /**
      * 複数の記事を取得します
      *
-     * @param ArticleGetAllInput $input
-     * @return ArticleGetAllOutput
+     * @param ArticleGetIndexInput $input
+     * @return ArticleGetIndexOutput
      */
-    public function getAllArticles(ArticleGetAllInput $input): ArticleGetAllOutput;
+    public function getArticleIndex(ArticleGetIndexInput $input): ArticleGetIndexOutput;
 
     /**
      * 記事を更新します

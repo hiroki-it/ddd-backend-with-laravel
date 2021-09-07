@@ -9,7 +9,7 @@ use App\UseCase\GetAllInput;
 /**
  * 記事リクエストモデル
  */
-final class ArticleGetAllInput extends GetAllInput
+final class ArticleGetIndexInput extends GetAllInput
 {
     /**
      * @param string $target

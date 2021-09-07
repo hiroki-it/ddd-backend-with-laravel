@@ -10,7 +10,7 @@ use App\Http\Requests\Article\ArticleGetRequest;
 use App\Http\Requests\Article\ArticleUpdateRequest;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
-use App\UseCase\Article\Inputs\ArticleGetAllInput;
+use App\UseCase\Article\Inputs\ArticleGetIndexInput;
 use App\UseCase\Article\Inputs\ArticleGetByIdInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Interactors\ArticleInteractor;
@@ -56,17 +56,17 @@ final class ArticleController extends Controller
      * @param ArticleGetRequest $articleGetRequest
      * @return JsonResponse
      */
-    public function getAllArticles(ArticleGetRequest $articleGetRequest): JsonResponse
+    public function getArticleIndex(ArticleGetRequest $articleGetRequest): JsonResponse
     {
         $validated = $articleGetRequest->validated();
 
-        $articleGetAllInput = new ArticleGetAllInput(
+        $articleGetAllInput = new ArticleGetIndexInput(
             $validated['target'],
             $validated['limit'],
             $validated['order']
         );
 
-        $articleGetAllOutput = $this->articleInteractor->getAllArticles($articleGetAllInput);
+        $articleGetAllOutput = $this->articleInteractor->getArticleIndex($articleGetAllInput);
 
         return response()->json($articleGetAllOutput->toArray());
     }
