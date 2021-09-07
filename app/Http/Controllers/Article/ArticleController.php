@@ -60,13 +60,13 @@ final class ArticleController extends Controller
     {
         $validated = $articleGetRequest->validated();
 
-        $articleGetAllInput = new ArticleIndexInput(
+        $articleIndexInput = new ArticleIndexInput(
             $validated['target'],
             $validated['limit'],
             $validated['order']
         );
 
-        $articleGetAllOutput = $this->articleInteractor->indexArticle($articleGetAllInput);
+        $articleGetAllOutput = $this->articleInteractor->indexArticle($articleIndexInput);
 
         return response()->json($articleGetAllOutput->toArray());
     }
