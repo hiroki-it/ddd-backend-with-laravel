@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\UseCase\Article\Inputs;
 
-use App\UseCase\GetByIdInput;
+use App\UseCase\ShowInput;
 
 /**
  * 記事リクエストモデル
  */
-final class ArticleGetByIdInput extends GetByIdInput
+final class ArticleShowInput extends ShowInput
 {
     /**
      * @param int $articleId

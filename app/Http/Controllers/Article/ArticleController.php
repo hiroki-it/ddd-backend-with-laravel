@@ -11,7 +11,7 @@ use App\Http\Requests\Article\ArticleUpdateRequest;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
 use App\UseCase\Article\Inputs\ArticleIndexInput;
-use App\UseCase\Article\Inputs\ArticleGetByIdInput;
+use App\UseCase\Article\Inputs\ArticleShowInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Interactors\ArticleInteractor;
 use Illuminate\Http\JsonResponse;
@@ -43,9 +43,9 @@ final class ArticleController extends Controller
      */
     public function showArticle(int $id): JsonResponse
     {
-        $articleGetByIdInput = new ArticleGetByIdInput($id);
+        $articleShowInput = new ArticleShowInput($id);
 
-        $articleGetByOutput = $this->articleInteractor->showArticle($articleGetByIdInput);
+        $articleGetByOutput = $this->articleInteractor->showArticle($articleShowInput);
 
         return response()->json($articleGetByOutput->toArray());
     }

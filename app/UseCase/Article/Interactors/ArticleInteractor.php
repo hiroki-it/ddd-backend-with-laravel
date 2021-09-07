@@ -15,7 +15,7 @@ use App\UseCase\Article\InputBoundaries\ArticleInputBoundary;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
 use App\UseCase\Article\Inputs\ArticleIndexInput;
-use App\UseCase\Article\Inputs\ArticleGetByIdInput;
+use App\UseCase\Article\Inputs\ArticleShowInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Outputs\ArticleCreateOutput;
 use App\UseCase\Article\Outputs\ArticleIndexOutput;
@@ -41,10 +41,10 @@ final class ArticleInteractor implements ArticleInputBoundary
     }
 
     /**
-     * @param ArticleGetByIdInput $input
+     * @param ArticleShowInput $input
      * @return ArticleShowOutput
      */
-    public function showArticle(ArticleGetByIdInput $input): ArticleShowOutput
+    public function showArticle(ArticleShowInput $input): ArticleShowOutput
     {
         $article = $this->articleRepository->findById(new ArticleId($input->id));
 
