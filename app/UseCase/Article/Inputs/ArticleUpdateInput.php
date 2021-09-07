@@ -6,9 +6,6 @@ namespace App\UseCase\Article\Inputs;
 
 use App\UseCase\UpdateInput;
 
-/**
- * 記事更新リクエストクラス
- */
 final class ArticleUpdateInput extends UpdateInput
 {
     /**
