@@ -41,11 +41,11 @@ final class ArticleController extends Controller
      * @param int $id
      * @return JsonResponse
      */
-    public function getArticle(int $id): JsonResponse
+    public function showArticle(int $id): JsonResponse
     {
         $articleGetByIdInput = new ArticleGetByIdInput($id);
 
-        $articleGetByOutput = $this->articleInteractor->getArticle($articleGetByIdInput);
+        $articleGetByOutput = $this->articleInteractor->showArticle($articleGetByIdInput);
 
         return response()->json($articleGetByOutput->toArray());
     }

@@ -12,14 +12,14 @@ final class ArticleIndexOutput extends Output
     /**
      * @var array
      */
-    private array $ArticleGetOneOutputs;
+    private array $articleShowOutputs;
 
     /**
-     * @param array $ArticleGetOneOutputs
+     * @param array $articleShowOutputs
      */
-    public function __construct(array $ArticleGetOneOutputs)
+    public function __construct(array $articleShowOutputs)
     {
-        $this->ArticleGetOneOutputs = $ArticleGetOneOutputs;
+        $this->articleShowOutputs = $articleShowOutputs;
     }
 
     /**
@@ -29,8 +29,8 @@ final class ArticleIndexOutput extends Output
     {
         $articles = [];
 
-        foreach ($this->ArticleGetOneOutputs as $articleGetOneOutput) {
-            $articles[] = $articleGetOneOutput->toArray();
+        foreach ($this->articleShowOutputs as $articleShowOutput) {
+            $articles[] = $articleShowOutput->toArray();
         }
 
         return [

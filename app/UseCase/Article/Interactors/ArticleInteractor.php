@@ -19,7 +19,7 @@ use App\UseCase\Article\Inputs\ArticleGetByIdInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Outputs\ArticleCreateOutput;
 use App\UseCase\Article\Outputs\ArticleIndexOutput;
-use App\UseCase\Article\Outputs\ArticleGetOneOutput;
+use App\UseCase\Article\Outputs\ArticleShowOutput;
 use App\UseCase\Article\Outputs\ArticleUpdateOutput;
 
 /**
@@ -42,13 +42,13 @@ final class ArticleInteractor implements ArticleInputBoundary
 
     /**
      * @param ArticleGetByIdInput $input
-     * @return ArticleGetOneOutput
+     * @return ArticleShowOutput
      */
-    public function getArticle(ArticleGetByIdInput $input): ArticleGetOneOutput
+    public function showArticle(ArticleGetByIdInput $input): ArticleShowOutput
     {
         $article = $this->articleRepository->findById(new ArticleId($input->id));
 
-        return new ArticleGetOneOutput(
+        return new ArticleShowOutput(
             $article->id->id,
             $article->articleTitle->title,
             $article->articleType->description(),
@@ -70,10 +70,10 @@ final class ArticleInteractor implements ArticleInputBoundary
             )
         );
 
-        $ArticleGetOneOutputs = [];
+        $articleShowOutputs = [];
 
         foreach ($articles as $article) {
-            $ArticleGetOneOutputs[] = new ArticleGetOneOutput(
+            $articleShowOutputs[] = new ArticleShowOutput(
                 $article->id->id,
                 $article->articleTitle->title,
                 $article->articleType->description(),
@@ -81,7 +81,7 @@ final class ArticleInteractor implements ArticleInputBoundary
             );
         }
 
-        return new ArticleIndexOutput($ArticleGetOneOutputs);
+        return new ArticleIndexOutput($articleShowOutputs);
     }
 
     /**
