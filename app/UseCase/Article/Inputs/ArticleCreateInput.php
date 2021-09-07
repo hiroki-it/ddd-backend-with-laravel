@@ -6,9 +6,6 @@ namespace App\UseCase\Article\Inputs;
 
 use App\UseCase\CreateInput;
 
-/**
- * 記事作成リクエストクラス
- */
 final class ArticleCreateInput extends CreateInput
 {
     /**

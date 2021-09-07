@@ -6,9 +6,6 @@ namespace App\UseCase\Article\Inputs;
 
 use App\UseCase\IndexInput;
 
-/**
- * 記事リクエストモデル
- */
 final class ArticleIndexInput extends IndexInput
 {
     /**

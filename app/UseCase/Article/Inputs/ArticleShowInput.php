@@ -6,9 +6,6 @@ namespace App\UseCase\Article\Inputs;
 
 use App\UseCase\ShowInput;
 
-/**
- * 記事リクエストモデル
- */
 final class ArticleShowInput extends ShowInput
 {
     /**
