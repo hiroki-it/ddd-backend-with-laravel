@@ -14,11 +14,11 @@ use App\Domain\Article\ValueObjects\ArticleType;
 use App\UseCase\Article\InputBoundaries\ArticleInputBoundary;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
-use App\UseCase\Article\Inputs\ArticleGetAllInput;
+use App\UseCase\Article\Inputs\ArticleGetIndexInput;
 use App\UseCase\Article\Inputs\ArticleGetByIdInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Outputs\ArticleCreateOutput;
-use App\UseCase\Article\Outputs\ArticleGetAllOutput;
+use App\UseCase\Article\Outputs\ArticleGetIndexOutput;
 use App\UseCase\Article\Outputs\ArticleGetOneOutput;
 use App\UseCase\Article\Outputs\ArticleUpdateOutput;
 
@@ -57,10 +57,10 @@ final class ArticleInteractor implements ArticleInputBoundary
     }
 
     /**
-     * @param ArticleGetAllInput $input
-     * @return ArticleGetAllOutput
+     * @param ArticleGetIndexInput $input
+     * @return ArticleGetIndexOutput
      */
-    public function getAllArticles(ArticleGetAllInput $input): ArticleGetAllOutput
+    public function getArticleIndex(ArticleGetIndexInput $input): ArticleGetIndexOutput
     {
         $articles = $this->articleRepository->findAll(
             new ArticleCriteria(
@@ -81,7 +81,7 @@ final class ArticleInteractor implements ArticleInputBoundary
             );
         }
 
-        return new ArticleGetAllOutput($ArticleGetOneOutputs);
+        return new ArticleGetIndexOutput($ArticleGetOneOutputs);
     }
 
     /**
