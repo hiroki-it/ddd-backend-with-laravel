@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\User\Requests;
+namespace App\UseCase\User\Inputs;
 
 use App\UseCase\CreateInput;
 

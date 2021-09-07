@@ -6,7 +6,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserCreateRequest;
-use App\UseCase\User\Requests\UserCreateInput;
+use App\UseCase\User\Inputs\UserCreateInput;
 use App\UseCase\User\Interactors\UserInteractor;
 use Illuminate\Http\JsonResponse;
 use Throwable;
