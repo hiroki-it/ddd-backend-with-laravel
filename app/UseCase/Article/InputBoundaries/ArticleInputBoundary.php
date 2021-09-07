@@ -11,7 +11,7 @@ use App\UseCase\Article\Inputs\ArticleGetByIdInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Outputs\ArticleCreateOutput;
 use App\UseCase\Article\Outputs\ArticleIndexOutput;
-use App\UseCase\Article\Outputs\ArticleGetOneOutput;
+use App\UseCase\Article\Outputs\ArticleShowOutput;
 use App\UseCase\Article\Outputs\ArticleUpdateOutput;
 
 /**
@@ -31,9 +31,9 @@ interface ArticleInputBoundary
      * 記事を取得します．
      *
      * @param ArticleGetByIdInput $input
-     * @return ArticleGetOneOutput
+     * @return ArticleShowOutput
      */
-    public function getArticle(ArticleGetByIdInput $input): ArticleGetOneOutput;
+    public function showArticle(ArticleGetByIdInput $input): ArticleShowOutput;
 
     /**
      * 複数の記事を取得します
