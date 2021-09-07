@@ -3,14 +3,24 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Article\ArticleController;
+use App\Http\Controllers\Authentication\AuthenticationController;
 use App\Http\Controllers\User\UserController;
 
-Route::group(['middleware' => ['auth:api']], function () {
-    Route::group(['prefix' => 'users'], (function () {
+// 認証前
+Route::get('/', [AuthenticationController::class, 'index']);
+Route::post('/', [AuthenticationController::class, 'login']);
+
+// 認証後
+Route::group(['middleware' => ['auth:web']], function () {
+    // 認証解除
+    Route::post('/logout', [AuthenticationController::class, 'logout']);
+
+    // ユーザ
+    Route::group(['prefix' => 'users'], function () {
         Route::post('/', [UserController::class, 'createUser']);
         Route::put('/{id}', [UserController::class, 'updateUser']);
         Route::delete('/{id}', [UserController::class, 'deleteUser']);
-    }));
+    });
 
     // 記事
     Route::group(['prefix' => 'articles'], function () {
