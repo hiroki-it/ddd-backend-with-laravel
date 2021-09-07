@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\UseCase\Article\Inputs;
 
-use App\UseCase\GetAllInput;
+use App\UseCase\IndexInput;
 
 /**
  * 記事リクエストモデル
  */
-final class ArticleGetIndexInput extends GetAllInput
+final class ArticleIndexInput extends IndexInput
 {
     /**
      * @param string $target

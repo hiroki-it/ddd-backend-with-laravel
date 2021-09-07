@@ -7,7 +7,7 @@ use App\UseCase\Output;
 /**
  * レスポンスクラス
  */
-final class ArticleGetIndexOutput extends Output
+final class ArticleIndexOutput extends Output
 {
     /**
      * @var array
