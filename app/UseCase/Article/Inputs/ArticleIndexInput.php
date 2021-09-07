@@ -15,7 +15,7 @@ final class ArticleIndexInput extends IndexInput
      */
     public function __construct(string $target, string $limit, string $order)
     {
-        $this->key = $target;
+        $this->target = $target;
         $this->limit = $limit;
         $this->order = $order;
     }
