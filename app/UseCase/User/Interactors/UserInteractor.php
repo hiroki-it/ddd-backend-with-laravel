@@ -12,8 +12,8 @@ use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\UseCase\User\InputBoundaries\UserInputBoundary;
-use App\UseCase\User\Requests\UserCreateInput;
-use App\UseCase\User\Responses\UserCreateOutput;
+use App\UseCase\User\Inputs\UserCreateInput;
+use App\UseCase\User\Outputs\UserCreateOutput;
 
 /**
 * ユーザユースケースクラス

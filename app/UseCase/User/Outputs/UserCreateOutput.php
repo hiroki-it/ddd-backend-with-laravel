@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UseCase\User\Responses;
+namespace App\UseCase\User\Outputs;
 
 use App\UseCase\Output;
 
