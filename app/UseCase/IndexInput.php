@@ -7,7 +7,7 @@ namespace App\UseCase;
 use App\Traits\ImmutableTrait;
 
 /**
- * 取得リクエストモデル基底クラス
+ * 一覧リクエストモデル基底クラス
  */
 abstract class IndexInput
 {

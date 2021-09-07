@@ -5,9 +5,9 @@ namespace App\UseCase;
 use App\Traits\ImmutableTrait;
 
 /**
- * 取得リクエストモデル基底クラス
+ * 詳細リクエストモデル基底クラス
  */
-abstract class GetByIdInput
+abstract class ShowInput
 {
     use ImmutableTrait;
 
