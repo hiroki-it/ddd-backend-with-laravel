@@ -51,7 +51,7 @@ final class ArticleRepository extends Repository implements ArticleRepositoryInt
     public function findAll(ArticleCriteria $criteria): array
     {
         $articlesDTO = $this->articleDTO
-            ->orderBy("article_" . $criteria->target, $criteria->order)
+            ->orderBy($criteria->target, $criteria->order)
             ->get();
 
         $articles = [];
@@ -114,9 +114,9 @@ final class ArticleRepository extends Repository implements ArticleRepositoryInt
     private function fillArray(Article $article): array
     {
         return [
-            'article_title'   => $article->articleTitle->title,
-            'article_type'    => $article->articleType->value,
-            'article_content' => $article->articleContent->content
+            'title'   => $article->articleTitle->title,
+            'type'    => $article->articleType->value,
+            'content' => $article->articleContent->content
         ];
     }
 }

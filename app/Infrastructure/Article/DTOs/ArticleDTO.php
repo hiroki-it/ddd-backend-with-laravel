@@ -27,15 +27,10 @@ final class ArticleDTO extends Model
     protected $table = "articles";
 
     /**
-     * @var string
-     */
-    protected $primaryKey = 'article_id';
-
-    /**
      * @var array
      */
     protected $cast = [
-        'article_id' => 'integer'
+        'id' => 'integer'
     ];
 
     /**
@@ -53,9 +48,9 @@ final class ArticleDTO extends Model
      * @var array
      */
     protected $fillable = [
-        'article_title',
-        'article_type',
-        'article_content',
+        'title',
+        'type',
+        'content',
     ];
 
     /**
@@ -66,10 +61,10 @@ final class ArticleDTO extends Model
     public function toArticle(): Article
     {
         return new Article(
-            new ArticleId($this->article_id),
-            new ArticleTitle($this->article_title),
-            new ArticleType($this->article_type),
-            new ArticleContent($this->article_content)
+            new ArticleId($this->id),
+            new ArticleTitle($this->title),
+            new ArticleType($this->type),
+            new ArticleContent($this->content)
         );
     }
 }
