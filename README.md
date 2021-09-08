@@ -41,7 +41,7 @@ project
     ├── Infrastructure # ** インフラストラクチャ層 **
     |   └── Foo              # 任意のルートエンティティ
     |       ├── DTOs         # エンティティ詰め替えオブジェクト（Eloquentを継承）
-    |       ├── DTOs         # リスナー    
+    |       ├── Listeners    # リスナー
     |       ├── Notification # 通知内容生成クラス
     |       └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
     |
