@@ -48,7 +48,7 @@ final class UserCreatedEventNotification extends Notification
     public function toArray($notifiable): array
     {
         return [
-            'user_email' => $this->user->userEmailAddress->email,
+            'email' => $this->user->userEmailAddress->email,
         ];
     }
 }

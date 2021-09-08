@@ -12,7 +12,6 @@ use App\Domain\User\ValueObjects\UserPassword;
 use App\Traits\DTOTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 /**
  * ユーザDTOクラス
@@ -49,9 +48,9 @@ final class UserDTO extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'user_name',
-        'user_email_address',
-        'user_password',
+        'name',
+        'email_address',
+        'password',
     ];
 
     /**
@@ -72,10 +71,10 @@ final class UserDTO extends Authenticatable
     public function toUser(): User
     {
         return new User(
-            new UserId($this->user_id),
-            new UserName($this->user_name),
-            new UserEmailAddress($this->user_email_address),
-            new UserPassword($this->user_password),
+            new UserId($this->id),
+            new UserName($this->name),
+            new UserEmailAddress($this->email_address),
+            new UserPassword($this->password),
         );
     }
 }
