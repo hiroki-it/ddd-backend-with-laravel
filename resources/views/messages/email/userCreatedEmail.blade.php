@@ -1,6 +1,6 @@
 @component('mail::message')
 
-{{$user_name}} さん
+{{$userName}} さん
 
 ユーザ登録が完了しました。
 
