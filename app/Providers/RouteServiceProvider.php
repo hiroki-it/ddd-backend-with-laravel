@@ -25,7 +25,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/healthcheck.php'));
 
         // APIにルーティングします．
-        Route::middleware('api')
+        Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
     }
