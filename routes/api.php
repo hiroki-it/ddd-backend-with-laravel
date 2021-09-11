@@ -18,9 +18,6 @@ Route::group(['middleware' => ['auth:web']], function () {
         Route::get('/', [HomeController::class, 'indexHome']);
     });
 
-    // 認証解除
-    Route::post('/logout', [AuthenticationController::class, 'logout']);
-
     // ユーザ
     Route::group(['prefix' => 'users'], function () {
         Route::post('/', [UserController::class, 'createUser']);
@@ -36,4 +33,7 @@ Route::group(['middleware' => ['auth:web']], function () {
         Route::put('/{id}', [ArticleController::class, 'updateArticle']);
         Route::delete('/{id}', [ArticleController::class, 'deleteArticle']);
     });
+
+    // 認証解除
+    Route::post('/logout', [AuthenticationController::class, 'logout']);
 });
