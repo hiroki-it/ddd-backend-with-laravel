@@ -20,17 +20,17 @@ final class AuthenticationController
     }
 
     /**
-     * @param AuthenticationLoginRequest $authenticationRequest
+     * @param AuthenticationLoginRequest $authenticationLoginRequest
      * @return Application|RedirectResponse|Redirector
      */
-    public function login(AuthenticationLoginRequest $authenticationRequest)
+    public function login(AuthenticationLoginRequest $authenticationLoginRequest)
     {
-        $validated = $authenticationRequest->validated();
+        $validated = $authenticationLoginRequest->validated();
 
         // NOTE: テストする時は，ストレッチ８回でBCryptハッシュ値生成サービスを使用すること．
         if (auth()->attempt($validated)) {
             // セッションID固定化を防ぐために，認証後にセッションを再作成します．
-            $authenticationRequest->session()->regenerate();
+            $authenticationLoginRequest->session()->regenerate();
 
             // 認証後ページにリダイレクトします．
             return redirect(RouteServiceProvider::AUTHENTHICATED);
