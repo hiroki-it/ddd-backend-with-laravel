@@ -4,7 +4,7 @@ namespace App\Http\Requests\Authentication;
 
 use App\Http\Requests\Request;
 
-final class AuthenticationRequest extends Request
+final class AuthenticationLoginRequest extends Request
 {
     /**
      * @return array

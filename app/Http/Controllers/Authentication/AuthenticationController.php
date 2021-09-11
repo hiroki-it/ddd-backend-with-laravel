@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Authentication;
 
-use App\Http\Requests\Authentication\AuthenticationRequest;
+use App\Http\Requests\Authentication\AuthenticationLoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\JsonResponse;
@@ -20,10 +20,10 @@ final class AuthenticationController
     }
 
     /**
-     * @param AuthenticationRequest $authenticationRequest
+     * @param AuthenticationLoginRequest $authenticationRequest
      * @return Application|RedirectResponse|Redirector
      */
-    public function login(AuthenticationRequest $authenticationRequest)
+    public function login(AuthenticationLoginRequest $authenticationRequest)
     {
         $validated = $authenticationRequest->validated();
 
@@ -41,10 +41,10 @@ final class AuthenticationController
     }
 
     /**
-     * @param AuthenticationRequest $authenticationRequest
+     * @param AuthenticationLoginRequest $authenticationRequest
      * @return Application|RedirectResponse|Redirector
      */
-    public function logout(AuthenticationRequest $authenticationRequest)
+    public function logout(AuthenticationLoginRequest $authenticationRequest)
     {
         auth()->logout();
 
