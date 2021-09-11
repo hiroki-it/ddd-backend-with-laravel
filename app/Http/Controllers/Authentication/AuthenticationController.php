@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Authentication;
 
 use App\Http\Requests\Authentication\AuthenticationLoginRequest;
+use App\Http\Requests\Authentication\AuthenticationLogoutRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\JsonResponse;
@@ -41,18 +42,18 @@ final class AuthenticationController
     }
 
     /**
-     * @param AuthenticationLoginRequest $authenticationRequest
+     * @param AuthenticationLogoutRequest $authenticationLogoutRequest
      * @return Application|RedirectResponse|Redirector
      */
-    public function logout(AuthenticationLoginRequest $authenticationRequest)
+    public function logout(AuthenticationLogoutRequest $authenticationLogoutRequest)
     {
         auth()->logout();
 
         // セッションを削除します．
-        $authenticationRequest->session()->invalidate();
+        $authenticationLogoutRequest->session()->invalidate();
 
         // CSRFトークンを再生成します．
-        $authenticationRequest->session()->regenerateToken();
+        $authenticationLogoutRequest->session()->regenerateToken();
 
         return redirect(RouteServiceProvider::UNAUTHENTHICATED);
     }
