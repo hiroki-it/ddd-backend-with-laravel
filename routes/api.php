@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Article\ArticleController;
 use App\Http\Controllers\Authentication\AuthenticationController;
+use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\User\UserController;
 
 // 認証前
@@ -12,6 +13,11 @@ Route::post('/', [AuthenticationController::class, 'login']);
 
 // 認証後
 Route::group(['middleware' => ['auth:web']], function () {
+    // ホーム
+    Route::group(['prefix' => 'home'], function () {
+        Route::get('/', [HomeController::class, 'indexHome']);
+    });
+
     // 認証解除
     Route::post('/logout', [AuthenticationController::class, 'logout']);
 
