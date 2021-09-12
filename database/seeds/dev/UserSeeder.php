@@ -7,9 +7,6 @@ namespace Database\Seeders;
 use App\Infrastructure\User\DTOs\UserDTO;
 use Illuminate\Database\Seeder;
 
-/**
- * ユーザシーダークラス
- */
 class UserSeeder extends Seeder
 {
     /**
