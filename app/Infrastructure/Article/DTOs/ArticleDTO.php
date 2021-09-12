@@ -48,6 +48,7 @@ final class ArticleDTO extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'title',
         'type',
         'content',
@@ -62,6 +63,7 @@ final class ArticleDTO extends Model
     {
         return new Article(
             new ArticleId($this->id),
+            new UserId($this->user_id),
             new ArticleTitle($this->title),
             new ArticleType($this->type),
             new ArticleContent($this->content)
