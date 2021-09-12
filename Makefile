@@ -13,3 +13,8 @@ clear-cache:
 		&& php artisan event:clear \
 		&& php artisan route:clear \
 		&& php artisan view:clear
+
+# DBレコードを全て削除し，テストデータを挿入します．
+fresh-seed-db:
+	php artisan migrate:fresh \
+		&& php artisan db:seed --class=DatabaseSeeder
