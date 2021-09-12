@@ -17,9 +17,6 @@ use App\UseCase\Article\Interactors\ArticleInteractor;
 use Illuminate\Http\JsonResponse;
 use Throwable;
 
-/**
- * 記事コントローラクラス
- */
 final class ArticleController extends Controller
 {
     /**
@@ -36,8 +33,6 @@ final class ArticleController extends Controller
     }
 
     /**
-     * 記事を返却します．
-     *
      * @param int $id
      * @return JsonResponse
      */
@@ -51,8 +46,6 @@ final class ArticleController extends Controller
     }
 
     /**
-     * 記事の一覧を返却します．
-     *
      * @param ArticleIndexRequest $articleIndexRequest
      * @return JsonResponse
      */
@@ -72,8 +65,6 @@ final class ArticleController extends Controller
     }
 
     /**
-     * 記事を作成します．
-     *
      * @param ArticleCreateRequest $articleCreateRequest
      * @return JsonResponse
      */
@@ -97,8 +88,6 @@ final class ArticleController extends Controller
     }
 
     /**
-     * 記事を更新します．
-     *
      * @param ArticleUpdateRequest $articleUpdateRequest
      * @param int               $id
      * @return JsonResponse
@@ -124,8 +113,6 @@ final class ArticleController extends Controller
     }
 
     /**
-     * 記事を削除します．
-     *
      * @param int $id
      * @return JsonResponse
      */
