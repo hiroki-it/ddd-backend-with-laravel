@@ -26,9 +26,9 @@ class ArticleDTOFactory extends Factory
     {
         return [
             'user_id' => $this->userIdIncrement++ , // 加算代入
-            'title'   => $this->faker->sentence(20),
+            'title'   => $this->faker->realText(50),
             'type'    => $this->faker->numberBetween(1, 2),
-            'content' => $this->faker->text(50),
+            'content' => $this->faker->realText(300),
         ];
     }
 }
