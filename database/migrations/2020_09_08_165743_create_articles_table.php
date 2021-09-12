@@ -27,6 +27,7 @@ class CreateArticlesTable extends Migration
 
             $table->softDeletes()->comment('レコードの削除日');
 
+            // user_idに外部キー制約を課す．
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
