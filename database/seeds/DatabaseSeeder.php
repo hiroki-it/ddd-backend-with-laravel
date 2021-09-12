@@ -8,14 +8,9 @@ use Database\Seeders\ArticleSeeder;
 use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
-/**
- * データベースシーダークラス
- */
 class DatabaseSeeder extends Seeder
 {
     /**
-     * 全てのシーダを実行します．
-     *
      * @return void
      */
     public function run()
