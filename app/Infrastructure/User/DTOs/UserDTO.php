@@ -10,6 +10,8 @@ use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\Traits\DTOTrait;
+use Database\Factories\UserDTOFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -76,5 +78,17 @@ final class UserDTO extends Authenticatable
             new UserEmailAddress($this->email_address),
             new UserPassword($this->password),
         );
+    }
+
+    /**
+     * NOTE:
+     * Factoryの名前空間を正しく解決できない．
+     * @see https://github.com/laravel/framework/issues/37038
+     *
+     * @return Factory
+     */
+    protected static function newFactory()
+    {
+        return UserDTOFactory::new();
     }
 }
