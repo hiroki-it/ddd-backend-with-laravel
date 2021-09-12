@@ -2,10 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Database\dev;
+namespace Database\Seeders;
 
-use Database\Seeders\ArticleSeeder;
-use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
