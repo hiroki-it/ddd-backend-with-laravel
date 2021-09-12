@@ -42,7 +42,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Database\\Factories\\Infrastructure\\DTO\\": "database/factories/prd",
+            "Database\\Factories\\": "database/factories/prd",
             "Database\\Seeders\\": "database/seeds/prd"
         },
         "classmap": [
@@ -53,7 +53,7 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Database\\Factories\\Infrastructure\\DTO\\": "database/factories/dev",
+            "Database\\Factories\\": "database/factories/dev",
             "Database\\Seeders\\": "database/seeds/dev"
         }
     },
