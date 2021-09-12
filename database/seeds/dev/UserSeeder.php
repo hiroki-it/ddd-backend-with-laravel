@@ -10,8 +10,6 @@ use Illuminate\Database\Seeder;
 class UserSeeder extends Seeder
 {
     /**
-     * シーダーを実行します．
-     *
      * @return void
      */
     public function run()
