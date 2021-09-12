@@ -8,7 +8,7 @@ use App\Constant\CriteriaConstant;
 use App\Http\Requests\Request;
 use Illuminate\Validation\Rule;
 
-final class ArticleGetRequest extends Request
+final class ArticleIndexRequest extends Request
 {
     /**
      * @return array

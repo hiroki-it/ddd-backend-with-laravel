@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Article;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Article\ArticleCreateRequest;
-use App\Http\Requests\Article\ArticleGetRequest;
+use App\Http\Requests\Article\ArticleIndexRequest;
 use App\Http\Requests\Article\ArticleUpdateRequest;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
@@ -53,12 +53,12 @@ final class ArticleController extends Controller
     /**
      * 記事の一覧を返却します．
      *
-     * @param ArticleGetRequest $articleGetRequest
+     * @param ArticleIndexRequest $articleIndexRequest
      * @return JsonResponse
      */
-    public function indexArticle(ArticleGetRequest $articleGetRequest): JsonResponse
+    public function indexArticle(ArticleIndexRequest $articleIndexRequest): JsonResponse
     {
-        $validated = $articleGetRequest->validated();
+        $validated = $articleIndexRequest->validated();
 
         $articleIndexInput = new ArticleIndexInput(
             $validated['target'],
