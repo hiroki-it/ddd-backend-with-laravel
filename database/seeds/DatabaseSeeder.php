@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Database\dev;
 
-use Database\Seeds\ArticleSeeder;
+use Database\Seeders\ArticleSeeder;
+use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\App;
 
