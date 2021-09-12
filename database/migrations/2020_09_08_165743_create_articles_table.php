@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('ID');
+            $table->unsignedBigInteger('user_id')->nullable()->comment('ユーザID');
             $table->string('title', 255)->comment('タイトル');
             $table->integer('type')->comment('区分');
             $table->mediumText('content')->comment('本文');
@@ -25,6 +26,8 @@ class CreateArticlesTable extends Migration
             $table->systemColumns();
 
             $table->softDeletes()->comment('レコードの削除日');
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
