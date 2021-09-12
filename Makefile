@@ -4,7 +4,7 @@ composer-install:
 
 # composer update
 composer-update:
-	COMPOSER_MEMORY_LIMIT=-1 composer update -vvv
+	COMPOSER_MEMORY_LIMIT=-1 composer update --prefer-dist -vvv
 
 # 全てのキャッシュを削除します．
 clear-all-cache:
