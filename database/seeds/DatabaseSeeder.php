@@ -7,7 +7,6 @@ namespace Database\dev;
 use Database\Seeders\ArticleSeeder;
 use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\App;
 
 /**
  * データベースシーダークラス
@@ -21,7 +20,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        if (App::environment("local")) {
+        if (app()->environment("dev")) {
             $this->call([
                 ArticleSeeder::class,
                 UserSeeder::class,
