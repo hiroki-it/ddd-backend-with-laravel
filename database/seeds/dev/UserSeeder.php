@@ -9,11 +9,13 @@ use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
+    private const NUM_TEST_DATA = 3;
+
     /**
      * @return void
      */
     public function run()
     {
-        UserDTO::factory()->create();
+        UserDTO::factory()->count(self::NUM_TEST_DATA)->create();
     }
 }
