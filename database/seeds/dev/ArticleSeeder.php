@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Database\dev;
+namespace Database\Seeds;
 
 use App\Infrastructure\Article\DTOs\ArticleDTO;
 use Illuminate\Database\Seeder;
