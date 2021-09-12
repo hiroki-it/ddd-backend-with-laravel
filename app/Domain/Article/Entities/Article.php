@@ -9,6 +9,7 @@ use App\Domain\Article\Ids\ArticleId;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
 use App\Domain\Entity;
+use App\Domain\User\Ids\UserId;
 use App\Traits\ImmutableTrait;
 
 /**
@@ -19,6 +20,11 @@ use App\Traits\ImmutableTrait;
 final class Article extends Entity
 {
     use ImmutableTrait;
+
+    /**
+     * @var UserId
+     */
+    private UserId $userId;
 
     /**
      * @var ArticleTitle
@@ -37,13 +43,15 @@ final class Article extends Entity
 
     /**
      * @param ArticleId      $articleId
+     * @param UserId         $userId
      * @param ArticleTitle   $articleTitle
      * @param ArticleType    $articleType
      * @param ArticleContent $articleContent
      */
-    public function __construct(ArticleId $articleId, ArticleTitle $articleTitle, ArticleType $articleType, ArticleContent $articleContent)
+    public function __construct(ArticleId $articleId, UserId $userId, ArticleTitle $articleTitle, ArticleType $articleType, ArticleContent $articleContent)
     {
         $this->id = $articleId;
+        $this->userId = $userId;
         $this->articleTitle = $articleTitle;
         $this->articleType = $articleType;
         $this->articleContent = $articleContent;

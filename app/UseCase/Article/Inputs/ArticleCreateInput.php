@@ -9,6 +9,11 @@ use App\UseCase\CreateInput;
 final class ArticleCreateInput extends CreateInput
 {
     /**
+     * @var int
+     */
+    protected int $userId;
+
+    /**
      * @var string
      */
     protected string $title;
@@ -24,12 +29,14 @@ final class ArticleCreateInput extends CreateInput
     protected string $content;
 
     /**
+     * @param int    $userId
      * @param string $title
-     * @param int $type
+     * @param int    $type
      * @param string $content
      */
-    public function __construct(string $title, int $type, string $content)
+    public function __construct(int $userId, string $title, int $type, string $content)
     {
+        $this->userId = $userId;
         $this->title = $title;
         $this->type = $type;
         $this->content = $content;

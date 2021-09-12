@@ -74,6 +74,7 @@ final class ArticleController extends Controller
             $validated = $articleCreateRequest->validated();
 
             $articleCreateInput = new ArticleCreateInput(
+                auth()->id(),
                 $validated['title'],
                 $validated['type'],
                 $validated['content'],
