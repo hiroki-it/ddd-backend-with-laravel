@@ -14,11 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // NOTE: 外部キーが課された子テーブルよりも先に，親テーブルにテストデータが挿入されるようにします．
-        if (app()->environment("dev")) {
-            $this->call([
-                UserSeeder::class,
-                ArticleSeeder::class,
-            ]);
-        }
+        $this->call([
+            UserSeeder::class,
+            ArticleSeeder::class,
+        ]);
     }
 }
