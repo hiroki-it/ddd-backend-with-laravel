@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories\Infrastructure\DTO;
+namespace Database\Factories;
 
 use App\Infrastructure\User\DTOs\UserDTO;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserFactory extends Factory
+class UserDTOFactory extends Factory
 {
     /**
      * @var string
@@ -20,9 +20,9 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name'          => 'test',
-            'email_address' => 'test@gmail.com',
-            'password'      => 'test',
+            'name'          => $this->faker->name,
+            'email_address' => $this->faker->unique()->safeEmail,
+            'password'      => 'password',
         ];
     }
 }
