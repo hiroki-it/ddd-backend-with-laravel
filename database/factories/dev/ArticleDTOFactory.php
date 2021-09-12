@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ArticleDTOFactory extends Factory
 {
+    /**
+     * @var int
+     */
     private int $userIdIncrement = 0;
 
     /**
