@@ -11,6 +11,7 @@ use App\Domain\Article\Repositories\ArticleRepository;
 use App\Domain\Article\ValueObjects\ArticleContent;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
+use App\Domain\User\Ids\UserId;
 use App\UseCase\Article\InputBoundaries\ArticleInputBoundary;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
@@ -92,6 +93,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $article = new Article(
             new ArticleId(0),
+            new UserId($input->userId),
             new ArticleTitle($input->title),
             new ArticleType($input->type),
             new ArticleContent($input->content)
@@ -115,6 +117,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $article = new Article(
             new ArticleId($input->id),
+            new UserId($input->userId),
             new ArticleTitle($input->title),
             new ArticleType($input->type),
             new ArticleContent($input->content)

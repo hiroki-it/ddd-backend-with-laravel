@@ -114,6 +114,7 @@ final class ArticleRepository extends Repository implements ArticleRepositoryInt
     private function fillArray(Article $article): array
     {
         return [
+            'user_id'  => $article->userId->id,
             'title'   => $article->articleTitle->title,
             'type'    => $article->articleType->value,
             'content' => $article->articleContent->content
