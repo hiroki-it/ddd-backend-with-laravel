@@ -7,7 +7,7 @@ composer-update:
 	COMPOSER_MEMORY_LIMIT=-1 composer update --prefer-dist -vvv
 
 # 全てのキャッシュを削除します．
-clear-all-cache:
+clear-cache:
 	php artisan cache:clear \
 		&& php artisan config:clear \
 		&& php artisan event:clear \
