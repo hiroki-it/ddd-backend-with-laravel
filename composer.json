@@ -43,18 +43,14 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/prd",
-            "Database\\Seeders\\": "database/seeds/prd"
-        },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ]
+            "Database\\Seeders\\": "database/seeders/prd"
+        }
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
             "Database\\Factories\\": "database/factories/dev",
-            "Database\\Seeders\\": "database/seeds/dev"
+            "Database\\Seeders\\": "database/seeders/dev"
         }
     },
     "minimum-stability": "dev",
