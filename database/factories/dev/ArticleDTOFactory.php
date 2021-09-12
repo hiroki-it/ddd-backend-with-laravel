@@ -12,7 +12,7 @@ class ArticleDTOFactory extends Factory
     /**
      * @var int
      */
-    private int $userIdIncrement = 0;
+    private int $userIdIncrement = 1;
 
     /**
      * @var string
@@ -25,7 +25,7 @@ class ArticleDTOFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->userIdIncrement++ ,
+            'user_id' => $this->userIdIncrement++ , // 加算代入
             'title'   => $this->faker->sentence(20),
             'type'    => $this->faker->numberBetween(1, 2),
             'content' => $this->faker->text(50),
