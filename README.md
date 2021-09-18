@@ -64,7 +64,7 @@ project
 
 イメージのビルドとコンテナの構築を行います．
 
-```sh
+```bash
 $ docker-compose up -d
 ```
 
@@ -74,7 +74,7 @@ $ docker-compose up -d
 
 ここでは，appサービスにてライブラリをインストールします．
 
-```shell
+```bash
 $ docker-compose exec app bash
 
 root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make composer-install
@@ -88,7 +88,7 @@ GitHub Actionsを使用して，プッシュされたソースコードを整形
 
 開発環境でこれを実行する場合は，以下を実行します．
 
-```shell
+```bash
 $ docker-compose exec app bash
 
 root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make fixer-fix
@@ -100,7 +100,7 @@ root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make fixer-fix
 
 予定：GitHub Actions上で静的解析を実行し，一つでも問題が検出されたら怒られるようにしたい...
 
-```sh
+```bash
 $ docker-compose exec app bash
 
 root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make stan-analyse
@@ -112,8 +112,10 @@ Makefileにターゲットを定義しています．
 
 Laravelの一連のキャッシュ削除コマンドを全て実行します．
 
-```shell
-$ make clear-all-cache
+```bash
+$ docker-compose exec app bash
+
+root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make clear-all-cache
 ```
 
 ### DBレコード初期化
@@ -122,7 +124,7 @@ DBのレコードの状態を初期化します．
 
 この時，Seederで初期データのレコードを挿入します．
 
-```sh
+```bash
 $ docker-compose exec app bash
 
 root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make fresh-seed-db
