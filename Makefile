@@ -18,3 +18,11 @@ clear-cache:
 fresh-seed-db:
 	php artisan migrate:fresh \
 		&& php artisan db:seed --class=DatabaseSeeder
+
+# CS-Fixerを実行します．
+fixer-fix:
+	vendor/bin/php-cs-fixer fix .
+
+# PHP-Stanを実行します．
+stan-analyse:
+	vendor/bin/phpstan analyse .
