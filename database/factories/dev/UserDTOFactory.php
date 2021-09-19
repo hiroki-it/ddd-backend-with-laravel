@@ -22,7 +22,7 @@ class UserDTOFactory extends Factory
         return [
             'name'          => $this->faker->name,
             'email_address' => $this->faker->unique()->safeEmail,
-            'password'      => 'password',
+            'password'      => bcrypt('password'),
         ];
     }
 }
