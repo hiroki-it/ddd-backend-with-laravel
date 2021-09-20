@@ -51,6 +51,7 @@ final class ArticleRepository extends Repository implements ArticleRepositoryInt
     public function findAll(ArticleCriteria $criteria): array
     {
         $articlesDTO = $this->articleDTO
+            ->where('user_id', $criteria->userId->id)
             ->orderBy($criteria->target, $criteria->order)
             ->get();
 

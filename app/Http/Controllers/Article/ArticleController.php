@@ -54,6 +54,7 @@ final class ArticleController extends Controller
         $validated = $articleIndexRequest->validated();
 
         $articleIndexInput = new ArticleIndexInput(
+            (int)auth()->id(),
             $validated['target'],
             $validated['limit'],
             $validated['order']
@@ -74,7 +75,7 @@ final class ArticleController extends Controller
             $validated = $articleCreateRequest->validated();
 
             $articleCreateInput = new ArticleCreateInput(
-                auth()->id(),
+                (int)auth()->id(),
                 $validated['title'],
                 $validated['type'],
                 $validated['content'],
