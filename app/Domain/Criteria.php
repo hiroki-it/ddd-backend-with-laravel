@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
+use App\Domain\User\Ids\UserId;
 use App\Traits\ImmutableTrait;
 
 /**
@@ -13,6 +14,11 @@ use App\Traits\ImmutableTrait;
 abstract class Criteria
 {
     use ImmutableTrait;
+
+    /**
+     * @var UserId
+     */
+    protected UserId $userId;
 
     /**
      * @var string

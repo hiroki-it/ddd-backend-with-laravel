@@ -14,6 +14,11 @@ abstract class IndexInput
     use ImmutableTrait;
 
     /**
+     * @var int
+     */
+    protected int $userId;
+
+    /**
      * @var string
      */
     protected string $target;
