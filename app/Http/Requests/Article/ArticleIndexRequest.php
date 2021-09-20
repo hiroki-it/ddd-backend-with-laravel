@@ -18,10 +18,11 @@ final class ArticleIndexRequest extends Request
         return [
             'target' =>[
                 "required",
+                Rule::in(CriteriaConstant::TARGET_LIST),
             ],
             'limit'  => [
                 "required",
-                Rule::in(CriteriaConstant::LIMIT),
+                Rule::in(CriteriaConstant::LIMIT_LIST),
             ],
             'order'  => [
                 "required",
