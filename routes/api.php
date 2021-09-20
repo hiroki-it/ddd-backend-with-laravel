@@ -6,6 +6,7 @@ use App\Http\Controllers\Article\ArticleController;
 use App\Http\Controllers\Authentication\AuthenticationController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\User\UserController;
+use App\Infrastructure\Article\DTOs\ArticleDTO;
 
 // 認証前
 Route::get('/', [AuthenticationController::class, 'index']);
@@ -27,11 +28,11 @@ Route::group(['middleware' => ['auth:web']], function () {
 
     // 記事
     Route::group(['prefix' => 'articles'], function () {
-        Route::get('/{id}', [ArticleController::class, 'showArticle']);
+        Route::get('/{id}', [ArticleController::class, 'showArticle'])->middleware('can:show,'. ArticleDTO::class);
         Route::get('/', [ArticleController::class, 'indexArticle']);
         Route::post('/', [ArticleController::class, 'createArticle']);
-        Route::put('/{id}', [ArticleController::class, 'updateArticle']);
-        Route::delete('/{id}', [ArticleController::class, 'deleteArticle']);
+        Route::put('/{id}', [ArticleController::class, 'updateArticle'])->middleware('can:update,'. ArticleDTO::class);
+        Route::delete('/{id}', [ArticleController::class, 'deleteArticle'])->middleware('can:delete'. ArticleDTO::class);
     });
 
     // 認証解除
