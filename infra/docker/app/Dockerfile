@@ -18,9 +18,10 @@ RUN apt-get update -y \
   && docker-php-ext-install \
       bcmath \
       pdo_mysql \
+  # フロントエンドのスキャフォールドを使用する時にコメントアウトを外す．
   # 新しいバージョンのNodeをインストールするために，apt-getを使用しない．
-  && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
-  && apt-get install -y nodejs \
+  # && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+  #  apt-get install -y nodejs \
   # キャッシュ削除
   && apt-get clean
 
