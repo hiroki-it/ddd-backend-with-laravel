@@ -28,7 +28,6 @@ final class AuthenticationController
     {
         $validated = $authenticationLoginRequest->validated();
 
-        // NOTE: テストする時は，ストレッチ８回でBCryptハッシュ値生成サービスを使用すること．
         if (auth()->attempt($validated)) {
             // セッションID固定化を防ぐために，認証後にセッションを再作成します．
             $authenticationLoginRequest->session()->regenerate();
