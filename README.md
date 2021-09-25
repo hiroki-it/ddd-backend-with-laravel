@@ -36,7 +36,7 @@ project
     ├── Http # <<< インターフェース層 >>> （Laravelによる制約で，Httpディレクトリの名前と構成はそのまま）
     |   ├── Controllers        # コントローラ
     |   |   ├── Foo            # 任意のルートエンティティ
-    |   |   └── Authentication # 認証オブジェクト
+    |   |   └── Authenticator  # 認証オブジェクト
     |   |
     |   ├── Middleware # ミドルウェア
     |   └── Requests # バリデーション
