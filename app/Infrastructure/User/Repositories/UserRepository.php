@@ -41,7 +41,11 @@ final class UserRepository extends Repository implements UserRepositoryInterface
 
             // ドメインモデルのデータをDTOに詰め替えます．
             $this->userDTO
-                ->create($this->toArray($user));
+                ->create([
+                    'name'          => $user->userName->name,
+                    'email_address' => $user->userEmailAddress->emailAddress,
+                    'password'      => $user->userPassword->password
+                ]);
         });
     }
 
@@ -57,7 +61,11 @@ final class UserRepository extends Repository implements UserRepositoryInterface
             // ドメインモデルのデータをDTOに詰め替えます．
             $this->userDTO
                 ->find($user->id->id)
-                ->fill($this->toArray($user))
+                ->fill([
+                    'name'          => $user->userName->name,
+                    'email_address' => $user->userEmailAddress->emailAddress,
+                    'password'      => $user->userPassword->password
+                ])
                 ->save();
         });
     }
@@ -72,18 +80,5 @@ final class UserRepository extends Repository implements UserRepositoryInterface
         DB::transaction(function () use ($userId) {
             $this->userDTO->destroy($userId->id);
         });
-    }
-
-    /**
-     * @param User $user
-     * @return array
-     */
-    private function toArray(User $user): array
-    {
-        return [
-            'name'          => $user->userName->name,
-            'email_address' => $user->userEmailAddress->emailAddress,
-            'password'      => $user->userPassword->password
-        ];
     }
 }

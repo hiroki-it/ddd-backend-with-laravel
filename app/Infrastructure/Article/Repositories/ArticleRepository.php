@@ -75,7 +75,12 @@ final class ArticleRepository extends Repository implements ArticleRepositoryInt
 
             // ドメインモデルのデータをDTOに詰め替えます．
             $this->articleDTO
-                ->create($this->toArray($article));
+                ->create([
+                    'user_id' => $article->userId->id,
+                    'title'   => $article->articleTitle->title,
+                    'type'    => $article->articleType->value,
+                    'content' => $article->articleContent->content
+                ]);
         });
     }
 
@@ -91,7 +96,11 @@ final class ArticleRepository extends Repository implements ArticleRepositoryInt
             // ドメインモデルのデータをDTOに詰め替えます．
             $this->articleDTO
                 ->find($article->id->id)
-                ->fill($this->toArray($article))
+                ->fill([
+                    'title'   => $article->articleTitle->title,
+                    'type'    => $article->articleType->value,
+                    'content' => $article->articleContent->content
+                ])
                 ->save();
         });
     }
@@ -106,19 +115,5 @@ final class ArticleRepository extends Repository implements ArticleRepositoryInt
         DB::transaction(function () use ($articleId) {
             $this->articleDTO->destroy($articleId->id);
         });
-    }
-
-    /**
-     * @param Article $article
-     * @return array
-     */
-    private function toArray(Article $article): array
-    {
-        return [
-            'user_id' => $article->userId->id,
-            'title'   => $article->articleTitle->title,
-            'type'    => $article->articleType->value,
-            'content' => $article->articleContent->content
-        ];
     }
 }
