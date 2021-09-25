@@ -84,6 +84,37 @@ $ docker-compose exec app bash
 root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make composer-install
 ```
 
+### DBレコード初期化
+
+DBのレコードの状態を初期化し，また初期データを挿入します．
+
+3人のユーザと，各ユーザに紐づく記事データが作成されます．
+
+```bash
+$ docker-compose exec app bash
+
+root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make fresh-seed-db
+```
+
+## 動作確認
+
+本アプリケーションにはフロントエンドがありません．
+
+その代わりに，[Postman](https://www.postman.com/) を使用してフロントエンドを擬似的に再現します．
+
+1. 初期データのユーザのメールアドレスとパスワードをコピペします．
+2. loginエンドポイントにて，メールアドレスとパスワードをJSONに割り当て，POSTリクエストを送信します．
+3. Form認証（Cookieベースの認証）が成功し，homeエンドポイントにリダイレクトします．
+4. 以降，好きなエンドポイントにリクエストを送信できます．
+
+Laravelでは，セッション中の毎リクエストでCSRFトークンが変化します．
+
+そのため，Postmanの [Pre-requestスクリプト](https://learning.postman.com/docs/writing-scripts/pre-request-scripts/) に，事前にルートパスにリクエストを送信してCSRFトークンを取得する処理を設定しています．
+
+Postmanのエクスポートファイルを，以下のリンクから取得できます（随時更新中！！🙇‍️）
+
+エクスポートファイル：https://www.getpostman.com/collections/a83d435cb5ee98ce1b84
+
 ### コードの整形
 
 [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) を使用して，ソースコードを整形します．
@@ -120,18 +151,6 @@ Laravelの一連のキャッシュ削除コマンドを全て実行します．
 $ docker-compose exec app bash
 
 root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make clear-all-cache
-```
-
-### DBレコード初期化
-
-DBのレコードの状態を初期化します．
-
-この時，Seederで初期データのレコードを挿入します．
-
-```bash
-$ docker-compose exec app bash
-
-root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make fresh-seed-db
 ```
 
 <br>
