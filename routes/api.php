@@ -6,7 +6,6 @@ use App\Http\Controllers\Article\ArticleController;
 use App\Http\Controllers\Authenticator\AuthenticationController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\User\UserController;
-use App\Infrastructure\Article\DTOs\ArticleDTO;
 
 // 認証前
 Route::get('/', [AuthenticationController::class, 'index']);
