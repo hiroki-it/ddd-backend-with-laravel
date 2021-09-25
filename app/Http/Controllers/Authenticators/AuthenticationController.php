@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Authenticator;
+namespace App\Http\Controllers\Authenticators;
 
 use App\Http\Requests\Authentication\AuthenticationLoginRequest;
 use App\Http\Requests\Authentication\AuthenticationLogoutRequest;
