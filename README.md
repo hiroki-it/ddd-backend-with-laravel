@@ -23,32 +23,36 @@ project
 └── app
     ├── Console
     ├── Constant # 定数パターン
-    ├── Domain               # ** ドメイン層 **
+    ├── Domain # <<< ドメイン層 >>>
     |   └── Foo              # 任意のルートエンティティ
     |       ├── Criterion    # ドメイン検索条件（検索条件パターン）
-    |       ├── Events       # イベント（Laravelの機能に依存することを許容）
+    |       ├── Events       # ドメインイベント（Laravelの機能に依存することを許容）
     |       ├── Entities     # エンティティ 
     |       ├── Repositories # インターフェースリポジトリ（実装リポジトリと対応）
     |       ├── Services     # サービス
     |       └── ValueObjects # 値オブジェクト
     |
     ├── Exceptions # 例外
-    ├── Http            # ** インターフェース層 **
-    |   ├── Controllers # コントローラ
-    |   ├── Middleware  # ミドルウェア
-    |   └── Requests    # バリデーション
+    ├── Http # <<< インターフェース層 >>> （Laravelによる制約で，Httpディレクトリの名前と構成はそのまま）
+    |   ├── Controllers        # コントローラ
+    |   |   ├── Foo            # 任意のルートエンティティ
+    |   |   └── Authentication # 認証オブジェクト
+    |   |
+    |   ├── Middleware # ミドルウェア
+    |   └── Requests # バリデーション
     |
-    ├── Infrastructure # ** インフラストラクチャ層 **
+    ├── Infrastructure # <<< インフラストラクチャ層 >>>
     |   └── Foo              # 任意のルートエンティティ
     |       ├── DTOs         # エンティティ詰め替えオブジェクト（Eloquentを継承）
     |       ├── Listeners    # リスナー
-    |       ├── Notification # 通知内容生成クラス
+    |       ├── Notification # 通知内容生成オブジェクト
     |       └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
     |
     ├── Providers # プロバイダー
     ├── Traits # トレイト
-    └── UseCase                 # ** ユースケース層 **
+    └── UseCase # <<< ユースケース層 >>>
         └── Foo                 # 任意のルートエンティティ
+            ├── Authorizers     # 認可オブジェクト
             ├── InputBoundaries # インプットバウンダリ
             ├── Inputs          # インプット（リクエストモデル．LaravelのFormRequestと名前が被らないように命名．）
             ├── Interactors     # インターラクター
