@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Article\ArticleCreateRequest;
 use App\Http\Requests\Article\ArticleIndexRequest;
 use App\Http\Requests\Article\ArticleUpdateRequest;
-use App\UseCase\Article\Authorizer\ArticleAuthorizer;
+use App\UseCase\Article\Authorizers\ArticleAuthorizer;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
 use App\UseCase\Article\Inputs\ArticleIndexInput;
