@@ -28,11 +28,11 @@ Route::group(['middleware' => ['auth:web']], function () {
 
     // 記事
     Route::group(['prefix' => 'articles'], function () {
-        Route::get('/{id}', [ArticleController::class, 'showArticle'])->middleware('can:show,'. ArticleDTO::class);
+        Route::get('/{id}', [ArticleController::class, 'showArticle']);
         Route::get('/', [ArticleController::class, 'indexArticle']);
         Route::post('/', [ArticleController::class, 'createArticle']);
-        Route::put('/{id}', [ArticleController::class, 'updateArticle'])->middleware('can:update,'. ArticleDTO::class);
-        Route::delete('/{id}', [ArticleController::class, 'deleteArticle'])->middleware('can:delete'. ArticleDTO::class);
+        Route::put('/{id}', [ArticleController::class, 'updateArticle']);
+        Route::delete('/{id}', [ArticleController::class, 'deleteArticle']);
     });
 
     // 認証解除
