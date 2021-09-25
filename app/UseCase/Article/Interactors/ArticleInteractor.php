@@ -50,7 +50,6 @@ final class ArticleInteractor implements ArticleInputBoundary
         $article = $this->articleRepository->findById(new ArticleId($input->id));
 
         return new ArticleShowOutput(
-            $article->id->id,
             $article->articleTitle->title,
             $article->articleType->description(),
             $article->articleContent->content,

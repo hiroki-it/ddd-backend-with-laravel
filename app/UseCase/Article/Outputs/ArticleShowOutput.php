@@ -10,11 +10,6 @@ use App\UseCase\Output;
 final class ArticleShowOutput extends Output
 {
     /**
-     * @var int
-     */
-    private int $articleId;
-
-    /**
      * @var string
      */
     private string $articleTitle;
@@ -30,14 +25,12 @@ final class ArticleShowOutput extends Output
     private string $articleContent;
 
     /**
-     * @param int    $articleId
      * @param string $articleTitle
      * @param string $articleType
      * @param string $articleContent
      */
-    public function __construct(int $articleId, string $articleTitle, string $articleType, string $articleContent)
+    public function __construct(string $articleTitle, string $articleType, string $articleContent)
     {
-        $this->articleId = $articleId;
         $this->articleTitle = $articleTitle;
         $this->articleType = $articleType;
         $this->articleContent = $articleContent;
@@ -49,7 +42,6 @@ final class ArticleShowOutput extends Output
     public function toArray(): array
     {
         return [
-            'id'      => $this->articleId,
             'title'   => $this->articleTitle,
             'type'    => $this->articleType,
             'content' => $this->articleContent,
