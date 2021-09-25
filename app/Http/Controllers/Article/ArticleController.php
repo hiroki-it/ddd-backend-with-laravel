@@ -83,7 +83,7 @@ final class ArticleController extends Controller
 
             $articleCreateOutput = $this->articleInteractor->createArticle($articleCreateInput);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], 400);
+            return response()->json(['error' => $e->getMessage()], $e->getCode());
         }
 
         return response()->json($articleCreateOutput->toArray());
@@ -108,7 +108,7 @@ final class ArticleController extends Controller
 
             $articleUpdateResponse = $this->articleInteractor->updateArticle($articleUpdateInput);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], 400);
+            return response()->json(['error' => $e->getMessage()], $e->getCode());
         }
 
         return response()->json($articleUpdateResponse->toArray());
@@ -125,7 +125,7 @@ final class ArticleController extends Controller
 
             $this->articleInteractor->deleteArticle($articleDeleteInput);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], 400);
+            return response()->json(['error' => $e->getMessage()], $e->getCode());
         }
 
         return response()->json([], 204);
