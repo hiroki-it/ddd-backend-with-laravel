@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Article\ArticleCreateRequest;
 use App\Http\Requests\Article\ArticleIndexRequest;
 use App\Http\Requests\Article\ArticleUpdateRequest;
+use App\UseCase\Article\Authorizer\ArticleAuthorizer;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
 use App\UseCase\Article\Inputs\ArticleIndexInput;
@@ -25,11 +26,18 @@ final class ArticleController extends Controller
     private ArticleInteractor $articleInteractor;
 
     /**
-     * @param ArticleInteractor $articleInteractor
+     * @var ArticleAuthorizer
      */
-    public function __construct(ArticleInteractor $articleInteractor)
+    private ArticleAuthorizer $articleAuthorizer;
+
+    /**
+     * @param ArticleInteractor $articleInteractor
+     * @param ArticleAuthorizer $articleAuthorizer
+     */
+    public function __construct(ArticleInteractor $articleInteractor, ArticleAuthorizer $articleAuthorizer)
     {
         $this->articleInteractor = $articleInteractor;
+        $this->articleAuthorizer = $articleAuthorizer;
     }
 
     /**
@@ -38,10 +46,15 @@ final class ArticleController extends Controller
      */
     public function showArticle(int $id): JsonResponse
     {
-        $articleShowInput = new ArticleShowInput($id);
+        try {
+            $this->articleAuthorizer->canShowArticle((int)auth()->id(), $id);
 
-        $articleGetByOutput = $this->articleInteractor->showArticle($articleShowInput);
+            $articleShowInput = new ArticleShowInput($id);
 
+            $articleGetByOutput = $this->articleInteractor->showArticle($articleShowInput);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], $e->getCode());
+        }
         return response()->json($articleGetByOutput->toArray());
     }
 
@@ -91,12 +104,14 @@ final class ArticleController extends Controller
 
     /**
      * @param ArticleUpdateRequest $articleUpdateRequest
-     * @param int               $id
+     * @param int                  $id
      * @return JsonResponse
      */
     public function updateArticle(ArticleUpdateRequest $articleUpdateRequest, int $id): JsonResponse
     {
         try {
+            $this->articleAuthorizer->canUpdateArticle((int)auth()->id(), $id);
+
             $validated = $articleUpdateRequest->validated();
 
             $articleUpdateInput = new ArticleUpdateInput(
@@ -121,6 +136,8 @@ final class ArticleController extends Controller
     public function deleteArticle(int $id): JsonResponse
     {
         try {
+            $this->articleAuthorizer->canDeleteArticle((int)auth()->id(), $id);
+
             $articleDeleteInput = new ArticleDeleteInput($id);
 
             $this->articleInteractor->deleteArticle($articleDeleteInput);
