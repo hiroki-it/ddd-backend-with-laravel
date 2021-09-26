@@ -34,9 +34,9 @@ project
     |
     ├── Exceptions # 例外
     ├── Http # <<< インターフェース層 >>> （Laravelによる制約で，Httpディレクトリの名前と構成はそのまま）
+    |   ├── Authenticators      # 認証コントローラ
     |   ├── Controllers         # コントローラ
-    |   |   ├── Foo             # 任意のルートエンティティ
-    |   |   └── Authentication  # 認証コントローラ
+    |   |   └── Foo             # 任意のルートエンティティ
     |   |
     |   ├── Middleware # ミドルウェア
     |   └── Requests # バリデーション
@@ -52,12 +52,13 @@ project
     ├── Traits # トレイト
     └── UseCase # <<< ユースケース層 >>>
         └── Foo                 # 任意のルートエンティティ
-            ├── Authorizers     # 認可オブジェクト
             ├── InputBoundaries # インプットバウンダリ
             ├── Inputs          # インプット（リクエストモデル．LaravelのFormRequestと名前が被らないように命名．）
             ├── Interactors     # インターラクター
             ├── Outputs         # アウトプット（レスポンスモデル）
             └── Services        # サービス
+                └── Authorizers # 認可サービス
+
 ```
 
 <br>
