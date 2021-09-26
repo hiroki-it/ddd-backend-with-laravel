@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\User;
 
+use App\Constant\StatusCodeConstant;
+use App\Exceptions\AuthorizationException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserCreateRequest;
 use App\Http\Requests\User\UserUpdateRequest;
@@ -57,8 +59,13 @@ final class UserController extends Controller
             $userShowInput = new UserShowInput($id);
 
             $userGetByOutput = $this->userInteractor->showUser($userShowInput);
+        } catch (AuthorizationException $e) {
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
+
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], $e->getCode());
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($userGetByOutput->toArray());
@@ -83,7 +90,8 @@ final class UserController extends Controller
 
             $userCreateOutput = $this->userInteractor->createUser($userCreateInput);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], 400);
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($userCreateOutput->toArray());
@@ -109,8 +117,13 @@ final class UserController extends Controller
             );
 
             $userUpdateResponse = $this->userInteractor->updateUser($userUpdateInput);
+        } catch (AuthorizationException $e) {
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
+
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], $e->getCode());
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($userUpdateResponse->toArray());
@@ -128,8 +141,13 @@ final class UserController extends Controller
             $userDeleteInput = new UserDeleteInput($id);
 
             $this->userInteractor->deleteUser($userDeleteInput);
+        } catch (AuthorizationException $e) {
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
+
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], $e->getCode());
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
         // ユーザの削除後に，認証前URLリダイレクトします．
