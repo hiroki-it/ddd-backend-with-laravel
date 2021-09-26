@@ -13,6 +13,7 @@ use App\UseCase\Article\Outputs\ArticleCreateOutput;
 use App\UseCase\Article\Outputs\ArticleIndexOutput;
 use App\UseCase\Article\Outputs\ArticleShowOutput;
 use App\UseCase\Article\Outputs\ArticleUpdateOutput;
+use phpDocumentor\Reflection\Types\Void_;
 
 /**
  * 記事インプットバウンダリインターフェース
@@ -56,5 +57,5 @@ interface ArticleInputBoundary
      *
      * @param ArticleDeleteInput $input
 * \     */
-    public function deleteArticle(ArticleDeleteInput $input);
+    public function deleteArticle(ArticleDeleteInput $input): void;
 }
