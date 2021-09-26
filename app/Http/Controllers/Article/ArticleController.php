@@ -10,13 +10,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Article\ArticleCreateRequest;
 use App\Http\Requests\Article\ArticleIndexRequest;
 use App\Http\Requests\Article\ArticleUpdateRequest;
-use App\UseCase\Article\Authorizers\ArticleAuthorizer;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
 use App\UseCase\Article\Inputs\ArticleIndexInput;
 use App\UseCase\Article\Inputs\ArticleShowInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Interactors\ArticleInteractor;
+use App\UseCase\Article\Services\Authorizers\ArticleAuthorizer;
 use Illuminate\Http\JsonResponse;
 use Throwable;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\UseCase\Article\Authorizers;
+namespace App\UseCase\Article\Services\Authorizers;
 
 use App\Domain\Article\Ids\ArticleId;
 use App\Domain\Article\Repositories\ArticleRepository;
