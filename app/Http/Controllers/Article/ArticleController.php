@@ -154,6 +154,6 @@ final class ArticleController extends Controller
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
-        return response()->json([], 204);
+        return response()->json([], StatusCodeConstant::NO_CONTENT);
     }
 }
