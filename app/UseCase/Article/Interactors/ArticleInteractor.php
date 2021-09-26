@@ -133,7 +133,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     /**
      * @param ArticleDeleteInput $input
      */
-    public function deleteArticle(ArticleDeleteInput $input)
+    public function deleteArticle(ArticleDeleteInput $input): void
     {
         $this->articleRepository->delete(new ArticleId($input->id));
     }
