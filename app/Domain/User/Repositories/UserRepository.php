@@ -11,6 +11,12 @@ use App\Domain\User\Ids\UserId;
 interface UserRepository extends Repository
 {
     /**
+     * @param UserId $userId
+     * @return User
+     */
+    public function findById(UserId $userId): User;
+
+    /**
      * @param User $user
      * @return void
      */

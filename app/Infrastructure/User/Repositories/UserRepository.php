@@ -31,6 +31,19 @@ final class UserRepository extends Repository implements UserRepositoryInterface
     }
 
     /**
+     * @param UserId $userId
+     * @return User
+     */
+    public function findById(UserId $userId): User
+    {
+        $userDTO = $this->userDTO
+            ->find($userId->id);
+
+        // DTOのデータをドメインモデルに詰め替えます．
+        return $userDTO->toUser();
+    }
+
+    /**
      * @param User $user
      * @return void
      * @throws Throwable
