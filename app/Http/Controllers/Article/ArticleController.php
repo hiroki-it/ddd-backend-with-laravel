@@ -55,6 +55,7 @@ final class ArticleController extends Controller
         } catch (Throwable $e) {
             return response()->json(['error' => $e->getMessage()], $e->getCode());
         }
+
         return response()->json($articleGetByOutput->toArray());
     }
 
