@@ -57,7 +57,8 @@ final class ArticleController extends Controller
         } catch (AuthorizationException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
+            report($e);
+            return response()->json(['error' => '記事の閲覧に失敗しました'], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($articleGetByOutput->toArray());
@@ -101,7 +102,8 @@ final class ArticleController extends Controller
 
             $articleCreateOutput = $this->articleInteractor->createArticle($articleCreateInput);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
+            report($e);
+            return response()->json(['error' => '記事の作成に失敗しました'], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($articleCreateOutput->toArray());
@@ -130,7 +132,8 @@ final class ArticleController extends Controller
         } catch (AuthorizationException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
+            report($e);
+            return response()->json(['error' => '記事の更新に失敗しました'], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($articleUpdateResponse->toArray());
@@ -151,7 +154,8 @@ final class ArticleController extends Controller
         } catch (AuthorizationException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
+            report($e);
+            return response()->json(['error' => '記事の削除に失敗しました'], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json([], StatusCodeConstant::NO_CONTENT);

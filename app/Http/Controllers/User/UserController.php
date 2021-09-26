@@ -62,7 +62,8 @@ final class UserController extends Controller
         } catch (AuthorizationException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
+            report($e);
+            return response()->json(['error' => 'ユーザの閲覧に失敗しました'], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($userGetByOutput->toArray());
@@ -87,7 +88,8 @@ final class UserController extends Controller
 
             $userCreateOutput = $this->userInteractor->createUser($userCreateInput);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
+            report($e);
+            return response()->json(['error' => 'ユーザの作成に失敗しました'], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($userCreateOutput->toArray());
@@ -96,7 +98,7 @@ final class UserController extends Controller
 
     /**
      * @param UserUpdateRequest $userUpdateRequest
-     * @param int                  $id
+     * @param int               $id
      * @return JsonResponse
      */
     public function updateUser(UserUpdateRequest $userUpdateRequest, int $id): JsonResponse
@@ -119,7 +121,8 @@ final class UserController extends Controller
         } catch (AuthorizationException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
+            report($e);
+            return response()->json(['error' => 'ユーザの更新に失敗しました'], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($userUpdateResponse->toArray());
@@ -140,7 +143,8 @@ final class UserController extends Controller
         } catch (AuthorizationException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
+            report($e);
+            return response()->json(['error' => 'ユーザの削除に失敗しました'], StatusCodeConstant::BAD_REQUEST);
         }
 
         // ユーザの削除後に，認証前URLリダイレクトします．
