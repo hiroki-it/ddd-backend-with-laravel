@@ -75,7 +75,6 @@ final class ArticleInteractor implements ArticleInputBoundary
 
         foreach ($articles as $article) {
             $articleShowOutputs[] = new ArticleShowOutput(
-                $article->id->id,
                 $article->articleTitle->title,
                 $article->articleType->description(),
                 $article->articleContent->content,
