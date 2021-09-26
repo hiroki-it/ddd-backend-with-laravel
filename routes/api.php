@@ -7,11 +7,6 @@ use App\Http\Controllers\Authentication\AuthenticationController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\User\UserController;
 
-// 認証前
-Route::get('/', [AuthenticationController::class, 'index']);
-Route::post('/', [AuthenticationController::class, 'login']);
-
-// 認証後
 Route::group(['middleware' => ['auth:web']], function () {
     // ホーム
     Route::group(['prefix' => 'home'], function () {
@@ -21,7 +16,6 @@ Route::group(['middleware' => ['auth:web']], function () {
     // ユーザ
     Route::group(['prefix' => 'users'], function () {
         Route::get('/{id}', [UserController::class, 'showUser']);
-        Route::post('/', [UserController::class, 'createUser']);
         Route::put('/{id}', [UserController::class, 'updateUser']);
         Route::delete('/{id}', [UserController::class, 'deleteUser']);
     });

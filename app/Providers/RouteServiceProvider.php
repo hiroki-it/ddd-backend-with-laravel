@@ -19,14 +19,18 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::pattern('id', '[0-9]+');
 
-        // ヘルスチェックにルーティングします．
-        Route::middleware('api')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/healthcheck.php'));
+        Route::group(['middleware' => 'web'], function () {
+            // ヘルスチェックエンドポイント
+            Route::namespace($this->namespace)
+                ->group(base_path('routes/healthcheck.php'));
 
-        // APIにルーティングします．
-        Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api.php'));
+            // 認証不要エンドポイント
+            Route::namespace($this->namespace)
+                ->group(base_path('routes/authentication.php'));
+
+            // 認証必須エンドポイント
+            Route::namespace($this->namespace)
+                ->group(base_path('routes/api.php'));
+        });
     }
 }
