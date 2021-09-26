@@ -57,7 +57,7 @@ final class UserRepository extends Repository implements UserRepositoryInterface
                 ->create([
                     'name'          => $user->userName->name,
                     'email_address' => $user->userEmailAddress->emailAddress,
-                    'password'      => $user->userPassword->password
+                    'password'      => bcrypt($user->userPassword->password)
                 ]);
         });
     }
@@ -77,7 +77,7 @@ final class UserRepository extends Repository implements UserRepositoryInterface
                 ->fill([
                     'name'          => $user->userName->name,
                     'email_address' => $user->userEmailAddress->emailAddress,
-                    'password'      => $user->userPassword->password
+                    'password'      => bcrypt($user->userPassword->password)
                 ])
                 ->save();
         });
