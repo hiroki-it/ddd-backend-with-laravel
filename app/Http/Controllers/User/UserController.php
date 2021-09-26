@@ -102,11 +102,14 @@ final class UserController extends Controller
     public function updateUser(UserUpdateRequest $userUpdateRequest, int $id): JsonResponse
     {
         try {
-            $this->userAuthorizer->canUpdateUser((int)auth()->id(), $id);
+            $userId = (int)auth()->id();
+
+            $this->userAuthorizer->canUpdateUser($userId, $id);
 
             $validated = $userUpdateRequest->validated();
 
             $userUpdateInput = new UserUpdateInput(
+                $userId,
                 $validated['name'],
                 $validated['email_address'],
                 $validated['password']
