@@ -5,7 +5,12 @@ declare(strict_types=1);
 namespace App\UseCase\User\InputBoundaries;
 
 use App\UseCase\User\Inputs\UserCreateInput;
+use App\UseCase\User\Inputs\UserDeleteInput;
+use App\UseCase\User\Inputs\UserShowInput;
+use App\UseCase\User\Inputs\UserUpdateInput;
 use App\UseCase\User\Outputs\UserCreateOutput;
+use App\UseCase\User\Outputs\UserShowOutput;
+use App\UseCase\User\Outputs\UserUpdateOutput;
 
 /**
  * ユーザインプットバウンダリインターフェース

@@ -13,7 +13,12 @@ use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\UseCase\User\InputBoundaries\UserInputBoundary;
 use App\UseCase\User\Inputs\UserCreateInput;
+use App\UseCase\User\Inputs\UserDeleteInput;
+use App\UseCase\User\Inputs\UserShowInput;
+use App\UseCase\User\Inputs\UserUpdateInput;
 use App\UseCase\User\Outputs\UserCreateOutput;
+use App\UseCase\User\Outputs\UserShowOutput;
+use App\UseCase\User\Outputs\UserUpdateOutput;
 
 /**
 * ユーザユースケースクラス
