@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Article;
 
+use App\Constant\StatusCodeConstant;
+use App\Exceptions\AuthorizationException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Article\ArticleCreateRequest;
 use App\Http\Requests\Article\ArticleIndexRequest;
@@ -52,8 +54,13 @@ final class ArticleController extends Controller
             $articleShowInput = new ArticleShowInput($id);
 
             $articleGetByOutput = $this->articleInteractor->showArticle($articleShowInput);
+        } catch (AuthorizationException $e) {
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
+
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], $e->getCode());
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($articleGetByOutput->toArray());
@@ -97,7 +104,8 @@ final class ArticleController extends Controller
 
             $articleCreateOutput = $this->articleInteractor->createArticle($articleCreateInput);
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], $e->getCode());
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($articleCreateOutput->toArray());
@@ -123,8 +131,13 @@ final class ArticleController extends Controller
             );
 
             $articleUpdateResponse = $this->articleInteractor->updateArticle($articleUpdateInput);
+        } catch (AuthorizationException $e) {
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
+
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], $e->getCode());
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json($articleUpdateResponse->toArray());
@@ -142,8 +155,13 @@ final class ArticleController extends Controller
             $articleDeleteInput = new ArticleDeleteInput($id);
 
             $this->articleInteractor->deleteArticle($articleDeleteInput);
+        } catch (AuthorizationException $e) {
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
+
         } catch (Throwable $e) {
-            return response()->json(['error' => $e->getMessage()], $e->getCode());
+
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
         return response()->json([], 204);
