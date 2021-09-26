@@ -1,6 +1,6 @@
 <?php
 
-namespace App\UseCase\User\Authorizers;
+namespace App\UseCase\User\Services\Authorizers;
 
 use App\Domain\User\Ids\UserId;
 use App\Exceptions\AuthorizationException;
