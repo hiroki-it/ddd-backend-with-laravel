@@ -55,7 +55,6 @@ final class UserInteractor implements UserInputBoundary
         event(new UserCreatedEvent($user));
 
         return new UserCreateOutput(
-            $user->id->id,
             $user->userName->name
         );
     }
