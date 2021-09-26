@@ -27,6 +27,26 @@ final class UserController extends Controller
     public function __construct(UserInteractor $userInteractor)
     {
         $this->userInteractor = $userInteractor;
+        $this->userAuthorizer = $userAuthorizer;
+    }
+
+    /**
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function showUser(int $id): JsonResponse
+    {
+        try {
+            $this->userAuthorizer->canShowUser((int)auth()->id(), $id);
+
+            $userShowInput = new UserShowInput($id);
+
+            $userGetByOutput = $this->userInteractor->showUser($userShowInput);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], $e->getCode());
+        }
+
+        return response()->json($userGetByOutput->toArray());
     }
 
     /**

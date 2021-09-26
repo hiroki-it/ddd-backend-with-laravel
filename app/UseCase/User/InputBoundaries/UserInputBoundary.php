@@ -13,6 +13,12 @@ use App\UseCase\User\Outputs\UserCreateOutput;
 interface UserInputBoundary
 {
     /**
+     * @param UserShowInput $input
+     * @return UserShowOutput
+     */
+    public function showUser(UserShowInput $input): UserShowOutput;
+
+    /**
      * @param UserCreateInput $input
      */
     public function createUser(UserCreateInput $input): UserCreateOutput;

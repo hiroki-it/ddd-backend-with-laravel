@@ -37,6 +37,19 @@ final class UserInteractor implements UserInputBoundary
     }
 
     /**
+     * @param UserShowInput $input
+     * @return UserShowOutput
+     */
+    public function showUser(UserShowInput $input): UserShowOutput
+    {
+        $user = $this->userRepository->findById(new UserId($input->id));
+
+        return new UserShowOutput(
+            $user->userName->name,
+        );
+    }
+
+    /**
      * @param UserCreateInput $input
      * @return UserCreateOutput
      */
