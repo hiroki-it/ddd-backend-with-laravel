@@ -24,13 +24,13 @@ final class ArticleAuthorizer
 
     /**
      * @param int $userId
-     * @param int $articleId
+     * @param int $targetId
      * @return bool
      * @throws AuthorizationException
      */
-    public function canShowArticle(int $userId, int $articleId): bool
+    public function canShowArticle(int $userId, int $targetId): bool
     {
-        if (!$this->equalsById($userId, $articleId)) {
+        if (!$this->equalsById($userId, $targetId)) {
             throw new AuthorizationException("閲覧権限がありません");
         }
 
@@ -39,13 +39,13 @@ final class ArticleAuthorizer
 
     /**
      * @param int $userId
-     * @param int $articleId
+     * @param int $targetId
      * @return bool
      * @throws AuthorizationException
      */
-    public function canUpdateArticle(int $userId, int $articleId): bool
+    public function canUpdateArticle(int $userId, int $targetId): bool
     {
-        if (!$this->equalsById($userId, $articleId)) {
+        if (!$this->equalsById($userId, $targetId)) {
             throw new AuthorizationException("更新権限がありません");
         }
 
@@ -54,13 +54,13 @@ final class ArticleAuthorizer
 
     /**
      * @param int $userId
-     * @param int $articleId
+     * @param int $targetId
      * @return bool
      * @throws AuthorizationException
      */
-    public function canDeleteArticle(int $userId, int $articleId): bool
+    public function canDeleteArticle(int $userId, int $targetId): bool
     {
-        if (!$this->equalsById($userId, $articleId)) {
+        if (!$this->equalsById($userId, $targetId)) {
             throw new AuthorizationException("削除権限がありません");
         }
 
@@ -69,13 +69,13 @@ final class ArticleAuthorizer
 
     /**
      * @param int $userId
-     * @param int $articleId
+     * @param int $targetId
      * @return bool
      */
-    private function equalsById(int $userId, int $articleId): bool
+    private function equalsById(int $userId, int $targetId): bool
     {
         return $this->articleRepository
-            ->findById(new ArticleId($articleId))
+            ->findById(new ArticleId($targetId))
             ->userId
             ->equals(new UserId($userId));
     }
