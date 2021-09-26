@@ -60,11 +60,8 @@ final class UserController extends Controller
 
             $userGetByOutput = $this->userInteractor->showUser($userShowInput);
         } catch (AuthorizationException $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
-
         } catch (Throwable $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
@@ -90,7 +87,6 @@ final class UserController extends Controller
 
             $userCreateOutput = $this->userInteractor->createUser($userCreateInput);
         } catch (Throwable $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
@@ -118,11 +114,8 @@ final class UserController extends Controller
 
             $userUpdateResponse = $this->userInteractor->updateUser($userUpdateInput);
         } catch (AuthorizationException $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
-
         } catch (Throwable $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
@@ -142,11 +135,8 @@ final class UserController extends Controller
 
             $this->userInteractor->deleteUser($userDeleteInput);
         } catch (AuthorizationException $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
-
         } catch (Throwable $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
