@@ -31,9 +31,15 @@ final class UserController extends Controller
     private UserInteractor $userInteractor;
 
     /**
-     * @param UserInteractor $userInteractor
+     * @var UserAuthorizer
      */
-    public function __construct(UserInteractor $userInteractor)
+    private UserAuthorizer $userAuthorizer;
+
+    /**
+     * @param UserInteractor $userInteractor
+     * @param UserAuthorizer $userAuthorizer
+     */
+    public function __construct(UserInteractor $userInteractor, UserAuthorizer $userAuthorizer)
     {
         $this->userInteractor = $userInteractor;
         $this->userAuthorizer = $userAuthorizer;
