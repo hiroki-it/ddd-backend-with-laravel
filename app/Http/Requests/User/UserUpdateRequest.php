@@ -16,10 +16,10 @@ final class UserUpdateRequest extends Request
                 'required',
                 'string',
             ],
-            '$emailAddress' => [
+            'email_address' => [
                 'required',
             ],
-            '$password' => [
+            'password' => [
                 'required',
                 'string',
             ],
