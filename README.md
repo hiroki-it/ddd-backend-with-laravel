@@ -34,9 +34,9 @@ project
     |
     ├── Exceptions # 例外
     ├── Http # <<< インターフェース層 >>> （Laravelによる制約で，Httpディレクトリの名前と構成はそのまま）
-    |   ├── Authenticators      # 認証コントローラ
-    |   ├── Controllers         # コントローラ
-    |   |   └── Foo             # 任意のルートエンティティ
+    |   ├── Authenticators # 認証コントローラ
+    |   ├── Controllers    # コントローラ
+    |   |   └── Foo        # 任意のルートエンティティ
     |   |
     |   ├── Middleware # ミドルウェア
     |   └── Requests # バリデーション
