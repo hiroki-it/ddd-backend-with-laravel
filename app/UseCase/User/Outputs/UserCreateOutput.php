@@ -9,22 +9,15 @@ use App\UseCase\Output;
 final class UserCreateOutput extends Output
 {
     /**
-     * @var int
-     */
-    private int $userId;
-
-    /**
      * @var string
      */
     private string $userName;
 
     /**
-     * @param int    $userId
      * @param string $userName
      */
-    public function __construct(int $userId, string $userName)
+    public function __construct(string $userName)
     {
-        $this->userId = $userId;
         $this->userName = $userName;
     }
 
@@ -34,8 +27,7 @@ final class UserCreateOutput extends Output
     public function toArray(): array
     {
         return [
-            'id'      => $this->userId,
-            'name'   => $this->userName,
+            'name' => $this->userName,
         ];
     }
 }
