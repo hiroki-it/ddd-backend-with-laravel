@@ -55,11 +55,8 @@ final class ArticleController extends Controller
 
             $articleGetByOutput = $this->articleInteractor->showArticle($articleShowInput);
         } catch (AuthorizationException $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
-
         } catch (Throwable $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
@@ -104,7 +101,6 @@ final class ArticleController extends Controller
 
             $articleCreateOutput = $this->articleInteractor->createArticle($articleCreateInput);
         } catch (Throwable $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
@@ -132,11 +128,8 @@ final class ArticleController extends Controller
 
             $articleUpdateResponse = $this->articleInteractor->updateArticle($articleUpdateInput);
         } catch (AuthorizationException $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
-
         } catch (Throwable $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
@@ -156,11 +149,8 @@ final class ArticleController extends Controller
 
             $this->articleInteractor->deleteArticle($articleDeleteInput);
         } catch (AuthorizationException $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
-
         } catch (Throwable $e) {
-
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::BAD_REQUEST);
         }
 
