@@ -9,6 +9,11 @@ use App\UseCase\UpdateInput;
 final class UserUpdateInput extends UpdateInput
 {
     /**
+     * @var int
+     */
+    protected int $id;
+
+    /**
      * @var string
      */
     protected string $name;
@@ -24,12 +29,14 @@ final class UserUpdateInput extends UpdateInput
     protected string $password;
 
     /**
+     * @param int    $id
      * @param string $name
      * @param string $emailAddress
      * @param string $password
      */
-    public function __construct(string $name, string $emailAddress, string $password)
+    public function __construct(int $id, string $name, string $emailAddress, string $password)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->emailAddress = $emailAddress;
         $this->password = $password;
