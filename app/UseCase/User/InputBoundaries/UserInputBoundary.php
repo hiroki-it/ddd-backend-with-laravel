@@ -22,4 +22,15 @@ interface UserInputBoundary
      * @param UserCreateInput $input
      */
     public function createUser(UserCreateInput $input): UserCreateOutput;
+
+    /**
+     * @param UserUpdateInput $input
+     * @return UserUpdateOutput
+     */
+    public function updateUser(UserUpdateInput $input): UserUpdateOutput;
+
+    /**
+     * @param UserDeleteInput $input
+     */
+    public function deleteUser(UserDeleteInput $input): void;
 }

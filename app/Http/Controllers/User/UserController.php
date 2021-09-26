@@ -66,11 +66,58 @@ final class UserController extends Controller
                 $validated['password']
             );
 
-            $articleCreateOutput = $this->userInteractor->createUser($userCreateInput);
+            $userCreateOutput = $this->userInteractor->createUser($userCreateInput);
         } catch (Throwable $e) {
             return response()->json(['error' => $e->getMessage()], 400);
         }
 
-        return response()->json($articleCreateOutput->toArray());
+        return response()->json($userCreateOutput->toArray());
+    }
+
+
+    /**
+     * @param UserUpdateRequest $userUpdateRequest
+     * @param int                  $id
+     * @return JsonResponse
+     */
+    public function updateUser(UserUpdateRequest $userUpdateRequest, int $id): JsonResponse
+    {
+        try {
+            $this->userAuthorizer->canUpdateUser((int)auth()->id(), $id);
+
+            $validated = $userUpdateRequest->validated();
+
+            $userUpdateInput = new UserUpdateInput(
+                $validated['name'],
+                $validated['email_address'],
+                $validated['password']
+            );
+
+            $userUpdateResponse = $this->userInteractor->updateUser($userUpdateInput);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], $e->getCode());
+        }
+
+        return response()->json($userUpdateResponse->toArray());
+    }
+
+    /**
+     * @param int $id
+     * @return Application|JsonResponse|RedirectResponse|Redirector
+     */
+    public function deleteUser(int $id)
+    {
+        try {
+            $this->userAuthorizer->canDeleteUser((int)auth()->id(), $id);
+
+            $userDeleteInput = new UserDeleteInput($id);
+
+            $this->userInteractor->deleteUser($userDeleteInput);
+        } catch (Throwable $e) {
+            return response()->json(['error' => $e->getMessage()], $e->getCode());
+        }
+
+        // ユーザの削除後に，認証前URLリダイレクトします．
+        return redirect(RouteServiceProvider::UNAUTHENTHICATED);
     }
 }

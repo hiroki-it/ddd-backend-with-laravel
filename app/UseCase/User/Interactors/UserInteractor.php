@@ -71,4 +71,32 @@ final class UserInteractor implements UserInputBoundary
             $user->userName->name
         );
     }
+
+    /**
+     * @param UserUpdateInput $input
+     * @return UserUpdateOutput
+     */
+    public function updateUser(UserUpdateInput $input): UserUpdateOutput
+    {
+        $user = new User(
+            new UserId($input->id),
+            new UserName($input->name),
+            new UserEmailAddress($input->emailAddress),
+            new UserPassword($input->password),
+        );
+
+        $this->userRepository->update($user);
+
+        return new UserUpdateOutput(
+            $user->userName->name
+        );
+    }
+
+    /**
+     * @param UserDeleteInput $input
+     */
+    public function deleteUser(UserDeleteInput $input): void
+    {
+        $this->userRepository->delete(new UserId($input->id));
+    }
 }
