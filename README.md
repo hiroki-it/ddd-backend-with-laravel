@@ -29,7 +29,7 @@ project
     |       ├── Events       # ドメインイベント（Laravelの機能に依存することを許容）
     |       ├── Entities     # エンティティ 
     |       ├── Repositories # インターフェースリポジトリ（実装リポジトリと対応）
-    |       ├── Services     # サービス
+    |       ├── Services     # ドメインサービス
     |       └── ValueObjects # 値オブジェクト
     |
     ├── Exceptions # 例外
@@ -56,7 +56,7 @@ project
             ├── Inputs          # インプット（リクエストモデル．LaravelのFormRequestと名前が被らないように命名．）
             ├── Interactors     # インターラクター
             ├── Outputs         # アウトプット（レスポンスモデル）
-            └── Services        # サービス
+            └── Services        # アプリケーションサービス
                 └── Authorizers # 認可サービス
 
 ```
