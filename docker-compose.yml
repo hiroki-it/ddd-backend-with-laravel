@@ -7,7 +7,7 @@ services:
     container_name: ddd-api-with-laravel-app
     hostname: ddd-api-with-laravel-app
     build:
-      dockerfile: ./infra/docker/app/Dockerfile
+      dockerfile: ./build/app/Dockerfile
       target: develop
       context: .
     image: ddd-api-with-laravel-app:latest
@@ -29,7 +29,7 @@ services:
     container_name: ddd-api-with-laravel-web
     hostname: ddd-api-with-laravel-web
     build:
-      dockerfile: ./infra/docker/web/Dockerfile
+      dockerfile: ./build/web/Dockerfile
       target: develop
       context: .
     image: ddd-api-with-laravel-web:latest
