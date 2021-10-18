@@ -4,7 +4,7 @@
 
 ### 採用技術について
 
-Clean-Archによるドメイン駆動設計，Laravel，GitHub Actionsを学習するためのアプリケーションです．
+Clean-Arch，Laravel，GitHub Actionsを学習するためのアプリケーションです．
 
 LaravelはActiveRecordパターンのフレームワークのため，DDDと組み合わせるためには，一工夫必要です．
 
