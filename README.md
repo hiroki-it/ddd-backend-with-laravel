@@ -45,7 +45,7 @@ project
     |   └── Foo              # 任意のルートエンティティ
     |       ├── DTOs         # エンティティ詰め替えオブジェクト（Eloquentを継承）
     |       ├── Listeners    # リスナー
-    |       ├── Notification # 通知内容生成オブジェクト
+    |       ├── Services     # インフラストラクチャサービス
     |       └── Repositories # 実装リポジトリ（インターフェースリポジトリと対応）
     |
     ├── Providers # プロバイダー
