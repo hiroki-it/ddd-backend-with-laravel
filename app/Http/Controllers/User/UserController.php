@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\User;
 
 use App\Constant\StatusCodeConstant;
-use App\Exceptions\AuthorizationException;
+use App\Exceptions\UnauthorizedAccessException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserCreateRequest;
 use App\Http\Requests\User\UserUpdateRequest;
@@ -59,7 +59,7 @@ final class UserController extends Controller
             $userShowInput = new UserShowInput($id);
 
             $userGetByOutput = $this->userInteractor->showUser($userShowInput);
-        } catch (AuthorizationException $e) {
+        } catch (UnauthorizedAccessException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
             report($e);
@@ -118,7 +118,7 @@ final class UserController extends Controller
             );
 
             $userUpdateResponse = $this->userInteractor->updateUser($userUpdateInput);
-        } catch (AuthorizationException $e) {
+        } catch (UnauthorizedAccessException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
             report($e);
@@ -140,7 +140,7 @@ final class UserController extends Controller
             $userDeleteInput = new UserDeleteInput($id);
 
             $this->userInteractor->deleteUser($userDeleteInput);
-        } catch (AuthorizationException $e) {
+        } catch (UnauthorizedAccessException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
             report($e);
