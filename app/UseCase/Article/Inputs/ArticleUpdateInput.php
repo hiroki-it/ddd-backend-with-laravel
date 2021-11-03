@@ -16,7 +16,7 @@ final class ArticleUpdateInput extends UpdateInput
     /**
      * @var int
      */
-    protected int $userId;
+    protected int $authId;
 
     /**
      * @var string
@@ -35,15 +35,15 @@ final class ArticleUpdateInput extends UpdateInput
 
     /**
      * @param int    $articleId
-     * @param int    $userId
+     * @param int    $authId
      * @param string $title
      * @param int    $type
      * @param string $content
      */
-    public function __construct(int $articleId, int $userId, string $title, int $type, string $content)
+    public function __construct(int $articleId, int $authId, string $title, int $type, string $content)
     {
         $this->articleId = $articleId;
-        $this->userId = $userId;
+        $this->authId = $authId;
         $this->title = $title;
         $this->type = $type;
         $this->content = $content;

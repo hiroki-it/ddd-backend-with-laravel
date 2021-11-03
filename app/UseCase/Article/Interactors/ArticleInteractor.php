@@ -59,9 +59,9 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $articleId = new ArticleId($input->articleId);
 
-        $userId = new UserId($input->userId);
+        $authId = new UserId($input->authId);
 
-        $this->authorizeUserService->canShowArticle($userId, $articleId);
+        $this->authorizeUserService->canShowArticle($authId, $articleId);
 
         $article = $this->articleRepository->findById($articleId);
 
@@ -80,7 +80,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $articles = $this->articleRepository->findAll(
             new ArticleCriteria(
-                new UserId($input->userId),
+                new UserId($input->authId),
                 $input->target,
                 $input->limit,
                 $input->order
@@ -108,7 +108,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $article = new Article(
             new ArticleId(0),
-            new UserId($input->userId),
+            new UserId($input->authId),
             new ArticleTitle($input->title),
             new ArticleType($input->type),
             new ArticleContent($input->content)
@@ -132,13 +132,13 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $articleId = new ArticleId($input->articleId);
 
-        $userId = new UserId($input->userId);
+        $authId = new UserId($input->authId);
 
-        $this->authorizeUserService->canUpdateArticle($userId, $articleId);
+        $this->authorizeUserService->canUpdateArticle($authId, $articleId);
 
         $article = new Article(
             $articleId,
-            $userId,
+            $authId,
             new ArticleTitle($input->title),
             new ArticleType($input->type),
             new ArticleContent($input->content)
@@ -161,9 +161,9 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $articleId = new ArticleId($input->articleId);
 
-        $userId = new UserId($input->userId);
+        $authId = new UserId($input->authId);
 
-        $this->authorizeUserService->canDeleteArticle($userId, $articleId);
+        $this->authorizeUserService->canDeleteArticle($authId, $articleId);
 
         $this->articleRepository->delete($articleId);
     }
