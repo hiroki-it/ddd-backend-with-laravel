@@ -12,9 +12,9 @@ interface UserRepository extends Repository
 {
     /**
      * @param UserId $userId
-     * @return User
+     * @return User|null
      */
-    public function findById(UserId $userId): User;
+    public function findById(UserId $userId): User|null;
 
     /**
      * @param User $user
