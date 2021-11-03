@@ -37,7 +37,7 @@ final class UserCreatedEventNotification extends Notification
     {
         return (new MailMessage())->subject('ユーザ登録が完了いたしました')
              ->markdown('messages.email.userCreatedEmail', [
-                 '$userName' => $this->user->userName->name
+                 'userName' => $this->user->userName->name
              ]);
     }
 
