@@ -19,6 +19,7 @@ jobs:
         run: |
           git config --local user.email "hasegawafeedshop@gmail.com"
           git config --local user.name "github-actions"
+          git config pull.rebase false
       - name: Composer install
         run: |
           composer install --prefer-dist
