@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Http\Authenticators\AuthenticationController;
 use App\Http\Controllers\Article\ArticleController;
-use App\Http\Controllers\Authentication\AuthenticationController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\User\UserController;
 
