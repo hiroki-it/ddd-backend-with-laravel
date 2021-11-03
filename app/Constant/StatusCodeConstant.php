@@ -11,4 +11,6 @@ final class StatusCodeConstant
     public const BAD_REQUEST = 400;
 
     public const FORBIDDEN = 403;
+
+    public const CONFLICT = 409;
 }

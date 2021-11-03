@@ -7,6 +7,7 @@ namespace App\Infrastructure\User\Repositories;
 use App\Domain\User\Ids\UserId;
 use App\Domain\User\Repositories\UserRepository as UserRepositoryInterface;
 use App\Domain\User\Entities\User;
+use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Infrastructure\Repository;
 use App\Infrastructure\User\DTOs\UserDTO;
 use Illuminate\Support\Facades\DB;
@@ -38,6 +39,24 @@ final class UserRepository extends Repository implements UserRepositoryInterface
     {
         $userDTO = $this->userDTO
             ->find($userId->id);
+
+        // DTOのデータをドメインモデルに詰め替えます．
+        return $userDTO->toUser();
+    }
+
+    /**
+     * @param UserEmailAddress $userEmailAddress
+     * @return User|null
+     */
+    public function findByEmail(UserEmailAddress $userEmailAddress): User|null
+    {
+        $userDTO = $this->userDTO
+                ->where('email_address', $userEmailAddress->emailAddress)
+                ->get();
+
+        if (!$userDTO) {
+            return null;
+        }
 
         // DTOのデータをドメインモデルに詰め替えます．
         return $userDTO->toUser();

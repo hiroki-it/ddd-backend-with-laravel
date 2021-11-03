@@ -8,10 +8,11 @@ use App\Domain\User\Entities\User;
 use App\Domain\User\Events\UserCreatedEvent;
 use App\Domain\User\Ids\UserId;
 use App\Domain\User\Repositories\UserRepository;
-use App\Domain\User\Services\CheckDuplicateEmailService;
+use App\Domain\User\Services\CheckDuplicateUserService;
 use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
+use App\Exceptions\AlreadyExistException;
 use App\UseCase\User\InputBoundaries\UserInputBoundary;
 use App\UseCase\User\Inputs\UserCreateInput;
 use App\UseCase\User\Inputs\UserDeleteInput;
@@ -29,18 +30,18 @@ final class UserInteractor implements UserInputBoundary
     private UserRepository $userRepository;
 
     /**
-     * @var CheckDuplicateEmailService
+     * @var CheckDuplicateUserService
      */
-    private CheckDuplicateEmailService $checkDuplicateEmailService;
+    private CheckDuplicateUserService $checkDuplicateUserService;
 
     /**
-     * @param UserRepository             $userRepository
-     * @param CheckDuplicateEmailService $checkDuplicateEmailService
+     * @param UserRepository            $userRepository
+     * @param CheckDuplicateUserService $checkDuplicateUserService
      */
-    public function __construct(UserRepository $userRepository, CheckDuplicateEmailService $checkDuplicateEmailService)
+    public function __construct(UserRepository $userRepository, CheckDuplicateUserService $checkDuplicateUserService)
     {
         $this->userRepository = $userRepository;
-        $this->checkDuplicateEmailService = $checkDuplicateEmailService;
+        $this->checkDuplicateUserService = $checkDuplicateUserService;
     }
 
     /**
@@ -59,17 +60,18 @@ final class UserInteractor implements UserInputBoundary
     /**
      * @param UserCreateInput $input
      * @return UserCreateOutput
+     * @throws AlreadyExistException
      */
     public function createUser(UserCreateInput $input): UserCreateOutput
     {
-
-
         $user = new User(
             new UserId(0),
             new UserName($input->name),
             new UserEmailAddress($input->emailAddress),
             new UserPassword($input->password),
         );
+
+        $this->checkDuplicateUserService->exist($user);
 
         $this->userRepository->create($user);
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\User;
 
 use App\Constant\StatusCodeConstant;
+use App\Exceptions\AlreadyExistException;
 use App\Exceptions\UnauthorizedAccessException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserCreateRequest;
@@ -87,6 +88,8 @@ final class UserController extends Controller
             );
 
             $userCreateOutput = $this->userInteractor->createUser($userCreateInput);
+        } catch (AlreadyExistException $e) {
+            return response()->json(['error' => $e->getMessage()], StatusCodeConstant::CONFLICT);
         } catch (Throwable $e) {
             report($e);
             return response()->json(['error' => 'ユーザの作成に失敗しました'], StatusCodeConstant::BAD_REQUEST);
