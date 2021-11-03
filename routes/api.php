@@ -15,18 +15,18 @@ Route::group(['middleware' => ['auth:web']], function () {
 
     // ユーザ
     Route::group(['prefix' => 'users'], function () {
-        Route::get('/{userId}', [UserController::class, 'showUser']);
-        Route::put('/{userId}', [UserController::class, 'updateUser']);
-        Route::delete('/{userId}', [UserController::class, 'deleteUser']);
+        Route::get('/{id}', [UserController::class, 'showUser']);
+        Route::put('/{id}', [UserController::class, 'updateUser']);
+        Route::delete('/{id}', [UserController::class, 'deleteUser']);
     });
 
     // 記事
     Route::group(['prefix' => 'articles'], function () {
-        Route::get('/{articleId}', [ArticleController::class, 'showArticle']);
+        Route::get('/{id}', [ArticleController::class, 'showArticle']);
         Route::get('/', [ArticleController::class, 'indexArticle']);
         Route::post('/', [ArticleController::class, 'createArticle']);
-        Route::put('/{articleId}', [ArticleController::class, 'updateArticle']);
-        Route::delete('/{articleId}', [ArticleController::class, 'deleteArticle']);
+        Route::put('/{id}', [ArticleController::class, 'updateArticle']);
+        Route::delete('/{id}', [ArticleController::class, 'deleteArticle']);
     });
 
     // 認証解除

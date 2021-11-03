@@ -11,7 +11,7 @@ final class UserUpdateInput extends UpdateInput
     /**
      * @var int
      */
-    protected int $userId;
+    protected int $id;
 
     /**
      * @var int
@@ -34,15 +34,15 @@ final class UserUpdateInput extends UpdateInput
     protected string $password;
 
     /**
-     * @param int    $userId
+     * @param int    $id
      * @param int    $authId
      * @param string $name
      * @param string $emailAddress
      * @param string $password
      */
-    public function __construct(int $userId, int $authId, string $name, string $emailAddress, string $password)
+    public function __construct(int $id, int $authId, string $name, string $emailAddress, string $password)
     {
-        $this->userId = $userId;
+        $this->id = $id;
         $this->authId = $authId;
         $this->name = $name;
         $this->emailAddress = $emailAddress;

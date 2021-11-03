@@ -41,15 +41,15 @@ final class UserController extends Controller
     }
 
     /**
-     * @param int $userId
+     * @param int $id
      * @return JsonResponse
      */
-    public function showUser(int $userId): JsonResponse
+    public function showUser(int $id): JsonResponse
     {
         try {
             $userShowInput = new UserShowInput(
                 (int)auth()->id(),
-                $userId
+                $id
             );
 
             $userGetByOutput = $this->userInteractor->showUser($userShowInput);
@@ -94,17 +94,17 @@ final class UserController extends Controller
 
     /**
      * @param UserUpdateRequest $userUpdateRequest
-     * @param int               $userId
+     * @param int               $id
      * @return JsonResponse
      */
-    public function updateUser(UserUpdateRequest $userUpdateRequest, int $userId): JsonResponse
+    public function updateUser(UserUpdateRequest $userUpdateRequest, int $id): JsonResponse
     {
         try {
             $validated = $userUpdateRequest->validated();
 
             $userUpdateInput = new UserUpdateInput(
                 (int)auth()->id(),
-                $userId,
+                $id,
                 $validated['name'],
                 $validated['email_address'],
                 $validated['password']
@@ -122,15 +122,15 @@ final class UserController extends Controller
     }
 
     /**
-     * @param int $userId
+     * @param int $id
      * @return Application|JsonResponse|RedirectResponse|Redirector
      */
-    public function deleteUser(int $userId)
+    public function deleteUser(int $id)
     {
         try {
             $userDeleteInput = new UserDeleteInput(
                 (int)auth()->id(),
-                $userId
+                $id
             );
 
             $this->userInteractor->deleteUser($userDeleteInput);

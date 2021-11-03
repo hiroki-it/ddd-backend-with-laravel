@@ -60,7 +60,7 @@ final class UserInteractor implements UserInputBoundary
      */
     public function showUser(UserShowInput $input): UserShowOutput
     {
-        $userId = new UserId($input->userId);
+        $userId = new UserId($input->id);
 
         $authId = new UserId($input->authId);
 
@@ -105,7 +105,7 @@ final class UserInteractor implements UserInputBoundary
      */
     public function updateUser(UserUpdateInput $input): UserUpdateOutput
     {
-        $userId = new UserId($input->userId);
+        $userId = new UserId($input->id);
 
         $authId = new UserId($input->authId);
 
@@ -131,7 +131,7 @@ final class UserInteractor implements UserInputBoundary
      */
     public function deleteUser(UserDeleteInput $input): void
     {
-        $userId = new UserId($input->userId);
+        $userId = new UserId($input->id);
 
         $authId = new UserId($input->authId);
 
