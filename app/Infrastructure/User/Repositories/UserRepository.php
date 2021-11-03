@@ -56,7 +56,7 @@ final class UserRepository extends Repository implements UserRepositoryInterface
     {
         $userDTO = $this->userDTO
                 ->where('email_address', $userEmailAddress->emailAddress)
-                ->get();
+                ->first();
 
         if (!$userDTO) {
             return null;
