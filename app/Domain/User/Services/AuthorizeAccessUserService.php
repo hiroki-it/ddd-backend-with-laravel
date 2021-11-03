@@ -8,14 +8,14 @@ use App\Exceptions\UnauthorizedAccessException;
 final class AuthorizeAccessUserService
 {
     /**
-     * @param UserId $authedId
+     * @param UserId $authId
      * @param UserId $userId
      * @return bool
      * @throws UnauthorizedAccessException
      */
-    public function canShowUser(UserId $authedId, UserId $userId): bool
+    public function canShowUser(UserId $authId, UserId $userId): bool
     {
-        if (!$this->equalsById($authedId, $userId)) {
+        if (!$this->equalsById($authId, $userId)) {
             throw new UnauthorizedAccessException("閲覧権限がありません");
         }
 
@@ -23,14 +23,14 @@ final class AuthorizeAccessUserService
     }
 
     /**
-     * @param UserId $authedId
+     * @param UserId $authId
      * @param UserId $userId
      * @return bool
      * @throws UnauthorizedAccessException
      */
-    public function canUpdateUser(UserId $authedId, UserId $userId): bool
+    public function canUpdateUser(UserId $authId, UserId $userId): bool
     {
-        if (!$this->equalsById($authedId, $userId)) {
+        if (!$this->equalsById($authId, $userId)) {
             throw new UnauthorizedAccessException("更新権限がありません");
         }
 
@@ -38,14 +38,14 @@ final class AuthorizeAccessUserService
     }
 
     /**
-     * @param UserId $authedId
+     * @param UserId $authId
      * @param UserId $userId
      * @return bool
      * @throws UnauthorizedAccessException
      */
-    public function canDeleteUser(UserId $authedId, UserId $userId): bool
+    public function canDeleteUser(UserId $authId, UserId $userId): bool
     {
-        if (!$this->equalsById($authedId, $userId)) {
+        if (!$this->equalsById($authId, $userId)) {
             throw new UnauthorizedAccessException("削除権限がありません");
         }
 
@@ -53,12 +53,12 @@ final class AuthorizeAccessUserService
     }
 
     /**
-     * @param UserId $authedId
+     * @param UserId $authId
      * @param UserId $userId
      * @return bool
      */
-    private function equalsById(UserId $authedId, UserId $userId): bool
+    private function equalsById(UserId $authId, UserId $userId): bool
     {
-        return ($authedId)->equals($userId);
+        return ($authId)->equals($userId);
     }
 }
