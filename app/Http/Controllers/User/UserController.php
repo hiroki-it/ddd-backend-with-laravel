@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\User;
 
 use App\Constant\StatusCodeConstant;
+use App\Domain\User\Services\AuthorizeAccessUserService;
 use App\Exceptions\AlreadyExistException;
 use App\Exceptions\UnauthorizedAccessException;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,6 @@ use App\UseCase\User\Inputs\UserDeleteInput;
 use App\UseCase\User\Inputs\UserShowInput;
 use App\UseCase\User\Inputs\UserUpdateInput;
 use App\UseCase\User\Interactors\UserInteractor;
-use App\UseCase\User\Services\Authorizers\UserAuthorizer;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -34,18 +34,11 @@ final class UserController extends Controller
     private UserInteractor $userInteractor;
 
     /**
-     * @var UserAuthorizer
+     * @param UserInteractor             $userInteractor
      */
-    private UserAuthorizer $userAuthorizer;
-
-    /**
-     * @param UserInteractor $userInteractor
-     * @param UserAuthorizer $userAuthorizer
-     */
-    public function __construct(UserInteractor $userInteractor, UserAuthorizer $userAuthorizer)
+    public function __construct(UserInteractor $userInteractor)
     {
         $this->userInteractor = $userInteractor;
-        $this->userAuthorizer = $userAuthorizer;
     }
 
     /**
@@ -55,9 +48,10 @@ final class UserController extends Controller
     public function showUser(int $id): JsonResponse
     {
         try {
-            $this->userAuthorizer->canShowUser((int)auth()->id(), $id);
-
-            $userShowInput = new UserShowInput($id);
+            $userShowInput = new UserShowInput(
+                (int)auth()->id(),
+                $id
+            );
 
             $userGetByOutput = $this->userInteractor->showUser($userShowInput);
         } catch (UnauthorizedAccessException $e) {
@@ -107,14 +101,11 @@ final class UserController extends Controller
     public function updateUser(UserUpdateRequest $userUpdateRequest, int $id): JsonResponse
     {
         try {
-            $userId = (int)auth()->id();
-
-            $this->userAuthorizer->canUpdateUser($userId, $id);
-
             $validated = $userUpdateRequest->validated();
 
             $userUpdateInput = new UserUpdateInput(
-                $userId,
+                (int)auth()->id(),
+                $id,
                 $validated['name'],
                 $validated['email_address'],
                 $validated['password']
@@ -138,9 +129,10 @@ final class UserController extends Controller
     public function deleteUser(int $id)
     {
         try {
-            $this->userAuthorizer->canDeleteUser((int)auth()->id(), $id);
-
-            $userDeleteInput = new UserDeleteInput($id);
+            $userDeleteInput = new UserDeleteInput(
+                (int)auth()->id(),
+                $id
+            );
 
             $this->userInteractor->deleteUser($userDeleteInput);
         } catch (UnauthorizedAccessException $e) {

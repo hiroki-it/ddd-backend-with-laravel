@@ -8,11 +8,13 @@ use App\Domain\User\Entities\User;
 use App\Domain\User\Events\UserCreatedEvent;
 use App\Domain\User\Ids\UserId;
 use App\Domain\User\Repositories\UserRepository;
+use App\Domain\User\Services\AuthorizeAccessUserService;
 use App\Domain\User\Services\CheckDuplicateUserService;
 use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
 use App\Exceptions\AlreadyExistException;
+use App\Exceptions\UnauthorizedAccessException;
 use App\UseCase\User\InputBoundaries\UserInputBoundary;
 use App\UseCase\User\Inputs\UserCreateInput;
 use App\UseCase\User\Inputs\UserDeleteInput;
@@ -35,22 +37,36 @@ final class UserInteractor implements UserInputBoundary
     private CheckDuplicateUserService $checkDuplicateUserService;
 
     /**
-     * @param UserRepository            $userRepository
-     * @param CheckDuplicateUserService $checkDuplicateUserService
+     * @var AuthorizeAccessUserService
      */
-    public function __construct(UserRepository $userRepository, CheckDuplicateUserService $checkDuplicateUserService)
+    private AuthorizeAccessUserService $authorizeAccessUserService;
+
+    /**
+     * @param UserRepository             $userRepository
+     * @param CheckDuplicateUserService  $checkDuplicateUserService
+     * @param AuthorizeAccessUserService $authorizeAccessUserService
+     */
+    public function __construct(UserRepository $userRepository, CheckDuplicateUserService $checkDuplicateUserService, AuthorizeAccessUserService $authorizeAccessUserService)
     {
         $this->userRepository = $userRepository;
         $this->checkDuplicateUserService = $checkDuplicateUserService;
+        $this->authorizeAccessUserService = $authorizeAccessUserService;
     }
 
     /**
      * @param UserShowInput $input
      * @return UserShowOutput
+     * @throws UnauthorizedAccessException
      */
     public function showUser(UserShowInput $input): UserShowOutput
     {
-        $user = $this->userRepository->findById(new UserId($input->id));
+        $userId = new UserId($input->userId);
+
+        $authId = new UserId($input->authId);
+
+        $this->authorizeAccessUserService->canShowUser($authId, $userId);
+
+        $user = $this->userRepository->findById($userId);
 
         return new UserShowOutput(
             $user->userName->name,
@@ -74,7 +90,6 @@ final class UserInteractor implements UserInputBoundary
         $this->checkDuplicateUserService->exist($user);
 
         $this->userRepository->create($user);
-
         // リスナーにイベントを発行します．
         event(new UserCreatedEvent($user));
 
@@ -86,11 +101,18 @@ final class UserInteractor implements UserInputBoundary
     /**
      * @param UserUpdateInput $input
      * @return UserUpdateOutput
+     * @throws UnauthorizedAccessException
      */
     public function updateUser(UserUpdateInput $input): UserUpdateOutput
     {
+        $userId = new UserId($input->userId);
+
+        $authId = new UserId($input->authId);
+
+        $this->authorizeAccessUserService->canUpdateUser($authId, $userId);
+
         $user = new User(
-            new UserId($input->id),
+            $userId,
             new UserName($input->name),
             new UserEmailAddress($input->emailAddress),
             new UserPassword($input->password),
@@ -105,9 +127,16 @@ final class UserInteractor implements UserInputBoundary
 
     /**
      * @param UserDeleteInput $input
+     * @throws UnauthorizedAccessException
      */
     public function deleteUser(UserDeleteInput $input): void
     {
-        $this->userRepository->delete(new UserId($input->id));
+        $userId = new UserId($input->userId);
+
+        $authId = new UserId($input->authId);
+
+        $this->authorizeAccessUserService->canDeleteUser($authId, $userId);
+
+        $this->userRepository->delete($userId);
     }
 }
