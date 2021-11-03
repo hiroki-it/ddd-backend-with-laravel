@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Infrastructure\User\Notifications;
+namespace App\Infrastructure\User\Services;
 
 use App\Domain\User\Entities\User;
 use App\Infrastructure\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 
-final class UserCreatedEventNotification extends Notification
+final class NotifyUserCreatedEventService extends Notification
 {
     /**
      * @var User
