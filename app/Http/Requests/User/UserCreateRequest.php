@@ -20,7 +20,8 @@ final class UserCreateRequest extends Request
             ],
             'email_address' => [
                 'required',
-                'string'
+                'string',
+                'email:rfc,dns'
             ],
             'password' => [
                 'required',
