@@ -23,12 +23,12 @@ final class AuthorizeUserService
     }
 
     /**
-     * @param int       $userId
+     * @param UserId    $userId
      * @param ArticleId $articleId
      * @return bool
      * @throws UnauthorizedAccessException
      */
-    public function canShowArticle(int $userId, ArticleId $articleId): bool
+    public function canShowArticle(UserId $userId, ArticleId $articleId): bool
     {
         if (!$this->equalsById($userId, $articleId)) {
             throw new UnauthorizedAccessException("閲覧権限がありません");
@@ -38,12 +38,12 @@ final class AuthorizeUserService
     }
 
     /**
-     * @param int       $userId
+     * @param UserId    $userId
      * @param ArticleId $articleId
      * @return bool
      * @throws UnauthorizedAccessException
      */
-    public function canUpdateArticle(int $userId, ArticleId $articleId): bool
+    public function canUpdateArticle(UserId $userId, ArticleId $articleId): bool
     {
         if (!$this->equalsById($userId, $articleId)) {
             throw new UnauthorizedAccessException("更新権限がありません");
@@ -53,12 +53,12 @@ final class AuthorizeUserService
     }
 
     /**
-     * @param int       $userId
+     * @param UserId    $userId
      * @param ArticleId $articleId
      * @return bool
      * @throws UnauthorizedAccessException
      */
-    public function canDeleteArticle(int $userId, ArticleId $articleId): bool
+    public function canDeleteArticle(UserId $userId, ArticleId $articleId): bool
     {
         if (!$this->equalsById($userId, $articleId)) {
             throw new UnauthorizedAccessException("削除権限がありません");
@@ -68,15 +68,15 @@ final class AuthorizeUserService
     }
 
     /**
-     * @param int       $userId
+     * @param UserId    $userId
      * @param ArticleId $articleId
      * @return bool
      */
-    private function equalsById(int $userId, ArticleId $articleId): bool
+    private function equalsById(UserId $userId, ArticleId $articleId): bool
     {
         return $this->articleRepository
             ->findById($articleId)
             ->userId
-            ->equals(new UserId($userId));
+            ->equals($userId);
     }
 }
