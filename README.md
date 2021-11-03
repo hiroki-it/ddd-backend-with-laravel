@@ -55,10 +55,7 @@ project
             ├── InputBoundaries # インプットバウンダリ
             ├── Inputs          # インプット（リクエストモデル．LaravelのFormRequestと名前が被らないように命名．）
             ├── Interactors     # インターラクター
-            ├── Outputs         # アウトプット（レスポンスモデル）
-            └── Services        # アプリケーションサービス
-                └── Authorizers # 認可サービス
-
+            └── Outputs         # アウトプット（レスポンスモデル）
 ```
 
 <br>
