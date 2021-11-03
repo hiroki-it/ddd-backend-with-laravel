@@ -16,9 +16,9 @@ interface ArticleRepository extends Repository
 {
     /**
      * @param ArticleId $id
-     * @return Article
+     * @return Article|null
      */
-    public function findById(ArticleId $id): Article;
+    public function findById(ArticleId $id): ?Article;
 
     /**
      * @param ArticleCriteria $criteria

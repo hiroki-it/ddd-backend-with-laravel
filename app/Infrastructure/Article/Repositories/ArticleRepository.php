@@ -33,12 +33,16 @@ final class ArticleRepository extends Repository implements ArticleRepositoryInt
 
     /**
      * @param ArticleId $articleId
-     * @return Article
+     * @return Article|null
      */
-    public function findById(ArticleId $articleId): Article
+    public function findById(ArticleId $articleId): ?Article
     {
         $articleDTO = $this->articleDTO
             ->find($articleId->id);
+
+        if(!$articleDTO){
+            return null;
+        }
 
         // DTOのデータをドメインモデルに詰め替えます．
         return $articleDTO->toArticle();
