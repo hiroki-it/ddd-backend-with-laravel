@@ -41,7 +41,10 @@ final class ArticleController extends Controller
     public function showArticle(int $id): JsonResponse
     {
         try {
-            $articleShowInput = new ArticleShowInput($id);
+            $articleShowInput = new ArticleShowInput(
+                $id,
+                (int)auth()->id(),
+            );
 
             $articleGetByOutput = $this->articleInteractor->showArticle($articleShowInput);
         } catch (UnauthorizedAccessException $e) {
@@ -111,6 +114,7 @@ final class ArticleController extends Controller
 
             $articleUpdateInput = new ArticleUpdateInput(
                 $id,
+                auth()->id(),
                 $validated['title'],
                 $validated['type'],
                 $validated['content']
@@ -134,7 +138,10 @@ final class ArticleController extends Controller
     public function deleteArticle(int $id): JsonResponse
     {
         try {
-            $articleDeleteInput = new ArticleDeleteInput($id);
+            $articleDeleteInput = new ArticleDeleteInput(
+                $id,
+                auth()->id(),
+            );
 
             $this->articleInteractor->deleteArticle($articleDeleteInput);
         } catch (UnauthorizedAccessException $e) {
