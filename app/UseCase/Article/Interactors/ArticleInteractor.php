@@ -57,9 +57,9 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function showArticle(ArticleShowInput $input): ArticleShowOutput
     {
-        $articleId = new ArticleId($input->id);
+        $articleId = new ArticleId($input->articleId);
 
-        $userId = new UserId((int)auth()->id());
+        $userId = new UserId($input->userId);
 
         $this->authorizeUserService->canShowArticle($userId, $articleId);
 
@@ -130,15 +130,15 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function updateArticle(ArticleUpdateInput $input): ArticleUpdateOutput
     {
-        $articleId = new ArticleId($input->id);
+        $articleId = new ArticleId($input->articleId);
 
-        $userId = new UserId((int)auth()->id());
+        $userId = new UserId($input->userId);
 
         $this->authorizeUserService->canUpdateArticle($userId, $articleId);
 
         $article = new Article(
             $articleId,
-            new UserId($input->userId),
+            $userId,
             new ArticleTitle($input->title),
             new ArticleType($input->type),
             new ArticleContent($input->content)
@@ -159,9 +159,9 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function deleteArticle(ArticleDeleteInput $input): void
     {
-        $articleId = new ArticleId($input->id);
+        $articleId = new ArticleId($input->articleId);
 
-        $userId = new UserId((int)auth()->id());
+        $userId = new UserId($input->userId);
 
         $this->authorizeUserService->canDeleteArticle($userId, $articleId);
 
