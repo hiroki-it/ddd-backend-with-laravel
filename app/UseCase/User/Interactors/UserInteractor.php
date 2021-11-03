@@ -20,14 +20,9 @@ use App\UseCase\User\Outputs\UserCreateOutput;
 use App\UseCase\User\Outputs\UserShowOutput;
 use App\UseCase\User\Outputs\UserUpdateOutput;
 
-/**
-* ユーザユースケースクラス
-*/
 final class UserInteractor implements UserInputBoundary
 {
     /**
-     * リポジトリクラス
-     *
      * @var UserRepository
      */
     private UserRepository $userRepository;
