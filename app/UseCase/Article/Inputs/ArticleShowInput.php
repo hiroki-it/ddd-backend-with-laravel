@@ -11,7 +11,7 @@ final class ArticleShowInput extends ShowInput
     /**
      * @var int
      */
-    protected int $articleId;
+    protected int $id;
 
     /**
      * @var int
@@ -19,12 +19,12 @@ final class ArticleShowInput extends ShowInput
     protected int $authId;
 
     /**
-     * @param int $articleId
+     * @param int $id
      * @param int $authId
      */
-    public function __construct(int $articleId, int $authId)
+    public function __construct(int $id, int $authId)
     {
-        $this->articleId = $articleId;
+        $this->id = $id;
         $this->authId = $authId;
     }
 }

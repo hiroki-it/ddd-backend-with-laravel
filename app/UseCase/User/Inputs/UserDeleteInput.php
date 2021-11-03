@@ -9,7 +9,7 @@ final class UserDeleteInput extends DeleteInput
     /**
      * @var int
      */
-    protected int $userId;
+    protected int $id;
 
     /**
      * @var int
@@ -17,12 +17,12 @@ final class UserDeleteInput extends DeleteInput
     protected int $authId;
 
     /**
-     * @param int $userId
+     * @param int $id
      * @param int $authId
      */
-    public function __construct(int $userId, int $authId)
+    public function __construct(int $id, int $authId)
     {
-        $this->userId = $userId;
+        $this->id = $id;
         $this->authId = $authId;
     }
 }

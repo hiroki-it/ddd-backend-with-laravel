@@ -57,7 +57,7 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function showArticle(ArticleShowInput $input): ArticleShowOutput
     {
-        $articleId = new ArticleId($input->articleId);
+        $articleId = new ArticleId($input->id);
 
         $authId = new UserId($input->authId);
 
@@ -130,7 +130,7 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function updateArticle(ArticleUpdateInput $input): ArticleUpdateOutput
     {
-        $articleId = new ArticleId($input->articleId);
+        $articleId = new ArticleId($input->id);
 
         $authId = new UserId($input->authId);
 
@@ -159,7 +159,7 @@ final class ArticleInteractor implements ArticleInputBoundary
      */
     public function deleteArticle(ArticleDeleteInput $input): void
     {
-        $articleId = new ArticleId($input->articleId);
+        $articleId = new ArticleId($input->id);
 
         $authId = new UserId($input->authId);
 
