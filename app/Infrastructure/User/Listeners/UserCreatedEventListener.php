@@ -4,7 +4,7 @@ namespace App\Infrastructure\User\Listeners;
 
 use App\Domain\User\Events\UserCreatedEvent;
 use App\Infrastructure\Listener;
-use App\Infrastructure\User\Notifications\UserCreatedEventNotification;
+use App\Infrastructure\User\Services\NotifyUserCreatedEventService;
 use Illuminate\Support\Facades\Notification;
 
 final class UserCreatedEventListener extends Listener
@@ -27,6 +27,6 @@ final class UserCreatedEventListener extends Listener
     {
         // UserクラスがNotifiableトレイトに依存せずに通知を実行できるように，オンデマンド通知機能を使用します．
         Notification::route('mail', $userEvent->user->userEmailAddress->emailAddress)
-            ->notify(new UserCreatedEventNotification($userEvent->user));
+            ->notify(new NotifyUserCreatedEventService($userEvent->user));
     }
 }
