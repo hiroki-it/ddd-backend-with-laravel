@@ -35,7 +35,7 @@ final class UserRepository extends Repository implements UserRepositoryInterface
      * @param UserId $userId
      * @return User|null
      */
-    public function findById(UserId $userId): User|null
+    public function findById(UserId $userId)
     {
         $userDTO = $this->userDTO
             ->find($userId->id);
@@ -52,7 +52,7 @@ final class UserRepository extends Repository implements UserRepositoryInterface
      * @param UserEmailAddress $userEmailAddress
      * @return User|null
      */
-    public function findByEmail(UserEmailAddress $userEmailAddress): User|null
+    public function findByEmail(UserEmailAddress $userEmailAddress)
     {
         $userDTO = $this->userDTO
                 ->where('email_address', $userEmailAddress->emailAddress)
