@@ -40,7 +40,7 @@ final class ArticleRepository extends Repository implements ArticleRepositoryInt
         $articleDTO = $this->articleDTO
             ->find($articleId->id);
 
-        if(!$articleDTO){
+        if (!$articleDTO) {
             return null;
         }
 
