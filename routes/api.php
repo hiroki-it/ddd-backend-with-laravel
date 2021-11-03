@@ -15,9 +15,9 @@ Route::group(['middleware' => ['auth:web']], function () {
 
     // ユーザ
     Route::group(['prefix' => 'users'], function () {
-        Route::get('/{id}', [UserController::class, 'showUser']);
-        Route::put('/{id}', [UserController::class, 'updateUser']);
-        Route::delete('/{id}', [UserController::class, 'deleteUser']);
+        Route::get('/{userId}', [UserController::class, 'showUser']);
+        Route::put('/{userId}', [UserController::class, 'updateUser']);
+        Route::delete('/{userId}', [UserController::class, 'deleteUser']);
     });
 
     // 記事
