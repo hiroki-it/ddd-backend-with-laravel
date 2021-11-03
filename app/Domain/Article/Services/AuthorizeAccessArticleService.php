@@ -74,9 +74,13 @@ final class AuthorizeAccessArticleService
      */
     private function equalsById(UserId $authId, ArticleId $articleId): bool
     {
-        return $this->articleRepository
-            ->findById($articleId)
-            ->userId
-            ->equals($authId);
+        $article = $this->articleRepository->findById($articleId);
+
+        // 存在しないエンティティにアクセスがあった場合，非存在例外ではなく，不認可例外をスローさせるようにする．
+        if (!$article) {
+            return false;
+        }
+
+        return $article->userId->equals($authId);
     }
 }
