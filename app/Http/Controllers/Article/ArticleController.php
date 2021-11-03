@@ -35,14 +35,14 @@ final class ArticleController extends Controller
     }
 
     /**
-     * @param int $id
+     * @param int $articleId
      * @return JsonResponse
      */
-    public function showArticle(int $id): JsonResponse
+    public function showArticle(int $articleId): JsonResponse
     {
         try {
             $articleShowInput = new ArticleShowInput(
-                $id,
+                $articleId,
                 (int)auth()->id(),
             );
 
@@ -104,16 +104,16 @@ final class ArticleController extends Controller
 
     /**
      * @param ArticleUpdateRequest $articleUpdateRequest
-     * @param int                  $id
+     * @param int                  $articleId
      * @return JsonResponse
      */
-    public function updateArticle(ArticleUpdateRequest $articleUpdateRequest, int $id): JsonResponse
+    public function updateArticle(ArticleUpdateRequest $articleUpdateRequest, int $articleId): JsonResponse
     {
         try {
             $validated = $articleUpdateRequest->validated();
 
             $articleUpdateInput = new ArticleUpdateInput(
-                $id,
+                $articleId,
                 auth()->id(),
                 $validated['title'],
                 $validated['type'],
@@ -132,14 +132,14 @@ final class ArticleController extends Controller
     }
 
     /**
-     * @param int $id
+     * @param int $articleId
      * @return JsonResponse
      */
-    public function deleteArticle(int $id): JsonResponse
+    public function deleteArticle(int $articleId): JsonResponse
     {
         try {
             $articleDeleteInput = new ArticleDeleteInput(
-                $id,
+                $articleId,
                 auth()->id(),
             );
 

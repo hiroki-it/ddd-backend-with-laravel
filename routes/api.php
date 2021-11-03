@@ -22,11 +22,11 @@ Route::group(['middleware' => ['auth:web']], function () {
 
     // 記事
     Route::group(['prefix' => 'articles'], function () {
-        Route::get('/{id}', [ArticleController::class, 'showArticle']);
+        Route::get('/{articleId}', [ArticleController::class, 'showArticle']);
         Route::get('/', [ArticleController::class, 'indexArticle']);
         Route::post('/', [ArticleController::class, 'createArticle']);
-        Route::put('/{id}', [ArticleController::class, 'updateArticle']);
-        Route::delete('/{id}', [ArticleController::class, 'deleteArticle']);
+        Route::put('/{articleId}', [ArticleController::class, 'updateArticle']);
+        Route::delete('/{articleId}', [ArticleController::class, 'deleteArticle']);
     });
 
     // 認証解除
