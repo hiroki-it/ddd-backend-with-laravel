@@ -8,6 +8,7 @@ use App\Domain\User\Entities\User;
 use App\Domain\User\Events\UserCreatedEvent;
 use App\Domain\User\Ids\UserId;
 use App\Domain\User\Repositories\UserRepository;
+use App\Domain\User\Services\CheckDuplicateEmailService;
 use App\Domain\User\ValueObjects\UserEmailAddress;
 use App\Domain\User\ValueObjects\UserName;
 use App\Domain\User\ValueObjects\UserPassword;
@@ -28,12 +29,18 @@ final class UserInteractor implements UserInputBoundary
     private UserRepository $userRepository;
 
     /**
-
-     * @param UserRepository $userRepository
+     * @var CheckDuplicateEmailService
      */
-    public function __construct(UserRepository $userRepository)
+    private CheckDuplicateEmailService $checkDuplicateEmailService;
+
+    /**
+     * @param UserRepository             $userRepository
+     * @param CheckDuplicateEmailService $checkDuplicateEmailService
+     */
+    public function __construct(UserRepository $userRepository, CheckDuplicateEmailService $checkDuplicateEmailService)
     {
         $this->userRepository = $userRepository;
+        $this->checkDuplicateEmailService = $checkDuplicateEmailService;
     }
 
     /**
@@ -55,6 +62,8 @@ final class UserInteractor implements UserInputBoundary
      */
     public function createUser(UserCreateInput $input): UserCreateOutput
     {
+
+
         $user = new User(
             new UserId(0),
             new UserName($input->name),
