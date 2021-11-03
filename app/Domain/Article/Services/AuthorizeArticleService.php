@@ -1,13 +1,13 @@
 <?php
 
-namespace App\UseCase\Article\Services\Authorizers;
+namespace App\Domain\Article\Services;
 
 use App\Domain\Article\Ids\ArticleId;
 use App\Domain\Article\Repositories\ArticleRepository;
 use App\Domain\User\Ids\UserId;
 use App\Exceptions\AuthorizationException;
 
-final class ArticleAuthorizer
+final class AuthorizeArticleService
 {
     /**
      * @var ArticleRepository
@@ -23,14 +23,14 @@ final class ArticleAuthorizer
     }
 
     /**
-     * @param int $userId
-     * @param int $targetId
+     * @param int       $userId
+     * @param ArticleId $articleId
      * @return bool
      * @throws AuthorizationException
      */
-    public function canShowArticle(int $userId, int $targetId): bool
+    public function canShowArticle(int $userId, ArticleId $articleId): bool
     {
-        if (!$this->equalsById($userId, $targetId)) {
+        if (!$this->equalsById($userId, $articleId)) {
             throw new AuthorizationException("閲覧権限がありません");
         }
 
@@ -38,14 +38,14 @@ final class ArticleAuthorizer
     }
 
     /**
-     * @param int $userId
-     * @param int $targetId
+     * @param int       $userId
+     * @param ArticleId $articleId
      * @return bool
      * @throws AuthorizationException
      */
-    public function canUpdateArticle(int $userId, int $targetId): bool
+    public function canUpdateArticle(int $userId, ArticleId $articleId): bool
     {
-        if (!$this->equalsById($userId, $targetId)) {
+        if (!$this->equalsById($userId, $articleId)) {
             throw new AuthorizationException("更新権限がありません");
         }
 
@@ -53,14 +53,14 @@ final class ArticleAuthorizer
     }
 
     /**
-     * @param int $userId
-     * @param int $targetId
+     * @param int       $userId
+     * @param ArticleId $articleId
      * @return bool
      * @throws AuthorizationException
      */
-    public function canDeleteArticle(int $userId, int $targetId): bool
+    public function canDeleteArticle(int $userId, ArticleId $articleId): bool
     {
-        if (!$this->equalsById($userId, $targetId)) {
+        if (!$this->equalsById($userId, $articleId)) {
             throw new AuthorizationException("削除権限がありません");
         }
 
@@ -68,14 +68,14 @@ final class ArticleAuthorizer
     }
 
     /**
-     * @param int $userId
-     * @param int $targetId
+     * @param int       $userId
+     * @param ArticleId $articleId
      * @return bool
      */
-    private function equalsById(int $userId, int $targetId): bool
+    private function equalsById(int $userId, ArticleId $articleId): bool
     {
         return $this->articleRepository
-            ->findById(new ArticleId($targetId))
+            ->findById($articleId)
             ->userId
             ->equals(new UserId($userId));
     }

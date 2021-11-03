@@ -8,10 +8,12 @@ use App\Domain\Article\Criterion\ArticleCriteria;
 use App\Domain\Article\Entities\Article;
 use App\Domain\Article\Ids\ArticleId;
 use App\Domain\Article\Repositories\ArticleRepository;
+use App\Domain\Article\Services\AuthorizeArticleService;
 use App\Domain\Article\ValueObjects\ArticleContent;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
 use App\Domain\User\Ids\UserId;
+use App\Exceptions\AuthorizationException;
 use App\UseCase\Article\InputBoundaries\ArticleInputBoundary;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
@@ -34,20 +36,32 @@ final class ArticleInteractor implements ArticleInputBoundary
     private ArticleRepository $articleRepository;
 
     /**
-     * @param ArticleRepository $articleRepository
+     * @var AuthorizeArticleService
      */
-    public function __construct(ArticleRepository $articleRepository)
+    private AuthorizeArticleService $authorizeArticleService;
+
+    /**
+     * @param ArticleRepository       $articleRepository
+     * @param AuthorizeArticleService $authorizeArticleService
+     */
+    public function __construct(ArticleRepository $articleRepository, AuthorizeArticleService $authorizeArticleService)
     {
         $this->articleRepository = $articleRepository;
+        $this->authorizeArticleService = $authorizeArticleService;
     }
 
     /**
      * @param ArticleShowInput $input
      * @return ArticleShowOutput
+     * @throws AuthorizationException
      */
     public function showArticle(ArticleShowInput $input): ArticleShowOutput
     {
-        $article = $this->articleRepository->findById(new ArticleId($input->id));
+        $articleId = new ArticleId($input->id);
+
+        $this->authorizeArticleService->canShowArticle((int)auth()->id(), $articleId);
+
+        $article = $this->articleRepository->findById($articleId);
 
         return new ArticleShowOutput(
             $article->articleTitle->title,
@@ -110,11 +124,16 @@ final class ArticleInteractor implements ArticleInputBoundary
     /**
      * @param ArticleUpdateInput $input
      * @return ArticleUpdateOutput
+     * @throws AuthorizationException
      */
     public function updateArticle(ArticleUpdateInput $input): ArticleUpdateOutput
     {
+        $articleId = new ArticleId($input->id);
+
+        $this->authorizeArticleService->canUpdateArticle((int)auth()->id(), $articleId);
+
         $article = new Article(
-            new ArticleId($input->id),
+            $articleId,
             new UserId($input->userId),
             new ArticleTitle($input->title),
             new ArticleType($input->type),
@@ -132,9 +151,14 @@ final class ArticleInteractor implements ArticleInputBoundary
 
     /**
      * @param ArticleDeleteInput $input
+     * @throws AuthorizationException
      */
     public function deleteArticle(ArticleDeleteInput $input): void
     {
-        $this->articleRepository->delete(new ArticleId($input->id));
+        $articleId = new ArticleId($input->id);
+
+        $this->authorizeArticleService->canDeleteArticle((int)auth()->id(), $articleId);
+
+        $this->articleRepository->delete($articleId);
     }
 }
