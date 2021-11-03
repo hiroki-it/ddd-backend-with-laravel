@@ -28,7 +28,7 @@ class CheckDuplicateUserService
      */
     public function exist(User $user)
     {
-        if($this->userRepository->findByEmail($user->userEmailAddress)){
+        if ($this->userRepository->findByEmail($user->userEmailAddress)) {
             throw new AlreadyExistException("すでに登録されたメールアドレスです");
         }
 
