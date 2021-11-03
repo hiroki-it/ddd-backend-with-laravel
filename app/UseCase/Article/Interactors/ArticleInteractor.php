@@ -8,7 +8,7 @@ use App\Domain\Article\Criterion\ArticleCriteria;
 use App\Domain\Article\Entities\Article;
 use App\Domain\Article\Ids\ArticleId;
 use App\Domain\Article\Repositories\ArticleRepository;
-use App\Domain\Article\Services\AuthorizeArticleService;
+use App\Domain\Article\Services\AuthorizeUserService;
 use App\Domain\Article\ValueObjects\ArticleContent;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
@@ -36,18 +36,18 @@ final class ArticleInteractor implements ArticleInputBoundary
     private ArticleRepository $articleRepository;
 
     /**
-     * @var AuthorizeArticleService
+     * @var AuthorizeUserService
      */
-    private AuthorizeArticleService $authorizeArticleService;
+    private AuthorizeUserService $authorizeUserService;
 
     /**
      * @param ArticleRepository       $articleRepository
-     * @param AuthorizeArticleService $authorizeArticleService
+     * @param AuthorizeUserService $authorizeUserService
      */
-    public function __construct(ArticleRepository $articleRepository, AuthorizeArticleService $authorizeArticleService)
+    public function __construct(ArticleRepository $articleRepository, AuthorizeUserService $authorizeUserService)
     {
         $this->articleRepository = $articleRepository;
-        $this->authorizeArticleService = $authorizeArticleService;
+        $this->authorizeUserService = $authorizeUserService;
     }
 
     /**
@@ -59,7 +59,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $articleId = new ArticleId($input->id);
 
-        $this->authorizeArticleService->canShowArticle((int)auth()->id(), $articleId);
+        $this->authorizeUserService->canShowArticle((int)auth()->id(), $articleId);
 
         $article = $this->articleRepository->findById($articleId);
 
@@ -130,7 +130,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $articleId = new ArticleId($input->id);
 
-        $this->authorizeArticleService->canUpdateArticle((int)auth()->id(), $articleId);
+        $this->authorizeUserService->canUpdateArticle((int)auth()->id(), $articleId);
 
         $article = new Article(
             $articleId,
@@ -157,7 +157,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     {
         $articleId = new ArticleId($input->id);
 
-        $this->authorizeArticleService->canDeleteArticle((int)auth()->id(), $articleId);
+        $this->authorizeUserService->canDeleteArticle((int)auth()->id(), $articleId);
 
         $this->articleRepository->delete($articleId);
     }

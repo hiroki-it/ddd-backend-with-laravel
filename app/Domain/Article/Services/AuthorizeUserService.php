@@ -7,7 +7,7 @@ use App\Domain\Article\Repositories\ArticleRepository;
 use App\Domain\User\Ids\UserId;
 use App\Exceptions\AuthorizationException;
 
-final class AuthorizeArticleService
+final class AuthorizeUserService
 {
     /**
      * @var ArticleRepository
