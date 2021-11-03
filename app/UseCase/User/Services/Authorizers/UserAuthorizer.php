@@ -3,7 +3,7 @@
 namespace App\UseCase\User\Services\Authorizers;
 
 use App\Domain\User\Ids\UserId;
-use App\Exceptions\AuthorizationException;
+use App\Exceptions\UnauthorizedAccessException;
 
 final class UserAuthorizer
 {
@@ -11,12 +11,12 @@ final class UserAuthorizer
      * @param int $userId
      * @param int $targetId
      * @return bool
-     * @throws AuthorizationException
+     * @throws UnauthorizedAccessException
      */
     public function canShowUser(int $userId, int $targetId): bool
     {
         if (!$this->equalsById($userId, $targetId)) {
-            throw new AuthorizationException("閲覧権限がありません");
+            throw new UnauthorizedAccessException("閲覧権限がありません");
         }
 
         return true;
@@ -26,12 +26,12 @@ final class UserAuthorizer
      * @param int $userId
      * @param int $targetId
      * @return bool
-     * @throws AuthorizationException
+     * @throws UnauthorizedAccessException
      */
     public function canUpdateUser(int $userId, int $targetId): bool
     {
         if (!$this->equalsById($userId, $targetId)) {
-            throw new AuthorizationException("更新権限がありません");
+            throw new UnauthorizedAccessException("更新権限がありません");
         }
 
         return true;
@@ -41,12 +41,12 @@ final class UserAuthorizer
      * @param int $userId
      * @param int $targetId
      * @return bool
-     * @throws AuthorizationException
+     * @throws UnauthorizedAccessException
      */
     public function canDeleteUser(int $userId, int $targetId): bool
     {
         if (!$this->equalsById($userId, $targetId)) {
-            throw new AuthorizationException("削除権限がありません");
+            throw new UnauthorizedAccessException("削除権限がありません");
         }
 
         return true;

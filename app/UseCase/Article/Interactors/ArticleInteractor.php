@@ -13,7 +13,7 @@ use App\Domain\Article\ValueObjects\ArticleContent;
 use App\Domain\Article\ValueObjects\ArticleTitle;
 use App\Domain\Article\ValueObjects\ArticleType;
 use App\Domain\User\Ids\UserId;
-use App\Exceptions\AuthorizationException;
+use App\Exceptions\UnauthorizedAccessException;
 use App\UseCase\Article\InputBoundaries\ArticleInputBoundary;
 use App\UseCase\Article\Inputs\ArticleCreateInput;
 use App\UseCase\Article\Inputs\ArticleDeleteInput;
@@ -53,7 +53,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     /**
      * @param ArticleShowInput $input
      * @return ArticleShowOutput
-     * @throws AuthorizationException
+     * @throws UnauthorizedAccessException
      */
     public function showArticle(ArticleShowInput $input): ArticleShowOutput
     {
@@ -124,7 +124,7 @@ final class ArticleInteractor implements ArticleInputBoundary
     /**
      * @param ArticleUpdateInput $input
      * @return ArticleUpdateOutput
-     * @throws AuthorizationException
+     * @throws UnauthorizedAccessException
      */
     public function updateArticle(ArticleUpdateInput $input): ArticleUpdateOutput
     {
@@ -151,7 +151,7 @@ final class ArticleInteractor implements ArticleInputBoundary
 
     /**
      * @param ArticleDeleteInput $input
-     * @throws AuthorizationException
+     * @throws UnauthorizedAccessException
      */
     public function deleteArticle(ArticleDeleteInput $input): void
     {

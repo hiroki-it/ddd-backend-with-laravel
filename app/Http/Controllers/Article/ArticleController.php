@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Article;
 
 use App\Constant\StatusCodeConstant;
-use App\Exceptions\AuthorizationException;
+use App\Exceptions\UnauthorizedAccessException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Article\ArticleCreateRequest;
 use App\Http\Requests\Article\ArticleIndexRequest;
@@ -44,7 +44,7 @@ final class ArticleController extends Controller
             $articleShowInput = new ArticleShowInput($id);
 
             $articleGetByOutput = $this->articleInteractor->showArticle($articleShowInput);
-        } catch (AuthorizationException $e) {
+        } catch (UnauthorizedAccessException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
             report($e);
@@ -117,7 +117,7 @@ final class ArticleController extends Controller
             );
 
             $articleUpdateResponse = $this->articleInteractor->updateArticle($articleUpdateInput);
-        } catch (AuthorizationException $e) {
+        } catch (UnauthorizedAccessException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
             report($e);
@@ -137,7 +137,7 @@ final class ArticleController extends Controller
             $articleDeleteInput = new ArticleDeleteInput($id);
 
             $this->articleInteractor->deleteArticle($articleDeleteInput);
-        } catch (AuthorizationException $e) {
+        } catch (UnauthorizedAccessException $e) {
             return response()->json(['error' => $e->getMessage()], StatusCodeConstant::FORBIDDEN);
         } catch (Throwable $e) {
             report($e);

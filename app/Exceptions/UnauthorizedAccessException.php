@@ -9,6 +9,6 @@ use Exception;
  *
  * 認可例外クラス
  */
-class AuthorizationException extends Exception
+class UnauthorizedAccessException extends Exception
 {
 }
