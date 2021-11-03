@@ -16,7 +16,6 @@ use App\UseCase\Article\Inputs\ArticleIndexInput;
 use App\UseCase\Article\Inputs\ArticleShowInput;
 use App\UseCase\Article\Inputs\ArticleUpdateInput;
 use App\UseCase\Article\Interactors\ArticleInteractor;
-use App\UseCase\Article\Services\Authorizers\ArticleAuthorizer;
 use Illuminate\Http\JsonResponse;
 use Throwable;
 
@@ -28,18 +27,11 @@ final class ArticleController extends Controller
     private ArticleInteractor $articleInteractor;
 
     /**
-     * @var ArticleAuthorizer
-     */
-    private ArticleAuthorizer $articleAuthorizer;
-
-    /**
      * @param ArticleInteractor $articleInteractor
-     * @param ArticleAuthorizer $articleAuthorizer
      */
-    public function __construct(ArticleInteractor $articleInteractor, ArticleAuthorizer $articleAuthorizer)
+    public function __construct(ArticleInteractor $articleInteractor)
     {
         $this->articleInteractor = $articleInteractor;
-        $this->articleAuthorizer = $articleAuthorizer;
     }
 
     /**
@@ -49,8 +41,6 @@ final class ArticleController extends Controller
     public function showArticle(int $id): JsonResponse
     {
         try {
-            $this->articleAuthorizer->canShowArticle((int)auth()->id(), $id);
-
             $articleShowInput = new ArticleShowInput($id);
 
             $articleGetByOutput = $this->articleInteractor->showArticle($articleShowInput);
@@ -117,8 +107,6 @@ final class ArticleController extends Controller
     public function updateArticle(ArticleUpdateRequest $articleUpdateRequest, int $id): JsonResponse
     {
         try {
-            $this->articleAuthorizer->canUpdateArticle((int)auth()->id(), $id);
-
             $validated = $articleUpdateRequest->validated();
 
             $articleUpdateInput = new ArticleUpdateInput(
@@ -146,8 +134,6 @@ final class ArticleController extends Controller
     public function deleteArticle(int $id): JsonResponse
     {
         try {
-            $this->articleAuthorizer->canDeleteArticle((int)auth()->id(), $id);
-
             $articleDeleteInput = new ArticleDeleteInput($id);
 
             $this->articleInteractor->deleteArticle($articleDeleteInput);
