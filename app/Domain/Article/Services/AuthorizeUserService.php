@@ -23,14 +23,14 @@ final class AuthorizeUserService
     }
 
     /**
-     * @param UserId    $userId
+     * @param UserId    $authId
      * @param ArticleId $articleId
      * @return bool
      * @throws UnauthorizedAccessException
      */
-    public function canShowArticle(UserId $userId, ArticleId $articleId): bool
+    public function canShowArticle(UserId $authId, ArticleId $articleId): bool
     {
-        if (!$this->equalsById($userId, $articleId)) {
+        if (!$this->equalsById($authId, $articleId)) {
             throw new UnauthorizedAccessException("閲覧権限がありません");
         }
 
@@ -38,14 +38,14 @@ final class AuthorizeUserService
     }
 
     /**
-     * @param UserId    $userId
+     * @param UserId    $authId
      * @param ArticleId $articleId
      * @return bool
      * @throws UnauthorizedAccessException
      */
-    public function canUpdateArticle(UserId $userId, ArticleId $articleId): bool
+    public function canUpdateArticle(UserId $authId, ArticleId $articleId): bool
     {
-        if (!$this->equalsById($userId, $articleId)) {
+        if (!$this->equalsById($authId, $articleId)) {
             throw new UnauthorizedAccessException("更新権限がありません");
         }
 
@@ -53,14 +53,14 @@ final class AuthorizeUserService
     }
 
     /**
-     * @param UserId    $userId
+     * @param UserId    $authId
      * @param ArticleId $articleId
      * @return bool
      * @throws UnauthorizedAccessException
      */
-    public function canDeleteArticle(UserId $userId, ArticleId $articleId): bool
+    public function canDeleteArticle(UserId $authId, ArticleId $articleId): bool
     {
-        if (!$this->equalsById($userId, $articleId)) {
+        if (!$this->equalsById($authId, $articleId)) {
             throw new UnauthorizedAccessException("削除権限がありません");
         }
 
@@ -68,15 +68,15 @@ final class AuthorizeUserService
     }
 
     /**
-     * @param UserId    $userId
+     * @param UserId    $authId
      * @param ArticleId $articleId
      * @return bool
      */
-    private function equalsById(UserId $userId, ArticleId $articleId): bool
+    private function equalsById(UserId $authId, ArticleId $articleId): bool
     {
         return $this->articleRepository
             ->findById($articleId)
             ->userId
-            ->equals($userId);
+            ->equals($authId);
     }
 }

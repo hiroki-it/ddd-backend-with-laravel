@@ -11,7 +11,7 @@ final class ArticleCreateInput extends CreateInput
     /**
      * @var int
      */
-    protected int $userId;
+    protected int $authId;
 
     /**
      * @var string
@@ -29,14 +29,14 @@ final class ArticleCreateInput extends CreateInput
     protected string $content;
 
     /**
-     * @param int    $userId
+     * @param int    $authId
      * @param string $title
      * @param int    $type
      * @param string $content
      */
-    public function __construct(int $userId, string $title, int $type, string $content)
+    public function __construct(int $authId, string $title, int $type, string $content)
     {
-        $this->userId = $userId;
+        $this->authId = $authId;
         $this->title = $title;
         $this->type = $type;
         $this->content = $content;

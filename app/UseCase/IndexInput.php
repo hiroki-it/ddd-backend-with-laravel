@@ -16,7 +16,7 @@ abstract class IndexInput
     /**
      * @var int
      */
-    protected int $userId;
+    protected int $authId;
 
     /**
      * @var string

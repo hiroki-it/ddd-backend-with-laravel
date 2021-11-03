@@ -14,15 +14,15 @@ final class ArticleDeleteInput extends DeleteInput
     /**
      * @var int
      */
-    protected int $userId;
+    protected int $authId;
 
     /**
      * @param int $articleId
-     * @param int $userId
+     * @param int $authId
      */
-    public function __construct(int $articleId, int $userId)
+    public function __construct(int $articleId, int $authId)
     {
         $this->articleId = $articleId;
-        $this->userId = $userId;
+        $this->authId = $authId;
     }
 }
