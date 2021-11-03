@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers\User;
 
 use App\Constant\StatusCodeConstant;
-use App\Domain\User\Services\AuthorizeAccessUserService;
 use App\Exceptions\AlreadyExistException;
 use App\Exceptions\UnauthorizedAccessException;
 use App\Http\Controllers\Controller;
@@ -42,15 +41,15 @@ final class UserController extends Controller
     }
 
     /**
-     * @param int $id
+     * @param int $userId
      * @return JsonResponse
      */
-    public function showUser(int $id): JsonResponse
+    public function showUser(int $userId): JsonResponse
     {
         try {
             $userShowInput = new UserShowInput(
                 (int)auth()->id(),
-                $id
+                $userId
             );
 
             $userGetByOutput = $this->userInteractor->showUser($userShowInput);
@@ -95,17 +94,17 @@ final class UserController extends Controller
 
     /**
      * @param UserUpdateRequest $userUpdateRequest
-     * @param int               $id
+     * @param int               $userId
      * @return JsonResponse
      */
-    public function updateUser(UserUpdateRequest $userUpdateRequest, int $id): JsonResponse
+    public function updateUser(UserUpdateRequest $userUpdateRequest, int $userId): JsonResponse
     {
         try {
             $validated = $userUpdateRequest->validated();
 
             $userUpdateInput = new UserUpdateInput(
                 (int)auth()->id(),
-                $id,
+                $userId,
                 $validated['name'],
                 $validated['email_address'],
                 $validated['password']
@@ -123,15 +122,15 @@ final class UserController extends Controller
     }
 
     /**
-     * @param int $id
+     * @param int $userId
      * @return Application|JsonResponse|RedirectResponse|Redirector
      */
-    public function deleteUser(int $id)
+    public function deleteUser(int $userId)
     {
         try {
             $userDeleteInput = new UserDeleteInput(
                 (int)auth()->id(),
-                $id
+                $userId
             );
 
             $this->userInteractor->deleteUser($userDeleteInput);
