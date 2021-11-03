@@ -35,7 +35,7 @@ final class UserRepository extends Repository implements UserRepositoryInterface
      * @param UserId $userId
      * @return User|null
      */
-    public function findById(UserId $userId)
+    public function findById(UserId $userId): ?User
     {
         $userDTO = $this->userDTO
             ->find($userId->id);
