@@ -13,12 +13,16 @@ use App\Traits\DTOTrait;
 use Database\Factories\UserDTOFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * ユーザDTOクラス
+ *
+ * NOTE:
+ * ユーザDTOに認証の責務を持たせないようにするために，Authenticatableを継承しないようにします．
+ * 代わりに，ユーザ認証DTOクラスがAuthenticatableを継承します．
  */
-final class UserDTO extends Authenticatable
+final class UserDTO extends Model
 {
     use DTOTrait;
     use HasFactory;
