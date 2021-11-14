@@ -38,17 +38,21 @@ coming soon...
 
 #### ・ユースケース図
 
-暫定のユースケース図を以下のディレクトリで管理しております．
+絶賛更新中のユースケース図を以下のディレクトリで管理しております．
 
-参考：https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/ddd-api-with-laravel_usecase-diagram.drawio.png
+参考：https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/usecase-diagrams
 
 #### ・オブジェクト図
 
-coming soon...
+絶賛更新中のオブジェクト図を以下のディレクトリで管理しております．
+
+参考：https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/object-diagrams
 
 #### ・ドメインモデル図
 
-coming soon...
+絶賛更新中のドメイン図を以下のディレクトリで管理しております．
+
+参考：https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/domain-model-diagrams
 
 #### ・アーキテクチャ
 
