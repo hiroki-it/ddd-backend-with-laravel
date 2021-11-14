@@ -14,23 +14,23 @@ LaravelはActiveRecordパターンのフレームワークのため，DDDと組�
 
 ### 戦略的設計
 
-#### ユースケース図
+#### ・ユースケース図
 
 暫定のユースケース図を以下のディレクトリで管理しております．
 
 https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/ddd-api-with-laravel_usecase-diagram.drawio.png
 
-### オブジェクト図
+### ・オブジェクト図
 
 coming soon...
 
 ### 戦術的設計
 
-#### ドメインモデル図
+#### ・ドメインモデル図
 
 coming soon...
 
-#### アーキテクチャ
+#### ・アーキテクチャ
 
 クリーンアーキテクチャを採用します．
 
