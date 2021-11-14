@@ -20,9 +20,11 @@ LaravelはActiveRecordパターンのフレームワークのため，DDDと組�
 
 https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/ddd-api-with-laravel_usecase-diagram.drawio.png
 
-### ・オブジェクト図
+#### ・オブジェクト図
 
 coming soon...
+
+<br>
 
 ### 戦術的設計
 
