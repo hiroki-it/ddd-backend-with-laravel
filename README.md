@@ -14,17 +14,27 @@ LaravelはActiveRecordパターンのフレームワークのため，DDDと組�
 
 ### 戦略的設計
 
-記事管理作業をコアドメインとします．
+#### ユースケース図
 
-現状，ドメインロジックが少ないため，ご容赦いただけると幸いです．
+以下のディレクトリで管理しております．
+
+https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/ddd-api-with-laravel_usecase-diagram.drawio.png
+
+### オブジェクト図
+
+coming soon...
 
 ### 戦術的設計
 
+#### ドメインモデル図
+
+coming soon...
+
+#### アーキテクチャ
+
 クリーンアーキテクチャを採用します．
 
-### appディレクトリ以下の構成
-
-本リポジトリのappディレクトリは，DDDとデザインパターンを意識して，以下の通りに構成しております．
+appディレクトリは，クリーンアーキテクチャを意識して，以下の通りに構成しております．
 
 APIとして使用するため，インターフェース層のプレゼンター，ユースケース層のアウトプットバウンダリを廃止しております．
 
@@ -167,7 +177,7 @@ root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make clear-all-cach
 
 <br>
 
-## LaravelとDDDについて
+## 補足事項
 
 ### ActiveRecordパターンとDDDの関係性
 
