@@ -18,7 +18,7 @@ LaravelはActiveRecordパターンのフレームワークのため，DDDと組�
 
 暫定のユースケース図を以下のディレクトリで管理しております．
 
-https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/ddd-api-with-laravel_usecase-diagram.drawio.png
+参考：https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/ddd-api-with-laravel_usecase-diagram.drawio.png
 
 #### ・オブジェクト図
 
