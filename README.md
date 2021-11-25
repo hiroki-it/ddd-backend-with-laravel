@@ -60,6 +60,8 @@ coming soon...
 
 appディレクトリは，クリーンアーキテクチャを意識して，以下の通りに構成しております．
 
+各レイヤーの実装パターン間の依存関係もクリーンアーキテクチャに沿って実装しております．
+
 APIとして使用するため，インターフェース層のプレゼンター，ユースケース層のアウトプットバウンダリを廃止しております．
 
 これに伴い，ユースケース層のインターラクターは，プレゼンターではなくレスポンスモデルを返却するようにしております．
@@ -125,7 +127,7 @@ $ docker-compose up -d
 ```bash
 $ docker-compose exec app bash
 
-root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make composer-install
+root@dawl-laravel:/var/www/ddd-api-with-laravel# make composer-install
 ```
 
 ### DBレコード初期化
@@ -137,7 +139,7 @@ DBのレコードの状態を初期化し，また初期データを挿入しま
 ```bash
 $ docker-compose exec app bash
 
-root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make fresh-seed-db
+root@dawl-laravel:/var/www/ddd-api-with-laravel# make fresh-seed-db
 ```
 
 ## 動作確認
@@ -172,7 +174,7 @@ GitHub Actionsを使用して，プッシュされたソースコードを整形
 ```bash
 $ docker-compose exec app bash
 
-root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make fixer-fix
+root@dawl-laravel:/var/www/ddd-api-with-laravel# make fixer-fix
 ```
 
 ### コードの静的解析
@@ -184,7 +186,7 @@ root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make fixer-fix
 ```bash
 $ docker-compose exec app bash
 
-root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make stan-analyse
+root@dawl-laravel:/var/www/ddd-api-with-laravel# make stan-analyse
 ```
 
 ### キャッシュの削除
@@ -196,7 +198,7 @@ Laravelの一連のキャッシュ削除コマンドを全て実行します．
 ```bash
 $ docker-compose exec app bash
 
-root@ddd-api-with-laravel-app:/var/www/ddd-api-with-laravel# make clear-all-cache
+root@dawl-laravel:/var/www/ddd-api-with-laravel# make clear-all-cache
 ```
 
 <br>
