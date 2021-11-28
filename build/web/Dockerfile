@@ -17,12 +17,12 @@ RUN apt-get update -y \
   && apt-get clean
 
 #===================
-# Develop Stage
+# Development Stage
 #===================
-FROM build as develop
+FROM build as development
 LABEL mantainer=${LABEL}
 
-COPY ./build/web/develop.nginx.conf /etc/nginx/nginx.conf
+COPY ./build/web/development.nginx.conf /etc/nginx/nginx.conf
 
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 
