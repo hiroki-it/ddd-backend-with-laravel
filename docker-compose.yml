@@ -8,7 +8,7 @@ services:
     hostname: ddd-api-with-laravel-app
     build:
       dockerfile: ./build/app/Dockerfile
-      target: develop
+      target: development
       context: .
     image: ddd-api-with-laravel-app:latest
     tty: true
@@ -30,7 +30,7 @@ services:
     hostname: ddd-api-with-laravel-web
     build:
       dockerfile: ./build/web/Dockerfile
-      target: develop
+      target: development
       context: .
     image: ddd-api-with-laravel-web:latest
     ports:
