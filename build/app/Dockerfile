@@ -37,7 +37,6 @@ LABEL mantainer=${LABEL}
 # Production Stage
 #===================
 FROM base as production
+LABEL mantainer=${LABEL}
 
 COPY ./ /var/www/ddd-api-with-laravel
-
-LABEL mantainer=${LABEL}
