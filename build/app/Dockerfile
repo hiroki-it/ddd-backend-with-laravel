@@ -25,7 +25,7 @@ RUN apt-get update -y \
   # キャッシュ削除
   && apt-get clean
 
-COPY --from=composer:1.10.10 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:1.10.23 /usr/bin/composer /usr/bin/composer
 
 #===================
 # Develop Stage
