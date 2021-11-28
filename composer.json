@@ -1,6 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
+    "version": "1.10.23",
     "description": "The Laravel Framework.",
     "keywords": [
         "framework",
