@@ -53,7 +53,7 @@ services:
       - "3307:3306"
     volumes:
       # volumeマウント
-      - db_volume:/var/www/lib/mysql
+      - db_volume:/var/lib/mysql
     env_file:
       - .env
     environment:
