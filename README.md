@@ -8,7 +8,13 @@ LaravelはActiveRecordパターンのフレームワークのため，DDDと組�
 
 工夫の方法につきましては，以降の説明を参考に．
 
-<br>
+## 参考
+
+戦略的設計，戦術的設計について：
+<br>https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design.html
+
+クリーンアーキテクチャについて：
+<br>https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html
 
 ## DDD
 
@@ -65,10 +71,6 @@ appディレクトリは，クリーンアーキテクチャを意識して，�
 APIとして使用するため，インターフェース層のプレゼンター，ユースケース層のアウトプットバウンダリを廃止しております．
 
 これに伴い，ユースケース層のインターラクターは，プレゼンターではなくレスポンスモデルを返却するようにしております．
-
-実装方法は以下に整理しております．
-
-参考：https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html
 
 ```
 project
