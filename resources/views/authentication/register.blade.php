@@ -7,7 +7,7 @@
 @section('body')
     <div class="register-form">
         <form method="post" action="{{ url('/register') }}">
-            <h2 class="text-center">ddd-api-with-laravel</h2>
+            <h2 class="text-center">ddd-backend-with-laravel</h2>
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
