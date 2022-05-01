@@ -1,4 +1,4 @@
-# ddd-api-with-laravel
+# ddd-backend-with-laravel
 
 ## 概要
 
@@ -49,19 +49,19 @@ coming soon...
 
 絶賛更新中のユースケース図を以下のディレクトリで管理しております．
 
-参考：https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/usecase-diagrams
+参考：https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/usecase-diagrams
 
 #### ▼ オブジェクト図
 
 絶賛更新中のオブジェクト図を以下のディレクトリで管理しております．
 
-参考：https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/object-diagrams
+参考：https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/object-diagrams
 
 #### ▼ ドメインモデル図
 
 絶賛更新中のドメイン図を以下のディレクトリで管理しております．
 
-参考：https://github.com/hiroki-it/ddd-api-with-laravel/blob/develop/docs/domain-model-diagrams
+参考：https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/domain-model-diagrams
 
 #### ▼ アーキテクチャ
 
@@ -136,7 +136,7 @@ $ docker-compose up -d
 ```bash
 $ docker-compose exec app bash
 
-root@dawl-laravel:/var/www/ddd-api-with-laravel# make composer-install
+root@dawl-laravel:/var/www/ddd-backend-with-laravel# make composer-install
 ```
 
 ### DBレコード初期化
@@ -148,7 +148,7 @@ DBのレコードの状態を初期化し，また初期データを挿入しま
 ```bash
 $ docker-compose exec app bash
 
-root@dawl-laravel:/var/www/ddd-api-with-laravel# make fresh-seed-db
+root@dawl-laravel:/var/www/ddd-backend-with-laravel# make fresh-seed-db
 ```
 
 ## 動作確認
@@ -183,7 +183,7 @@ GitHub Actionsを使用して，プッシュされたソースコードを整形
 ```bash
 $ docker-compose exec app bash
 
-root@dawl-laravel:/var/www/ddd-api-with-laravel# make fixer-fix
+root@dawl-laravel:/var/www/ddd-backend-with-laravel# make fixer-fix
 ```
 
 ### コードの静的解析
@@ -195,7 +195,7 @@ root@dawl-laravel:/var/www/ddd-api-with-laravel# make fixer-fix
 ```bash
 $ docker-compose exec app bash
 
-root@dawl-laravel:/var/www/ddd-api-with-laravel# make stan-analyse
+root@dawl-laravel:/var/www/ddd-backend-with-laravel# make stan-analyse
 ```
 
 ### キャッシュの削除
@@ -207,7 +207,7 @@ Laravelの一連のキャッシュ削除コマンドを全て実行します．
 ```bash
 $ docker-compose exec app bash
 
-root@dawl-laravel:/var/www/ddd-api-with-laravel# make clear-all-cache
+root@dawl-laravel:/var/www/ddd-backend-with-laravel# make clear-all-cache
 ```
 
 <br>

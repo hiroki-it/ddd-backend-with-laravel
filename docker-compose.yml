@@ -4,21 +4,21 @@ services:
 
   # appコンテナ
   app:
-    container_name: ddd-api-with-laravel-app
-    hostname: ddd-api-with-laravel-app
+    container_name: ddd-backend-with-laravel-app
+    hostname: ddd-backend-with-laravel-app
     build:
       dockerfile: ./build/app/Dockerfile
       target: development
       context: .
-    image: ddd-api-with-laravel-app:latest
+    image: ddd-backend-with-laravel-app:latest
     tty: true
     expose:
       # nginxから転送されたリクエストを受信
       - "9000"
     volumes:
       # bindマウント
-      - .:/var/www/ddd-api-with-laravel
-    working_dir: /var/www/ddd-api-with-laravel
+      - .:/var/www/ddd-backend-with-laravel
+    working_dir: /var/www/ddd-backend-with-laravel
     networks:
       - default
     depends_on:
@@ -26,19 +26,19 @@ services:
 
   # webコンテナ
   web:
-    container_name: ddd-api-with-laravel-web
-    hostname: ddd-api-with-laravel-web
+    container_name: ddd-backend-with-laravel-web
+    hostname: ddd-backend-with-laravel-web
     build:
       dockerfile: ./build/web/Dockerfile
       target: development
       context: .
-    image: ddd-api-with-laravel-web:latest
+    image: ddd-backend-with-laravel-web:latest
     ports:
       - "8000:80"
     volumes:
       # bindマウント
-      - .:/var/www/ddd-api-with-laravel
-    working_dir: /var/www/ddd-api-with-laravel
+      - .:/var/www/ddd-backend-with-laravel
+    working_dir: /var/www/ddd-backend-with-laravel
     networks:
       - default
     depends_on:
@@ -46,8 +46,8 @@ services:
 
   # dbコンテナ
   db:
-    container_name: ddd-api-with-laravel-db
-    hostname: ddd-api-with-laravel-db
+    container_name: ddd-backend-with-laravel-db
+    hostname: ddd-backend-with-laravel-db
     image: mysql:5.7
     ports:
       - "3307:3306"
