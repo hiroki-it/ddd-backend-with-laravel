@@ -44,8 +44,6 @@ coming soon...
 
 絶賛更新中のユースケース図を、[こちら](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/usecase-diagrams)でで管理しております．
 
-参考：
-
 #### ▼ オブジェクト図
 
 絶賛更新中のオブジェクト図を、[こちら](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/object-diagrams)ディレクトリで管理しております．
