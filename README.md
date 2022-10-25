@@ -10,14 +10,9 @@ LaravelはActiveRecordパターンのフレームワークのため，DDDと組�
 
 ## 参考
 
-戦略的設計，戦術的設計について：
-<br>https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design.html
-
-クリーンアーキテクチャについて：
-<br>https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html
-
-Laravelのリポジトリパターンについて：
-<br>https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_language_php_framework_laravel_eloquent_orm.html
+- [戦略的設計，戦術的設計について](https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design.html)
+- [クリーンアーキテクチャについて](https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html)
+- [Laravelのリポジトリパターンについて](https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_language_php_framework_laravel_eloquent_orm.html)
 
 ## DDD
 
@@ -47,21 +42,17 @@ coming soon...
 
 #### ▼ ユースケース図
 
-絶賛更新中のユースケース図を以下のディレクトリで管理しております．
+絶賛更新中のユースケース図を、[こちら](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/usecase-diagrams)でで管理しております．
 
-参考：https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/usecase-diagrams
+参考：
 
 #### ▼ オブジェクト図
 
-絶賛更新中のオブジェクト図を以下のディレクトリで管理しております．
-
-参考：https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/object-diagrams
+絶賛更新中のオブジェクト図を、[こちら](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/object-diagrams)ディレクトリで管理しております．
 
 #### ▼ ドメインモデル図
 
-絶賛更新中のドメイン図を以下のディレクトリで管理しております．
-
-参考：https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/domain-model-diagrams
+絶賛更新中のドメイン図を、こちらの[ディレクトリ](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/domain-model-diagrams)で管理しております．
 
 #### ▼ アーキテクチャ
 
