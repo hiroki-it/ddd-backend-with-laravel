@@ -42,15 +42,15 @@ coming soon...
 
 #### ▼ ユースケース図
 
-絶賛更新中のユースケース図を、**[こちらのディレクトリ](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/usecase-diagrams)**で管理しております．
+絶賛更新中のユースケース図を、 **[こちらのディレクトリ](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/usecase-diagrams)** で管理しております．
 
 #### ▼ オブジェクト図
 
-絶賛更新中のオブジェクト図を、**[こちらのディレクトリ](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/object-diagrams)**で管理しております．
+絶賛更新中のオブジェクト図を、 **[こちらのディレクトリ](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/object-diagrams)** で管理しております．
 
 #### ▼ ドメインモデル図
 
-絶賛更新中のドメイン図を、**[こちらのディレクトリ](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/domain-model-diagrams)**で管理しております．
+絶賛更新中のドメイン図を、 **[こちらのディレクトリ](https://github.com/hiroki-it/ddd-backend-with-laravel/blob/develop/docs/domain-model-diagrams)** で管理しております．
 
 #### ▼ アーキテクチャ
 
