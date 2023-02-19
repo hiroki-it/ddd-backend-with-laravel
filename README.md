@@ -10,9 +10,9 @@ LaravelはActiveRecordパターンのフレームワークのため，DDDと組�
 
 ## 参考
 
-- [戦略的設計，戦術的設計について](https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design.html)
-- [クリーンアーキテクチャについて](https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html)
-- [Laravelのリポジトリパターンについて](https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_language_php_framework_laravel_eloquent_orm.html)
+- [戦略的設計，戦術的設計について](https://hiroki-it.github.io/tech-notebook/software/software_application_architecture_backend_domain_driven_design.html)
+- [クリーンアーキテクチャについて](https://hiroki-it.github.io/tech-notebook/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html)
+- [Laravelのリポジトリパターンについて](https://hiroki-it.github.io/tech-notebook/software/software_application_language_php_framework_laravel_eloquent_orm.html)
 
 ## DDD
 
