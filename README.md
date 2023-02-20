@@ -1,18 +1,40 @@
 # ddd-backend-with-laravel
 
+## 目次
+
+<!-- TOC -->
+* [ddd-backend-with-laravel](#ddd-backend-with-laravel)
+  * [概要](#概要)
+  * [DDD](#ddd)
+    * [戦略的設計](#戦略的設計)
+    * [戦術的設計](#戦術的設計)
+  * [環境構築](#環境構築)
+    * [イメージビルド&コンテナ構築](#イメージビルドコンテナ構築)
+    * [ライブラリのインストール](#ライブラリのインストール)
+    * [DBレコード初期化](#dbレコード初期化)
+  * [動作確認](#動作確認)
+    * [コードの整形](#コードの整形)
+    * [コードの静的解析](#コードの静的解析)
+    * [キャッシュの削除](#キャッシュの削除)
+  * [補足事項](#補足事項)
+    * [ActiveRecordパターンとDDDの関係性](#activerecordパターンとdddの関係性)
+    * [LaravelとDDDを組み合わせるための一工夫](#laravelとdddを組み合わせるための一工夫)
+  * [クリーンアーキテクチャによるDDD](#クリーンアーキテクチャによるddd)
+<!-- TOC -->
+
+<br>
+
 ## 概要
 
 DDD，クリーンアーキテクチャ，Laravel，GitHub Actionsを学習するためのアプリケーションです．
 
 LaravelはActiveRecordパターンのフレームワークのため，DDDと組み合わせるためには，一工夫必要です．
 
-工夫の方法につきましては，以降の説明を参考に．
-
-## 参考
-
-- [戦略的設計，戦術的設計について](https://hiroki-it.github.io/tech-notebook/software/software_application_architecture_backend_domain_driven_design.html)
-- [クリーンアーキテクチャについて](https://hiroki-it.github.io/tech-notebook/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html)
-- [Laravelのリポジトリパターンについて](https://hiroki-it.github.io/tech-notebook/software/software_application_language_php_framework_laravel_eloquent_orm.html)
+> ↪️ 参考：
+>
+> - [戦略的設計，戦術的設計について](https://hiroki-it.github.io/tech-notebook/software/software_application_architecture_backend_domain_driven_design.html)
+> - [クリーンアーキテクチャについて](https://hiroki-it.github.io/tech-notebook/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html)
+> - [Laravelのリポジトリパターンについて](https://hiroki-it.github.io/tech-notebook/software/software_application_language_php_framework_laravel_eloquent_orm.html)
 
 ## DDD
 
