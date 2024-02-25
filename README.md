@@ -274,6 +274,6 @@ DDDを実現するために，最初レイヤードアーキテクチャが考�
 
 ## 依存性逆転の原則
 
-<iframe class="speakerdeck-iframe" frameborder="0" src="https://speakerdeck.com/player/509d25f8592f4177a4486c1be893f70c" title="🏗️ ドメイン駆動設計と依存性逆転の原則" allowfullscreen="true" style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 560 / 315;" data-ratio="1.7777777777777777"></iframe>
+<script defer class="speakerdeck-embed" data-id="509d25f8592f4177a4486c1be893f70c" data-ratio="1.7772511848341233" src="//speakerdeck.com/assets/embed.js"></script>
 
 <br>
