@@ -271,9 +271,3 @@ DDDを実現するために，最初レイヤードアーキテクチャが考�
 これにより，**ユースケース層とインフラストラクチャ層の両方が，ドメイン層のインターフェースに依存する**ようになり，依存性逆転の原則を満たすことができます．
 
 <br>
-
-## 依存性逆転の原則
-
-<script defer class="speakerdeck-embed" data-id="509d25f8592f4177a4486c1be893f70c" data-ratio="1.7772511848341233" src="//speakerdeck.com/assets/embed.js"></script>
-
-<br>
