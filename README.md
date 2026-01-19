@@ -105,7 +105,7 @@ project
     ├── Http # <<< インターフェース層 >>> （Laravelによる制約で，Httpディレクトリの名前と構成はそのまま）
     |   ├── Authenticators # 認証コントローラ
     |   ├── Controllers    # コントローラ
-    |   |   └── Foo        # 任意のルートエンティティ
+    |   |   └── Foo        
     |   |
     |   ├── Middleware # ミドルウェア
     |   └── Requests # バリデーション
